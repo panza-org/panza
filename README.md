@@ -7,3 +7,5 @@ $ npm i panza --save
 $ npm i react-native-vector-icons --save
 $ rnpm link react-native-vector-icons
 ```
+
+full documentation coming soon
