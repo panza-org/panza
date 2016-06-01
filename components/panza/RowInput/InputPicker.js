@@ -63,9 +63,9 @@ class InputPicker extends React.Component {
 
   render () {
 
-    if (Platform.OS === 'android') {
-      return this.renderAndroid()
-    }
+    // if (Platform.OS === 'android') {
+    //   return this.renderAndroid()
+    // }
 
     return (
       <View style={{ flex: 1}}>
@@ -96,18 +96,21 @@ class InputPicker extends React.Component {
           </TouchableHighlight>
         </InputRowCell>
 
-        <View
-          pointerEvents={this.props.hasFocus ? 'auto' : 'none'}
-          style={[styles.pickerWrapper, !this.props.hasFocus && {
-            height: 0
-          }]}>
-          {this.props.children}
-        </View>
+        {this.props.hasFocus && (
+          <View style={styles.pickerWrapper}>
+            {this.props.children}
+          </View>
+        )}
+        
       </View>
     )
   }
 
   togglePicker() {
+    if (this.props.onToggle) {
+      this.props.onToggle()
+    }
+
     if (this.props.hasFocus) {
       this.props.onRequestClose()
     } else {

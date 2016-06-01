@@ -1,10 +1,23 @@
 import React, { PropTypes } from 'react'
 import {
+  Platform
+} from 'react-native'
+import {
   NavIconContainer
 } from './index'
 import {
   TouchableIcon
 } from '../Icons'
+
+const defaultColor = Platform.select({
+  ios: 'primary',
+  android: 'default'
+})
+
+const defaultSize = Platform.select({
+  ios: 35,
+  android: 25
+})
 
 /**
  * A wrapper for <Icon /> that properly displays
@@ -14,10 +27,10 @@ import {
 const NavTouchableIcon = (props) => {
   const child = React.Children.only(props.children)
   const clone = React.cloneElement(child, {
-    color: child.props.color || 'primary',
+    color: child.props.color || defaultColor,
     size: typeof child.props.size === 'number'
       ? child.props.size
-      : 35
+      : defaultSize
   })
 
   return (

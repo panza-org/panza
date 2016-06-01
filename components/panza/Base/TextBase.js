@@ -8,14 +8,14 @@ const fontColor = (props, colors, context) => {
 
 }
 
-const size = (fontSize, fontSizes) => {
+const size = (fontSize, fontSizes, lineHeightAddition) => {
 
   const style = {}
 
   // 0, 1, 2, 3, 4, 5, 6
   if (typeof fontSize === 'number') {
     style.fontSize = fontSizes[fontSize]
-    style.lineHeight = fontSizes[fontSize] + 3
+    style.lineHeight = fontSizes[fontSize] + lineHeightAddition
   }
 
   return style
@@ -52,11 +52,11 @@ const propsToStyle = (props, bold, colors) => {
 
 const BaseText = ({ style, fontSize, baseStyle, Component, ...props }, { panza }) => {
 
-  const { fontSizes, bold, colors } = {...config, ...panza}
+  const { fontSizes, bold, colors, lineHeightAddition } = {...config, ...panza}
 
   const sx = [
     baseStyle,
-    size(fontSize, fontSizes),
+    size(fontSize, fontSizes, lineHeightAddition),
     propsToStyle(props, bold, colors),
     style
   ]
@@ -70,7 +70,12 @@ const BaseText = ({ style, fontSize, baseStyle, Component, ...props }, { panza }
 BaseText.displayName = 'BaseText'
 
 BaseText.propTypes = {
-  fontSize: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6])
+  fontSize: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
+  color: PropTypes.string
+}
+
+BaseText.defaultProps = {
+  color: 'default'
 }
 
 BaseText.contextTypes = {

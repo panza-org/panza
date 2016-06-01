@@ -41,7 +41,7 @@ const BaseIcon =  (props) => {
 BaseIcon.displayName = 'BaseIcon'
 
 BaseIcon.defaultProps = {
-  size: 35
+  size: Platform.select({ ios: 35, android: 25 })
 }
 
 export default BaseIcon

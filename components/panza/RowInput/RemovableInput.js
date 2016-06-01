@@ -92,7 +92,11 @@ class RemovableInput extends React.Component {
 
     return (
       <TouchableOpacity
-        style={[styles.label, this.props.labelWidth && { width: this.props.labelWidth }]}
+        style={[
+          styles.label,
+          this.props.labelWidth && { width: this.props.labelWidth },
+          this.props.vertical && { marginTop: 7 }
+        ]}
         disabled={(!this.props.editable || !this.props.onSelectLabel)}
         onPress={() => {
           if (this.state.showDelete) {
@@ -130,7 +134,7 @@ class RemovableInput extends React.Component {
       <View>
         {this.props.removable &&
           <InputRowRevealOptions
-            height={this.props.vertical ? 60 : 40}
+            height={this.props.vertical ? 80 : 40}
             options={[
               {
                 label: 'Cancel',
@@ -204,7 +208,7 @@ const styles = StyleSheet.create({
     paddingLeft: 15
   },
   verticalStyle: {
-    height: 60
+    height: 80
   },
   icon: {
     width: 20,

@@ -45,7 +45,7 @@ class App extends Component {
         if (index === 0) return null
         return (
           <NavTouchableIcon onPress={noop}>
-            <PlusIcon size={40} />
+            <PlusIcon size={40} androidSize={25} />
           </NavTouchableIcon>
         )
       },

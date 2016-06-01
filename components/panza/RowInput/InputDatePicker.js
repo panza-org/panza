@@ -60,6 +60,7 @@ class InputDatePicker extends React.Component {
     return (
       <InputPicker
         hasFocus={hasFocus}
+        onToggle={() => this.toggleDatePicker()}
         onRequestFocus={onRequestFocus}
         onRequestClose={onRequestClose}
         label={label}
@@ -101,29 +102,25 @@ class InputDatePicker extends React.Component {
   async toggleDatePicker() {
     if (Platform.OS === 'android') {
       try {
+
         const { action, year, month, day } = await DatePickerAndroid.open({
           date: this.props.date,
           minDate: this.props.minDate,
           maxDate: this.props.maxDate
         })
 
+        this.props.onRequestClose()
+
         if (action === DatePickerAndroid.dismissedAction) {
           console.log('dismissed')
         } else {
-          this.props.onChange(new Date(year, month, day))
+          this.props.onDateChange(new Date(year, month, day))
         }
 
       } catch({code, message}) {
         console.warn('error opening date picker', code, message)
       }
 
-    } else {
-
-      if (this.props.hasFocus) {
-        this.props.onRequestClose()
-      } else {
-        this.props.onRequestFocus()
-      }
     }
   }
 
