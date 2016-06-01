@@ -86,7 +86,7 @@ const Navbar = (props) => {
   )
 }
 
-NavBar.displayName = 'NavBar'
+Navbar.displayName = 'NavBar'
 
 Navbar.defaultStyles = defaultNavbarStyle
 

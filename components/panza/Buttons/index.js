@@ -4,6 +4,7 @@ import NakedButton from './NakedButton'
 import ErrorButton from './ErrorButton'
 import WarningButton from './WarningButton'
 import SuccessButton from './SuccessButton'
+import PrimaryButton from './PrimaryButton'
 
 export {
   Button,

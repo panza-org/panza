@@ -6,7 +6,7 @@ import InputToggle from './InputToggle'
 import InputPicker from './InputPicker'
 import InputDatePicker from './InputDatePicker'
 import RemovableInput from './RemovableInput'
-import {InputRowRevealOptions, RevealOption} from './InputRowRevealOptions'
+import InputRowRevealOptions, { RevealOption} from './InputRowRevealOptions'
 import AddRow from './AddRow'
 import TouchableInput from './TouchableInput'
 
