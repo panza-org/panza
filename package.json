@@ -1,0 +1,35 @@
+{
+  "name": "panza",
+  "version": "1.0.0",
+  "description": "a foundation for your react-native projects",
+  "main": "components/panza/index.js",
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmcmahen/panza.git"
+  },
+  "keywords": [
+    "react-native",
+    "widgets",
+    "ui",
+    "bootstrap",
+    "foundation",
+    "forms"
+  ],
+  "author": "Ben McMahen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bmcmahen/panza/issues"
+  },
+  "homepage": "https://github.com/bmcmahen/panza#readme",
+  "dependencies": {
+    "color": "^0.11.1",
+    "react-native-vector-icons": "^2.0.3"
+  },
+  "devDependencies": {
+    "react": "^15.0.2",
+    "react-native": "^0.26.2"
+  }
+}
