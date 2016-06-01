@@ -15,6 +15,11 @@ import {
 
 const screen = Dimensions.get('window')
 
+/**
+ * Composes <InputPicker /> and provides a cross-platform
+ * DatePicker widget as user input.
+ */
+
 class InputDatePicker extends React.Component {
 
   static displayName = 'InputDatePicker'

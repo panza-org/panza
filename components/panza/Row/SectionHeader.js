@@ -11,10 +11,9 @@ import {
   Base,
   SubtitleText
 } from '../index'
-import config from '../config'
 
-export default ({
-  backgroundColor = config.colors.gray,
+const SectionHeader = ({
+  backgroundColor,
   children,
   ...other
 }) => {
@@ -28,6 +27,17 @@ export default ({
   )
 }
 
+SectionHeader.displayName = 'SectionHeader'
+
+SectionHeader.propTypes = {
+  backgroundColor: PropTypes.string
+}
+
+SectionHeader.defaultProps = {
+  backgroundColor: 'gray'
+}
+
+export default SectionHeader
 
 const styles = StyleSheet.create({
   header: {

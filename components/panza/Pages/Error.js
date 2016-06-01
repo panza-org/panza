@@ -13,7 +13,9 @@ import {
 } from '../index'
 
 /**
- * Error Page
+ * Display an error, with messages and actions depending
+ * upon the user state. Particularly useful with Relay.Renderer
+ * when an error state and retry function are provided.
  */
 
 class ErrorPage extends React.Component {

@@ -39,7 +39,10 @@ function renderOption(option, i) {
 }
 
 /**
- * Button Group
+ * A vertical button group where the first option is the primary
+ * option to select, while the second option is deemphasized. Typically
+ * the first button would be a confirmation button, while the second
+ * may be dismissal.
  */
 
 const VerticalButtonGroup = ({style, options, ...other}) => {
@@ -51,18 +54,18 @@ const VerticalButtonGroup = ({style, options, ...other}) => {
   )
 }
 
+VerticalButtonGroup.displayName = 'VerticalButtonGroup'
+
 VerticalButtonGroup.propTypes = {
+
+  /** Button options **/
   options: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
       onSelect: PropTypes.func.isRequired
     })
   ).isRequired
+
 }
-
-
-const styles = StyleSheet.create({
-
-})
 
 export default VerticalButtonGroup

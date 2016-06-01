@@ -15,7 +15,13 @@ import {
 
 import config from '../config'
 
-export const SubNav = ({
+/**
+ * Subnavigation, which displays three touchable text
+ * options, typically used directly below the navigation
+ * bar. Also typically used only on iOS.
+ */
+
+const SubNav = ({
   options,
   backgroundColor,
   borderBottom,
@@ -60,6 +66,8 @@ export const SubNav = ({
   )
 }
 
+SubNav.displayName = 'SubNav'
+
 SubNav.propTypes = {
   textColor: PropTypes.string,
   borderBottom: PropTypes.bool,
@@ -83,3 +91,5 @@ SubNav.contextTypes = {
 const styles = StyleSheet.create({
   borderBottomWidth: 1 / PixelRatio.get()
 })
+
+export default SubNav

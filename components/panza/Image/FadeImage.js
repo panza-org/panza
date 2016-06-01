@@ -12,7 +12,7 @@ import {
 } from '../index'
 
 /**
- * Fade an Image when it loads
+ * Fade-in an image when it loads.
  */
 
 class FadeImage extends React.Component {

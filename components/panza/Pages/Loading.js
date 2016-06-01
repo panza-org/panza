@@ -8,8 +8,9 @@ import {
 } from 'react-native'
 
 /**
- * Loading Page
- * note: ActivityIndicator will be available in rn27
+ * Displays a loading indicator, and on iOS an optional
+ * loading message. RN0.27 required to use the
+ * <ActivityIndicator>
  */
 
 class Loading extends React.Component {

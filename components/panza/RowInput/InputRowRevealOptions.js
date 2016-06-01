@@ -48,10 +48,11 @@ RevealOption.defaultProps = {
 }
 
 /**
- * Row Options Container
+ * Revealable row options container. Typically used
+ * to delete a row.
  */
 
-export const InputRowRevealOptions = (
+const InputRowRevealOptions = (
   {
     options,
     height,
@@ -95,6 +96,8 @@ InputRowRevealOptions.propTypes = {
 InputRowRevealOptions.defaultProps = {
   height: 40
 }
+
+export default InputRowRevealOptions
 
 const styles = StyleSheet.create({
   slideOptions: {

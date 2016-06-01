@@ -9,6 +9,11 @@ import {
   LargeText
 } from '../index'
 
+/**
+ * Navigation main title, composing <PrimaryText> on
+ * iOS, and <LargeText> on Android.
+ */
+
 const NavTitle = ({label, color, children, style, ...other}) => {
 
   return (
@@ -21,7 +26,7 @@ const NavTitle = ({label, color, children, style, ...other}) => {
   )
 }
 
-
+NavTitle.displayName = 'NavTitle'
 
 const styles = StyleSheet.create({
   container: {

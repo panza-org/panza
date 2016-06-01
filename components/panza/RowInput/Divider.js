@@ -7,6 +7,11 @@ import {
 
 import config from '../config'
 
+/**
+ * Used by <InputGroup /> to divide inputs, and apply
+ * a pseudo border between them.
+ */
+
 const Divider = ({style, inset, ...other}, {panza}) => {
   const { borderColor } = {...config, ...panza}
   return (
@@ -18,6 +23,8 @@ const Divider = ({style, inset, ...other}, {panza}) => {
       ]} />
   )
 }
+
+Divider.displayName = 'Divider'
 
 Divider.propTypes = {
   inset: PropTypes.number

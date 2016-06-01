@@ -85,6 +85,11 @@ export const colorStyle = (props, colors, context) => {
   return result
 }
 
+/**
+ * A general purpose component that converts our props into styles
+ * defined by the user. Heavily inspired (and somewhat directly copied)
+ * by rebass.
+ */
 
 const Base = ({
   style,
@@ -133,23 +138,54 @@ const Base = ({
 
 }
 
-const scales = PropTypes.oneOf([ 0, 1, 2, 3, 4 ])
+
+Base.displayName = 'Base'
 
 Base.propTypes = {
-  m: scales,
-  mt: scales,
-  mr: scales,
-  mb: scales,
-  ml: scales,
-  mx: scales,
-  my: scales,
-  p: scales,
-  pt: scales,
-  pr: scales,
-  pb: scales,
-  pl: scales,
-  px: scales,
-  py: scales,
+
+  /** Margin **/
+  m: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+  /** Margin top **/
+  mt: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+  /** Margin right **/
+  mr: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+  /** Margin bottom **/
+  mb: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+  /** Margin left **/
+  ml: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+  /** Margin x-axis **/
+  mx: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+  /** Margin y-asix **/
+  my: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+  /** Padding **/
+  p: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+  /** Padding top **/
+  pt: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+  /** Padding right **/
+  pr: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+  /** Padding bottom **/
+  pb: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+  /** Padding left **/
+  pl: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+  /** Padding x-axis **/
+  px: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+  /** Padding y-axis **/
+  py: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+  /** Background color **/
   backgroundColor: PropTypes.string,
 }
 

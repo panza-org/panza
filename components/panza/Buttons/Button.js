@@ -13,6 +13,10 @@ import {
   Base
 } from '../index'
 
+/**
+ * A basic button that inherits from Base, and provides colourization
+ * based upon background color configuration.
+ */
 
 const Button = ({
   label,
@@ -54,6 +58,8 @@ Button.propTypes = {
   ])
 }
 
+Button.displayName = 'ButtonBase'
+
 Button.defaultProps = {
   theme: 'default',
   disabled: false,
@@ -76,28 +82,4 @@ const styles = StyleSheet.create({
   }
 })
 
-const DefaultButton = (props) => {
-  return <Button backgroundColor='info' textColor='white' p={2} {...props} />
-}
-
-export default DefaultButton
-
-export const PrimaryButton = (props) => {
-  return <Button backgroundColor='primary' textColor='white' p={2} {...props} />
-}
-
-export const NakedButton = (props) => {
-  return <Button p={2} underlayColor='rgba(0,0,0,0.2)' {...props} />
-}
-
-export const WarningButton = (props) => {
-  return <Button backgroundColor='warning' textColor='white' p={2} {...props} />
-}
-
-export const ErrorButton = (props) => {
-  return <Button backgroundColor='error' textColor='white' p={2} {...props} />
-}
-
-export const SuccessButton = (props) => {
-  return <Button backgroundColor='success' textColor='white' p={2} {...props} />
-}
+export default Button

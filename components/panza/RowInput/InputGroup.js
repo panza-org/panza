@@ -8,6 +8,12 @@ import {
 import Divider from './Divider'
 import { Base, SectionHeader } from '../index'
 
+/**
+ * Wrap inputs using this component to provide
+ * borders between them, top borders, bottom borders,
+ * margin top, margin bottom, background colors.
+ */
+
 class InputGroup extends React.Component {
 
   static displayName = 'InputGroup'
@@ -71,7 +77,7 @@ class InputGroup extends React.Component {
   }
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   border: {
     borderTopWidth: 1 / PixelRatio.get(),
     borderTopColor: 'rgba(0,0,0,0.25)'

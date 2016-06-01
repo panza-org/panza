@@ -11,6 +11,11 @@ import {
 import RowImage from './RowImage'
 import TouchableRowCell from './TouchableRowCell'
 
+/**
+ * Composes <TouchableRowCell> and includes shorthands for
+ * displaying <PrimaryText>, <SecondaryText>, values, etc.
+ */
+
 const TouchableRow = ({
   primaryText,
   secondaryText,
@@ -50,6 +55,16 @@ const TouchableRow = ({
 
     </TouchableRowCell>
   )
+}
+
+TouchableRow.displayName = 'TouchableRow'
+
+TouchableRow.propTypes = {
+  primaryText: PropTypes.string,
+  secondaryText: PropTypes.string,
+  value: PropTypes.string,
+  onPress: PropTypes.func,
+  image: PropTypes.object
 }
 
 export default TouchableRow

@@ -7,8 +7,8 @@ import InputPicker from './InputPicker'
 import InputDatePicker from './InputDatePicker'
 import RemovableInput from './RemovableInput'
 import {InputRowRevealOptions, RevealOption} from './InputRowRevealOptions'
-import {AddRow} from './AddRow'
-import {TouchableInput} from './TouchableInput'
+import AddRow from './AddRow'
+import TouchableInput from './TouchableInput'
 
 export {
   InputRowCell,

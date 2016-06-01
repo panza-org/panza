@@ -6,6 +6,10 @@ import {
   TouchableIcon
 } from '../Icons'
 
+/**
+ * A wrapper for <Icon /> that properly displays
+ * it in a NavBar, and makes it touchable.
+ */
 
 const NavTouchableIcon = (props) => {
   const child = React.Children.only(props.children)
@@ -25,5 +29,6 @@ const NavTouchableIcon = (props) => {
   )
 }
 
+NavTouchableIcon.displayName = 'NavTouchableIcon'
 
 export default NavTouchableIcon

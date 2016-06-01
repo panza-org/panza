@@ -13,6 +13,11 @@ import { ArrowRightIcon } from '../Icons/Icon'
 
 const noop = function(){}
 
+/**
+ * A touchable row cell container, typically used
+ * rendering rows in a <ListView>.
+ */
+
 const TouchableRowCell = (props) => {
 
   const {
@@ -54,6 +59,7 @@ const TouchableRowCell = (props) => {
   )
 }
 
+TouchableRowCell.displayName = 'TouchableRowCell'
 
 TouchableRowCell.propTypes = {
   onPress: PropTypes.func.isRequired,
@@ -71,8 +77,7 @@ TouchableRowCell.defaultProps = {
   underlayColor: 'rgba(0,0,0,0.1)'
 }
 
-
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   row: {
     overflow: 'hidden',
     justifyContent: 'center'
@@ -88,17 +93,6 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1
-  },
-  arrowRight: {
-    width: 30,
-    height: 30,
-    marginRight: 5,
-    alignSelf: 'center',
-    alignItems: 'center'
-  },
-  separator: {
-    height: 1 / PixelRatio.get(),
-    backgroundColor: '#bbb',
   }
 })
 

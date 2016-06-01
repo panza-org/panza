@@ -22,6 +22,10 @@ const screen = Dimensions.get('window')
 
 import config from '../config'
 
+/**
+ * A touchable input field that expands (iOS) or
+ * pops up (Android) to reveal a picker widget.
+ */
 
 class InputPicker extends React.Component {
 

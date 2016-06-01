@@ -1,0 +1,2045 @@
+{
+  "components/panza/Base/Base.js": {
+    "description": "A general purpose component that converts our props into styles\ndefined by the user. Heavily inspired (and somewhat directly copied)\nby rebass.",
+    "displayName": "Base",
+    "methods": [],
+    "props": {
+      "m": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "0",
+              "computed": false
+            },
+            {
+              "value": "1",
+              "computed": false
+            },
+            {
+              "value": "2",
+              "computed": false
+            },
+            {
+              "value": "3",
+              "computed": false
+            },
+            {
+              "value": "4",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Margin *"
+      },
+      "mt": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "0",
+              "computed": false
+            },
+            {
+              "value": "1",
+              "computed": false
+            },
+            {
+              "value": "2",
+              "computed": false
+            },
+            {
+              "value": "3",
+              "computed": false
+            },
+            {
+              "value": "4",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Margin top *"
+      },
+      "mr": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "0",
+              "computed": false
+            },
+            {
+              "value": "1",
+              "computed": false
+            },
+            {
+              "value": "2",
+              "computed": false
+            },
+            {
+              "value": "3",
+              "computed": false
+            },
+            {
+              "value": "4",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Margin right *"
+      },
+      "mb": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "0",
+              "computed": false
+            },
+            {
+              "value": "1",
+              "computed": false
+            },
+            {
+              "value": "2",
+              "computed": false
+            },
+            {
+              "value": "3",
+              "computed": false
+            },
+            {
+              "value": "4",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Margin bottom *"
+      },
+      "ml": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "0",
+              "computed": false
+            },
+            {
+              "value": "1",
+              "computed": false
+            },
+            {
+              "value": "2",
+              "computed": false
+            },
+            {
+              "value": "3",
+              "computed": false
+            },
+            {
+              "value": "4",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Margin left *"
+      },
+      "mx": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "0",
+              "computed": false
+            },
+            {
+              "value": "1",
+              "computed": false
+            },
+            {
+              "value": "2",
+              "computed": false
+            },
+            {
+              "value": "3",
+              "computed": false
+            },
+            {
+              "value": "4",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Margin x-axis *"
+      },
+      "my": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "0",
+              "computed": false
+            },
+            {
+              "value": "1",
+              "computed": false
+            },
+            {
+              "value": "2",
+              "computed": false
+            },
+            {
+              "value": "3",
+              "computed": false
+            },
+            {
+              "value": "4",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Margin y-asix *"
+      },
+      "p": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "0",
+              "computed": false
+            },
+            {
+              "value": "1",
+              "computed": false
+            },
+            {
+              "value": "2",
+              "computed": false
+            },
+            {
+              "value": "3",
+              "computed": false
+            },
+            {
+              "value": "4",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Padding *"
+      },
+      "pt": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "0",
+              "computed": false
+            },
+            {
+              "value": "1",
+              "computed": false
+            },
+            {
+              "value": "2",
+              "computed": false
+            },
+            {
+              "value": "3",
+              "computed": false
+            },
+            {
+              "value": "4",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Padding top *"
+      },
+      "pr": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "0",
+              "computed": false
+            },
+            {
+              "value": "1",
+              "computed": false
+            },
+            {
+              "value": "2",
+              "computed": false
+            },
+            {
+              "value": "3",
+              "computed": false
+            },
+            {
+              "value": "4",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Padding right *"
+      },
+      "pb": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "0",
+              "computed": false
+            },
+            {
+              "value": "1",
+              "computed": false
+            },
+            {
+              "value": "2",
+              "computed": false
+            },
+            {
+              "value": "3",
+              "computed": false
+            },
+            {
+              "value": "4",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Padding bottom *"
+      },
+      "pl": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "0",
+              "computed": false
+            },
+            {
+              "value": "1",
+              "computed": false
+            },
+            {
+              "value": "2",
+              "computed": false
+            },
+            {
+              "value": "3",
+              "computed": false
+            },
+            {
+              "value": "4",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Padding left *"
+      },
+      "px": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "0",
+              "computed": false
+            },
+            {
+              "value": "1",
+              "computed": false
+            },
+            {
+              "value": "2",
+              "computed": false
+            },
+            {
+              "value": "3",
+              "computed": false
+            },
+            {
+              "value": "4",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Padding x-axis *"
+      },
+      "py": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "0",
+              "computed": false
+            },
+            {
+              "value": "1",
+              "computed": false
+            },
+            {
+              "value": "2",
+              "computed": false
+            },
+            {
+              "value": "3",
+              "computed": false
+            },
+            {
+              "value": "4",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Padding y-axis *"
+      },
+      "backgroundColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Background color *"
+      }
+    }
+  },
+  "components/panza/Base/TextBase.js": {
+    "description": "A general purpose text component which\nconverts props into styles defined in the configuration.",
+    "displayName": "BaseText",
+    "methods": [],
+    "props": {
+      "fontSize": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "0",
+              "computed": false
+            },
+            {
+              "value": "1",
+              "computed": false
+            },
+            {
+              "value": "2",
+              "computed": false
+            },
+            {
+              "value": "3",
+              "computed": false
+            },
+            {
+              "value": "4",
+              "computed": false
+            },
+            {
+              "value": "5",
+              "computed": false
+            },
+            {
+              "value": "6",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
+  "components/panza/Buttons/Button.js": {
+    "description": "A basic button that inherits from Base, and provides colourization\nbased upon background color configuration.",
+    "displayName": "ButtonBase",
+    "methods": [],
+    "props": {
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "underlayColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "theme": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'primary'",
+              "computed": false
+            },
+            {
+              "value": "'secondary'",
+              "computed": false
+            },
+            {
+              "value": "'default'",
+              "computed": false
+            },
+            {
+              "value": "'info'",
+              "computed": false
+            },
+            {
+              "value": "'success'",
+              "computed": false
+            },
+            {
+              "value": "'warning'",
+              "computed": false
+            },
+            {
+              "value": "'error'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'default'",
+          "computed": false
+        }
+      },
+      "textColor": {
+        "defaultValue": {
+          "value": "'default'",
+          "computed": false
+        }
+      }
+    }
+  },
+  "components/panza/Buttons/DefaultButton.js": {
+    "description": "Uses an 'info' backgroundColor",
+    "displayName": "DefaultButton",
+    "methods": [],
+    "props": {
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "underlayColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "theme": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'primary'",
+              "computed": false
+            },
+            {
+              "value": "'secondary'",
+              "computed": false
+            },
+            {
+              "value": "'default'",
+              "computed": false
+            },
+            {
+              "value": "'info'",
+              "computed": false
+            },
+            {
+              "value": "'success'",
+              "computed": false
+            },
+            {
+              "value": "'warning'",
+              "computed": false
+            },
+            {
+              "value": "'error'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
+  "components/panza/Buttons/ErrorButton.js": {
+    "description": "Utilizes an 'error' backgroundColor",
+    "displayName": "ErrorButton",
+    "methods": [],
+    "props": {
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "underlayColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "theme": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'primary'",
+              "computed": false
+            },
+            {
+              "value": "'secondary'",
+              "computed": false
+            },
+            {
+              "value": "'default'",
+              "computed": false
+            },
+            {
+              "value": "'info'",
+              "computed": false
+            },
+            {
+              "value": "'success'",
+              "computed": false
+            },
+            {
+              "value": "'warning'",
+              "computed": false
+            },
+            {
+              "value": "'error'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
+  "components/panza/Buttons/NakedButton.js": {
+    "description": "Utilizes a transparent background color",
+    "displayName": "NakedButton",
+    "methods": [],
+    "props": {
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "underlayColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "theme": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'primary'",
+              "computed": false
+            },
+            {
+              "value": "'secondary'",
+              "computed": false
+            },
+            {
+              "value": "'default'",
+              "computed": false
+            },
+            {
+              "value": "'info'",
+              "computed": false
+            },
+            {
+              "value": "'success'",
+              "computed": false
+            },
+            {
+              "value": "'warning'",
+              "computed": false
+            },
+            {
+              "value": "'error'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
+  "components/panza/Buttons/PrimaryButton.js": {
+    "description": "Uses a 'primary' backgroundColor",
+    "displayName": "PrimaryButton",
+    "methods": [],
+    "props": {
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "underlayColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "theme": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'primary'",
+              "computed": false
+            },
+            {
+              "value": "'secondary'",
+              "computed": false
+            },
+            {
+              "value": "'default'",
+              "computed": false
+            },
+            {
+              "value": "'info'",
+              "computed": false
+            },
+            {
+              "value": "'success'",
+              "computed": false
+            },
+            {
+              "value": "'warning'",
+              "computed": false
+            },
+            {
+              "value": "'error'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
+  "components/panza/Buttons/SuccessButton.js": {
+    "description": "Utilizes a 'success' backgroundColor",
+    "displayName": "SuccessButton",
+    "methods": [],
+    "props": {
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "underlayColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "theme": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'primary'",
+              "computed": false
+            },
+            {
+              "value": "'secondary'",
+              "computed": false
+            },
+            {
+              "value": "'default'",
+              "computed": false
+            },
+            {
+              "value": "'info'",
+              "computed": false
+            },
+            {
+              "value": "'success'",
+              "computed": false
+            },
+            {
+              "value": "'warning'",
+              "computed": false
+            },
+            {
+              "value": "'error'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
+  "components/panza/Buttons/VerticalButtonGroup.js": {
+    "description": "A vertical button group where the first option is the primary\noption to select, while the second option is deemphasized. Typically\nthe first button would be a confirmation button, while the second\nmay be dismissal.",
+    "displayName": "VerticalButtonGroup",
+    "methods": [],
+    "props": {
+      "options": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "shape",
+            "value": {
+              "label": {
+                "name": "string",
+                "required": true
+              },
+              "onSelect": {
+                "name": "func",
+                "required": true
+              }
+            }
+          }
+        },
+        "required": true,
+        "description": "Button options *"
+      }
+    }
+  },
+  "components/panza/Buttons/WarningButton.js": {
+    "description": "Utilizes the 'warning' background color\nand white text",
+    "displayName": "WarningButton",
+    "methods": [],
+    "props": {
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "underlayColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "theme": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'primary'",
+              "computed": false
+            },
+            {
+              "value": "'secondary'",
+              "computed": false
+            },
+            {
+              "value": "'default'",
+              "computed": false
+            },
+            {
+              "value": "'info'",
+              "computed": false
+            },
+            {
+              "value": "'success'",
+              "computed": false
+            },
+            {
+              "value": "'warning'",
+              "computed": false
+            },
+            {
+              "value": "'error'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
+  "components/panza/Icons/TouchableIcon.js": {
+    "description": "A touchable wrapper for <Icon />",
+    "displayName": "TouchableIcon",
+    "methods": [],
+    "props": {
+      "onPress": {
+        "type": {
+          "name": "func"
+        },
+        "required": true,
+        "description": ""
+      }
+    }
+  },
+  "components/panza/Image/FadeImage.js": {
+    "description": "Fade-in an image when it loads.",
+    "displayName": "FadeImage",
+    "methods": [
+      {
+        "name": "onLoad",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "src": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": ""
+      },
+      "fade": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "onLoadEnd": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": ""
+      },
+      "height": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "50",
+          "computed": false
+        }
+      },
+      "width": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "50",
+          "computed": false
+        }
+      },
+      "rounded": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "backgroundColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'#fafafa'",
+          "computed": false
+        }
+      },
+      "imageProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "resizeMode": {
+        "defaultValue": {
+          "value": "'cover'",
+          "computed": false
+        }
+      }
+    }
+  },
+  "components/panza/Input/PrimaryTextInput.js": {
+    "description": "Text input with primary text sizing. Composes\n<TextBase> and <TextInput>",
+    "displayName": "PrimaryTextInput",
+    "methods": []
+  },
+  "components/panza/Input/SecondaryTextInput.js": {
+    "description": "Secondary text input sizing. Composes <TextBase> and\n<TextInput>",
+    "displayName": "SecondaryTextInput",
+    "methods": []
+  },
+  "components/panza/Nav/NavBar.js": {
+    "description": "Static navigation bar that mimics that found\nwithin ReactNative. To be used when you want a static\nrepresentation of the NavBar, without transitions.",
+    "displayName": "NavBar",
+    "methods": [],
+    "props": {
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "LeftButton": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": ""
+      },
+      "RightButton": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
+  "components/panza/Nav/NavIconContainer.js": {
+    "description": "A wrapper for <Icon /> that positions it correctly\nin a navigation bar.",
+    "displayName": "NavIconContainer",
+    "methods": []
+  },
+  "components/panza/Nav/NavTitle.js": {
+    "description": "Navigation main title, composing <PrimaryText> on\niOS, and <LargeText> on Android.",
+    "displayName": "NavTitle",
+    "methods": []
+  },
+  "components/panza/Nav/NavTouchableIcon.js": {
+    "description": "A wrapper for <Icon /> that properly displays\nit in a NavBar, and makes it touchable.",
+    "displayName": "NavTouchableIcon",
+    "methods": []
+  },
+  "components/panza/Nav/NavTouchableText.js": {
+    "description": "Makes a touchable text component for the NavBar. Typically\nused on iOS.",
+    "displayName": "NavTouchableText",
+    "methods": [],
+    "props": {
+      "color": {
+        "defaultValue": {
+          "value": "'primary'",
+          "computed": false
+        }
+      }
+    }
+  },
+  "components/panza/Nav/SubNav.js": {
+    "description": "Subnavigation, which displays three touchable text\noptions, typically used directly below the navigation\nbar. Also typically used only on iOS.",
+    "displayName": "SubNav",
+    "methods": [],
+    "props": {
+      "textColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'primary'",
+          "computed": false
+        }
+      },
+      "borderBottom": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "backgroundColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'white'",
+          "computed": false
+        }
+      },
+      "options": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "shape",
+            "value": {
+              "label": {
+                "name": "string",
+                "required": true
+              },
+              "onPress": {
+                "name": "func",
+                "required": true
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
+  "components/panza/Pages/Error.js": {
+    "description": "Display an error, with messages and actions depending\nupon the user state. Particularly useful with Relay.Renderer\nwhen an error state and retry function are provided.",
+    "displayName": "ErrorPage",
+    "methods": [],
+    "props": {
+      "error": {
+        "type": {
+          "name": "object"
+        },
+        "required": true,
+        "description": ""
+      },
+      "retry": {
+        "type": {
+          "name": "func"
+        },
+        "required": true,
+        "description": ""
+      },
+      "message": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'Hmm, loading appears to be taking a while.'",
+          "computed": false
+        }
+      },
+      "detailMessage": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "`It's possible that our server are under heavy load, or that your internet connection is slow. Please try again.`",
+          "computed": false
+        }
+      },
+      "offlineMessage": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'Please ensure that you are connected to the internet.'",
+          "computed": false
+        }
+      },
+      "style": {
+        "type": {
+          "name": "any"
+        },
+        "required": false,
+        "description": ""
+      },
+      "isOffline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      }
+    }
+  },
+  "components/panza/Pages/Loading.js": {
+    "description": "Displays a loading indicator, and on iOS an optional\nloading message. RN0.27 required to use the\n<ActivityIndicator>",
+    "displayName": "Loading",
+    "methods": [],
+    "props": {
+      "isLoading": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "size": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'large'",
+              "computed": false
+            },
+            {
+              "value": "'small'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'small'",
+          "computed": false
+        }
+      },
+      "color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'gray'",
+          "computed": false
+        }
+      },
+      "showText": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "loadingText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'Loading...'",
+          "computed": false
+        }
+      },
+      "alignTop": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      }
+    }
+  },
+  "components/panza/Row/RowImage.js": {
+    "description": "An image stylized with sensible defaults\nfor display in a <TouchableRowCell />",
+    "displayName": "RowImage",
+    "methods": [],
+    "props": {
+      "source": {
+        "type": {
+          "name": "object"
+        },
+        "required": true,
+        "description": ""
+      },
+      "height": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "48",
+          "computed": false
+        }
+      },
+      "width": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "48",
+          "computed": false
+        }
+      },
+      "rounded": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      }
+    }
+  },
+  "components/panza/Row/SectionHeader.js": {
+    "description": "",
+    "displayName": "SectionHeader",
+    "methods": [],
+    "props": {
+      "backgroundColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'gray'",
+          "computed": false
+        }
+      }
+    }
+  },
+  "components/panza/Row/Separator.js": {
+    "description": "A simple component used to separate rows, with an\noptional inset margin on the left or right.",
+    "displayName": "RowSeparator",
+    "methods": [],
+    "props": {
+      "inset": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "insetRight": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      }
+    }
+  },
+  "components/panza/Row/TouchableRow.js": {
+    "description": "Composes <TouchableRowCell> and includes shorthands for\ndisplaying <PrimaryText>, <SecondaryText>, values, etc.",
+    "displayName": "TouchableRow",
+    "methods": [],
+    "props": {
+      "primaryText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "secondaryText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "onPress": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": ""
+      },
+      "image": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
+  "components/panza/Row/TouchableRowCell.js": {
+    "description": "A touchable row cell container, typically used\nrendering rows in a <ListView>.",
+    "displayName": "TouchableRowCell",
+    "methods": [],
+    "props": {
+      "onPress": {
+        "type": {
+          "name": "func"
+        },
+        "required": true,
+        "description": ""
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "highlighted": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "function(){}",
+          "computed": false
+        }
+      },
+      "showMore": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "underlayColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'rgba(0,0,0,0.1)'",
+          "computed": false
+        }
+      },
+      "height": {
+        "defaultValue": {
+          "value": "60",
+          "computed": false
+        }
+      }
+    }
+  },
+  "components/panza/RowInput/AddRow.js": {
+    "description": "Arrow row button. Typically the condensed form\nwill be used in conjunction with <RemovableInput />",
+    "displayName": "AddRow",
+    "methods": [],
+    "props": {
+      "backgroundColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'white'",
+          "computed": false
+        }
+      },
+      "onPress": {
+        "type": {
+          "name": "func"
+        },
+        "required": true,
+        "description": ""
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": ""
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
+  "components/panza/RowInput/Divider.js": {
+    "description": "Used by <InputGroup /> to divide inputs, and apply\na pseudo border between them.",
+    "displayName": "Divider",
+    "methods": [],
+    "props": {
+      "inset": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
+  "components/panza/RowInput/InputDatePicker.js": {
+    "description": "Composes <InputPicker /> and provides a cross-platform\nDatePicker widget as user input.",
+    "displayName": "InputDatePicker",
+    "methods": [
+      {
+        "name": "renderIOS",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "renderAndroid",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "toggleDatePicker",
+        "docblock": null,
+        "modifiers": [
+          "async"
+        ],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "hasFocus": {
+        "type": {
+          "name": "bool"
+        },
+        "required": true,
+        "description": ""
+      },
+      "onRequestFocus": {
+        "type": {
+          "name": "func"
+        },
+        "required": true,
+        "description": ""
+      },
+      "onRequestClose": {
+        "type": {
+          "name": "func"
+        },
+        "required": true,
+        "description": ""
+      },
+      "maxDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "minDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "mode": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "date": {
+        "type": {
+          "name": "object"
+        },
+        "required": true,
+        "description": ""
+      },
+      "underlayColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "onDateChange": {
+        "type": {
+          "name": "func"
+        },
+        "required": true,
+        "description": ""
+      },
+      "showMore": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
+  "components/panza/RowInput/InputGroup.js": {
+    "description": "Wrap inputs using this component to provide\nborders between them, top borders, bottom borders,\nmargin top, margin bottom, background colors.",
+    "displayName": "InputGroup",
+    "methods": [],
+    "props": {
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "inset": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "showTopBorder": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "showBottomBorder": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "showBorder": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "topInset": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "bottomInset": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "white": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
+  "components/panza/RowInput/InputHelpText.js": {
+    "description": "Help text typically used after an <InputGroup>\nto inform users about fields, or groups of fields.",
+    "displayName": "InputHelpText",
+    "methods": []
+  },
+  "components/panza/RowInput/InputPicker.js": {
+    "description": "A touchable input field that expands (iOS) or\npops up (Android) to reveal a picker widget.",
+    "displayName": "InputPicker",
+    "methods": [
+      {
+        "name": "renderAndroid",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "togglePicker",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "hasFocus": {
+        "type": {
+          "name": "bool"
+        },
+        "required": true,
+        "description": ""
+      },
+      "onRequestFocus": {
+        "type": {
+          "name": "func"
+        },
+        "required": true,
+        "description": ""
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": ""
+      },
+      "onRequestClose": {
+        "type": {
+          "name": "func"
+        },
+        "required": true,
+        "description": ""
+      },
+      "underlayColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'rgba(0,0,0,0.1)'",
+          "computed": false
+        }
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "showMore": {
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      }
+    }
+  },
+  "components/panza/RowInput/InputRow.js": {
+    "description": "",
+    "displayName": "InputRow",
+    "methods": [
+      {
+        "name": "focus",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "blur",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "onChangeText": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": ""
+      },
+      "customInput": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": ""
+      },
+      "editable": {
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      }
+    }
+  },
+  "components/panza/RowInput/InputRowCell.js": {
+    "description": "Input row cell",
+    "displayName": "InputRowCell",
+    "methods": []
+  },
+  "components/panza/RowInput/InputToggle.js": {
+    "description": "An input row with a <Switch /> that allows\nthe user to toggle a value.",
+    "displayName": "InputToggle",
+    "methods": [],
+    "props": {
+      "style": {
+        "type": {
+          "name": "any"
+        },
+        "required": false,
+        "description": ""
+      },
+      "value": {
+        "type": {
+          "name": "bool"
+        },
+        "required": true,
+        "description": ""
+      },
+      "backgroundColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'transparent'",
+          "computed": false
+        }
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": ""
+      },
+      "onValueChange": {
+        "type": {
+          "name": "func"
+        },
+        "required": true,
+        "description": ""
+      }
+    }
+  },
+  "components/panza/RowInput/TouchableInput.js": {
+    "description": "An input that responds to user touch, and is typically used\nwithin the context of a navigator, or modal, to select\nanother value.",
+    "displayName": "TouchableInput",
+    "methods": [],
+    "props": {
+      "labelColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'default'",
+          "computed": false
+        }
+      },
+      "backgroundColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'white'",
+          "computed": false
+        }
+      }
+    }
+  },
+  "components/panza/Text/LargeText.js": {
+    "description": "",
+    "displayName": "LargeText",
+    "methods": []
+  },
+  "components/panza/Text/PrimaryText.js": {
+    "description": "",
+    "displayName": "PrimaryText",
+    "methods": []
+  },
+  "components/panza/Text/SecondaryText.js": {
+    "description": "",
+    "displayName": "SecondaryText",
+    "methods": []
+  },
+  "components/panza/Text/SubtitleText.js": {
+    "description": "",
+    "displayName": "SubtitleText",
+    "methods": []
+  }
+}

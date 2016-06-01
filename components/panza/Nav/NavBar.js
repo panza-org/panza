@@ -28,6 +28,11 @@ const defaultNavbarStyle = {
   })
 }
 
+/**
+ * Static navigation bar that mimics that found
+ * within ReactNative. To be used when you want a static
+ * representation of the NavBar, without transitions.
+ */
 
 const Navbar = (props) => {
 
@@ -80,6 +85,8 @@ const Navbar = (props) => {
     </Base>
   )
 }
+
+NavBar.displayName = 'NavBar'
 
 Navbar.defaultStyles = defaultNavbarStyle
 

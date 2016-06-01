@@ -1,6 +1,11 @@
 import React from 'react'
 import { View, StyleSheet, Platform } from 'react-native'
 
+/**
+ * A wrapper for <Icon /> that positions it correctly
+ * in a navigation bar.
+ */
+
 const NavIconContainer = (props) => {
   const {
     children,
@@ -26,9 +31,11 @@ const NavIconContainer = (props) => {
   )
 }
 
+NavIconContainer.displayName = 'NavIconContainer'
+
 export default NavIconContainer
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',

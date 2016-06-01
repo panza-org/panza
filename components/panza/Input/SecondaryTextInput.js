@@ -6,7 +6,12 @@ import {
   TextBase
 } from '../index'
 
-export const SecondaryTextInput = (props) => {
+/**
+ * Secondary text input sizing. Composes <TextBase> and
+ * <TextInput>
+ */
+
+const SecondaryTextInput = (props) => {
   return (
     <TextBase
       {...props}
@@ -16,3 +21,7 @@ export const SecondaryTextInput = (props) => {
     />
   )
 }
+
+SecondaryTextInput.displayName = 'SecondaryTextInput'
+
+export default SecondaryTextInput

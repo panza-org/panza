@@ -4,7 +4,10 @@
   "description": "a foundation for your react-native projects",
   "main": "components/panza/index.js",
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "generate-doc-json": "react-docgen components/panza/**/* -o documentation/components.json --pretty",
+    "generate-doc-markdown": "node scripts/generate-docs.js",
+    "generate-docs": "npm run generate-doc-json && npm run generate-doc-markdown"
   },
   "repository": {
     "type": "git",
@@ -30,6 +33,7 @@
   },
   "devDependencies": {
     "react": "^15.0.2",
+    "react-docgen": "^2.8.2",
     "react-native": "^0.26.2"
   }
 }

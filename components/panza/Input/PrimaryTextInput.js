@@ -6,7 +6,12 @@ import {
   TextBase
 } from '../index'
 
-export const PrimaryTextInput = (props) => {
+/**
+ * Text input with primary text sizing. Composes
+ * <TextBase> and <TextInput>
+ */
+
+const PrimaryTextInput = (props) => {
   return (
     <TextBase
       {...props}
@@ -16,3 +21,7 @@ export const PrimaryTextInput = (props) => {
     />
   )
 }
+
+PrimaryTextInput.displayName = 'PrimaryTextInput'
+
+export default PrimaryTextInput

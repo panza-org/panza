@@ -26,7 +26,12 @@ const GreenPlusIcon = () => (
   </Base>
 )
 
-export const AddRow = ({
+/**
+ * Arrow row button. Typically the condensed form
+ * will be used in conjunction with <RemovableInput />
+ */
+
+const AddRow = ({
   label,
   onPress,
   backgroundColor,
@@ -45,6 +50,7 @@ export const AddRow = ({
   )
 }
 
+AddRow.displayName = 'AddRow'
 
 AddRow.propTypes = {
   backgroundColor: PropTypes.string,
@@ -56,6 +62,8 @@ AddRow.propTypes = {
 AddRow.defaultProps = {
   backgroundColor: 'white'
 }
+
+export default AddRow
 
 const styles = StyleSheet.create({
   innerContainer: {

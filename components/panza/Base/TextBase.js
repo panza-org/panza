@@ -45,6 +45,10 @@ const propsToStyle = (props, bold, colors) => {
 
 }
 
+/**
+ * A general purpose text component which
+ * converts props into styles defined in the configuration.
+ */
 
 const BaseText = ({ style, fontSize, baseStyle, Component, ...props }, { panza }) => {
 
@@ -63,7 +67,9 @@ const BaseText = ({ style, fontSize, baseStyle, Component, ...props }, { panza }
 
 }
 
-BaseText.proptypes = {
+BaseText.displayName = 'BaseText'
+
+BaseText.propTypes = {
   fontSize: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6])
 }
 

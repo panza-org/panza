@@ -43,8 +43,8 @@ export const RemoveButton = (props) => {
 }
 
 /**
- * RemovableInput (Small)
- * todo: refactor, add multiline support
+ * A flexible input row typically used when inputting:
+ * lists, lists with changeable labels
  */
 
 class RemovableInput extends React.Component {

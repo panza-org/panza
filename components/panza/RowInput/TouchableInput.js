@@ -13,7 +13,13 @@ import {
   ArrowRightIcon
 } from '../index'
 
-export const TouchableInput = ({
+/**
+ * An input that responds to user touch, and is typically used
+ * within the context of a navigator, or modal, to select
+ * another value.
+ */
+
+const TouchableInput = ({
   label,
   icon,
   showMore,
@@ -65,10 +71,19 @@ export const TouchableInput = ({
   )
 }
 
+TouchableInput.displayName = 'TouchableInput'
+
+TouchableInput.propTypes = {
+  labelColor: PropTypes.string,
+  backgroundColor: PropTypes.string
+}
+
 TouchableInput.defaultProps = {
   labelColor: 'default',
   backgroundColor: 'white'
 }
+
+export default TouchableInput
 
 const styles = StyleSheet.create({
   innerContainer: {

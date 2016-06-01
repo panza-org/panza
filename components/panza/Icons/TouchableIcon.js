@@ -3,12 +3,14 @@ import {
   TouchableOpacity
 } from 'react-native'
 
-// todo: accessibility
+/**
+ * A touchable wrapper for <Icon />
+ */
+
 const TouchableIcon = (props) => {
 
   const {
     onPress,
-    name,
     children,
     style,
     ...other
@@ -25,6 +27,8 @@ const TouchableIcon = (props) => {
   )
 
 }
+
+TouchableIcon.displayName = 'TouchableIcon'
 
 TouchableIcon.propTypes = {
   onPress: PropTypes.func.isRequired

@@ -8,6 +8,10 @@ import {
 
 import { Base } from '../index'
 
+/**
+ * Input row cell
+ */
+
 const InputRowCell = ({children, ...other}) => {
 
   return (
@@ -18,6 +22,8 @@ const InputRowCell = ({children, ...other}) => {
     </View>
   )
 }
+
+InputRowCell.displayName = 'InputRowCell'
 
 export default InputRowCell
 

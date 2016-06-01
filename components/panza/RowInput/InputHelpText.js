@@ -9,6 +9,11 @@ import {
   Base
 } from '../index'
 
+/**
+ * Help text typically used after an <InputGroup>
+ * to inform users about fields, or groups of fields.
+ */
+
 class InputHelpText extends React.Component {
 
   static displayName = 'InputHelpText'

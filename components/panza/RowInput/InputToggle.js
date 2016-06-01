@@ -12,6 +12,11 @@ import {
   InputRowCell
 } from '../index'
 
+/**
+ * An input row with a <Switch /> that allows
+ * the user to toggle a value.
+ */
+
 class InputToggle extends React.Component {
 
   static displayName = 'InputToggle'

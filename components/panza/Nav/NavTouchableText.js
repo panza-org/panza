@@ -11,6 +11,11 @@ import {
   TextBase
 } from '../index'
 
+/**
+ * Makes a touchable text component for the NavBar. Typically
+ * used on iOS.
+ */
+
 const NavTouchableText = ({
   children,
   disabled,
@@ -31,6 +36,8 @@ const NavTouchableText = ({
   )
 
 }
+
+NavTouchableText.displayName = 'NavTouchableText'
 
 NavTouchableText.defaultProps = {
   color: 'primary'
