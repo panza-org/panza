@@ -15,7 +15,7 @@ defaultValue: `false`
 
 ### `height`
 
-defaultValue: `60`
+defaultValue: `Platform.OS === 'ios' ? 60 : 65`
 
 
 ### `highlighted`

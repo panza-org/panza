@@ -22,6 +22,11 @@ type: `bool`
 type: `bool`
 
 
+### `label`
+
+type: `string`
+
+
 ### `maxDate`
 
 type: `string`

@@ -14,8 +14,29 @@ type: `string`
 defaultValue: `'white'`
 
 
+### `icon`
+
+type: `node`
+
+
+### `label` (required)
+
+type: `string`
+
+
 ### `labelColor`
 
 type: `string`
 defaultValue: `'default'`
+
+
+### `showMore`
+
+type: `bool`
+defaultValue: `false`
+
+
+### `value`
+
+type: `string`
 

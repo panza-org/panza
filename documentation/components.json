@@ -460,6 +460,17 @@
         },
         "required": false,
         "description": ""
+      },
+      "color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'default'",
+          "computed": false
+        }
       }
     }
   },
@@ -1549,7 +1560,7 @@
       },
       "height": {
         "defaultValue": {
-          "value": "60",
+          "value": "Platform.OS === 'ios' ? 60 : 65",
           "computed": false
         }
       }
@@ -1666,6 +1677,13 @@
         "description": ""
       },
       "minDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "label": {
         "type": {
           "name": "string"
         },
@@ -2019,21 +2037,53 @@
           "value": "'white'",
           "computed": false
         }
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": ""
+      },
+      "icon": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": ""
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "showMore": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
       }
     }
   },
   "components/panza/Text/LargeText.js": {
-    "description": "",
+    "description": "Large Text Size",
     "displayName": "LargeText",
     "methods": []
   },
   "components/panza/Text/PrimaryText.js": {
-    "description": "",
+    "description": "Primary Text Size",
     "displayName": "PrimaryText",
     "methods": []
   },
   "components/panza/Text/SecondaryText.js": {
-    "description": "",
+    "description": "Secondary Text Size",
     "displayName": "SecondaryText",
     "methods": []
   },
