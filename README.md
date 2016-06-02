@@ -77,3 +77,7 @@ $ git clone https://github.com/bmcmahen/panza.git
 $ cd panza && npm install
 $ react-native run-ios
 $ react-native run-android
+```
+
+## License
+MIT
