@@ -100,7 +100,7 @@ class App extends React.Component {
 
   // ... render your app
 }
-```javascript
+```
 
 ## Example
 
