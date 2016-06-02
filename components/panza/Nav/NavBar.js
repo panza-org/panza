@@ -17,13 +17,16 @@ import NavTextAction from './NavTouchableText'
 const defaultNavbarStyle = {
   ...Platform.select({
     ios: {
+
       backgroundColor: 'white',
       borderBottomWidth: 1 / PixelRatio.get(),
       borderBottomColor: 'rgba(0,0,0,0.3)',
     },
     android: {
+
       backgroundColor: 'white',
-      elevation: 2
+      borderBottomWidth: 1 / PixelRatio.get(),
+      borderBottomColor: 'rgba(0,0,0,0.3)'
     }
   })
 }
@@ -121,10 +124,15 @@ const styles = StyleSheet.create({
     height: Navigator.NavigationBar.Styles.General.TotalNavHeight,
     flexDirection: 'column',
     backgroundColor: 'transparent',
+
     justifyContent: 'flex-start',
     ...Platform.select({
       ios: { paddingTop: 20 },
-      android: { paddingTop: 0, elevation: 2 }
+      android: {
+        paddingTop: 0,
+        paddingLeft: 5,
+        paddingRight: 5
+      }
     }),
 
   },
@@ -133,9 +141,9 @@ const styles = StyleSheet.create({
    ...Platform.select({
      android: {
        position: 'absolute',
-       left: 75,
+       left: 70,
        right: 0,
-       bottom: 13
+       bottom: 15
      },
      ios: {
        position: 'absolute',

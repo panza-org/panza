@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react'
 import {
   View,
   Text,
-  ScrollView
+  ScrollView,
+  Platform
 } from 'react-native'
 
 import {
@@ -26,6 +27,7 @@ export default class NavBarExample extends React.Component {
     return (
       <ScrollView style={{ paddingTop: 20}}>
 
+        <View style={{ position: 'relative'}}>
         <NavBar
           backgroundColor='gray'
           LeftButton={(
@@ -35,11 +37,15 @@ export default class NavBarExample extends React.Component {
           )}
           RightButton={(
             <NavTouchableIcon onPress={noop}>
-              <PlusIcon size={40} />
+              <PlusIcon size={40} androidSize={25} />
             </NavTouchableIcon>
           )}
           title='Title'
         />
+
+</View>
+      {Platform.OS === 'ios' && (
+        <View>
 
         <NavBar
           backgroundColor='primary'
@@ -89,13 +95,30 @@ export default class NavBarExample extends React.Component {
           ]}
         />
 
+    </View>
+        )}
 
+        {Platform.OS === 'android' && (
+          <NavBar
+            backgroundColor='primary'
+            mt={2}
+            LeftButton={(
+              <NavTouchableIcon onPress={() => navigator.pop()}>
+                <BackIcon color='white' />
+              </NavTouchableIcon>
+            )}
+            title='Primary Title'
+            titleColor='white'
+          />
+        )}
+
+        <View style={{ position: 'relative'}}>
         <NavBar
           mt={2}
           LeftButton={(
-            <NavTouchableText>
-              Cancel
-            </NavTouchableText>
+            <NavTouchableIcon onPress={() => navigator.pop()}>
+              <BackIcon />
+            </NavTouchableIcon>
           )}
           RightButton={(
             <Base row flex={1} align='center' >
@@ -103,12 +126,14 @@ export default class NavBarExample extends React.Component {
                 <SearchIcon size={25} />
               </NavTouchableIcon>
               <NavTouchableIcon onPress={noop}>
-                <PlusIcon size={40} />
+                <PlusIcon size={40} androidSize={25} />
               </NavTouchableIcon>
             </Base>
           )}
           title='Touchable Text'
         />
+      </View>
+
 
 
       </ScrollView>
