@@ -17,6 +17,7 @@ import IconsExample from './IconsExample'
 import ImageExample from './ImageExample'
 import NavbarExample from './NavBarExample'
 
+
 import {
   TouchableRow,
   NavBar,
@@ -24,7 +25,7 @@ import {
 } from '../panza'
 
 
-import { ListView, Text, View, StyleSheet } from 'react-native'
+import { ListView, Text, View, StyleSheet, Platform } from 'react-native'
 
 
 const Examples: Array<WidgetExample> = [
@@ -78,7 +79,7 @@ export default ({onSelect}) => {
     <ListView
       dataSource={dataSource}
       style={styles.list}
-      renderSeparator={(a, b) => <Separator inset={16} key={a + b} />}
+      renderSeparator={(a, b) => ((Platform.OS === 'ios') && <Separator inset={16} key={a + b} />)}
       renderRow={(rowData) => (
         <TouchableRow
           onPress={() => onSelect(rowData)}

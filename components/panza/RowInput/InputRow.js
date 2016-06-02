@@ -10,6 +10,7 @@ import InputRowCell from './InputRowCell'
 import {
   PrimaryText,
   Base,
+  SecondaryText,
   PrimaryTextInput
 } from '../index'
 

@@ -3,6 +3,7 @@ import {
   View,
   Text,
   StyleSheet,
+  Platform,
   PixelRatio,
   TouchableHighlight
 } from 'react-native'
@@ -72,7 +73,7 @@ TouchableRowCell.propTypes = {
 TouchableRowCell.defaultProps = {
   showMore: true,
   highlighted: noop,
-  height: 60,
+  height: Platform.OS === 'ios' ? 60 : 65,
   disabled: false,
   underlayColor: 'rgba(0,0,0,0.1)'
 }
