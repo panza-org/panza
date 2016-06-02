@@ -65,7 +65,7 @@ class RemovableInput extends React.Component {
     value: PropTypes.string,
     backgroundColor: PropTypes.string,
     editable: PropTypes.bool,
-    small: PropTypes.bool
+    labelWidth: PropTypes.number
   }
 
   static defaultProps = {

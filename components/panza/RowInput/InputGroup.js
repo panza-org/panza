@@ -43,8 +43,10 @@ class InputGroup extends React.Component {
     const {
       inset,
       showBottomBorder,
+      backgroundColor,
       topInset,
-      bottomInset
+      bottomInset,
+      ...other
     } = this.props
 
     var children = React.Children.map(this.props.children, (child, i) => {
@@ -66,11 +68,13 @@ class InputGroup extends React.Component {
     ]
 
     return (
-      <Base baseStyle={style} {...this.props}>
+      <Base baseStyle={style} {...other}>
         {this.props.label && <SectionHeader backgroundColor='transparent'>{this.props.label}</SectionHeader>}
-        {this.props.showTopBorder && <Divider inset={topInset} />}
-        {children}
-        {this.props.showBottomBorder && <Divider inset={bottomInset} />}
+        <Base backgroundColor={backgroundColor}>
+          {this.props.showTopBorder && <Divider inset={topInset} />}
+          {children}
+          {this.props.showBottomBorder && <Divider inset={bottomInset} />}
+        </Base>
       </Base>
     )
 

@@ -16,6 +16,7 @@ import LoadingPage from './LoadingExample'
 import IconsExample from './IconsExample'
 import ImageExample from './ImageExample'
 import NavbarExample from './NavBarExample'
+import AllTogetherNow from './AllTogetherNow'
 
 
 import {
@@ -64,6 +65,10 @@ const Examples: Array<WidgetExample> = [
   {
     name: 'Text',
     module: TextExample
+  },
+  {
+    name: 'Panza',
+    module: AllTogetherNow
   }
 ]
 

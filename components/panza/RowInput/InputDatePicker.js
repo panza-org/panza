@@ -30,6 +30,7 @@ class InputDatePicker extends React.Component {
     onRequestClose: PropTypes.func.isRequired,
     maxDate: PropTypes.string,
     minDate: PropTypes.string,
+    label: PropTypes.string,
     mode: PropTypes.string,
     date: PropTypes.object.isRequired,
     underlayColor: PropTypes.string,

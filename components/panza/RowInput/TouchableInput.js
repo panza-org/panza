@@ -75,12 +75,17 @@ TouchableInput.displayName = 'TouchableInput'
 
 TouchableInput.propTypes = {
   labelColor: PropTypes.string,
-  backgroundColor: PropTypes.string
+  backgroundColor: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  icon: PropTypes.node,
+  value: PropTypes.string,
+  showMore: PropTypes.bool
 }
 
 TouchableInput.defaultProps = {
   labelColor: 'default',
-  backgroundColor: 'white'
+  backgroundColor: 'white',
+  showMore: false
 }
 
 export default TouchableInput
