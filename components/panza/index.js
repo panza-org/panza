@@ -1,3 +1,5 @@
+import config from './config'
+
 export * from './Buttons'
 export * from './Row'
 export * from './Base'
@@ -8,3 +10,5 @@ export * from './RowInput'
 export * from './Input'
 export * from './Pages'
 export * from './Image'
+
+export { config }

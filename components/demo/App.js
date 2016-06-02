@@ -2,7 +2,7 @@
 @flow
  */
 
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {
   View,
   Platform,
@@ -21,17 +21,42 @@ import {
   SearchIcon,
   Base,
   CloseIcon,
-  PlusIcon
+  PlusIcon,
+  config
 } from '../panza'
 
 function noop(){}
 
 console.disableYellowBox = true
 
+const defaultColors = config.colors
+const myColors = Object.assign(
+  {},
+  defaultColors,
+  { primary: defaultColors.red }
+)
+
+
 class App extends Component {
+
+  static childContextTypes = {
+    panza: PropTypes.object
+  }
+
+  getChildContext() {
+    return {
+      panza: this.state.styles
+    }
+  }
 
   constructor() {
     super()
+
+    this.state = {
+      styles: {
+        colors: myColors
+      }
+    }
 
     this.NavigationBarRouteMapper = {
 

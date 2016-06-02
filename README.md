@@ -72,7 +72,34 @@ $ rnpm link react-native-vector-icons
 
 ## Customize
 
-Soon...
+You can override parts of the global configuration to provide custom colours, font sizes, scales, etc.
+
+```javascript
+import { config } from 'panza'
+
+class App extends React.Component {
+
+  static childContextTypes = {
+    panza: PropTypes.object
+  }
+
+  getChildContext() {
+    panza: this.state.styles
+  }
+
+  state = {
+    styles: {
+      colors: Object.assign(
+        {},
+        config.colors,
+        { primary: config.colors.red } // change the primary color from blue to red
+      )
+    }
+  }
+
+  // ... render your app
+}
+```javascript
 
 ## Example
 
