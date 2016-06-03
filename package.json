@@ -1,6 +1,6 @@
 {
   "name": "panza",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "a foundation for your react-native projects",
   "main": "components/panza/index.js",
   "scripts": {
