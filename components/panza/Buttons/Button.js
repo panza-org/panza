@@ -69,7 +69,7 @@ Button.propTypes = {
   textColor: PropTypes.string
 }
 
-Button.displayName = 'ButtonBase'
+Button.displayName = 'Button'
 
 Button.defaultProps = {
   backgroundColor: 'info',

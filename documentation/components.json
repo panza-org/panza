@@ -476,7 +476,7 @@
   },
   "components/panza/Buttons/Button.js": {
     "description": "A basic button that inherits from Base, and provides colourization\nbased upon background color configuration.",
-    "displayName": "ButtonBase",
+    "displayName": "Button",
     "methods": [],
     "props": {
       "disabled": {
