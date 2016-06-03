@@ -13,9 +13,20 @@ type: `string`
 defaultValue: `'transparent'`
 
 
+### `editable`
+
+type: `bool`
+defaultValue: `true`
+
+
 ### `label` (required)
 
 type: `string`
+
+
+### `onTintColor`
+
+defaultValue: `'success'`
 
 
 ### `onValueChange` (required)

@@ -1,8 +1,10 @@
 `InputDatePicker` (component)
 =============================
 
-Composes <InputPicker /> and provides a cross-platform
-DatePicker widget as user input.
+Provides a cross-platform InputRow to prompmt the user for
+a date-picker. On iOS devices, it expands the input to reveal
+the date-picker. On Android, it prompts the user for a
+date-picker in a popup.
 
 Props
 -----
@@ -12,12 +14,13 @@ Props
 type: `object`
 
 
-### `disabled`
+### `editable`
 
 type: `bool`
+defaultValue: `true`
 
 
-### `hasFocus` (required)
+### `expanded` (required)
 
 type: `bool`
 
@@ -47,23 +50,7 @@ type: `string`
 type: `func`
 
 
-### `onRequestClose` (required)
+### `onToggleExpansion` (required)
 
 type: `func`
-
-
-### `onRequestFocus` (required)
-
-type: `func`
-
-
-### `showMore`
-
-type: `bool`
-defaultValue: `true`
-
-
-### `underlayColor`
-
-type: `string`
 

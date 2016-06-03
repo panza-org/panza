@@ -1620,18 +1620,11 @@
     }
   },
   "components/panza/RowInput/InputDatePicker.js": {
-    "description": "Composes <InputPicker /> and provides a cross-platform\nDatePicker widget as user input.",
+    "description": "Provides a cross-platform InputRow to prompmt the user for\na date-picker. On iOS devices, it expands the input to reveal\nthe date-picker. On Android, it prompts the user for a\ndate-picker in a popup.",
     "displayName": "InputDatePicker",
     "methods": [
       {
         "name": "renderIOS",
-        "docblock": null,
-        "modifiers": [],
-        "params": [],
-        "returns": null
-      },
-      {
-        "name": "renderAndroid",
         "docblock": null,
         "modifiers": [],
         "params": [],
@@ -1648,21 +1641,14 @@
       }
     ],
     "props": {
-      "hasFocus": {
+      "expanded": {
         "type": {
           "name": "bool"
         },
         "required": true,
         "description": ""
       },
-      "onRequestFocus": {
-        "type": {
-          "name": "func"
-        },
-        "required": true,
-        "description": ""
-      },
-      "onRequestClose": {
+      "onToggleExpansion": {
         "type": {
           "name": "func"
         },
@@ -1704,13 +1690,6 @@
         "required": true,
         "description": ""
       },
-      "underlayColor": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": ""
-      },
       "onDateChange": {
         "type": {
           "name": "func"
@@ -1718,7 +1697,7 @@
         "required": true,
         "description": ""
       },
-      "showMore": {
+      "editable": {
         "type": {
           "name": "bool"
         },
@@ -1728,12 +1707,26 @@
           "value": "true",
           "computed": false
         }
-      },
-      "disabled": {
+      }
+    }
+  },
+  "components/panza/RowInput/InputExpandable.js": {
+    "description": "A touchable input field that expands (iOS) or\npops up (Android) to reveal a picker widget.",
+    "displayName": "InputExpandable",
+    "methods": [],
+    "props": {
+      "expanded": {
         "type": {
           "name": "bool"
         },
-        "required": false,
+        "required": true,
+        "description": ""
+      },
+      "Row": {
+        "type": {
+          "name": "node"
+        },
+        "required": true,
         "description": ""
       }
     }
@@ -1838,7 +1831,7 @@
     "methods": []
   },
   "components/panza/RowInput/InputPicker.js": {
-    "description": "A touchable input field that expands (iOS) or\npops up (Android) to reveal a picker widget.",
+    "description": "On iOS we always want the input field to expand downwards\nto reveal the picker. On Android, we want to render the\nPicker in dialog form when touched.",
     "displayName": "InputPicker",
     "methods": [
       {
@@ -1849,7 +1842,7 @@
         "returns": null
       },
       {
-        "name": "togglePicker",
+        "name": "renderIOS",
         "docblock": null,
         "modifiers": [],
         "params": [],
@@ -1857,64 +1850,37 @@
       }
     ],
     "props": {
-      "hasFocus": {
-        "type": {
-          "name": "bool"
-        },
-        "required": true,
-        "description": ""
-      },
-      "onRequestFocus": {
+      "onToggleExpansion": {
         "type": {
           "name": "func"
         },
         "required": true,
+        "description": ""
+      },
+      "editable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
         "description": ""
       },
       "label": {
         "type": {
           "name": "string"
         },
-        "required": false,
-        "description": ""
-      },
-      "value": {
-        "type": {
-          "name": "string"
-        },
         "required": true,
         "description": ""
-      },
-      "onRequestClose": {
-        "type": {
-          "name": "func"
-        },
-        "required": true,
-        "description": ""
-      },
-      "underlayColor": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "",
-        "defaultValue": {
-          "value": "'rgba(0,0,0,0.1)'",
-          "computed": false
-        }
-      },
-      "disabled": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": ""
-      },
-      "showMore": {
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
       }
     }
   },
@@ -2008,6 +1974,23 @@
         },
         "required": true,
         "description": ""
+      },
+      "editable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "onTintColor": {
+        "defaultValue": {
+          "value": "'success'",
+          "computed": false
+        }
       }
     }
   },
