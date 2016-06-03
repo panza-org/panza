@@ -1,3 +1,7 @@
+## Examples
+
+### Basic button with label
+
 ![Basic button](/documentation/images/ButtonBasic.png)
 ```javascript
 import { Button } from 'panza'
@@ -7,6 +11,8 @@ import { Button } from 'panza'
   label='Default Button'
 />
 ```
+
+### Button block
 
 ![Block button](images/ButtonBlock.png)
 ```javascript
@@ -18,6 +24,8 @@ import { Button } from 'panza'
   label='Button with block'
 />
 ```
+
+### Custom, smaller button
 
 ![Custom button](images/ButtonCustom.png)
 ```javascript
@@ -31,6 +39,8 @@ import { Button, SecondaryText } from 'panza'
     </SecondaryText>
 </Button>
 ```
+
+### Button with an icon
 
 ![Button with icon](images/ButtonWithIcon.png)
 ```javascript
