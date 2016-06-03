@@ -1,0 +1,19 @@
+![Input date picker iOS](images/InputDatePicker.png)
+
+```javascript
+import { InputDatePicker } from 'panza'
+
+<InputDatePicker
+  expanded={this.state.focusDate}
+  date={this.state.date}
+  editable={this.state.editable}
+  value={new Date(this.state.date).getFullYear().toString()}
+  onDateChange={(date) => this.setState({ date })}
+  label='Your Birthday'
+  onToggleExpansion={() => {
+    LayoutAnimation.spring()
+    this.setState({ focusDate: !this.state.focusDate })
+  }}
+/>
+
+```

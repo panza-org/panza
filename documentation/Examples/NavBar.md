@@ -1,0 +1,60 @@
+![NavBar example](images/NavBar.png)
+
+```javascript
+import {
+  NavBar,
+  NavTouchableIcon,
+  BackIcon,
+  NavTouchableText
+} from 'panza'
+
+<NavBar
+  backgroundColor='primary'
+  mt={2}
+  LeftButton={(
+    <NavTouchableIcon onPress={() => navigator.pop()}>
+      <BackIcon color='white' />
+    </NavTouchableIcon>
+  )}
+  RightButton={(
+    <NavTouchableText color='white'>
+      Save
+    </NavTouchableText>
+  )}
+  title='Title'
+  titleColor='white'
+/>
+
+
+<NavBar
+  mt={2}
+  LeftButton={(
+    <NavTouchableText>
+      Cancel
+    </NavTouchableText>
+  )}
+  RightButton={(
+    <NavTouchableText disabled>
+      Save
+    </NavTouchableText>
+  )}
+  title='Touchable Text'
+/>
+<SubNav
+  options={[
+    {
+      label: 'Option one',
+      onPress: noop
+    },
+    {
+      label: 'Option two',
+      onPress: noop
+    },
+    {
+      label: 'Option three',
+      onPress: noop
+    }
+  ]}
+/>
+
+```
