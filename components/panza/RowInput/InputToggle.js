@@ -12,6 +12,8 @@ import {
   InputRowCell
 } from '../index'
 
+import config from '../config'
+
 /**
  * An input row with a <Switch /> that allows
  * the user to toggle a value.
@@ -26,11 +28,18 @@ class InputToggle extends React.Component {
     value: PropTypes.bool.isRequired,
     backgroundColor: PropTypes.string,
     label: PropTypes.string.isRequired,
-    onValueChange: PropTypes.func.isRequired
+    onValueChange: PropTypes.func.isRequired,
+    editable: PropTypes.bool
   }
 
   static defaultProps = {
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
+    editable: true,
+    onTintColor: 'success'
+  }
+
+  static contextTypes = {
+    panza: PropTypes.object
   }
 
   render () {
@@ -38,11 +47,20 @@ class InputToggle extends React.Component {
       style,
       label,
       value,
+      editable,
       onValueChange,
       switchProps,
+      onTintColor,
       backgroundColor,
       ...other
     } = this.props
+
+    const {
+      panza
+    } = this.context
+
+    const { colors } = {...config, ...panza || {}}
+    let tintColor = colors[onTintColor]
 
     return (
       <InputRowCell>
@@ -55,6 +73,8 @@ class InputToggle extends React.Component {
           <Switch
             style={styles.switch}
             value={value}
+            edisabled={!editable}
+            onTintColor={tintColor}
             {...switchProps}
             onValueChange={onValueChange}
           />
@@ -65,21 +85,13 @@ class InputToggle extends React.Component {
   }
 }
 
-var styles = StyleSheet.create({
-  input: {
-    borderWidth: 0
-  },
-  labelText: {
-    position: 'absolute',
-    marginVertical: 12,
-    top: 0,
-    left: 15,
-    color: '#333'
-  },
+
+
+const styles = StyleSheet.create({
   switch: {
     marginVertical: 5,
     alignSelf: 'flex-end',
-    marginRight: 15,
+    marginRight: 16,
     ...Platform.select({
       android: {
         marginVertical: 13

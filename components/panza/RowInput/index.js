@@ -9,6 +9,7 @@ import RemovableInput from './RemovableInput'
 import InputRowRevealOptions, { RevealOption} from './InputRowRevealOptions'
 import AddRow from './AddRow'
 import TouchableInput from './TouchableInput'
+import InputExpandable from './InputExpandable'
 
 export {
   InputRowCell,
@@ -22,5 +23,6 @@ export {
   InputRowRevealOptions,
   RevealOption,
   AddRow,
-  TouchableInput
+  TouchableInput,
+  InputExpandable
 }

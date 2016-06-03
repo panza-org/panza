@@ -50,10 +50,9 @@ export default class IconExample extends React.Component {
 
         <Base p={2}>
           <PrimaryText>TouchableIcon</PrimaryText>
-            <TouchableIcon
-              onPress={() => console.log('hello icon')}>
-              <CloseIcon color='primary' />
-            </TouchableIcon>
+          <TouchableIcon>
+            <MoreIcon color='black' />
+          </TouchableIcon>
         </Base>
 
       </ScrollView>

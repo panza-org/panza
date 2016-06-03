@@ -6,25 +6,23 @@ import {
   TouchableHighlight,
   Animated,
   LayoutAnimation,
-  Platform,
-  DatePickerIOS,
-  Dimensions
+  Platform
 } from 'react-native'
 
 import {
   PrimaryText,
-  Base
+  Base,
+  InputRowCell,
+  SecondaryText,
+  InputExpandable,
+  TouchableInput,
+  config
 } from '../index'
 
-import InputRowCell from './InputRowCell'
-
-const screen = Dimensions.get('window')
-
-import config from '../config'
-
 /**
- * A touchable input field that expands (iOS) or
- * pops up (Android) to reveal a picker widget.
+ * On iOS we always want the input field to expand downwards
+ * to reveal the picker. On Android, we want to render the
+ * Picker in dialog form when touched.
  */
 
 class InputPicker extends React.Component {
@@ -32,140 +30,98 @@ class InputPicker extends React.Component {
   static displayName = 'InputPicker'
 
   static propTypes = {
-    hasFocus: PropTypes.bool.isRequired,
-    onRequestFocus: PropTypes.func.isRequired,
-    label: PropTypes.string,
-    value: PropTypes.string.isRequired,
-    onRequestClose: PropTypes.func.isRequired,
-    underlayColor: PropTypes.string,
-    disabled: PropTypes.bool
+    onToggleExpansion: PropTypes.func.isRequired,
+    editable: PropTypes.bool,
+    value: PropTypes.string,
+    label: PropTypes.string.isRequired
+  }
+
+  static contextTypes = {
+    panza: PropTypes.object
   }
 
   static defaultProps = {
-    showMore: true,
-    underlayColor: 'rgba(0,0,0,0.1)'
+    editable: true
+  }
+
+  render() {
+    return (
+      <View style={{ flex: 1 }}>
+        {Platform.OS === 'android'
+          ? this.renderAndroid()
+          : this.renderIOS()
+        }
+      </View>
+    )
   }
 
   renderAndroid() {
-    return (
-      <View style={styles.wrapperAndroid}>
-        <View style={styles.androidLabel}>
-          <Text style={[styles.labelText]}>
-            {this.props.label}
-          </Text>
-        </View>
-        <View>
-          {this.props.children}
-        </View>
-      </View>
-    )
-  }
 
-  render () {
+    const {
+      label,
+      editable
+    } = this.props
 
-    // if (Platform.OS === 'android') {
-    //   return this.renderAndroid()
-    // }
+    const {
+      panza
+    } = this.context
 
-    return (
-      <View style={{ flex: 1}}>
+    const { fontSizes } = {...config, ...panza}
 
-        <InputRowCell>
-          <TouchableHighlight
-            style={[styles.input]}
-            underlayColor={this.props.underlayColor}
-            activeOpacity={this.props.disabled ? 1 : 0.4}
-            onPress={() => {
-              if (this.props.disabled) return
-              this.togglePicker()
-            }}>
-            <View style={styles.rowContainer}>
-              {this.props.label && (
-                <Base pl={2}>
-                  <PrimaryText>
-                    {this.props.label}
-                  </PrimaryText>
-                </Base>
-              )}
-              <Base flex={1} align='flex-end' pr={2}>
-                <PrimaryText light style={[this.props.hasFocus && { color: config.colors.red }]}>
-                  {this.props.value}
-                </PrimaryText>
-              </Base>
-            </View>
-          </TouchableHighlight>
-        </InputRowCell>
 
-        {this.props.hasFocus && (
-          <View style={styles.pickerWrapper}>
-            {this.props.children}
-          </View>
-        )}
-        
-      </View>
-    )
-  }
-
-  togglePicker() {
-    if (this.props.onToggle) {
-      this.props.onToggle()
+    const androidStyles = {
+      padding: 0,
+      fontSize: fontSizes[4]
     }
 
-    if (this.props.hasFocus) {
-      this.props.onRequestClose()
-    } else {
-      this.props.onRequestFocus()
-    }
+    const child = React.Children.only(this.props.children)
+    const clone = React.cloneElement(child, {
+      enabled: editable,
+      style: Object.assign(androidStyles, child.props.style)
+    })
+
+    return (
+      <Base px={1} pt={2}>
+        <Base px={1}>
+          <SecondaryText light>{label}</SecondaryText>
+        </Base>
+        {clone}
+      </Base>
+    )
+
+  }
+
+  renderIOS() {
+
+    const {
+      label,
+      value,
+      expanded,
+      onToggleExpansion,
+      editable,
+      backgroundColor,
+      ...other
+    } = this.props
+
+    const Row = (
+      <TouchableInput
+        label={label}
+        value={value}
+        onPress={onToggleExpansion}
+        backgroundColor={backgroundColor}
+        disabled={!editable}
+        {...other}
+      />
+    )
+
+    return (
+      <InputExpandable
+        expanded={expanded}
+        Row={Row}>
+          {React.Children.only(this.props.children)}
+      </InputExpandable>
+    )
   }
 }
-
-var styles = StyleSheet.create({
-  input: {
-    borderWidth: 0,
-    flex: 1
-  },
-  androidLabel: {
-    paddingLeft: 15,
-    paddingTop: 15
-  },
-  wrapperAndroid: {
-    // paddingLeft: 15
-  },
-  labelText: {
-    flex: 1,
-    color: 'black',
-  },
-  dateText: {
-    marginVertical: 12,
-    paddingRight: 15,
-    textAlign: 'left',
-    flex: 1
-  },
-    arrowRight: {
-    width: 30,
-    height: 30,
-    marginRight: 5,
-    alignSelf: 'center',
-    alignItems: 'center'
-  },  arrow: {
-      paddingRight: 5,
-      paddingLeft: 5,
-      marginRight: 5,
-      paddingTop: 3,
-      alignSelf: 'center',
-      alignItems: 'center'
-    },
-  pickerWrapper: {
-
-      overflow: 'hidden',
-      flexDirection: 'column',
-      width: screen.width,
-      justifyContent: 'center',
-      alignItems: 'center',
-      flex: 1
-    },
-
-    rowContainer: { height: 55, justifyContent: 'center', flexDirection: 'row', alignItems: 'center', flex: 1}
-})
 
 export default InputPicker

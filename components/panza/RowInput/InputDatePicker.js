@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react'
 import {
   Base,
-  InputPicker
+  InputExpandable,
+  TouchableInput
 } from '../index'
 import {
   Platform,
@@ -16,8 +17,10 @@ import {
 const screen = Dimensions.get('window')
 
 /**
- * Composes <InputPicker /> and provides a cross-platform
- * DatePicker widget as user input.
+ * Provides a cross-platform InputRow to prompmt the user for
+ * a date-picker. On iOS devices, it expands the input to reveal
+ * the date-picker. On Android, it prompts the user for a
+ * date-picker in a popup.
  */
 
 class InputDatePicker extends React.Component {
@@ -25,64 +28,61 @@ class InputDatePicker extends React.Component {
   static displayName = 'InputDatePicker'
 
   static propTypes = {
-    hasFocus: PropTypes.bool.isRequired,
-    onRequestFocus: PropTypes.func.isRequired,
-    onRequestClose: PropTypes.func.isRequired,
+    expanded: PropTypes.bool.isRequired,
+    onToggleExpansion: PropTypes.func.isRequired,
     maxDate: PropTypes.string,
     minDate: PropTypes.string,
     label: PropTypes.string,
     mode: PropTypes.string,
     date: PropTypes.object.isRequired,
-    underlayColor: PropTypes.string,
     onDateChange: PropTypes.func.isRequired,
-    showMore: PropTypes.bool,
-    disabled: PropTypes.bool
+    editable: PropTypes.bool
   }
 
   static defaultProps = {
-    showMore: true
+    editable: true
   }
 
   render() {
 
     const {
-      hasFocus,
-      onRequestClose,
-      onRequestFocus,
+      expanded,
+      onToggleExpansion,
       label,
       value,
-      underlayColor,
-      disabled,
+      editable,
       ...other
     } = this.props
 
-    const ios = Platform.OS === 'ios'
-
-    return (
-      <InputPicker
-        hasFocus={hasFocus}
-        onToggle={() => this.toggleDatePicker()}
-        onRequestFocus={onRequestFocus}
-        onRequestClose={onRequestClose}
+    const Row = (
+      <TouchableInput
         label={label}
         value={value}
-        underlayColor={underlayColor}
-        disabled={disabled}
-      >
-        {
-          ios
-            ? this.renderIOS()
-            : this.renderAndroid()
-        }
-      </InputPicker>
+        onPress={() => {
+          if (Platform.OS === 'ios') {
+            return onToggleExpansion()
+          } else if (Platform.OS === 'android') {
+            this.toggleDatePicker()
+          }
+        }}
+        disabled={!editable}
+        {...other}
+      />
+    )
+
+    return (
+      <InputExpandable
+        expanded={Platform.OS === 'ios' ? expanded : false}
+        Row={Row}>
+          {Platform.OS === 'ios' && this.renderIOS() }
+      </InputExpandable>
     )
   }
 
   renderIOS() {
     return (
       <View
-        pointerEvents={this.props.hasFocus ? 'auto' : 'none'}
-        style={[styles.pickerWrapper, !this.props.hasFocus && { height: 0 }]}>
+        style={styles.pickerWrapper}>
         <DatePickerIOS
           date={new Date(this.props.date)}
           maximumDate={this.props.maxDate}
@@ -96,9 +96,6 @@ class InputDatePicker extends React.Component {
     )
   }
 
-  renderAndroid() {
-    return null
-  }
 
   async toggleDatePicker() {
     if (Platform.OS === 'android') {
@@ -109,8 +106,6 @@ class InputDatePicker extends React.Component {
           minDate: this.props.minDate,
           maxDate: this.props.maxDate
         })
-
-        this.props.onRequestClose()
 
         if (action === DatePickerAndroid.dismissedAction) {
           console.log('dismissed')

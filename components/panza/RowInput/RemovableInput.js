@@ -53,6 +53,7 @@ class RemovableInput extends React.Component {
 
   static propTypes = {
     label: PropTypes.string,
+    autoFocus: PropTypes.bool,
     removable: PropTypes.bool,
     placeholder: PropTypes.string,
     vertical: PropTypes.bool,
@@ -76,7 +77,8 @@ class RemovableInput extends React.Component {
     keyboardType: 'numeric',
     autoFocus: true,
     vertical: false,
-    condensed: false
+    condensed: false,
+    autoFocus: false
   }
 
   constructor(props) {
@@ -178,6 +180,7 @@ class RemovableInput extends React.Component {
           {this.props.editable
             ? (
               <SecondaryTextInput
+                autoFocus={this.props.autoFocus}
                 placeholder={this.props.placeholder}
                 style={[styles.input, (this.props.vertical || !this.props.label) && { paddingLeft: 0 }]}
                 value={this.props.value}
