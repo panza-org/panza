@@ -1,4 +1,4 @@
-![Basic button](images/ButtonBasic.png)
+![Basic button](/documentation/images/ButtonBasic.png)
 ```javascript
 import { Button } from 'panza'
 
