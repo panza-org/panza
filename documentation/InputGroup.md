@@ -3,12 +3,15 @@
 
 Wrap inputs using this component to provide
 borders between them, top borders, bottom borders,
-margin top, margin bottom, background colors.
+margin top, margin bottom, background colors, etc. Use the
+inset prop to control the inset margin of the divider.
 
 Props
 -----
 
 ### `bottomInset`
+
+left margin inset of the bottom border *
 
 type: `number`
 defaultValue: `0`
@@ -16,16 +19,22 @@ defaultValue: `0`
 
 ### `inset`
 
+left margin inset for the divider border *
+
 type: `number`
 defaultValue: `0`
 
 
 ### `label`
 
+an optional label for the input group *
+
 type: `string`
 
 
 ### `showBorder`
+
+whether to show the dividing border *
 
 type: `bool`
 defaultValue: `true`
@@ -33,11 +42,15 @@ defaultValue: `true`
 
 ### `showBottomBorder`
 
+whether to show the bottom border *
+
 type: `bool`
 defaultValue: `true`
 
 
 ### `showTopBorder`
+
+whether show the top border *
 
 type: `bool`
 defaultValue: `true`
@@ -50,11 +63,42 @@ type: `object`
 
 ### `topInset`
 
+left margin inset of the top border *
+
 type: `number`
 defaultValue: `0`
 
+![Input group](images/InputGroup.png)
+```javascript
+import {
+  InputGroup,
+  InputToggle,
+  InputRow,
+  SearchIcon
+} from 'panza'
 
-### `white`
-
-type: `bool`
-
+<InputGroup label='ROW INPUT' inset={16} mt={3}>
+  <InputToggle
+    value={this.state.editable}
+    onTintColor='warning'
+    onValueChange={(editable) => this.setState({ editable })}
+    label='Editable?'
+  />
+  <InputRow
+    placeholder='Basic Input'
+    value={this.state.basic}
+    editable={this.state.editable}
+    onChangeText={(basic) => this.setState({ basic })} />
+  <InputRow
+    label='Basic Input with Label'
+    placeholder='Your value'
+    value={this.state.label}
+    editable={this.state.editable}
+    onChangeText={(label) => this.setState({ label })} />
+  <InputRow
+    icon={<SearchIcon />}
+    textAlign='left'
+    editable={this.state.editable}
+    placeholder='Input with icon' />
+</InputGroup>
+```

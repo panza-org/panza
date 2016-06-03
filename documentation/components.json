@@ -1408,7 +1408,7 @@
     }
   },
   "components/panza/RowInput/InputDatePicker.js": {
-    "description": "Provides a cross-platform InputRow to prompmt the user for\na date-picker. On iOS devices, it expands the input to reveal\nthe date-picker. On Android, it prompts the user for a\ndate-picker in a popup.",
+    "description": "Provides a cross-platform InputRow that prompts the user with\na native date-picker. On iOS devices, it expands the input to reveal\nthe date-picker. On Android, it prompts the user for a\ndate-picker in a popup.",
     "displayName": "InputDatePicker",
     "methods": [
       {
@@ -1441,7 +1441,14 @@
           "name": "func"
         },
         "required": true,
-        "description": ""
+        "description": "function called to toggle the visibility of the date-picker. (iOS only) *"
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "the currently selected date to be displayed in collapsed row. *"
       },
       "maxDate": {
         "type": {
@@ -1520,7 +1527,7 @@
     }
   },
   "components/panza/RowInput/InputGroup.js": {
-    "description": "Wrap inputs using this component to provide\nborders between them, top borders, bottom borders,\nmargin top, margin bottom, background colors.",
+    "description": "Wrap inputs using this component to provide\nborders between them, top borders, bottom borders,\nmargin top, margin bottom, background colors, etc. Use the\ninset prop to control the inset margin of the divider.",
     "displayName": "InputGroup",
     "methods": [],
     "props": {
@@ -1536,7 +1543,7 @@
           "name": "number"
         },
         "required": false,
-        "description": "",
+        "description": "left margin inset for the divider border *",
         "defaultValue": {
           "value": "0",
           "computed": false
@@ -1547,7 +1554,7 @@
           "name": "bool"
         },
         "required": false,
-        "description": "",
+        "description": "whether show the top border *",
         "defaultValue": {
           "value": "true",
           "computed": false
@@ -1558,7 +1565,7 @@
           "name": "bool"
         },
         "required": false,
-        "description": "",
+        "description": "whether to show the bottom border *",
         "defaultValue": {
           "value": "true",
           "computed": false
@@ -1569,7 +1576,7 @@
           "name": "bool"
         },
         "required": false,
-        "description": "",
+        "description": "whether to show the dividing border *",
         "defaultValue": {
           "value": "true",
           "computed": false
@@ -1580,7 +1587,7 @@
           "name": "number"
         },
         "required": false,
-        "description": "",
+        "description": "left margin inset of the top border *",
         "defaultValue": {
           "value": "0",
           "computed": false
@@ -1591,25 +1598,18 @@
           "name": "number"
         },
         "required": false,
-        "description": "",
+        "description": "left margin inset of the bottom border *",
         "defaultValue": {
           "value": "0",
           "computed": false
         }
-      },
-      "white": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": ""
       },
       "label": {
         "type": {
           "name": "string"
         },
         "required": false,
-        "description": ""
+        "description": "an optional label for the input group *"
       }
     }
   },
@@ -1643,7 +1643,7 @@
           "name": "func"
         },
         "required": true,
-        "description": ""
+        "description": "a function called when toggling the visibility of the picker. (iOS only) *"
       },
       "editable": {
         "type": {
@@ -1661,14 +1661,21 @@
           "name": "string"
         },
         "required": false,
-        "description": ""
+        "description": "the picker value displayed in the row. (iOS only) *"
       },
       "label": {
         "type": {
           "name": "string"
         },
         "required": true,
-        "description": ""
+        "description": "the label for the picker *"
+      },
+      "expanded": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "controls whether the picker is visible. (iOS only) *"
       }
     }
   },
@@ -1702,6 +1709,34 @@
       "customInput": {
         "type": {
           "name": "node"
+        },
+        "required": false,
+        "description": ""
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "icon": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": ""
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "maxLength": {
+        "type": {
+          "name": "number"
         },
         "required": false,
         "description": ""

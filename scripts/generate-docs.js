@@ -80,5 +80,14 @@ keys.forEach((key) => {
   const comp = documents[key]
   const name = comp.displayName || key
   const md = generateMarkdown(name, comp)
-  fs.writeFileSync(__dirname + '/../documentation/'+ name + '.md', md)
+
+  var exampleExists = fs.existsSync(__dirname + '/../documentation/Examples/'+name+'.md')
+
+  var example = exampleExists ? fs.readFileSync(__dirname + '/../documentation/Examples/'+name+'.md', {
+    encoding: 'utf-8'
+  }) : ''
+
+  fs.writeFileSync(__dirname + '/../documentation/'+ name + '.md', md + example)
+
+
 })
