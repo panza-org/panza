@@ -6,7 +6,7 @@ import Button from './Button'
  */
 
 const NakedButton = (props) => {
-  return <Button p={2} underlayColor='rgba(0,0,0,0.2)' {...props} />
+  return <Button underlayColor='rgba(0,0,0,0.2)' {...props} />
 }
 
 NakedButton.displayName = 'NakedButton'
@@ -14,16 +14,7 @@ NakedButton.displayName = 'NakedButton'
 NakedButton.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string,
-  underlayColor: PropTypes.string,
-  theme: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'default',
-    'info',
-    'success',
-    'warning',
-    'error'
-  ])
+  underlayColor: PropTypes.string
 }
 
 export default NakedButton

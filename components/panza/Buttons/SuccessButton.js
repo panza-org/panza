@@ -6,7 +6,7 @@ import Button from './Button'
  */
 
 const SuccessButton = (props) => {
-  return <Button backgroundColor='success' textColor='white' p={2} {...props} />
+  return <Button backgroundColor='success' textColor='white' {...props} />
 }
 
 SuccessButton.displayName = 'SuccessButton'
@@ -14,16 +14,7 @@ SuccessButton.displayName = 'SuccessButton'
 SuccessButton.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string,
-  underlayColor: PropTypes.string,
-  theme: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'default',
-    'info',
-    'success',
-    'warning',
-    'error'
-  ])
+  underlayColor: PropTypes.string
 }
 
 export default SuccessButton

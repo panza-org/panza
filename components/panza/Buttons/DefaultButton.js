@@ -6,7 +6,7 @@ import Button from './Button'
  */
 
 const DefaultButton = (props) => {
-  return <Button backgroundColor='info' textColor='white' p={2} {...props} />
+  return <Button backgroundColor='info' textColor='white' {...props} />
 }
 
 DefaultButton.displayName = 'DefaultButton'
@@ -14,16 +14,7 @@ DefaultButton.displayName = 'DefaultButton'
 DefaultButton.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string,
-  underlayColor: PropTypes.string,
-  theme: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'default',
-    'info',
-    'success',
-    'warning',
-    'error'
-  ])
+  underlayColor: PropTypes.string
 }
 
 export default DefaultButton

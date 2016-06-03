@@ -21,8 +21,10 @@ import {
 const Button = ({
   label,
   textColor,
+  block,
   children,
   backgroundColor,
+  disabled,
   underlayColor,
   ...other
 }, { panza }) => {
@@ -30,15 +32,20 @@ const Button = ({
   return (
     <Base
       Component={TouchableHighlight}
-      baseStyle={styles.button}
+      disabled={disabled}
+      baseStyle={[
+        styles.button,
+        block && styles.block,
+        disabled && styles.disabled
+      ]}
       backgroundColor={backgroundColor}
       underlayColor={'darken'}
       {...other}>
-        {children ||  (
-          <View>
+        <View>
+          {children || (
             <PrimaryText color={textColor}>{label}</PrimaryText>
-          </View>
-        )}
+          )}
+        </View>
     </Base>
   )
 }
@@ -46,6 +53,7 @@ const Button = ({
 Button.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string,
+  onPress: PropTypes.func.isRequired,
   underlayColor: PropTypes.string,
   theme: PropTypes.oneOf([
     'primary',
@@ -61,9 +69,10 @@ Button.propTypes = {
 Button.displayName = 'ButtonBase'
 
 Button.defaultProps = {
-  theme: 'default',
+  backgroundColor: 'info',
   disabled: false,
-  textColor: 'default'
+  textColor: 'white',
+  p: 2
 }
 
 Button.contextTypes = {
@@ -74,11 +83,16 @@ const styles = StyleSheet.create({
   button: {
     borderWidth: 0,
     borderRadius: 3,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    flexDirection: 'row',
+    alignSelf: 'flex-start'
   },
   disabled: {
-    opacity: 0.3
+    opacity: 0.2
+  },
+  block: {
+    alignSelf: 'stretch'
   }
 })
 

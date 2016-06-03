@@ -8,7 +8,7 @@ import Button from './Button'
  */
 
 const WarningButton = (props) => {
-  return <Button backgroundColor='warning' textColor='white' p={2} {...props} />
+  return <Button backgroundColor='warning' textColor='white' {...props} />
 }
 
 WarningButton.displayName = 'WarningButton'
@@ -16,16 +16,7 @@ WarningButton.displayName = 'WarningButton'
 WarningButton.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string,
-  underlayColor: PropTypes.string,
-  theme: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'default',
-    'info',
-    'success',
-    'warning',
-    'error'
-  ])
+  underlayColor: PropTypes.string
 }
 
 export default WarningButton

@@ -1,11 +1,13 @@
 import {
   Button,
+  InfoButton,
   PrimaryButton,
   WarningButton,
   ErrorButton,
   SuccessButton,
   NakedButton,
   SectionHeader,
+  SecondaryText,
   Base,
   VerticalButtonGroup
 } from '../panza'
@@ -33,13 +35,30 @@ export default class Buttons extends React.Component {
           label='DefaultButton'
         />
         <Button
+          block
           onPress={() => {
             console.log('hello world')
           }}
           mt={1}
-          p={1}
-          label='DefaultButton smaller'
+          label='Button with block'
         />
+        <Button
+          onPress={() => {
+            console.log('hello world')
+          }}
+          mt={1}
+          p={1}>
+        <SecondaryText color='white'>Button with custom text style</SecondaryText>
+      </Button>
+
+      <SuccessButton
+        mt={1}
+        disabled
+        onPress={() => {
+
+        }}
+        label='disabled'
+      />
 
         <SuccessButton
           mt={1}

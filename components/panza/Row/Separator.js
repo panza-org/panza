@@ -8,16 +8,22 @@ import {
 
 import Base from '../Base'
 
+import { config } from '../index'
+
 /**
  * A simple component used to separate rows, with an
  * optional inset margin on the left or right.
  */
 
-const RowSeparator = ({ inset, insetRight, ...other}) => {
+const RowSeparator = ({ inset, insetRight, ...other}, { panza }) => {
+
+  const { borderColor } = { ...config, ...panza }
+
   return (
     <Base
       baseStyle={[
         styles.separator,
+        { backgroundColor: borderColor },
         inset && { marginLeft: inset },
         insetRight && {marginRight: insetRight}
       ]}
@@ -38,10 +44,13 @@ RowSeparator.defaultProps = {
   insetRight: 0
 }
 
+RowSeparator.contextTypes = {
+  panza: PropTypes.object
+}
+
 const styles = StyleSheet.create({
   separator: {
-    height: 1 / PixelRatio.get(),
-    backgroundColor: '#ccc'
+    height: 1 / PixelRatio.get()
   }
 })
 

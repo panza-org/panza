@@ -6,7 +6,7 @@ import Button from './Button'
  */
 
 const ErrorButton = (props) => {
-  return <Button backgroundColor='error' textColor='white' p={2} {...props} />
+  return <Button backgroundColor='error' textColor='white' {...props} />
 }
 
 ErrorButton.displayName = 'ErrorButton'
@@ -14,16 +14,7 @@ ErrorButton.displayName = 'ErrorButton'
 ErrorButton.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string,
-  underlayColor: PropTypes.string,
-  theme: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'default',
-    'info',
-    'success',
-    'warning',
-    'error'
-  ])
+  underlayColor: PropTypes.string
 }
 
 export default ErrorButton
