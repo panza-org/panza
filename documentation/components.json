@@ -484,7 +484,7 @@
           "name": "bool"
         },
         "required": false,
-        "description": "",
+        "description": "disables the button, and reduces its opacity *",
         "defaultValue": {
           "value": "false",
           "computed": false
@@ -495,6 +495,13 @@
           "name": "string"
         },
         "required": false,
+        "description": "the text string for the button. alternatively, pass a Text as a child *"
+      },
+      "onPress": {
+        "type": {
+          "name": "func"
+        },
+        "required": true,
         "description": ""
       },
       "underlayColor": {
@@ -502,52 +509,48 @@
           "name": "string"
         },
         "required": false,
-        "description": ""
+        "description": "",
+        "defaultValue": {
+          "value": "'darken'",
+          "computed": false
+        }
       },
-      "theme": {
+      "backgroundColor": {
         "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "'primary'",
-              "computed": false
-            },
-            {
-              "value": "'secondary'",
-              "computed": false
-            },
-            {
-              "value": "'default'",
-              "computed": false
-            },
-            {
-              "value": "'info'",
-              "computed": false
-            },
-            {
-              "value": "'success'",
-              "computed": false
-            },
-            {
-              "value": "'warning'",
-              "computed": false
-            },
-            {
-              "value": "'error'",
-              "computed": false
-            }
-          ]
+          "name": "string"
         },
         "required": false,
         "description": "",
         "defaultValue": {
-          "value": "'default'",
+          "value": "'info'",
+          "computed": false
+        }
+      },
+      "block": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "stretch the button width *",
+        "defaultValue": {
+          "value": "false",
           "computed": false
         }
       },
       "textColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "style text colour when using label prop *",
         "defaultValue": {
-          "value": "'default'",
+          "value": "'white'",
+          "computed": false
+        }
+      },
+      "p": {
+        "defaultValue": {
+          "value": "2",
           "computed": false
         }
       }
@@ -575,43 +578,6 @@
       "underlayColor": {
         "type": {
           "name": "string"
-        },
-        "required": false,
-        "description": ""
-      },
-      "theme": {
-        "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "'primary'",
-              "computed": false
-            },
-            {
-              "value": "'secondary'",
-              "computed": false
-            },
-            {
-              "value": "'default'",
-              "computed": false
-            },
-            {
-              "value": "'info'",
-              "computed": false
-            },
-            {
-              "value": "'success'",
-              "computed": false
-            },
-            {
-              "value": "'warning'",
-              "computed": false
-            },
-            {
-              "value": "'error'",
-              "computed": false
-            }
-          ]
         },
         "required": false,
         "description": ""
@@ -643,43 +609,6 @@
         },
         "required": false,
         "description": ""
-      },
-      "theme": {
-        "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "'primary'",
-              "computed": false
-            },
-            {
-              "value": "'secondary'",
-              "computed": false
-            },
-            {
-              "value": "'default'",
-              "computed": false
-            },
-            {
-              "value": "'info'",
-              "computed": false
-            },
-            {
-              "value": "'success'",
-              "computed": false
-            },
-            {
-              "value": "'warning'",
-              "computed": false
-            },
-            {
-              "value": "'error'",
-              "computed": false
-            }
-          ]
-        },
-        "required": false,
-        "description": ""
       }
     }
   },
@@ -705,43 +634,6 @@
       "underlayColor": {
         "type": {
           "name": "string"
-        },
-        "required": false,
-        "description": ""
-      },
-      "theme": {
-        "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "'primary'",
-              "computed": false
-            },
-            {
-              "value": "'secondary'",
-              "computed": false
-            },
-            {
-              "value": "'default'",
-              "computed": false
-            },
-            {
-              "value": "'info'",
-              "computed": false
-            },
-            {
-              "value": "'success'",
-              "computed": false
-            },
-            {
-              "value": "'warning'",
-              "computed": false
-            },
-            {
-              "value": "'error'",
-              "computed": false
-            }
-          ]
         },
         "required": false,
         "description": ""
@@ -773,43 +665,6 @@
         },
         "required": false,
         "description": ""
-      },
-      "theme": {
-        "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "'primary'",
-              "computed": false
-            },
-            {
-              "value": "'secondary'",
-              "computed": false
-            },
-            {
-              "value": "'default'",
-              "computed": false
-            },
-            {
-              "value": "'info'",
-              "computed": false
-            },
-            {
-              "value": "'success'",
-              "computed": false
-            },
-            {
-              "value": "'warning'",
-              "computed": false
-            },
-            {
-              "value": "'error'",
-              "computed": false
-            }
-          ]
-        },
-        "required": false,
-        "description": ""
       }
     }
   },
@@ -835,43 +690,6 @@
       "underlayColor": {
         "type": {
           "name": "string"
-        },
-        "required": false,
-        "description": ""
-      },
-      "theme": {
-        "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "'primary'",
-              "computed": false
-            },
-            {
-              "value": "'secondary'",
-              "computed": false
-            },
-            {
-              "value": "'default'",
-              "computed": false
-            },
-            {
-              "value": "'info'",
-              "computed": false
-            },
-            {
-              "value": "'success'",
-              "computed": false
-            },
-            {
-              "value": "'warning'",
-              "computed": false
-            },
-            {
-              "value": "'error'",
-              "computed": false
-            }
-          ]
         },
         "required": false,
         "description": ""
@@ -930,43 +748,6 @@
         },
         "required": false,
         "description": ""
-      },
-      "theme": {
-        "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "'primary'",
-              "computed": false
-            },
-            {
-              "value": "'secondary'",
-              "computed": false
-            },
-            {
-              "value": "'default'",
-              "computed": false
-            },
-            {
-              "value": "'info'",
-              "computed": false
-            },
-            {
-              "value": "'success'",
-              "computed": false
-            },
-            {
-              "value": "'warning'",
-              "computed": false
-            },
-            {
-              "value": "'error'",
-              "computed": false
-            }
-          ]
-        },
-        "required": false,
-        "description": ""
       }
     }
   },
@@ -978,6 +759,13 @@
       "onPress": {
         "type": {
           "name": "func"
+        },
+        "required": true,
+        "description": ""
+      },
+      "accessibilityLabel": {
+        "type": {
+          "name": "string"
         },
         "required": true,
         "description": ""
