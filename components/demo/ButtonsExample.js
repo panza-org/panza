@@ -8,6 +8,7 @@ import {
   NakedButton,
   SectionHeader,
   SecondaryText,
+  PlusIcon,
   Base,
   VerticalButtonGroup
 } from '../panza'
@@ -50,6 +51,13 @@ export default class Buttons extends React.Component {
           p={1}>
         <SecondaryText color='white'>Button with custom text style</SecondaryText>
       </Button>
+
+      <SuccessButton mt={1} p={0} px={1} onPress={() => {
+          console.log('hello')
+        }}>
+          <PlusIcon color='white' mr={1}/>
+          <SecondaryText color='white'>Add New Me</SecondaryText>
+      </SuccessButton>
 
       <SuccessButton
         mt={1}

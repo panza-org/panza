@@ -5,7 +5,7 @@ import colorTransform from 'color'
 
 const n = (key, x, s) => typeof x === 'number' ? { [key]: s[x] } : null
 
-const margins = (props, scale) => {
+export const margins = (props, scale) => {
 
   const s = scale || []
   const {
@@ -27,7 +27,7 @@ const margins = (props, scale) => {
   return result
 }
 
-const paddings = (props, scale) => {
+export const paddings = (props, scale) => {
   const s = scale || []
   const {
     p, px, py, pt, pr, pb, pl

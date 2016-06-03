@@ -42,7 +42,7 @@ const Button = ({
       backgroundColor={backgroundColor}
       underlayColor={underlayColor}
       {...other}>
-        <View>
+        <View style={styles.buttonContent}>
           {children || (
             <PrimaryText color={textColor}>{label}</PrimaryText>
           )}
@@ -98,6 +98,12 @@ const styles = StyleSheet.create({
   },
   block: {
     alignSelf: 'stretch'
+  },
+  buttonContent: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
 

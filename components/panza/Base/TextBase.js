@@ -4,10 +4,13 @@ import {
   Text
 } from 'react-native'
 
-const fontColor = (props, colors, context) => {
+import {
+  margins,
+  paddings
+} from './Base'
 
-}
 
+/** Props to text-size conversions **/
 const size = (fontSize, fontSizes, lineHeightAddition) => {
 
   const style = {}
@@ -21,6 +24,7 @@ const size = (fontSize, fontSizes, lineHeightAddition) => {
   return style
 }
 
+/** Custom text styling conversions **/
 const propsToStyle = (props, bold, colors) => {
 
   const style = {}
@@ -50,12 +54,26 @@ const propsToStyle = (props, bold, colors) => {
  * converts props into styles defined in the configuration.
  */
 
-const BaseText = ({ style, fontSize, baseStyle, Component, ...props }, { panza }) => {
+const BaseText = ({
+  style,
+  fontSize,
+  baseStyle,
+  Component,
+  ...props
+}, { panza }) => {
 
-  const { fontSizes, bold, colors, lineHeightAddition } = {...config, ...panza}
+  const {
+    fontSizes,
+    bold,
+    colors,
+    lineHeightAddition,
+    scale
+  } = { ...config, ...panza }
 
   const sx = [
     baseStyle,
+    margins(props, scale),
+    paddings(props, scale),
     size(fontSize, fontSizes, lineHeightAddition),
     propsToStyle(props, bold, colors),
     style
