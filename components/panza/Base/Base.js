@@ -3,6 +3,11 @@ import config from '../config'
 import { View } from 'react-native'
 import colorTransform from 'color'
 
+/**
+* The below functions are taken from rebass
+* https://github.com/jxnblk/rebass/tree/master/src/util
+**/
+
 const n = (key, x, s) => typeof x === 'number' ? { [key]: s[x] } : null
 
 export const margins = (props, scale) => {
