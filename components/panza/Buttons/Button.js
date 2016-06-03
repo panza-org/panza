@@ -40,7 +40,7 @@ const Button = ({
         disabled && styles.disabled
       ]}
       backgroundColor={backgroundColor}
-      underlayColor={'darken'}
+      underlayColor={underlayColor}
       {...other}>
         <View>
           {children || (
@@ -52,19 +52,21 @@ const Button = ({
 }
 
 Button.propTypes = {
+
+  /** disables the button, and reduces its opacity **/
   disabled: PropTypes.bool,
+
+  /** the text string for the button. alternatively, pass a Text as a child **/
   label: PropTypes.string,
   onPress: PropTypes.func.isRequired,
   underlayColor: PropTypes.string,
-  theme: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'default',
-    'info',
-    'success',
-    'warning',
-    'error'
-  ])
+  backgroundColor: PropTypes.string,
+
+  /** stretch the button width **/
+  block: PropTypes.bool,
+
+  /** style text colour when using label prop **/
+  textColor: PropTypes.string
 }
 
 Button.displayName = 'ButtonBase'
@@ -73,6 +75,8 @@ Button.defaultProps = {
   backgroundColor: 'info',
   disabled: false,
   textColor: 'white',
+  underlayColor: 'darken',
+  block: false,
   p: 2
 }
 
