@@ -12,6 +12,7 @@ const TouchableIcon = (props) => {
   const {
     onPress,
     children,
+    accessibilityLabel,
     style,
     ...other
   } = props
@@ -21,7 +22,9 @@ const TouchableIcon = (props) => {
   return (
     <TouchableOpacity
       style={style}
-      onPress={onPress}>
+      accessibilityLabel={accessibilityLabel}
+      onPress={onPress}
+      {...other}>
         {child}
     </TouchableOpacity>
   )
@@ -31,7 +34,8 @@ const TouchableIcon = (props) => {
 TouchableIcon.displayName = 'TouchableIcon'
 
 TouchableIcon.propTypes = {
-  onPress: PropTypes.func.isRequired
+  onPress: PropTypes.func.isRequired,
+  accessibilityLabel: PropTypes.string.isRequired
 }
 
 export default TouchableIcon

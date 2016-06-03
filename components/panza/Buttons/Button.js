@@ -32,6 +32,7 @@ const Button = ({
   return (
     <Base
       Component={TouchableHighlight}
+      accessibilityComponentType='button'
       disabled={disabled}
       baseStyle={[
         styles.button,
