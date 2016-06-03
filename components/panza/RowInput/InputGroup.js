@@ -11,7 +11,8 @@ import { Base, SectionHeader } from '../index'
 /**
  * Wrap inputs using this component to provide
  * borders between them, top borders, bottom borders,
- * margin top, margin bottom, background colors.
+ * margin top, margin bottom, background colors, etc. Use the
+ * inset prop to control the inset margin of the divider.
  */
 
 class InputGroup extends React.Component {
@@ -20,13 +21,26 @@ class InputGroup extends React.Component {
 
   static propTypes = {
     style: PropTypes.object,
+
+    /** left margin inset for the divider border **/
     inset: PropTypes.number,
+
+    /** whether show the top border **/
     showTopBorder: PropTypes.bool,
+
+    /** whether to show the bottom border **/
     showBottomBorder: PropTypes.bool,
+
+    /** whether to show the dividing border **/
     showBorder: PropTypes.bool,
+
+    /** left margin inset of the top border **/
     topInset: PropTypes.number,
+
+    /** left margin inset of the bottom border **/
     bottomInset: PropTypes.number,
-    white: PropTypes.bool,
+
+    /** an optional label for the input group **/
     label: PropTypes.string
   }
 
@@ -49,8 +63,8 @@ class InputGroup extends React.Component {
       ...other
     } = this.props
 
-    var children = React.Children.map(this.props.children, (child, i) => {
-      var isLast = i === this.props.children.length - 1
+    const children = React.Children.map(this.props.children, (child, i) => {
+      const isLast = i === this.props.children.length - 1
       if (!child) return null
 
       return (
@@ -62,7 +76,7 @@ class InputGroup extends React.Component {
       )
     })
 
-    var style = [
+    const style = [
       styles.group,
       this.props.style
     ]

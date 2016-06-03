@@ -17,8 +17,8 @@ import {
 const screen = Dimensions.get('window')
 
 /**
- * Provides a cross-platform InputRow to prompmt the user for
- * a date-picker. On iOS devices, it expands the input to reveal
+ * Provides a cross-platform InputRow that prompts the user with
+ * a native date-picker. On iOS devices, it expands the input to reveal
  * the date-picker. On Android, it prompts the user for a
  * date-picker in a popup.
  */
@@ -29,7 +29,12 @@ class InputDatePicker extends React.Component {
 
   static propTypes = {
     expanded: PropTypes.bool.isRequired,
+
+    /** function called to toggle the visibility of the date-picker. (iOS only) **/
     onToggleExpansion: PropTypes.func.isRequired,
+
+    /** the currently selected date to be displayed in collapsed row. **/
+    value: PropTypes.string,
     maxDate: PropTypes.string,
     minDate: PropTypes.string,
     label: PropTypes.string,

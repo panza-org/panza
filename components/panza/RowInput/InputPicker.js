@@ -30,10 +30,18 @@ class InputPicker extends React.Component {
   static displayName = 'InputPicker'
 
   static propTypes = {
+    /** a function called when toggling the visibility of the picker. (iOS only) **/
     onToggleExpansion: PropTypes.func.isRequired,
     editable: PropTypes.bool,
+
+    /** the picker value displayed in the row. (iOS only) **/
     value: PropTypes.string,
-    label: PropTypes.string.isRequired
+
+    /** the label for the picker **/
+    label: PropTypes.string.isRequired,
+
+    /** controls whether the picker is visible. (iOS only) **/
+    expanded: PropTypes.bool
   }
 
   static contextTypes = {

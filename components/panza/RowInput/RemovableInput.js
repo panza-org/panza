@@ -45,6 +45,7 @@ export const RemoveButton = (props) => {
 /**
  * A flexible input row typically used when inputting:
  * lists, lists with changeable labels
+ * todo: refactor
  */
 
 class RemovableInput extends React.Component {

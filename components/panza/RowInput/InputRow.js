@@ -20,7 +20,11 @@ class InputRow extends React.Component {
 
   static propTypes = {
     onChangeText: PropTypes.func,
-    customInput: PropTypes.node
+    customInput: PropTypes.node,
+    value: PropTypes.string,
+    icon: PropTypes.node,
+    label: PropTypes.string,
+    maxLength: PropTypes.number
   }
 
   static defaultProps = {
