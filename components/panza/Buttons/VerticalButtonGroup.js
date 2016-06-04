@@ -21,6 +21,7 @@ function renderOption(option, i) {
     return (
       <PrimaryButton
         key={i}
+        block
         onPress={option.onSelect}
         label={option.label}
       />
@@ -31,6 +32,7 @@ function renderOption(option, i) {
     <NakedButton
       key={i}
       mt={1}
+      block
       backgroundColor={option.backgroundColor || 'white'}
       onPress={option.onSelect}
       label={option.label}

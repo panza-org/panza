@@ -6,7 +6,14 @@ import Button from './Button'
  */
 
 const NakedButton = (props) => {
-  return <Button underlayColor='rgba(0,0,0,0.2)' {...props} />
+  return (
+    <Button
+      textColor='default'
+      backgroundColor='transparent'
+      underlayColor='gray'
+      {...props}
+    />
+  )
 }
 
 NakedButton.displayName = 'NakedButton'

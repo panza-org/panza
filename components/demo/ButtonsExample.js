@@ -59,6 +59,8 @@ export default class Buttons extends React.Component {
           <SecondaryText color='white'>Add New Me</SecondaryText>
       </SuccessButton>
 
+      <Button>text</Button>
+
       <SuccessButton
         mt={1}
         disabled

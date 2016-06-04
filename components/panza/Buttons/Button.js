@@ -29,6 +29,10 @@ const Button = ({
   ...other
 }, { panza }) => {
 
+  let child = (children && typeof children === 'string')
+    ? <PrimaryText color={textColor}>{children}</PrimaryText>
+    : children
+
   return (
     <Base
       Component={TouchableHighlight}
@@ -43,7 +47,7 @@ const Button = ({
       underlayColor={underlayColor}
       {...other}>
         <View style={styles.buttonContent}>
-          {children || (
+          {child || (
             <PrimaryText color={textColor}>{label}</PrimaryText>
           )}
         </View>
