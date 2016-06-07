@@ -6,6 +6,7 @@ The goal with Panza is to provide a set of commonly used (mostly) functional ui 
 
 <p>
 <img src='images/panza-ios-large.png' width='375px' />
+<img src='images/panza-android-large.png' width='360px' />
 </p>
 
 ## Getting Started
