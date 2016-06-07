@@ -26,7 +26,7 @@ import {
  * Remove button
  */
 
-export const RemoveButton = (props) => {
+const RemoveButton = (props) => {
   return (
     <Base
       Component={TouchableOpacity}
@@ -43,9 +43,14 @@ export const RemoveButton = (props) => {
 }
 
 /**
- * A flexible input row typically used when inputting:
- * lists, lists with changeable labels
- * todo: refactor
+ * An input row typically used for inputing lists of
+ * things, and lists of things with changeable labels, such
+ * as a list of phone numbers, addresses, etc. You can see
+ * this ui-pattern used in Apple's address book app.
+ *
+ * By default, these inputs are removable. 
+ *
+ * This needs a refactor.
  */
 
 class RemovableInput extends React.Component {

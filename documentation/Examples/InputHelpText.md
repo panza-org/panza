@@ -1,18 +1,9 @@
 ## Examples
 
-
-### An InputGroup with Input children
-
-![Input group](images/InputGroup.png)
+### InputHelpText after an InputGroup
+![Input help text example](images/InputHelpText.png)
 
 ```javascript
-import {
-  InputGroup,
-  InputToggle,
-  InputRow,
-  SearchIcon
-} from 'panza'
-
 <InputGroup label='ROW INPUT' inset={16} mt={3}>
   <InputToggle
     value={this.state.editable}
@@ -25,6 +16,7 @@ import {
     value={this.state.basic}
     editable={this.state.editable}
     onChangeText={(basic) => this.setState({ basic })} />
+
   <InputRow
     label='Basic Input with Label'
     placeholder='Your value'
@@ -37,4 +29,7 @@ import {
     editable={this.state.editable}
     placeholder='Input with icon' />
 </InputGroup>
-```
+<InputHelpText>
+  Some help text. Aute nulla ex ea amet sunt occaecat qui fugiat cupidatat fugiat in. Veniam amet elit et tempor sit ea nulla adipisicing laboris pariatur.
+</InputHelpText>
+```javascript

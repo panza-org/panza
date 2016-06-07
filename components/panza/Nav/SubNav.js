@@ -16,9 +16,11 @@ import {
 import config from '../config'
 
 /**
- * Subnavigation, which displays three touchable text
- * options, typically used directly below the navigation
- * bar. Also typically used only on iOS.
+ * SubNav is typically used directly below the primary
+ * Navigation Bar, and displays three touchable text options.
+ * This is typically used only on iOS devices. On Android,
+ * you'd supply icons for these options instead, and display
+ * them on the right side of the primary Navigation Bar. 
  */
 
 const SubNav = ({

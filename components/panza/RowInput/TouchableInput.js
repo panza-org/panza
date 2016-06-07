@@ -14,9 +14,11 @@ import {
 } from '../index'
 
 /**
- * An input that responds to user touch, and is typically used
- * within the context of a navigator, or modal, to select
- * another value.
+ * An input row that is typically used when you want to allow
+ * the user to select a value from another ListView. In essence,
+ * this is very similar to a standard TouchableRow. In the future,
+ * we may consider combining the two.
+ * 
  */
 
 const TouchableInput = ({

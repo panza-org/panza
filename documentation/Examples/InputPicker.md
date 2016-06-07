@@ -1,3 +1,7 @@
+## Examples
+
+### InputPicker with Picker Child
+
 ![Input Picker iOS image](images/InputPickerIOS.png)
 
 ```javascript

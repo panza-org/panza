@@ -1,9 +1,14 @@
+## Examples
+
+### RemovableInput with various options
+
 ![Removable Input options](images/RemovableInput.png)
 
 ```javascript
 <InputGroup
   label='REMOVABLE INPUT'
   inset={16} mt={3} mb={3}>
+  
   <RemovableInput
     placeholder='Non removable without label'
     removable={false}
@@ -13,6 +18,7 @@
     onChangeText={(removeInput) => this.setState({ removeInput })}
     value={this.state.removeInput}
   />
+
   <RemovableInput
     placeholder='Non touchable label'
     removable={true}
@@ -22,6 +28,7 @@
     onChangeText={(removeInput) => this.setState({ removeInput })}
     value={this.state.removeInput}
   />
+
   <RemovableInput
     placeholder='Removable without label'
     removable={true}
@@ -31,6 +38,7 @@
     onChangeText={(removeInput) => this.setState({ removeInput })}
     value={this.state.removeInput}
   />
+
   <RemovableInput
     label='Label'
     placeholder='Placeholder'
@@ -77,6 +85,7 @@
     onChangeText={(removeInput) => this.setState({ removeInput })}
     value={''}
   />
+
   <RemovableInput
     label='Vertical Input'
     removable={false}
@@ -88,6 +97,7 @@
     onChangeText={(removeInput) => this.setState({ removeInput })}
     value={''}
   />
+
   <RemovableInput
     label='Vertical input disabled'
     removable={false}
@@ -99,7 +109,6 @@
     onChangeText={(removeInput) => this.setState({ removeInput })}
     value={'Some value of some sort right here'}
   />
-
 
 </InputGroup>
 ```

@@ -1,3 +1,7 @@
+## Examples
+
+### Basic example with label and custom tint color
+
 ![Input Toggle](images/InputToggle.png)
 
 ```javascript

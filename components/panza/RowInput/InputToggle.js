@@ -15,8 +15,8 @@ import {
 import config from '../config'
 
 /**
- * An input row with a <Switch /> that allows
- * the user to toggle a value.
+ * An basic input row with a label and Switch, allowing
+ * the user to toggle a boolean value.
  */
 
 class InputToggle extends React.Component {

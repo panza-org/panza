@@ -10,8 +10,11 @@ import {
 } from '../index'
 
 /**
- * Navigation main title, composing <PrimaryText> on
- * iOS, and <LargeText> on Android.
+ * Renders text stylized for the Navigation Bar title.
+ *
+ * On iOS it composes PrimaryText.
+ *
+ * On Android, it composes LargeText.
  */
 
 const NavTitle = ({label, color, children, style, ...other}) => {

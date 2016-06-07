@@ -9,10 +9,12 @@ import Divider from './Divider'
 import { Base, SectionHeader } from '../index'
 
 /**
- * Wrap inputs using this component to provide
- * borders between them, top borders, bottom borders,
- * margin top, margin bottom, background colors, etc. Use the
- * inset prop to control the inset margin of the divider.
+ * Wrapping components with InputGroup gives you the
+ * option of giving Inputs dividing borders, dividing
+ * borders with an inset, a top border (with a unique inset value),
+ * a bottom border (with a unique inset value), shared background
+ * colours, margins, and a label. You could supply your own
+ * child components, too.
  */
 
 class InputGroup extends React.Component {

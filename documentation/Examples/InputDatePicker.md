@@ -1,3 +1,7 @@
+## Examples
+
+### Basic input date picker
+
 ![Input date picker iOS](images/InputDatePicker.png)
 
 ```javascript

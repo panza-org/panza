@@ -20,8 +20,10 @@ const defaultSize = Platform.select({
 })
 
 /**
- * A wrapper for <Icon /> that properly displays
- * it in a NavBar, and makes it touchable.
+ * Wrap Icon components within NavTouchableIcon for display
+ * of an Icon in the Navigation bar. You may need to fiddle
+ * around with the sizing of the Icon on android and ios devices
+ * to ensure that they look right. 
  */
 
 const NavTouchableIcon = (props) => {

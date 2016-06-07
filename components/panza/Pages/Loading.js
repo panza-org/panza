@@ -9,13 +9,14 @@ import {
 
 /**
  * Displays a loading indicator, and on iOS an optional
- * loading message. RN0.27 required to use the
- * <ActivityIndicator>
+ * loading message. React-native 0.27 required to use the
+ * ActivityIndicator. Prior versions will simply display the
+ * LoadingText. 
  */
 
-class Loading extends React.Component {
+class LoadingPage extends React.Component {
 
-  static displayName = 'Loading'
+  static displayName = 'LoadingPage'
 
   static propTypes = {
     isLoading: PropTypes.bool,
@@ -89,4 +90,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Loading
+export default LoadingPage

@@ -12,8 +12,10 @@ import RowImage from './RowImage'
 import TouchableRowCell from './TouchableRowCell'
 
 /**
- * Composes <TouchableRowCell> and includes shorthands for
- * displaying <PrimaryText>, <SecondaryText>, values, etc.
+ * The basic RowCell that I use about 80% of the time. It displays
+ * an image, primary text, secondary text, a value,
+ * and an arrow right icon if the respective props are
+ * specified. 
  */
 
 const TouchableRow = ({

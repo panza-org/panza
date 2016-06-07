@@ -28,7 +28,7 @@ $ rnpm link react-native-vector-icons
 
 ### Rows
 * [TouchableRow](documentation/TouchableRow.md)
-* [Separator](documentation/Separator.md)
+* [RowSeparator](documentation/RowSeparator.md)
 * [RowImage](documentation/RowImage.md)
 * [SectionHeader](documentation/SectionHeader.md)
 
@@ -56,7 +56,7 @@ $ rnpm link react-native-vector-icons
 * [FadeImage](documentation/FadeImage.md)
 
 ### Icons
-* [Icon](documentation/Button.md)
+* [Icon](documentation/Icon.md)
 * [TouchableIcon](documentation/TouchableIcon.md)
 * [PlusIcon](documentation/PlusIcon.md)
 * [ArrowRightIcon](documentation/ArrowRightIcon.md)

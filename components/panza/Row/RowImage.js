@@ -9,8 +9,8 @@ import FadeImage from '../Image/FadeImage'
 import Base from '../Base'
 
 /**
- * An image stylized with sensible defaults
- * for display in a <TouchableRowCell />
+ * RowImage composes FadeImage, providing it with
+ * sensible defaults for display within a row. 
  */
 
 class RowImage extends React.Component {

@@ -9,5 +9,6 @@ export {
   TouchableRow,
   Separator,
   RowImage,
-  SectionHeader
+  SectionHeader,
+  Separator as RowSeparator
 }
