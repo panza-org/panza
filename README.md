@@ -1,10 +1,10 @@
 # panza
-Panza (named after the lovable squire, Sancho Panza) is a set of react-native UI widgets that I built while creating [Payback](http://payback.panzeo.com) for iOS and android devices. It's heavily influenced by [rebass](https://github.com/jxnblk/rebass). The primary goals of panza are:
+Panza (named after Sancho Panza, from Don Quixote), is a collection of  stateless, functional ui-components for react-native, and heavily inspired by the excellent [rebass](https://github.com/jxnblk/rebass) library. 
 
-1. To provide widgets that work well in both iOS and Android environments.
-2. To find the right balance between simplicity and flexibility. Because of this, Panza relies heavily on composition, allowing you to build whatever widgets you'd like while still benefiting from code that's been written by someone else.
+The goal with Panza is to provide a set of commonly used (mostly) functional ui components for react-native, that work well in both android and iOS environments. These components should look nice out of the box, but still offer a high degree of customization. This is achieved primarily through the use of composition. Each component is comprised of smaller components including a [Base](documentation/Base.md) component, which provides some nice shorthands to transform props into styles based upon a global configuration. A component like [TouchableRow](documentation/TouchableRow.md) may suit your needs eighty percent of the time, but in cases where you need something a bit more custom, you can construct your own row using TouchableRowCell, PrimaryText, SecondaryText, RowImage, Base, ArrowRightIcon, and any other components that you’d like.
 
-<p align='center'>
+
+<p>
 <img src='images/panza-ios-large.png' width='375px' />
 </p>
 
