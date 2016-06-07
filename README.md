@@ -35,7 +35,7 @@ $ rnpm link react-native-vector-icons
 * [SectionHeader](documentation/SectionHeader.md)
 
 ### Navigation
-* [NavBar](document/NavBar.md)
+* [NavBar](documentation/NavBar.md)
 * [NavTitle](documentation/NavTitle.md)
 * [NavTouchableIcon](documentation/NavTouchableIcon.md)
 * [NavTouchableText](documentation/NavTouchableText.md)
@@ -54,6 +54,14 @@ $ rnpm link react-native-vector-icons
 * [NakedButton](documentation/NakedButton.md)
 * [VerticalButtonGroup](documentation/VerticalButtonGroup.md)
 
+### Text
+* [PrimaryText](documentation/PrimaryText.md)
+* [SecondaryText](documentation/SecondaryText.md)
+* [LargeText](documentation/LargeText.md)
+* [SubtitleText](documentation/SubtitleText.md)
+* [PrimaryTextInput](documentation/PrimaryTextInput.md)
+* [SecondaryTextInput](documentation/SecondaryTextInput.md)
+
 ### Images
 * [FadeImage](documentation/FadeImage.md)
 
@@ -70,6 +78,7 @@ $ rnpm link react-native-vector-icons
 ### Base Components
 * [Base](documentation/Base.md)
 * [TextBase](documentation/TextBase.md)
+
 
 ## Customize
 

@@ -85,7 +85,7 @@ const BaseText = ({
 
 }
 
-BaseText.displayName = 'BaseText'
+BaseText.displayName = 'TextBase'
 
 BaseText.propTypes = {
   fontSize: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
