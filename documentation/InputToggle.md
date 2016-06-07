@@ -1,8 +1,8 @@
 `InputToggle` (component)
 =========================
 
-An input row with a <Switch /> that allows
-the user to toggle a value.
+An basic input row with a label and Switch, allowing
+the user to toggle a boolean value.
 
 Props
 -----
@@ -42,6 +42,10 @@ type: `any`
 ### `value` (required)
 
 type: `bool`
+
+## Examples
+
+### Basic example with label and custom tint color
 
 ![Input Toggle](images/InputToggle.png)
 

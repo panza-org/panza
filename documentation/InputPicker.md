@@ -1,9 +1,19 @@
 `InputPicker` (component)
 =========================
 
-On iOS we always want the input field to expand downwards
-to reveal the picker. On Android, we want to render the
-Picker in dialog form when touched.
+InputPicker provides a unified API for Android and iOS
+picker rows.
+
+On iOS, when the user selects the picker row,
+we want the row to expand to reveal the picker, which is the
+child passed to this component. The value prop appears
+on the top right of the picker row. It should be the humanized
+version of the selected value in the picker.
+
+On Android, we display the picker as the row itself. When
+selected, the picker prompt will occur. A label is
+rendered above the picker. The value prop is ignored,
+since the Android picker already prints the value for us.
 
 Props
 -----
@@ -40,6 +50,10 @@ type: `func`
 the picker value displayed in the row. (iOS only) *
 
 type: `string`
+
+## Examples
+
+### InputPicker with Picker Child
 
 ![Input Picker iOS image](images/InputPickerIOS.png)
 

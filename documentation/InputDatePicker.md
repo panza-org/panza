@@ -1,10 +1,16 @@
 `InputDatePicker` (component)
 =============================
 
-Provides a cross-platform InputRow that prompts the user with
-a native date-picker. On iOS devices, it expands the input to reveal
-the date-picker. On Android, it prompts the user for a
-date-picker in a popup.
+InputDatePicker a cross-platform InputRow inputting
+dates.
+
+On iOS devices, the row examples to reveal
+DatePickerIOS when selected. The humanized date should
+be supplied as the value prop, and it should be
+updated when the value of the date-picker changes.
+
+On Anroid, the date-picker prompts the user to select
+a date in a modal menu.
 
 Props
 -----
@@ -62,6 +68,10 @@ type: `func`
 the currently selected date to be displayed in collapsed row. *
 
 type: `string`
+
+## Examples
+
+### Basic input date picker
 
 ![Input date picker iOS](images/InputDatePicker.png)
 

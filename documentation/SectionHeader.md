@@ -1,7 +1,8 @@
 `SectionHeader` (component)
 ===========================
 
-
+SectionHeader is used for rendering a section header within a ListView.
+Supply text as the child.
 
 Props
 -----

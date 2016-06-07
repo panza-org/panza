@@ -1,7 +1,12 @@
 `InputGroup` (component)
 ========================
 
-Wrapping components with InputGroup gives you the option of giving Inputs dividing borders, dividing borders with an inset, a top border (with a unique inset value), a bottom border (with a unique inset value), shared background colours, margins, and a label. You could supply your own child components, too.
+Wrapping components with InputGroup gives you the
+option of giving Inputs dividing borders, dividing
+borders with an inset, a top border (with a unique inset value),
+a bottom border (with a unique inset value), shared background
+colours, margins, and a label. You could supply your own
+child components, too.
 
 Props
 -----
@@ -65,7 +70,13 @@ left margin inset of the top border *
 type: `number`
 defaultValue: `0`
 
+## Examples
+
+
+### An InputGroup with Input children
+
 ![Input group](images/InputGroup.png)
+
 ```javascript
 import {
   InputGroup,

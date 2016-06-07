@@ -1,8 +1,8 @@
 `RowImage` (component)
 ======================
 
-An image stylized with sensible defaults
-for display in a <TouchableRowCell />
+RowImage composes FadeImage, providing it with
+sensible defaults for display within a row.
 
 Props
 -----

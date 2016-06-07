@@ -67,10 +67,9 @@ defaultValue: `'darken'`
 ```javascript
 import { Button } from 'panza'
 
-<Button
-  onPress={() => console.log('hello world')}
-  label='Default Button'
-/>
+<Button onPress={() => console.log('hello world')}>
+  Default Button
+</Button>
 ```
 
 ### Button block
@@ -81,9 +80,9 @@ import { Button } from 'panza'
 
 <Button
   block
-  onPress={() => console.log('hello world')}
-  label='Button with block'
-/>
+  onPress={() => console.log('hello world')}>
+    Button with Block
+</Button>
 ```
 
 ### Custom, smaller button

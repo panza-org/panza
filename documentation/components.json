@@ -421,7 +421,7 @@
   },
   "components/panza/Base/TextBase.js": {
     "description": "A general purpose text component which\nconverts props into styles defined in the configuration.",
-    "displayName": "BaseText",
+    "displayName": "TextBase",
     "methods": [],
     "props": {
       "fontSize": {
@@ -917,12 +917,12 @@
     "methods": []
   },
   "components/panza/Nav/NavTitle.js": {
-    "description": "Navigation main title, composing <PrimaryText> on\niOS, and <LargeText> on Android.",
+    "description": "Renders text stylized for the Navigation Bar title.\n\nOn iOS it composes PrimaryText.\n\nOn Android, it composes LargeText.",
     "displayName": "NavTitle",
     "methods": []
   },
   "components/panza/Nav/NavTouchableIcon.js": {
-    "description": "A wrapper for <Icon /> that properly displays\nit in a NavBar, and makes it touchable.",
+    "description": "Wrap Icon components within NavTouchableIcon for display\nof an Icon in the Navigation bar. You may need to fiddle\naround with the sizing of the Icon on android and ios devices\nto ensure that they look right.",
     "displayName": "NavTouchableIcon",
     "methods": []
   },
@@ -940,7 +940,7 @@
     }
   },
   "components/panza/Nav/SubNav.js": {
-    "description": "Subnavigation, which displays three touchable text\noptions, typically used directly below the navigation\nbar. Also typically used only on iOS.",
+    "description": "SubNav is typically used directly below the primary\nNavigation Bar, and displays three touchable text options.\nThis is typically used only on iOS devices. On Android,\nyou'd supply icons for these options instead, and display\nthem on the right side of the primary Navigation Bar.",
     "displayName": "SubNav",
     "methods": [],
     "props": {
@@ -1072,8 +1072,8 @@
     }
   },
   "components/panza/Pages/Loading.js": {
-    "description": "Displays a loading indicator, and on iOS an optional\nloading message. RN0.27 required to use the\n<ActivityIndicator>",
-    "displayName": "Loading",
+    "description": "Displays a loading indicator, and on iOS an optional\nloading message. React-native 0.27 required to use the\nActivityIndicator. Prior versions will simply display the\nLoadingText.",
+    "displayName": "LoadingPage",
     "methods": [],
     "props": {
       "isLoading": {
@@ -1155,7 +1155,7 @@
     }
   },
   "components/panza/Row/RowImage.js": {
-    "description": "An image stylized with sensible defaults\nfor display in a <TouchableRowCell />",
+    "description": "RowImage composes FadeImage, providing it with\nsensible defaults for display within a row.",
     "displayName": "RowImage",
     "methods": [],
     "props": {
@@ -1202,7 +1202,7 @@
     }
   },
   "components/panza/Row/SectionHeader.js": {
-    "description": "",
+    "description": "SectionHeader is used for rendering a section header within a ListView.\nSupply text as the child.",
     "displayName": "SectionHeader",
     "methods": [],
     "props": {
@@ -1249,7 +1249,7 @@
     }
   },
   "components/panza/Row/TouchableRow.js": {
-    "description": "Composes <TouchableRowCell> and includes shorthands for\ndisplaying <PrimaryText>, <SecondaryText>, values, etc.",
+    "description": "The basic RowCell that I use about 80% of the time. It displays\nan image, primary text, secondary text, a value,\nand an arrow right icon if the respective props are\nspecified.",
     "displayName": "TouchableRow",
     "methods": [],
     "props": {
@@ -1408,7 +1408,7 @@
     }
   },
   "components/panza/RowInput/InputDatePicker.js": {
-    "description": "Provides a cross-platform InputRow that prompts the user with\na native date-picker. On iOS devices, it expands the input to reveal\nthe date-picker. On Android, it prompts the user for a\ndate-picker in a popup.",
+    "description": "InputDatePicker a cross-platform InputRow inputting\ndates.\n\nOn iOS devices, the row examples to reveal\nDatePickerIOS when selected. The humanized date should\nbe supplied as the value prop, and it should be\nupdated when the value of the date-picker changes.\n\nOn Anroid, the date-picker prompts the user to select\na date in a modal menu.",
     "displayName": "InputDatePicker",
     "methods": [
       {
@@ -1527,7 +1527,7 @@
     }
   },
   "components/panza/RowInput/InputGroup.js": {
-    "description": "Wrap inputs using this component to provide\nborders between them, top borders, bottom borders,\nmargin top, margin bottom, background colors, etc. Use the\ninset prop to control the inset margin of the divider.",
+    "description": "Wrapping components with InputGroup gives you the\noption of giving Inputs dividing borders, dividing\nborders with an inset, a top border (with a unique inset value),\na bottom border (with a unique inset value), shared background\ncolours, margins, and a label. You could supply your own\nchild components, too.",
     "displayName": "InputGroup",
     "methods": [],
     "props": {
@@ -1614,12 +1614,12 @@
     }
   },
   "components/panza/RowInput/InputHelpText.js": {
-    "description": "Help text typically used after an <InputGroup>\nto inform users about fields, or groups of fields.",
+    "description": "InputHelpText is typically used after an InputGroup to\noffer additional information about the above inputs. This is\njust a simple wrapper around SecondaryText with some padding\nprovided, and the text color set to light.",
     "displayName": "InputHelpText",
     "methods": []
   },
   "components/panza/RowInput/InputPicker.js": {
-    "description": "On iOS we always want the input field to expand downwards\nto reveal the picker. On Android, we want to render the\nPicker in dialog form when touched.",
+    "description": "InputPicker provides a unified API for Android and iOS\npicker rows.\n\nOn iOS, when the user selects the picker row,\nwe want the row to expand to reveal the picker, which is the\nchild passed to this component. The value prop appears\non the top right of the picker row. It should be the humanized\nversion of the selected value in the picker.\n\nOn Android, we display the picker as the row itself. When\nselected, the picker prompt will occur. A label is\nrendered above the picker. The value prop is ignored,\nsince the Android picker already prints the value for us.",
     "displayName": "InputPicker",
     "methods": [
       {
@@ -1680,7 +1680,7 @@
     }
   },
   "components/panza/RowInput/InputRow.js": {
-    "description": "",
+    "description": "InputRow allows the user to input text. It will render an icon or\na label if either of the props are provided, and it always\nrenders a TextInput. If a label prop is provided, the TextInput\nis aligned to the right of the row.\n\nInputRow composes InputRowCell, PrimaryText, and PrimaryTextInput. You can\nuse these components to create your own custom InputRow.\n\nTo have provide borders, wrap this component (and any other rows) in an InputGroup.",
     "displayName": "InputRow",
     "methods": [
       {
@@ -1755,7 +1755,7 @@
     "methods": []
   },
   "components/panza/RowInput/InputToggle.js": {
-    "description": "An input row with a <Switch /> that allows\nthe user to toggle a value.",
+    "description": "An basic input row with a label and Switch, allowing\nthe user to toggle a boolean value.",
     "displayName": "InputToggle",
     "methods": [],
     "props": {
@@ -1817,8 +1817,171 @@
       }
     }
   },
+  "components/panza/RowInput/RemovableInput.js": {
+    "description": "An input row typically used for inputing lists of\nthings, and lists of things with changeable labels, such\nas a list of phone numbers, addresses, etc. You can see\nthis ui-pattern used in Apple's address book app.\n\nBy default, these inputs are removable. \n\nThis needs a refactor.",
+    "displayName": "RemovableInput",
+    "methods": [
+      {
+        "name": "renderLabel",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "showDelete",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "hideDelete",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "autoFocus": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "removable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "placeholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "vertical": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "amountDecorator": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "condensed": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "onSelectLabel": {
+        "type": {
+          "name": "func"
+        },
+        "required": true,
+        "description": ""
+      },
+      "onRemove": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": ""
+      },
+      "onChangeText": {
+        "type": {
+          "name": "func"
+        },
+        "required": true,
+        "description": ""
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "backgroundColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'white'",
+          "computed": false
+        }
+      },
+      "editable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "labelWidth": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "textAlign": {
+        "defaultValue": {
+          "value": "'right'",
+          "computed": false
+        }
+      },
+      "keyboardType": {
+        "defaultValue": {
+          "value": "'numeric'",
+          "computed": false
+        }
+      }
+    }
+  },
   "components/panza/RowInput/TouchableInput.js": {
-    "description": "An input that responds to user touch, and is typically used\nwithin the context of a navigator, or modal, to select\nanother value.",
+    "description": "An input row that is typically used when you want to allow\nthe user to select a value from another ListView. In essence,\nthis is very similar to a standard TouchableRow. In the future,\nwe may consider combining the two.",
     "displayName": "TouchableInput",
     "methods": [],
     "props": {
