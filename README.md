@@ -15,7 +15,7 @@ $ npm i react-native-vector-icons --save
 $ rnpm link react-native-vector-icons
 ```
 
-## Widgets
+## Components
 
 ### Inputs
 * [InputRow](documentation/InputRow.md)
