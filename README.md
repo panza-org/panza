@@ -4,7 +4,9 @@ Panza (named after the lovable squire, Sancho Panza) is a set of react-native UI
 1. To provide widgets that work well in both iOS and Android environments.
 2. To find the right balance between simplicity and flexibility. Because of this, Panza relies heavily on composition, allowing you to build whatever widgets you'd like while still benefiting from code that's been written by someone else.
 
-![Panza ios screen shot](images/panza-ios-large.png)
+<p align='center'>
+<img src='images/panza-ios-large.png' width='375px' />
+</p>
 
 ## Getting Started
 ```
