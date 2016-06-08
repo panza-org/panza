@@ -3,7 +3,7 @@ Panza (named after Sancho Panza, from Don Quixote), is a collection of  stateles
 
 The goal with Panza is to provide a set of commonly used (mostly) functional ui components for react-native, that work well in both android and iOS environments. These components should look nice out of the box, but still offer a high degree of customization. This is achieved primarily through the use of composition. Each component is comprised of smaller components including a [Base](documentation/Base.md) component, which provides some nice shorthands to transform props into styles based upon a global configuration. A component like [TouchableRow](documentation/TouchableRow.md) may suit your needs eighty percent of the time, but in cases where you need something a bit more custom, you can construct your own row using TouchableRowCell, PrimaryText, SecondaryText, RowImage, Base, ArrowRightIcon, and any other components that you’d like.
 
-You can see Panza in production with [Payback](http://payback.panzeo.com), an app that manages shared expenses between individuals and groups. 
+You can see Panza in production with [Payback](http://payback.panzeo.com), an app that manages shared expenses between individuals and groups.
 
 <p>
 <img src='images/panza-ios-large.png' width='375px' />
@@ -69,13 +69,13 @@ $ rnpm link react-native-vector-icons
 
 ### Icons
 * [Icon](documentation/Icon.md)
-* [TouchableIcon](documentation/TouchableIcon.md)
-* [PlusIcon](documentation/PlusIcon.md)
-* [ArrowRightIcon](documentation/ArrowRightIcon.md)
-* [CloseIcon](documentation/CloseIcon.md)
-* [BackIcon](documentation/BackIcon.md)
-* [SearchIcon](documentation/SearchIcon.md)
-* [MoreIcon](documentation/MoreIcon.md)
+* TouchableIcon
+* PlusIcon
+* ArrowRightIcon
+* CloseIcon
+* BackIcon
+* SearchIcon
+* MoreIcon
 
 ### Base Components
 * [Base](documentation/Base.md)
