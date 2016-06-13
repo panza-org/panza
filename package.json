@@ -32,8 +32,8 @@
     "react-native-vector-icons": "^2.0.3"
   },
   "devDependencies": {
-    "react": "^15.0.2",
+    "react": "^15.1.0",
     "react-docgen": "^2.8.2",
-    "react-native": "^0.26.2"
+    "react-native": "^0.27.0"
   }
 }
