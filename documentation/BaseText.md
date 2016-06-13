@@ -17,3 +17,8 @@ defaultValue: `'default'`
 
 type: `enum(0|1|2|3|4|5|6)`
 
+
+### `lineHeight`
+
+type: `enum(0|1|2|3|4|5|6)`
+
