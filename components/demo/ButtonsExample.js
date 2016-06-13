@@ -29,6 +29,14 @@ export default class Buttons extends React.Component {
     return (
       <ScrollView style={styles.container}>
         <Button
+          backgroundColor='#aaaaaa'
+          mt={1}
+          onPress={() => {
+            console.log('hi')
+          }}>
+            Hello world
+        </Button>
+        <Button
           onPress={() => {
             console.log('hello world')
           }}

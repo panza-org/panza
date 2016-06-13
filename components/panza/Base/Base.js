@@ -53,6 +53,14 @@ export const paddings = (props, scale) => {
   return result
 }
 
+const getColor = (color, colors) => {
+  if (color && colors[color]) {
+    return colors[color]
+  } else if (typeof color === 'string') {
+    return color
+  }
+}
+
 export const colorStyle = (props, colors, context) => {
   colors = colors || {}
   const {
@@ -63,13 +71,7 @@ export const colorStyle = (props, colors, context) => {
 
   const result = {}
 
-
-  if (color && colors[color]) {
-    result.color = colors[color]
-  } else if (typeof color === 'string') {
-    result.color = color
-  }
-
+  result.color = getColor(color, colors)
 
   if (backgroundColor && colors[backgroundColor]) {
     result.backgroundColor = colors[backgroundColor]
@@ -128,12 +130,12 @@ const Base = ({
   ]
 
 
+
   const underlay = (
     underlayColor === 'darken' &&
-    props.backgroundColor &&
-    colors[props.backgroundColor]
+    props.backgroundColor
   )
-    ? colorTransform(colors[props.backgroundColor]).darken(0.1).hexString()
+    ? colorTransform(getColor(props.backgroundColor, colors)).darken(0.1).hexString()
     : null
 
 
