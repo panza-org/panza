@@ -100,8 +100,8 @@ export const colorStyle = (props, colors = {}) => {
 
 /**
  * A general purpose component that converts our props into styles
- * defined by the user. Heavily inspired (and somewhat directly copied)
- * by rebass.
+ * defined by the user. Heavily inspired by (and somewhat directly copied)
+ * from rebass.
  */
 
 class Base extends React.Component {
@@ -159,11 +159,22 @@ class Base extends React.Component {
       PropTypes.number
     ]),
 
+    /** flex property **/
     flex: PropTypes.number,
+
+    /** flex-wrap property **/
     wrap: PropTypes.bool,
+
+    /** set flex-direction to column **/
     column: PropTypes.bool,
+
+    /** set flex-direction to row **/
     row: PropTypes.bool,
+
+    /** set align-items property **/
     align: PropTypes.string,
+
+    /** set justify-content property **/
     justify: PropTypes.string
   }
 
@@ -194,7 +205,11 @@ class Base extends React.Component {
       panza
     } = this.context
 
-    const { scale, colors, borderRadius } = {...config, ...panza}
+    const {
+      scale,
+      colors,
+      borderRadius
+    } = { ...config, ...panza }
 
     const sx = [
       baseStyle,
