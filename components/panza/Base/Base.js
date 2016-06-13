@@ -61,6 +61,28 @@ const getColor = (color, colors) => {
   }
 }
 
+export function radii (props, r = 2) {
+  const {
+    rounded
+  } = props || {}
+
+  let borderRadius
+
+  if (rounded === true) {
+    borderRadius = r
+  } else if (rounded === false) {
+    borderRadius = 0
+  } else if (typeof rounded === 'number') {
+    borderRadius = rounded
+  }
+
+  if (typeof borderRadius === 'undefined') {
+    return {}
+  } else {
+    return { borderRadius }
+  }
+}
+
 export const colorStyle = (props, colors, context) => {
   colors = colors || {}
   const {
@@ -98,106 +120,123 @@ export const colorStyle = (props, colors, context) => {
  * by rebass.
  */
 
-const Base = ({
-  style,
-  Component,
-  baseStyle = {},
-  wrap,
-  underlayColor,
-  flex,
-  row,
-  column,
-  auto,
-  align,
-  justify,
-  ...props
-}, { panza }) => {
+class Base extends React.Component {
 
-  const { scale, colors } = {...config, ...panza}
+  static propTypes = {
 
-  const sx = [
-    baseStyle,
-    style,
-    margins(props, scale),
-    paddings(props, scale),
-    colorStyle(props, colors, panza),
-    flex ? { flex } : null,
-    wrap ? { flexWrap: 'wrap' } : null,
-    column ? { flexDirection: 'column' } : null,
-    row ? { flexDirection: 'row' }: null,
-    align ? { alignItems: align } : null,
-    justify ? { justifyContent: justify } : null,
-  ]
+    /** Margin **/
+    m: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+    /** Margin top **/
+    mt: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+    /** Margin right **/
+    mr: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+    /** Margin bottom **/
+    mb: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+    /** Margin left **/
+    ml: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+    /** Margin x-axis **/
+    mx: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+    /** Margin y-asix **/
+    my: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+    /** Padding **/
+    p: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+    /** Padding top **/
+    pt: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+    /** Padding right **/
+    pr: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+    /** Padding bottom **/
+    pb: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+    /** Padding left **/
+    pl: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+    /** Padding x-axis **/
+    px: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+    /** Padding y-axis **/
+    py: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
+
+    /** Background color **/
+    backgroundColor: PropTypes.string,
+
+    /** Border radius **/
+    rounded: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.number
+    ])
+  }
+
+  static displayName = 'Base'
+
+  static contextTypes = {
+    panza: PropTypes.object
+  }
+
+  render() {
+
+    const {
+      style,
+      Component,
+      baseStyle = {},
+      wrap,
+      underlayColor,
+      flex,
+      row,
+      column,
+      auto,
+      align,
+      justify,
+      ...props
+    } = this.props
+
+    const {
+      panza
+    } = this.context
+
+    const { scale, colors, borderRadius } = {...config, ...panza}
+
+    const sx = [
+      baseStyle,
+      style,
+      margins(props, scale),
+      paddings(props, scale),
+      colorStyle(props, colors, panza),
+      radii(props, borderRadius),
+      flex ? { flex } : null,
+      wrap ? { flexWrap: 'wrap' } : null,
+      column ? { flexDirection: 'column' } : null,
+      row ? { flexDirection: 'row' }: null,
+      align ? { alignItems: align } : null,
+      justify ? { justifyContent: justify } : null,
+    ]
 
 
+    const underlay = (
+      underlayColor === 'darken' &&
+      props.backgroundColor
+    )
+      ? colorTransform(getColor(props.backgroundColor, colors)).darken(0.1).hexString()
+      : null
 
-  const underlay = (
-    underlayColor === 'darken' &&
-    props.backgroundColor
-  )
-    ? colorTransform(getColor(props.backgroundColor, colors)).darken(0.1).hexString()
-    : null
 
+    const Element = Component || View
 
-  const Element = Component || View
+    return <Element {...props} underlayColor={underlay} style={sx}  />
 
-  return <Element {...props} underlayColor={underlay} style={sx}  />
+  }
 
 }
 
 
-Base.displayName = 'Base'
-
-Base.propTypes = {
-
-  /** Margin **/
-  m: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
-
-  /** Margin top **/
-  mt: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
-
-  /** Margin right **/
-  mr: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
-
-  /** Margin bottom **/
-  mb: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
-
-  /** Margin left **/
-  ml: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
-
-  /** Margin x-axis **/
-  mx: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
-
-  /** Margin y-asix **/
-  my: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
-
-  /** Padding **/
-  p: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
-
-  /** Padding top **/
-  pt: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
-
-  /** Padding right **/
-  pr: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
-
-  /** Padding bottom **/
-  pb: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
-
-  /** Padding left **/
-  pl: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
-
-  /** Padding x-axis **/
-  px: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
-
-  /** Padding y-axis **/
-  py: PropTypes.oneOf([ 0, 1, 2, 3, 4 ]),
-
-  /** Background color **/
-  backgroundColor: PropTypes.string,
-}
-
-Base.contextTypes = {
-  panza: PropTypes.object
-}
 
 export default Base

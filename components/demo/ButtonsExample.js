@@ -28,6 +28,9 @@ export default class Buttons extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
+        <Button rounded={false} mt={1}>
+          Not rounded 
+        </Button>
         <Button
           backgroundColor='#aaaaaa'
           mt={1}
