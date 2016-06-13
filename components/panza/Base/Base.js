@@ -83,32 +83,16 @@ export function radii (props, r = 2) {
   }
 }
 
-export const colorStyle = (props, colors, context) => {
-  colors = colors || {}
+export const colorStyle = (props, colors = {}) => {
+
   const {
-    backgroundColor,
-    color,
-    inverted
+    backgroundColor
   } = props || {}
 
   const result = {}
 
-  result.color = getColor(color, colors)
-
-  if (backgroundColor && colors[backgroundColor]) {
-    result.backgroundColor = colors[backgroundColor]
-  } else if (typeof backgroundColor === 'string') {
-    result.backgroundColor = backgroundColor
-  }
-
-  if (color && colors[color]) {
-    const invertedColor = context && context.inverted
-    if (inverted) {
-      result.color = invertedColor || colors.white
-      result.backgroundColor = colors[color]
-    } else {
-      result.color = colors[color]
-    }
+  if (backgroundColor) {
+    result.backgroundColor = getColor(backgroundColor, colors)
   }
 
   return result
@@ -173,7 +157,14 @@ class Base extends React.Component {
     rounded: PropTypes.oneOfType([
       PropTypes.bool,
       PropTypes.number
-    ])
+    ]),
+
+    flex: PropTypes.number,
+    wrap: PropTypes.bool,
+    column: PropTypes.bool,
+    row: PropTypes.bool,
+    align: PropTypes.string,
+    justify: PropTypes.string
   }
 
   static displayName = 'Base'
@@ -220,14 +211,11 @@ class Base extends React.Component {
       justify ? { justifyContent: justify } : null,
     ]
 
-
-    const underlay = (
-      underlayColor === 'darken' &&
-      props.backgroundColor
-    )
-      ? colorTransform(getColor(props.backgroundColor, colors)).darken(0.1).hexString()
+    const underlay = (underlayColor === 'darken' && props.backgroundColor)
+      ? colorTransform(getColor(props.backgroundColor, colors))
+        .darken(0.1)
+        .hexString()
       : null
-
 
     const Element = Component || View
 
