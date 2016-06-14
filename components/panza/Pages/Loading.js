@@ -8,6 +8,11 @@ import {
   ActivityIndicator
 } from 'react-native'
 
+import {
+  Base,
+  PrimaryText
+} from '../index'
+
 /**
  * Displays a loading indicator, and on iOS an optional
  * loading message.
