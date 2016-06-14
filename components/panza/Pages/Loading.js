@@ -13,13 +13,14 @@ import {
  * loading message.
  */
 
+
 class LoadingPage extends React.Component {
 
   static displayName = 'LoadingPage'
 
   static propTypes = {
     isLoading: PropTypes.bool,
-    size: PropTypes.oneOf(['large', 'small']),
+    large: PropTypes.bool,
     color: PropTypes.string,
     showText: PropTypes.bool,
     loadingText: PropTypes.string,
@@ -27,39 +28,43 @@ class LoadingPage extends React.Component {
   }
 
   static defaultProps = {
-    size: 'small',
+    large: false,
     color: 'gray',
     isLoading: true,
     showText: true,
     loadingText: 'Loading...',
-    alignTop: true
+    alignTop: false
   }
 
   render () {
+    const {
+      color,
+      isLoading,
+      large,
+      showText,
+      loadingText,
+      alignTop,
+      ...other
+    } = this.props
 
-    var containerStyles = [
-      styles.container,
-      this.props.style,
-      this.props.alignTop && { justifyContent: 'flex-start' }
-    ]
-    
+    const size = large ? 'large' : 'small';
     const Indicator = ActivityIndicator || ActivityIndicatorIOS
 
     return (
-      <View style={containerStyles}>
-        <View style={styles.loading}>
+      <Base flex={1} align={'center'} justify={alignTop ? 'flex-start' : 'center'} {...other}>
+        <Base row align={'center'} justify={'center'} >
           {Indicator && (
             <Indicator
-              color={this.props.color}
-              animating={this.props.isLoading}
-              size={this.props.size}
+              color={color}
+              animating={isLoading}
+              size={size}
             />
           )}
-        {(this.props.showText &&  Platform.OS === 'ios') && (
-          <Text style={styles.text}>{this.props.loadingText}</Text>
+        {(showText &&  Platform.OS === 'ios') && (
+          <PrimaryText fontSize={large ? 2 : 4} ml={1} light>{loadingText}</PrimaryText>
         )}
-        </View>
-      </View>
+        </Base>
+      </Base>
     )
 
   }
@@ -70,21 +75,11 @@ class LoadingPage extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
     alignItems: 'center',
     justifyContent: 'center'
-  },
-  indicator: {
-    height: 40,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  text: {
-    color: '#999',
-    fontSize: 13,
-    marginLeft: 7
   },
   loading: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'
@@ -92,3 +87,5 @@ const styles = StyleSheet.create({
 })
 
 export default LoadingPage
+
+
