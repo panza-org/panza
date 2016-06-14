@@ -29,7 +29,7 @@ export default class Buttons extends React.Component {
     return (
       <ScrollView style={styles.container}>
         <Button rounded={false} mt={1}>
-          Not rounded 
+          Not rounded
         </Button>
         <Button
           backgroundColor='#aaaaaa'
@@ -126,6 +126,24 @@ export default class Buttons extends React.Component {
           borderColor: 'black'
         }}
       />
+    <Button
+      mt={1}
+      onPress={() => {
+        console.log('hello underworld')
+      }}
+      underlayColor='red'>
+        Custom underlay color
+      </Button>
+
+      <Button
+        mt={1}
+        backgroundColor='#fa8ddd'
+        underlayColor='darken'
+        onPress={() => {
+
+        }}>
+          custom color
+        </Button>
     <Base py={3}>
       <VerticalButtonGroup
         mt={2}
