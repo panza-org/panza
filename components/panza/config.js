@@ -38,6 +38,16 @@ const fontSizes = [
   12
 ]
 
+const lineHeights = [
+  0.7,
+  1,
+  1.2,
+  1.5,
+  2,
+  2.5,
+  3
+]
+
 const scale = [
   0,
   8,
@@ -58,6 +68,7 @@ const lineHeightAddition = Platform.select({
 
 const config = {
   fontSizes,
+  lineHeights,
   borderRadius,
   borderColor,
   colors,

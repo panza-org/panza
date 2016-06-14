@@ -11,14 +11,14 @@ import {
 
 
 /** Props to text-size conversions **/
-const size = (fontSize, fontSizes, lineHeightAddition) => {
+const size = (fontSize, fontSizes, lineHeight, lineHeights, lineHeightAddition) => {
 
   const style = {}
 
   // 0, 1, 2, 3, 4, 5, 6
   if (typeof fontSize === 'number') {
     style.fontSize = fontSizes[fontSize]
-    style.lineHeight = fontSizes[fontSize] + lineHeightAddition
+    style.lineHeight = fontSizes[fontSize] * lineHeights[lineHeight] + lineHeightAddition
   }
 
   return style
@@ -57,6 +57,7 @@ const propsToStyle = (props, bold, colors) => {
 const BaseText = ({
   style,
   fontSize,
+  lineHeight,
   baseStyle,
   Component,
   ...props
@@ -64,6 +65,7 @@ const BaseText = ({
 
   const {
     fontSizes,
+    lineHeights,
     bold,
     colors,
     lineHeightAddition,
@@ -74,7 +76,7 @@ const BaseText = ({
     baseStyle,
     margins(props, scale),
     paddings(props, scale),
-    size(fontSize, fontSizes, lineHeightAddition),
+    size(fontSize, fontSizes, lineHeight, lineHeights, lineHeightAddition),
     propsToStyle(props, bold, colors),
     style
   ]
@@ -89,11 +91,13 @@ BaseText.displayName = 'TextBase'
 
 BaseText.propTypes = {
   fontSize: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
+  lineHeight: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
   color: PropTypes.string
 }
 
 BaseText.defaultProps = {
-  color: 'default'
+  color: 'default',
+  lineHeight: 1
 }
 
 BaseText.contextTypes = {

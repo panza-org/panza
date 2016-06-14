@@ -50,7 +50,7 @@ RowSeparator.contextTypes = {
 
 const styles = StyleSheet.create({
   separator: {
-    height: 1 / PixelRatio.get()
+    height: StyleSheet.hairlineWidth
   }
 })
 
