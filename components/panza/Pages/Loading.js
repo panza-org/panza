@@ -10,9 +10,7 @@ import {
 
 /**
  * Displays a loading indicator, and on iOS an optional
- * loading message. React-native 0.27 required to use the
- * ActivityIndicator. Prior versions will simply display the
- * LoadingText. 
+ * loading message.
  */
 
 class LoadingPage extends React.Component {

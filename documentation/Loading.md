@@ -2,8 +2,7 @@
 =====================
 
 Displays a loading indicator, and on iOS an optional
-loading message. RN0.27 required to use the
-<ActivityIndicator>
+loading message.
 
 Props
 -----
