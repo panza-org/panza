@@ -4,6 +4,7 @@ import {
   Text,
   Platform,
   StyleSheet,
+  ActivityIndicatorIOS,
   ActivityIndicator
 } from 'react-native'
 
@@ -43,12 +44,14 @@ class LoadingPage extends React.Component {
       this.props.style,
       this.props.alignTop && { justifyContent: 'flex-start' }
     ]
+    
+    const Indicator = ActivityIndicator || ActivityIndicatorIOS
 
     return (
       <View style={containerStyles}>
         <View style={styles.loading}>
-          {ActivityIndicator && (
-            <ActivityIndicator
+          {Indicator && (
+            <Indicator
               color={this.props.color}
               animating={this.props.isLoading}
               size={this.props.size}
