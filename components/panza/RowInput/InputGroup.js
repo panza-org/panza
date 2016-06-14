@@ -65,8 +65,10 @@ class InputGroup extends React.Component {
       ...other
     } = this.props
 
+    const isArray = Array.isArray(this.props.children)
+
     const children = React.Children.map(this.props.children, (child, i) => {
-      const isLast = i === this.props.children.length - 1
+      const isLast = (i === this.props.children.length - 1) || !isArray
       if (!child) return null
 
       return (
