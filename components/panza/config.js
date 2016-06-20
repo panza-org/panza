@@ -59,6 +59,7 @@ const scale = [
 const inverted = colors.white
 
 const bold = '600'
+const thin = '300'
 const borderColor = 'rgba(0, 0, 0, 0.25)'
 const borderRadius = 2
 const lineHeightAddition = Platform.select({
@@ -74,6 +75,7 @@ const config = {
   colors,
   inverted,
   bold,
+  thin,
   scale,
   lineHeightAddition
 }
