@@ -20,18 +20,18 @@ const defaultNavbarStyle = {
 
       backgroundColor: 'white',
       borderBottomWidth: 1 / PixelRatio.get(),
-      borderBottomColor: 'rgba(0,0,0,0.3)',
+      borderBottomColor: 'rgba(0,0,0,0.15)',
     },
     android: {
 
       backgroundColor: 'white',
       borderBottomWidth: 1 / PixelRatio.get(),
-      borderBottomColor: 'rgba(0,0,0,0.3)'
+      borderBottomColor: 'rgba(0,0,0,0.15)'
     },
     web: {
       backgroundColor: 'white',
       borderBottomWidth: 1 / PixelRatio.get(),
-      borderBottomColor: 'rgba(0,0,0,0.3)'
+      borderBottomColor: 'rgba(0,0,0,0.15)'
     }
   })
 }
