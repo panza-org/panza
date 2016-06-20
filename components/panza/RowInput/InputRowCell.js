@@ -12,15 +12,21 @@ import { Base } from '../index'
  * Input row cell
  */
 
-const InputRowCell = ({children, ...other}) => {
+const InputRowCell = ({children, height, ...other}) => {
+
+  let fixedHeight = height === 'auto' ? null : height
 
   return (
     <View style={styles.row}>
-      <Base baseStyle={styles.rowContainer} {...other}>
+      <Base baseStyle={[styles.rowContainer, { height: fixedHeight }]} {...other}>
         {children}
       </Base>
     </View>
   )
+}
+
+InputRowCell.defaultProps = {
+  height: 50
 }
 
 InputRowCell.displayName = 'InputRowCell'
@@ -35,10 +41,7 @@ const styles = StyleSheet.create({
   },
   rowContainer: {
     height: HEIGHT,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 0,
-    paddingRight: 0,
+    alignSelf: 'stretch',
     justifyContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',

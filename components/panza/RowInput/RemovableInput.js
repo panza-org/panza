@@ -17,9 +17,10 @@ import {
   TextBase,
   PrimaryText,
   SecondaryText,
+  InputRowCell,
   SecondaryTextInput,
+  PrimaryTextInput,
   InputRowRevealOptions,
-  InputRowCell
 } from '../index'
 
 function noop() {}
@@ -155,7 +156,7 @@ class RemovableInput extends React.Component {
         style={[
           styles.label,
           this.props.labelWidth && { width: this.props.labelWidth },
-          this.props.vertical && { marginTop: 7 }
+          this.props.vertical && { marginTop: 16 }
         ]}
         disabled={(!this.props.editable || !this.props.onSelectLabel)}
         onPress={() => {
@@ -166,7 +167,6 @@ class RemovableInput extends React.Component {
         }}>
           <TextBase
             color={(this.props.editable && this.props.onSelectLabel) ? 'primary' : 'default'}
-            color='primary'
             baseStyle={styles.labelText}>
               {this.props.label}
           </TextBase>
@@ -200,47 +200,62 @@ class RemovableInput extends React.Component {
         </RowActions>
     )
 
+    let height = this.props.height
+
+    if (height === 'auto') {
+      height = null
+    }
+
+    if (this.props.vertical) {
+      height = 'auto'
+    }
+
+
     return (
       <RevealingRow
+        style={{ flex: 1, alignSelf: 'stretch'}}
         showingOptions={this.state.showingOptions}
         revealedContent={revealed}>
-        <Base row flex={1}>
-          {this.props.removable && (
-            <RemoveButton
-              style={ { marginRight: 16 } }
-              onPress={() =>  {
-                console.log('show options')
-                this.setState({ showingOptions: true })
-              }}
-            />
-        )}
-          <Base
-            flex={1}
-            py={1}
-            row={!this.props.vertical}>
 
-            {this.props.inputLabel ? this.props.inputLabel :
-              this.renderLabel()
-            }
+        <InputRowCell height={height}>
 
-            {this.props.editable ? (
-                <SecondaryTextInput
-                  autoFocus={this.props.autoFocus}
-                  placeholder={this.props.placeholder}
-                  style={[styles.input, (this.props.vertical || !this.props.label) && { paddingLeft: 0 }]}
-                  value={this.props.value}
-                  onChangeText={this.props.onChangeText}
-                />
-              ) : (
-                <Base px={this.props.vertical ? 0 : 2} flex={1} justifyContent='center'>
-                  <SecondaryText numberOfLines={1}>
-                    {this.props.value}
-                  </SecondaryText>
-                </Base>
-              )
-            }
+          <Base row flex={1} pl={2}>
+            {this.props.removable && (
+              <RemoveButton
+                style={ { marginRight: 16  } }
+                onPress={() =>  {
+                  console.log('show options')
+                  this.setState({ showingOptions: true })
+                }}
+              />
+          )}
+            <Base
+              flex={1}
+              row={!this.props.vertical}>
+
+              {this.props.inputLabel ? this.props.inputLabel :
+                this.renderLabel()
+              }
+
+              {this.props.editable ? (
+                  <PrimaryTextInput
+                    autoFocus={this.props.autoFocus}
+                    placeholder={this.props.placeholder}
+                    style={[styles.input, (this.props.vertical || !this.props.label) && { paddingLeft: 0 }]}
+                    value={this.props.value}
+                    onChangeText={this.props.onChangeText}
+                  />
+                ) : (
+                  <Base px={0} flex={1} justifyContent='center'>
+                    <PrimaryText numberOfLines={1}>
+                      {this.props.value}
+                    </PrimaryText>
+                  </Base>
+                )
+              }
+            </Base>
           </Base>
-        </Base>
+        </InputRowCell>
       </RevealingRow>
     )
   }

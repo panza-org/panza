@@ -33,7 +33,7 @@ const TouchableRowCell = (props) => {
   } = props
 
   const heightStyle = {
-    height: height === 'auto' ? null : height
+    height
   }
 
   return (
@@ -67,13 +67,13 @@ TouchableRowCell.propTypes = {
   disabled: PropTypes.bool,
   highlighted: PropTypes.func,
   showMore: PropTypes.bool,
-  underlayColor: PropTypes.string
+  underlayColor: PropTypes.string,
+  height: PropTypes.number
 }
 
 TouchableRowCell.defaultProps = {
   showMore: true,
   highlighted: noop,
-  height: Platform.OS === 'ios' ? 60 : 65,
   disabled: false,
   underlayColor: 'rgba(0,0,0,0.1)'
 }

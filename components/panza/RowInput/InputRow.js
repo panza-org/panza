@@ -57,6 +57,7 @@ class InputRow extends React.Component {
       label,
       value,
       icon,
+      height,
       maxLength,
       textAlign,
       customInput,
@@ -66,7 +67,7 @@ class InputRow extends React.Component {
     let alignText = textAlign || (label ? 'right': 'left')
 
     return (
-      <InputRowCell>
+      <InputRowCell height={height}>
         {icon && (
           <Base ml={2}>
             {icon}

@@ -15,7 +15,7 @@ import TouchableRowCell from './TouchableRowCell'
  * The basic RowCell that I use about 80% of the time. It displays
  * an image, primary text, secondary text, a value,
  * and an arrow right icon if the respective props are
- * specified. 
+ * specified.
  */
 
 const TouchableRow = ({
@@ -31,7 +31,7 @@ const TouchableRow = ({
   return (
     <TouchableRowCell
       height={height}
-      py={2}
+      py={1}
       onPress={onPress}
       {...other}>
 

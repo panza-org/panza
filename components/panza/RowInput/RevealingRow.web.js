@@ -10,7 +10,8 @@ import {
 class RevealingRow extends React.Component {
 
   static propTypes = {
-    showingOptions: PropTypes.bool.isRequired
+    showingOptions: PropTypes.bool.isRequired,
+    revealedContent: PropTypes.node.isRequired
   }
 
   static defaultProps = {
@@ -54,9 +55,7 @@ class RevealingRow extends React.Component {
   }
 
   componentDidUpdate() {
-    if (
-      this._actions
-    ) {
+    if (this._actions) {
       const width = -this._actions.clientWidth
       if (this.state.revealWidth !== width) {
         this.setState({ revealWidth: width })
@@ -74,7 +73,7 @@ class RevealingRow extends React.Component {
   render() {
 
     return(
-      <View style={{ position: 'relative', paddingLeft: 16,  height: this.state.rowHeight}}>
+      <View style={{ position: 'relative', flex: 1}}>
         {this.state.renderRevealOptions && (
           <View style={[styles.revealContainer, { height: this.state.rowHeight }]}>
             <div style={{ display: 'flex', height: this.state.rowHeight, alignSelf: 'flex-end'}} ref={(actions) => this._actions = actions}>
