@@ -90,8 +90,4 @@ SubNav.contextTypes = {
   panza: PropTypes.object
 }
 
-const styles = StyleSheet.create({
-  borderBottomWidth: 1 / PixelRatio.get()
-})
-
 export default SubNav
