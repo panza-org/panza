@@ -59,7 +59,7 @@ const scale = [
 const inverted = colors.white
 
 const bold = '600'
-const borderColor = 'rgba(0, 0, 0, 0.25)'
+const borderColor = 'rgba(0, 0, 0, 0.15)'
 const borderRadius = 2
 const lineHeightAddition = Platform.select({
   ios: 3,

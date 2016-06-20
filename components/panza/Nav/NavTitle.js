@@ -21,9 +21,10 @@ const NavTitle = ({label, color, children, style, ...other}) => {
 
   return (
     <View style={[styles.container, style]}>
-      {Platform.OS === 'ios'
-        ? <PrimaryText color={color} bold>{label || children}</PrimaryText>
-        : <LargeText color={color}>{label || children}</LargeText>
+
+      {Platform.OS === 'android'
+        ? <LargeText color={color}>{label || children}</LargeText>
+        : <PrimaryText color={color} bold>{label || children}</PrimaryText>
       }
     </View>
   )

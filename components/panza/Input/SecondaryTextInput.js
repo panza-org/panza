@@ -15,6 +15,7 @@ const SecondaryTextInput = (props) => {
   return (
     <TextBase
       {...props}
+      baseStyle={{ borderColor: 'transparent' }}
       underlineColorAndroid='transparent'
       Component={TextInput}
       fontSize={5}

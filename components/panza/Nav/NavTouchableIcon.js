@@ -11,12 +11,14 @@ import {
 
 const defaultColor = Platform.select({
   ios: 'primary',
-  android: 'default'
+  android: 'default',
+  web: 'primary'
 })
 
 const defaultSize = Platform.select({
   ios: 35,
-  android: 25
+  android: 25,
+  web: 35
 })
 
 /**

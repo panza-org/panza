@@ -14,6 +14,7 @@ import {
 const PrimaryTextInput = (props) => {
   return (
     <TextBase
+      baseStyle={{ borderColor: 'transparent' }}
       {...props}
       Component={TextInput}
       underlineColorAndroid='transparent'

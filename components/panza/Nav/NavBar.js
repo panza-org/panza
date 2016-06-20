@@ -27,6 +27,11 @@ const defaultNavbarStyle = {
       backgroundColor: 'white',
       borderBottomWidth: 1 / PixelRatio.get(),
       borderBottomColor: 'rgba(0,0,0,0.3)'
+    },
+    web: {
+      backgroundColor: 'white',
+      borderBottomWidth: 1 / PixelRatio.get(),
+      borderBottomColor: 'rgba(0,0,0,0.3)'
     }
   })
 }
@@ -99,13 +104,16 @@ Navbar.propTypes = {
   RightButton: PropTypes.node
 }
 
-Navbar.totalNavHeight = Navigator.NavigationBar.Styles.General.TotalNavHeight
+
+
+const TOTAL_NAV_HEIGHT = 56
+
 
 export default Navbar
 
 const styles = StyleSheet.create({
   hasChildren: {
-    height: Navigator.NavigationBar.Styles.General.TotalNavHeight + 80
+    height: TOTAL_NAV_HEIGHT + 80
   },
   children: {
     height: 80,
@@ -116,12 +124,19 @@ const styles = StyleSheet.create({
   navTopRow: {
     flexDirection: 'row',
     flex: 1,
-    height: Navigator.NavigationBar.Styles.General.TotalNavHeight,
-    justifyContent: 'space-between'
+    height: TOTAL_NAV_HEIGHT,
+    justifyContent: 'space-between',
+    ...Platform.select({
+      web: {
+        textAlign: 'center',
+        display: 'flex',
+        alignItems: 'center'
+      }
+    })
   },
   navBar: {
     ...defaultNavbarStyle,
-    height: Navigator.NavigationBar.Styles.General.TotalNavHeight,
+    height: TOTAL_NAV_HEIGHT,
     flexDirection: 'column',
     backgroundColor: 'transparent',
 
@@ -146,6 +161,14 @@ const styles = StyleSheet.create({
        bottom: 15
      },
      ios: {
+       position: 'absolute',
+       alignItems: 'center',
+       right: 0,
+       bottom: 13,
+       left: 0,
+       justifyContent: 'center',
+     },
+     web: {
        position: 'absolute',
        alignItems: 'center',
        right: 0,

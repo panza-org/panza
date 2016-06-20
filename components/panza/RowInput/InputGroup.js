@@ -70,12 +70,12 @@ class InputGroup extends React.Component {
     const children = React.Children.map(this.props.children, (child, i) => {
       const isLast = (i === this.props.children.length - 1) || !isArray
       if (!child) return null
-
       return (
-        <View>
+        <View style={{ alignSelf: 'stretch' }}>
           {child}
-          {(this.props.showBorder && (!isLast && showBottomBorder)) &&
-            <Divider inset={inset} />}
+          {(this.props.showBorder && !isLast) &&
+            <Divider inset={inset} />
+          }
         </View>
       )
     })
@@ -86,9 +86,9 @@ class InputGroup extends React.Component {
     ]
 
     return (
-      <Base baseStyle={style} {...other}>
+      <Base flex={1} baseStyle={style} {...other}>
         {this.props.label && <SectionHeader backgroundColor='transparent'>{this.props.label}</SectionHeader>}
-        <Base backgroundColor={backgroundColor}>
+        <Base flex={1} backgroundColor={backgroundColor}>
           {this.props.showTopBorder && <Divider inset={topInset} />}
           {children}
           {this.props.showBottomBorder && <Divider inset={bottomInset} />}
@@ -101,7 +101,7 @@ class InputGroup extends React.Component {
 
 const styles = StyleSheet.create({
   border: {
-    borderTopWidth: 1 / PixelRatio.get(),
+    borderTopWidth: 1,
     borderTopColor: 'rgba(0,0,0,0.25)'
   },
   group: {

@@ -45,8 +45,8 @@ const TouchableRowCell = (props) => {
       onPressIn={() => highlighted()}
       onPressOut={() => highlighted(null)}>
 
-      <View>
-        <Base baseStyle={[styles.rowContainer, heightStyle]} {...other}>
+      <View style={{ flex: 1}}>
+        <Base flex={1} baseStyle={[styles.rowContainer, heightStyle]} {...other}>
           {children}
           {showMore && (
             <Base px={2}>
@@ -81,7 +81,9 @@ TouchableRowCell.defaultProps = {
 const styles = StyleSheet.create({
   row: {
     overflow: 'hidden',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    flex: 1,
+    alignSelf: 'stretch'
   },
   disabled: {
     opacity: 0.5

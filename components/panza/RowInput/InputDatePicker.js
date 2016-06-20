@@ -109,26 +109,28 @@ class InputDatePicker extends React.Component {
   }
 
 
-  async toggleDatePicker() {
+  toggleDatePicker() {
     if (Platform.OS === 'android') {
-      try {
 
-        const { action, year, month, day } = await DatePickerAndroid.open({
+        const opts = {
           date: this.props.date,
           minDate: this.props.minDate,
           maxDate: this.props.maxDate
-        })
-
-        if (action === DatePickerAndroid.dismissedAction) {
-          console.log('dismissed')
-        } else {
-          this.props.onDateChange(new Date(year, month, day))
         }
 
-      } catch({code, message}) {
-        console.warn('error opening date picker', code, message)
-      }
+        DatePickerAndroid.open()
+          .then(({ action, year, month, day }) => {
+            if (action === DatePickerAndroid.dismissedAction) {
+              console.log('dismissed')
+            } else {
+              this.props.onDateChange(new Date(year, month, day))
+            }
+          })
+          .catch(err => {
+            onsole.warn('error opening date picker', code, message)
+          })
 
+      
     }
   }
 

@@ -1,6 +1,6 @@
 ios
 android
-components/demo
+components
 index.android.js
 index.ios.js
 images

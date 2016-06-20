@@ -20,7 +20,6 @@ class FadeImage extends React.Component {
   static displayName = 'FadeImage'
 
   static propTypes = {
-    src: PropTypes.string.isRequired,
     fade: PropTypes.bool,
     onLoadEnd: PropTypes.func,
     height: PropTypes.number,
