@@ -261,6 +261,17 @@ export default class InputRowExample extends React.Component {
 
           </InputGroup>
 
+          <InputGroup>
+            <TouchableInput
+              editable={this.state.editable}
+              onPress={() => {
+                console.log('baby baby baby, noo!')
+              }}
+              showMore
+              label='With Label'
+            />
+          </InputGroup>
+
 
         </ScrollView>
       </Base>

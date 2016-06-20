@@ -230,7 +230,7 @@ class Base extends React.Component {
       ? colorTransform(getColor(props.backgroundColor, colors))
         .darken(0.1)
         .hexString()
-      : null
+      : underlayColor
 
     const Element = Component || View
 
