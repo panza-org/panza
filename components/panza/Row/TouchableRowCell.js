@@ -8,8 +8,8 @@ import {
   TouchableHighlight
 } from 'react-native'
 
-import Base from '../Base'
-import { ArrowRightIcon } from '../Icons/Icon'
+
+import { ArrowRightIcon, Base} from '../index'
 
 
 const noop = function(){}

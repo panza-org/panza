@@ -22,22 +22,28 @@ import {
   InputRowCell
 } from '../index'
 
+function noop() {}
+
 const MAX_ACTIONS = 2
 
 const VerticalDivider = () => {
-  return <Base backgroundColor='white' style={{ width: 1 }} />
+  return <View  style={{ width: 1, backgroundColor: 'white' }} />
 }
+
+
+import RevealingRow from './RevealingRow'
 
 const RowActions = ({children, style, ...other}) => {
 
   let buttons = []
 
+
   if (Array.isArray(children)) {
-    React.Children.forEach((child, i) => {
+    children.forEach((child, i) => {
       const isNotLast = i < children.length - 1
       buttons.push(child)
       if (isNotLast) {
-        buttons.push(<VerticalDivider key={i} />)
+        buttons.push(<VerticalDivider key={'divider'+i} />)
       }
     })
   } else {
@@ -47,11 +53,11 @@ const RowActions = ({children, style, ...other}) => {
   return (
     <Base
       baseStyle={[
-        { flex: 1, flexDirection: 'row', justifyContent: 'flex-end', height: 40},
+        { flex: 1, flexDirection: 'row', justifyContent: 'flex-end' },
         style
       ]}
       {...other}>
-        {children}
+        {buttons}
     </Base>
   )
 }
@@ -60,11 +66,14 @@ const RowAction = ({children, ...props}) => {
   return (
     <Base
       justify='center'
+      underlayColor='darken'
       px={2}
-      baseStyle={{ height: 40}}
+      baseStyle={ Platform.select({ web: { outline: 'none' }} )}
       Component={TouchableHighlight}
       {...props}>
-        {children}
+        <View>
+          {children}
+        </View>
     </Base>
   )
 }
@@ -89,102 +98,6 @@ const RemoveButton = (props) => {
   )
 }
 
-/**
- * A row that reveal options
- */
-
-class RevealingRow extends React.Component {
-
-  static propTypes = {
-    showingOptions: PropTypes.bool.isRequired
-  }
-
-  static defaultProps = {
-    showingOptions: false
-  }
-
-  componentWillReceiveProps(nextProps) {
-    // animate in
-    if (!this.props.showingOptions && nextProps.showingOptions) {
-      this.showOptions()
-
-    // animate out
-    } else if (!nextProps.showingOptions && this.props.showingOptions) {
-      this.hideOptions()
-    }
-  }
-
-  showOptions() {
-    console.log('show options')
-    Animated.timing(
-      this.state.leftPosition,
-      {toValue: -170}
-    ).start()
-  }
-
-  hideOptions() {
-    console.log('hide options')
-    Animated.timing(
-      this.state.leftPosition,
-      {toValue: 0}
-    ).start()
-  }
-
-  constructor(props) {
-    super(props)
-    this.onViewLayout = this.onViewLayout.bind(this)
-    this.state = {
-      leftPosition: new Animated.Value(0),
-      rowHeight: 40,
-      renderRevealOptions: false
-    }
-  }
-
-  componentDidMount() {
-    if (Platform.OS === 'web') {
-      console.log(this._view.clientHeight)
-      this.setState({
-        renderRevealOptions: true,
-        rowHeight: this._view.clientHeight
-      })
-    }
-  }
-
-  render() {
-
-    return(
-      <View style={{ position: 'relative', paddingLeft: 16,  height: this.state.rowHeight}}>
-        {this.state.renderRevealOptions && (
-          <View style={[styles.revealContainer, { height: this.state.rowHeight }]}>
-            {this.props.revealedContent}
-          </View>
-        )}
-        <div ref={(ref) => this._view = ref}>
-        <Animated.View
-          onLayout={this.onViewLayout}
-          style={{
-            flex: 1,
-            backgroundColor: 'white',
-            ...Platform.select({
-              ios: { transform: [{ translateX: this.state.leftPosition }] },
-              android: { transform: [{ translateX: this.state.leftPosition }] },
-              web: { left: this.state.leftPosition }
-            })
-          }}>
-          {this.props.children}
-        </Animated.View>
-        </div>
-      </View>
-    )
-  }
-
-  onViewLayout(e) {
-    this.setState({
-      renderRevealOptions: true,
-      rowHeight: e.nativeEvent.layout.height
-    })
-  }
-}
 
 /**
  * A removable input
@@ -194,9 +107,38 @@ class RemovableInput extends React.Component {
 
   static displayName = 'RemovableInput'
 
-  static propTypes = {
+    static propTypes = {
+      label: PropTypes.string,
+      autoFocus: PropTypes.bool,
+      removable: PropTypes.bool,
+      placeholder: PropTypes.string,
+      vertical: PropTypes.bool,
+      amountDecorator: PropTypes.bool,
+      condensed: PropTypes.bool,
+      onSelectLabel: PropTypes.func.isRequired,
+      onRemove: PropTypes.func,
+      autoFocus: PropTypes.bool,
+      onChangeText: PropTypes.func.isRequired,
+      value: PropTypes.string,
+      backgroundColor: PropTypes.string,
+      editable: PropTypes.bool,
+      labelWidth: PropTypes.number
+    }
 
-  }
+
+    static defaultProps = {
+      removable: true,
+      editable: true,
+      backgroundColor: 'white',
+      textAlign: 'right',
+      keyboardType: 'numeric',
+      autoFocus: true,
+      vertical: false,
+      condensed: false,
+      autoFocus: false,
+      onRequestRemove: noop
+    }
+
 
   constructor(props) {
     super(props)
@@ -235,14 +177,27 @@ class RemovableInput extends React.Component {
   render() {
 
     const revealed = (
-      <RowActions>
-        <RowAction backgroundColor='#eee'>
-          <SecondaryText>Cancel</SecondaryText>
-        </RowAction>
-        <RowAction backgroundColor='warning'>
-          <SecondaryText>Remove</SecondaryText>
-        </RowAction>
-      </RowActions>
+        <RowActions>
+          <RowAction
+            key={'cancel'}
+            style={{ backgroundColor: 'red'}}
+            onPress={() => {
+              console.log('cancel pressed')
+              this.setState({ showingOptions: false })
+            }}
+            backgroundColor='#eee'>
+              <SecondaryText>Cancel</SecondaryText>
+          </RowAction>
+          <RowAction
+            key='delete'
+            onPress={() => {
+              this.setState({ showingOptions: false })
+              this.props.onRequestRemove()
+            }}
+            backgroundColor='warning'>
+            <SecondaryText>Remove</SecondaryText>
+          </RowAction>
+        </RowActions>
     )
 
     return (
@@ -250,7 +205,7 @@ class RemovableInput extends React.Component {
         showingOptions={this.state.showingOptions}
         revealedContent={revealed}>
         <Base row flex={1}>
-
+          {this.props.removable && (
             <RemoveButton
               style={ { marginRight: 16 } }
               onPress={() =>  {
@@ -258,18 +213,17 @@ class RemovableInput extends React.Component {
                 this.setState({ showingOptions: true })
               }}
             />
-
+        )}
           <Base
             flex={1}
-            py={2}
+            py={1}
             row={!this.props.vertical}>
 
             {this.props.inputLabel ? this.props.inputLabel :
               this.renderLabel()
             }
 
-            {this.props.editable
-              ? (
+            {this.props.editable ? (
                 <SecondaryTextInput
                   autoFocus={this.props.autoFocus}
                   placeholder={this.props.placeholder}
@@ -277,8 +231,7 @@ class RemovableInput extends React.Component {
                   value={this.props.value}
                   onChangeText={this.props.onChangeText}
                 />
-              )
-              : (
+              ) : (
                 <Base px={this.props.vertical ? 0 : 2} flex={1} justifyContent='center'>
                   <SecondaryText numberOfLines={1}>
                     {this.props.value}
