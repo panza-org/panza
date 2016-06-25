@@ -25,7 +25,7 @@ const size = (fontSize, fontSizes, lineHeight, lineHeights, lineHeightAddition) 
 }
 
 /** Custom text styling conversions **/
-const propsToStyle = (props, bold, thin, colors) => {
+const propsToStyle = (props, bold, thin, black, colors) => {
 
   const style = {}
 
@@ -33,6 +33,8 @@ const propsToStyle = (props, bold, thin, colors) => {
     style.fontWeight = bold
   } else if (props.thin) {
     style.fontWeight = thin
+  } else if (props.black) {
+    style.fontWeight = black
   }
 
   if (props.light) {
