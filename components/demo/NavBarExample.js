@@ -37,7 +37,7 @@ export default class NavBarExample extends React.Component {
           )}
           RightButton={(
             <NavTouchableIcon onPress={noop}>
-              <PlusIcon size={40} androidSize={25} />
+              <SearchIcon size={25} androidSize={25} />
             </NavTouchableIcon>
           )}
           title='Title'
@@ -46,6 +46,22 @@ export default class NavBarExample extends React.Component {
 </View>
       {Platform.OS === 'ios' && (
         <View>
+
+          <NavBar
+            backgroundColor='gray'
+            LeftButton={(
+              <NavTouchableIcon onPress={() => navigator.pop()}>
+                <BackIcon />
+              </NavTouchableIcon>
+            )}
+            RightButton={(
+              <NavTouchableIcon onPress={noop}>
+                <PlusIcon size={35} />
+              </NavTouchableIcon>
+            )}
+            title='Title'
+          />
+
 
         <NavBar
           backgroundColor='primary'

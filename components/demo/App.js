@@ -72,16 +72,10 @@ class App extends Component {
       RightButton: (route, navigator, index) => {
         if (index === 0) return null
         return (
-          <Base row flex={1} align='center'>
-            {(Platform.OS === 'android' && (
-              <NavTouchableIcon onPress={noop}>
-                <SearchIcon />
-              </NavTouchableIcon>
-            ))}
-            <NavTouchableIcon onPress={noop}>
-              <PlusIcon size={40} androidSize={25} />
-            </NavTouchableIcon>
-          </Base>
+          <NavTouchableIcon onPress={noop}>
+            <PlusIcon size={40}/>
+          </NavTouchableIcon>
+
         )
       },
 

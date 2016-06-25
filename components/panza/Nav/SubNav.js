@@ -20,7 +20,7 @@ import config from '../config'
  * Navigation Bar, and displays three touchable text options.
  * This is typically used only on iOS devices. On Android,
  * you'd supply icons for these options instead, and display
- * them on the right side of the primary Navigation Bar. 
+ * them on the right side of the primary Navigation Bar.
  */
 
 const SubNav = ({
@@ -48,19 +48,22 @@ const SubNav = ({
       {...other}>
         {options.map((opt, i) => {
 
-          let textAlign = 'left'
-          if (i === 1) textAlign = 'center'
-          else if (i === 2) textAlign = 'right'
+          let justify = 'flex-start'
+          if (i === 1) justify = 'center'
+          else if (i === 2) justify = 'flex-end'
 
           return (
-            <TouchableOpacity
-              style={{ flex: 1 }}
-              onPress={opt.onPress}
-              key={opt.label}>
-                <SecondaryText textAlign={textAlign} color={textColor}>
-                  {opt.label}
-                </SecondaryText>
-            </TouchableOpacity>
+            <View style={{ flex: 1, alignItems: justify }}>
+              <TouchableOpacity
+                style={{ flex: 0 }}
+                onPress={opt.onPress}
+                key={opt.label}>
+                  <SecondaryText color={textColor}>
+                    {opt.label}
+                  </SecondaryText>
+              </TouchableOpacity>
+            </View>
+
           )
 
         })}

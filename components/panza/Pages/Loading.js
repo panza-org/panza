@@ -65,7 +65,7 @@ class LoadingPage extends React.Component {
               size={size}
             />
           )}
-        {(showText &&  Platform.OS === 'ios') && (
+        {showText && (
           <PrimaryText fontSize={large ? 2 : 4} ml={1} light>{loadingText}</PrimaryText>
         )}
         </Base>
@@ -92,5 +92,3 @@ const styles = StyleSheet.create({
 })
 
 export default LoadingPage
-
-

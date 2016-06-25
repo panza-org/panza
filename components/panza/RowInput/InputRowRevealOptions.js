@@ -105,8 +105,7 @@ const styles = StyleSheet.create({
     top: 0,
     right: 0,
     bottom: 0,
-    flexDirection: 'row',
-    backgroundColor: 'orange'
+    flexDirection: 'row'
   },
   inputContainer: {
     alignSelf: 'center',

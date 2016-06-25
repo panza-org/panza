@@ -29,6 +29,7 @@
   "homepage": "https://github.com/bmcmahen/panza#readme",
   "dependencies": {
     "color": "^0.11.1",
+    "react-native": "^0.28.0",
     "react-native-vector-icons": "^2.0.3"
   },
   "devDependencies": {

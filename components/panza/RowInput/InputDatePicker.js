@@ -135,7 +135,10 @@ class InputDatePicker extends React.Component {
 }
 
 const styles = StyleSheet.create({
-
+  pickerWrapper: {
+    flex: 1,
+    alignSelf: 'stretch'
+  }
 })
 
 export default InputDatePicker

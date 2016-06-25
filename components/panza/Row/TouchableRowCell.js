@@ -8,8 +8,7 @@ import {
   TouchableHighlight
 } from 'react-native'
 
-import Base from '../Base'
-import { ArrowRightIcon } from '../Icons/Icon'
+import { ArrowRightIcon, Base } from '../index'
 
 
 const noop = function(){}
@@ -32,8 +31,11 @@ const TouchableRowCell = (props) => {
     ...other
   } = props
 
+  let fixedHeight = height === 'auto'
+    ? null : height
+
   const heightStyle = {
-    height: height === 'auto' ? null : height
+    height: fixedHeight
   }
 
   return (
@@ -67,13 +69,13 @@ TouchableRowCell.propTypes = {
   disabled: PropTypes.bool,
   highlighted: PropTypes.func,
   showMore: PropTypes.bool,
-  underlayColor: PropTypes.string
+  underlayColor: PropTypes.string,
+  height: PropTypes.number
 }
 
 TouchableRowCell.defaultProps = {
   showMore: true,
   highlighted: noop,
-  height: Platform.OS === 'ios' ? 60 : 65,
   disabled: false,
   underlayColor: 'rgba(0,0,0,0.1)'
 }
