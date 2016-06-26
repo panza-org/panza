@@ -18,7 +18,7 @@ const size = (fontSize, fontSizes, lineHeight, lineHeights, lineHeightAddition) 
   // 0, 1, 2, 3, 4, 5, 6
   if (typeof fontSize === 'number') {
     style.fontSize = fontSizes[fontSize]
-    style.lineHeight = fontSizes[fontSize] * lineHeights[lineHeight] + lineHeightAddition
+    style.lineHeight = Math.round(fontSizes[fontSize] * lineHeights[lineHeight] + lineHeightAddition)
   }
 
   return style

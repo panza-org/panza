@@ -37,23 +37,8 @@ export default class AllTogetherNow extends React.Component {
   render() {
     return (
       <View>
-        <SubNav
-          options={[
-            {
-              label: 'Find User',
-              onPress: noop
-            },
-            {
-              label: 'Add User',
-              onPress: noop
-            },
-            {
-              label: 'More...',
-              onPress: noop
-            }
-          ]}
-        />
-      <ScrollView style={{ backgroundColor: '#fafafa'}}>
+      
+      <ScrollView style={{ backgroundColor: '#fafafa', flex: 1}}>
           <FadeImage
             style={{ height: 150, width: screen.width }}
             source={{ uri: 'https://s-media-cache-ak0.pinimg.com/236x/d0/48/8b/d0488bf62c88505964faf542afebfd00.jpg'}}

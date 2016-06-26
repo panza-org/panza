@@ -12,11 +12,23 @@ import { Base } from '../index'
  * Input row cell
  */
 
-const InputRowCell = ({children, ...other}) => {
+const InputRowCell = ({children, height, ...other}) => {
+
+  let fixedHeight = height === 'auto' ? null : height
+
+  let baseStyle = {
+    alignSelf: 'stretch',
+    padding: 0,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+    height: fixedHeight
+  }
 
   return (
     <View style={styles.row}>
-      <Base baseStyle={styles.rowContainer} {...other}>
+      <Base baseStyle={baseStyle} {...other}>
         {children}
       </Base>
     </View>
@@ -25,23 +37,15 @@ const InputRowCell = ({children, ...other}) => {
 
 InputRowCell.displayName = 'InputRowCell'
 
+InputRowCell.defaultProps = {
+  height: 50
+}
+
 export default InputRowCell
 
-const HEIGHT = 50
 
 const styles = StyleSheet.create({
   row: {
     overflow: 'hidden'
-  },
-  rowContainer: {
-    height: HEIGHT,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 0,
-    paddingRight: 0,
-    justifyContent: 'center',
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1
   }
 })

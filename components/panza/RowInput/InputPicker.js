@@ -22,7 +22,7 @@ import {
 /**
  * InputPicker provides a unified API for Android and iOS
  * picker rows.
- * 
+ *
  * On iOS, when the user selects the picker row,
  * we want the row to expand to reveal the picker, which is the
  * child passed to this component. The value prop appears

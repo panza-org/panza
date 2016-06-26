@@ -10,6 +10,7 @@ import InputRowRevealOptions, { RevealOption} from './InputRowRevealOptions'
 import AddRow from './AddRow'
 import TouchableInput from './TouchableInput'
 import InputExpandable from './InputExpandable'
+import RevealingRow from './RevealingRow'
 
 export {
   InputRowCell,
@@ -24,5 +25,6 @@ export {
   RevealOption,
   AddRow,
   TouchableInput,
-  InputExpandable
+  InputExpandable,
+  RevealingRow
 }

@@ -71,7 +71,7 @@ const rows = [
   {
     render: () => {
       return (
-        <TouchableRowCell height={'auto'} py={2} showMore={true} onPress={noop}>
+        <TouchableRowCell  py={2} showMore={true} onPress={noop}>
           <Base flex={1}>
             <Base row align='center' justify='space-between'>
               <PrimaryText bold numberOfLines={1}>Ben McMahen</PrimaryText>
@@ -91,18 +91,18 @@ const rows = [
       )
     }
   },
-  {
-    render: () => {
-      return (
-        <TouchableRowCell onPress={noop}>
-          <Base flex={1} row align='center' justify='space-between'>
-            <PrimaryText>PrimaryText</PrimaryText>
-            <PrimaryText light>Value</PrimaryText>
-          </Base>
-        </TouchableRowCell>
-      )
-    }
-  },
+  // {
+  //   render: () => {
+  //     return (
+  //       <TouchableRowCell onPress={noop}>
+  //         <Base flex={1} row align='center' justify='space-between'>
+  //           <PrimaryText>PrimaryText</PrimaryText>
+  //           <PrimaryText light>Value</PrimaryText>
+  //         </Base>
+  //       </TouchableRowCell>
+  //     )
+  //   }
+  // },
 
 ]
 

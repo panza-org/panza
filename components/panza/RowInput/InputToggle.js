@@ -64,7 +64,7 @@ class InputToggle extends React.Component {
 
     return (
       <InputRowCell>
-        <Base p={2}>
+        <Base pl={2}>
           <PrimaryText>
             {label}
           </PrimaryText>
@@ -89,7 +89,6 @@ class InputToggle extends React.Component {
 
 const styles = StyleSheet.create({
   switch: {
-    marginVertical: 5,
     alignSelf: 'flex-end',
     marginRight: 16,
     ...Platform.select({

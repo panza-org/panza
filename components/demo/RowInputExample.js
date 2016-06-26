@@ -63,6 +63,15 @@ export default class InputRowExample extends React.Component {
               value={this.state.label}
               editable={this.state.editable}
               onChangeText={(label) => this.setState({ label })} />
+
+          <InputRow
+              label='Basic Input with Label & Vertical'
+              placeholder='Your value'
+              vertical
+              value={this.state.label}
+              editable={this.state.editable}
+              onChangeText={(label) => this.setState({ label })} />
+
             <InputRow
               icon={<SearchIcon />}
               textAlign='left'
@@ -93,6 +102,7 @@ export default class InputRowExample extends React.Component {
           <InputPicker
             expanded={this.state.focusPicker}
             value={this.state.language}
+            showMore
             label='Select a Language'
             editable={this.state.editable}
             onToggleExpansion={() => {
@@ -111,6 +121,7 @@ export default class InputRowExample extends React.Component {
         <InputDatePicker
           expanded={this.state.focusDate}
           date={this.state.date}
+          showMore
           editable={this.state.editable}
           value={new Date(this.state.date).getFullYear().toString()}
           onDateChange={(date) => this.setState({ date })}
@@ -167,13 +178,13 @@ export default class InputRowExample extends React.Component {
               removable={false}
               editable={this.state.editable}
               onRemove={noop}
-              onSelectLabel={noop}
               onChangeText={(removeInput) => this.setState({ removeInput })}
               value={this.state.removeInput}
             />
             <RemovableInput
               placeholder='Non touchable label'
               removable={true}
+              height={40}
               onRemove={noop}
               editable={this.state.editable}
               label='Cant touch this'
@@ -184,6 +195,7 @@ export default class InputRowExample extends React.Component {
               placeholder='Removable without label'
               removable={true}
               onRemove={noop}
+              height={40}
               editable={this.state.editable}
               onSelectLabel={noop}
               onChangeText={(removeInput) => this.setState({ removeInput })}

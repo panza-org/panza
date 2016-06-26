@@ -1,11 +1,13 @@
-import Icon, {
+import {
   ArrowRightIcon,
   PlusIcon,
   CloseIcon,
   SearchIcon,
   MoreIcon,
   BackIcon
-} from './Icon'
+} from './Icons'
+
+import Icon from './BaseIcon'
 
 import TouchableIcon from './TouchableIcon'
 

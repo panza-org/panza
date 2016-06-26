@@ -117,7 +117,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 1,
     height: Navigator.NavigationBar.Styles.General.TotalNavHeight,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    paddingBottom: 15
   },
   navBar: {
     ...defaultNavbarStyle,
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
        position: 'absolute',
        alignItems: 'center',
        right: 0,
-       bottom: 13,
+       bottom: 30,
        left: 0,
        justifyContent: 'center',
      }

@@ -36,11 +36,13 @@ class InputRow extends React.Component {
     value: PropTypes.string,
     icon: PropTypes.node,
     label: PropTypes.string,
-    maxLength: PropTypes.number
+    maxLength: PropTypes.number,
+    height: PropTypes.number
   }
 
   static defaultProps = {
-    editable: true
+    editable: true,
+    height: 50
   }
 
   focus(){
@@ -57,35 +59,46 @@ class InputRow extends React.Component {
       label,
       value,
       icon,
+      height,
+      vertical,
       maxLength,
       textAlign,
       customInput,
       ...other
     } = this.props
 
-    let alignText = textAlign || (label ? 'right': 'left')
+    let alignText = textAlign || ((label && !vertical) ? 'right': 'left')
+    let fixedHeight = vertical ? 80 : height
 
     return (
-      <InputRowCell>
+      <InputRowCell height={fixedHeight}>
         {icon && (
           <Base ml={2}>
             {icon}
           </Base>
         )}
-        {label &&
-          <Base pl={2}>
-            <PrimaryText>{label}</PrimaryText>
-          </Base>
-        }
-        {customInput ? customInput :
-          <PrimaryTextInput
-            value={value}
-            maxLength={maxLength}
-            style={[styles.input, style]}
-            textAlign={alignText}
-            {...other}
-          />
-         }
+        <Base
+          row={!vertical}
+          flex={1}
+          style={{
+            alignSelf: 'stretch',
+            alignItems: vertical ? 'flex-start' : 'center'
+          }}>
+          {label &&
+            <Base pl={2} mt={vertical && 2}>
+              <SecondaryText bold>{label}</SecondaryText>
+            </Base>
+          }
+          {customInput ? customInput :
+            <PrimaryTextInput
+              value={value}
+              maxLength={maxLength}
+              style={[styles.input, style]}
+              textAlign={alignText}
+              {...other}
+            />
+           }
+        </Base>
       </InputRowCell>
     )
   }
@@ -95,7 +108,8 @@ var styles = StyleSheet.create({
   input: {
     paddingLeft: 16, // this should be configurable
     paddingRight: 16,
-    flex: 1,
+    alignSelf: 'stretch',
+    flex: 1
   },
   labelText: {
   },
