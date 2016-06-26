@@ -30,14 +30,14 @@ class RevealingRow extends React.Component {
   }
 
   showOptions() {
-    Animated.timing(
+    Animated.spring(
       this.state.leftPosition,
       {toValue: this.state.revealWidth}
     ).start()
   }
 
   hideOptions() {
-    Animated.timing(
+    Animated.spring(
       this.state.leftPosition,
       {toValue: 0}
     ).start()

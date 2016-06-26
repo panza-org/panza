@@ -50,7 +50,15 @@ const Navbar = (props) => {
       <View style={[styles.navBar, children && styles.hasChildren, transparent && styles.transparent]}>
         <View style={styles.navTopRow}>
           { title &&
-            <NavTitle  color={titleColor} style={styles.titleStyle} label={title} />
+            <NavTitle
+              color={titleColor}
+              style={[styles.titleStyle, { ...Platform.select({
+                web: {
+                  left: LeftButton ? '40' : 0
+                }
+              })}]}
+              label={title}
+            />
           }
 
           {/*left content*/}
@@ -153,11 +161,12 @@ const styles = StyleSheet.create({
      },
        web: {
         position: 'absolute',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         right: 0,
         bottom: 13,
+        paddingLeft: 16,
         left: 0,
-        justifyContent: 'center',
+        // justifyContent: 'center',
       }
    })
  },
