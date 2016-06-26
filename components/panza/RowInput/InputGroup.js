@@ -101,7 +101,7 @@ class InputGroup extends React.Component {
 
 const styles = StyleSheet.create({
   border: {
-    borderTopWidth: 1 / PixelRatio.get(),
+    borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: 'rgba(0,0,0,0.25)'
   },
   group: {

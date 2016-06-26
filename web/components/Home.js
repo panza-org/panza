@@ -7,8 +7,13 @@ import {
   SecondaryText,
   SmallText,
   NavBar,
+  SearchIcon,
+  InputPicker,
   NavTouchableIcon,
   BackIcon,
+  InputGroup,
+  RemovableInput,
+  InputRow,
   NavTouchableText,
   Icon
  } from '../../components/panza'
@@ -98,48 +103,48 @@ function noop() {}
 //                 editable={this.state.editable}
 //                 onChangeText={(basic) => this.setState({ basic })} />
 //
-//               <InputRow
-//                 label='Basic Input with Label'
-//                 placeholder='Your value'
-//                 value={this.state.label}
-//                 editable={this.state.editable}
-//                 onChangeText={(label) => this.setState({ label })} />
-//               <InputRow
-//                 icon={<SearchIcon />}
-//                 textAlign='left'
-//                 editable={this.state.editable}
-//                 placeholder='Input with icon' />
-//               <InputPicker
-//                 expanded={this.state.showPicker}
-//                 onToggleExpansion={() => this.setState({ showPicker: !this.state.showPicker })}
-//                 value='hi'
-//                 label='Input Picker'
-//                 showMore>
-//                   <View><PrimaryText>hello world</PrimaryText></View>
-//                 </InputPicker>
+              // <InputRow
+              //   label='Basic Input with Label'
+              //   placeholder='Your value'
+              //   value={this.state.label}
+              //   editable={this.state.editable}
+              //   onChangeText={(label) => this.setState({ label })} />
+              // <InputRow
+              //   icon={<SearchIcon />}
+              //   textAlign='left'
+              //   editable={this.state.editable}
+              //   placeholder='Input with icon' />
+              // <InputPicker
+              //   expanded={this.state.showPicker}
+              //   onToggleExpansion={() => this.setState({ showPicker: !this.state.showPicker })}
+              //   value='hi'
+              //   label='Input Picker'
+              //   showMore>
+              //     <View><PrimaryText>hello world</PrimaryText></View>
+              //   </InputPicker>
 //           </InputGroup>
 //
-//           <InputGroup
-//             label='REMOVABLE INPUT'
-//             inset={16} mt={3} mb={3}>
-//             <RemovableInput
-//               placeholder='Non removable without label'
-//               removable={false}
-//               editable={this.state.editable}
-//               onRemove={noop}
-//               onSelectLabel={noop}
-//               onChangeText={(removeInput) => this.setState({ removeInput })}
-//               value={this.state.removeInput}
-//             />
-//             <RemovableInput
-//               placeholder='Non touchable label'
-//               removable={true}
-//               onRemove={noop}
-//               editable={this.state.editable}
-//               label='Cant touch this'
-//               onChangeText={(removeInput) => this.setState({ removeInput })}
-//               value={this.state.removeInput}
-//             />
+          // <InputGroup
+          //   label='REMOVABLE INPUT'
+          //   inset={16} mt={3} mb={3}>
+          //   <RemovableInput
+          //     placeholder='Non removable without label'
+          //     removable={false}
+          //     editable={this.state.editable}
+          //     onRemove={noop}
+          //     onSelectLabel={noop}
+          //     onChangeText={(removeInput) => this.setState({ removeInput })}
+          //     value={this.state.removeInput}
+          //   />
+          //   <RemovableInput
+          //     placeholder='Non touchable label'
+          //     removable={true}
+          //     onRemove={noop}
+          //     editable={this.state.editable}
+          //     label='Cant touch this'
+          //     onChangeText={(removeInput) => this.setState({ removeInput })}
+          //     value={this.state.removeInput}
+          //   />
 //             <RemovableInput
 //               placeholder='Removable without label'
 //               removable={true}
@@ -260,6 +265,11 @@ function noop() {}
 // }
 
 class Home extends React.Component {
+
+  state = {
+    basic: ''
+  }
+
   render() {
     return (
       <View>
@@ -284,10 +294,52 @@ class Home extends React.Component {
         ]}
       />
 
-        <LargeText>Large Text.</LargeText>
-        <PrimaryText>Primary Text.</PrimaryText>
-        <SecondaryText>Secondary Text.</SecondaryText>
-        <SmallText>Small Text.</SmallText>
+    <InputGroup mt={4} inset={16} label='SOME TITLE OF SOME SORT'>
+      <InputRow
+        placeholder='Basic Input'
+        value={this.state.basic}
+        editable={this.state.editable}
+        onChangeText={(basic) => this.setState({ basic })} />
+      <InputRow
+        label='Basic Input with Label'
+        placeholder='Your value'
+        value={this.state.label}
+        editable={this.state.editable}
+        onChangeText={(label) => this.setState({ label })} />
+        <InputRow
+          label='Basic Input with Label'
+          placeholder='Your value'
+          vertical
+          value={this.state.label}
+          editable={this.state.editable}
+          onChangeText={(label) => this.setState({ label })} />
+      <InputRow
+        icon={<SearchIcon />}
+        textAlign='left'
+        editable={this.state.editable}
+        placeholder='Input with icon' />
+      <InputPicker
+        expanded={this.state.showPicker}
+        onToggleExpansion={() => this.setState({ showPicker: !this.state.showPicker })}
+        value='hi'
+        label='Input Picker'
+        showMore>
+          <View><PrimaryText>hello world</PrimaryText></View>
+        </InputPicker>
+    </InputGroup>
+
+    <InputGroup mt={4} inset={16} label='REMOVABLE INPUT DEMO'>
+        <RemovableInput
+          placeholder='Non removable without label'
+          removable={false}
+          editable={this.state.editable}
+          onRemove={noop}
+          onSelectLabel={noop}
+          onChangeText={(removeInput) => this.setState({ removeInput })}
+          value={this.state.removeInput}
+        />
+        
+    </InputGroup>
       </View>
     )
   }

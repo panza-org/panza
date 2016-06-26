@@ -36,7 +36,7 @@ Divider.contextTypes = {
 
 const styles = StyleSheet.create({
   divider: {
-    height: 1 / PixelRatio.get()
+    height: StyleSheet.hairlineWidth
   }
 })
 
