@@ -15,20 +15,9 @@ import NavTitle from './NavTitle'
 import NavTextAction from './NavTouchableText'
 
 const defaultNavbarStyle = {
-  ...Platform.select({
-    ios: {
-
-      backgroundColor: 'white',
-      borderBottomWidth: 1 / PixelRatio.get(),
-      borderBottomColor: 'rgba(0,0,0,0.3)',
-    },
-    android: {
-
-      backgroundColor: 'white',
-      borderBottomWidth: 1 / PixelRatio.get(),
-      borderBottomColor: 'rgba(0,0,0,0.3)'
-    }
-  })
+  backgroundColor: 'white',
+  borderBottomWidth: 1 / PixelRatio.get(),
+  borderBottomColor: 'rgba(0,0,0,0.3)'
 }
 
 /**
@@ -99,13 +88,13 @@ Navbar.propTypes = {
   RightButton: PropTypes.node
 }
 
-Navbar.totalNavHeight = Navigator.NavigationBar.Styles.General.TotalNavHeight
+Navbar.totalNavHeight = 56
 
 export default Navbar
 
 const styles = StyleSheet.create({
   hasChildren: {
-    height: Navigator.NavigationBar.Styles.General.TotalNavHeight + 80
+    height: Navbar.totalNavHeight + 80
   },
   children: {
     height: 80,
@@ -116,13 +105,21 @@ const styles = StyleSheet.create({
   navTopRow: {
     flexDirection: 'row',
     flex: 1,
-    height: Navigator.NavigationBar.Styles.General.TotalNavHeight,
+    height: Navbar.totalNavHeight,
     justifyContent: 'space-between',
-    paddingBottom: 15
+    paddingBottom: 15,
+    ...Platform.select({
+      web: {
+        textAlign: 'center',
+        display: 'flex',
+        alignItems: 'center',
+        paddingBottom: 0
+      }
+    })
   },
   navBar: {
     ...defaultNavbarStyle,
-    height: Navigator.NavigationBar.Styles.General.TotalNavHeight,
+    height: Navbar.totalNavHeight,
     flexDirection: 'column',
     backgroundColor: 'transparent',
 
@@ -153,7 +150,15 @@ const styles = StyleSheet.create({
        bottom: 30,
        left: 0,
        justifyContent: 'center',
-     }
+     },
+       web: {
+        position: 'absolute',
+        alignItems: 'center',
+        right: 0,
+        bottom: 13,
+        left: 0,
+        justifyContent: 'center',
+      }
    })
  },
   transparent: {

@@ -53,11 +53,10 @@ const SubNav = ({
           else if (i === 2) justify = 'flex-end'
 
           return (
-            <View style={{ flex: 1, alignItems: justify }}>
+            <View key={opt.label} style={{ flex: 1, alignItems: justify }}>
               <TouchableOpacity
                 style={{ flex: 0 }}
-                onPress={opt.onPress}
-                key={opt.label}>
+                onPress={opt.onPress}>
                   <SecondaryText color={textColor}>
                     {opt.label}
                   </SecondaryText>
