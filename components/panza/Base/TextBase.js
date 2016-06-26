@@ -25,14 +25,12 @@ const size = (fontSize, fontSizes, lineHeight, lineHeights, lineHeightAddition) 
 }
 
 /** Custom text styling conversions **/
-const propsToStyle = (props, bold, thin, colors) => {
+const propsToStyle = (props, bold, colors) => {
 
   const style = {}
 
   if (props.bold) {
     style.fontWeight = bold
-  } else if (props.thin) {
-    style.fontWeight = thin
   }
 
   if (props.light) {
@@ -56,7 +54,7 @@ const propsToStyle = (props, bold, thin, colors) => {
  * converts props into styles defined in the configuration.
  */
 
-const TextBase = ({
+const BaseText = ({
   style,
   fontSize,
   lineHeight,
@@ -69,7 +67,6 @@ const TextBase = ({
     fontSizes,
     lineHeights,
     bold,
-    thin,
     colors,
     lineHeightAddition,
     scale
@@ -80,7 +77,7 @@ const TextBase = ({
     margins(props, scale),
     paddings(props, scale),
     size(fontSize, fontSizes, lineHeight, lineHeights, lineHeightAddition),
-    propsToStyle(props, bold, thin, colors),
+    propsToStyle(props, bold, colors),
     style
   ]
 
@@ -90,24 +87,21 @@ const TextBase = ({
 
 }
 
-TextBase.displayName = 'TextBase'
+BaseText.displayName = 'TextBase'
 
-TextBase.propTypes = {
+BaseText.propTypes = {
   fontSize: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
   lineHeight: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
-  color: PropTypes.string,
-  textAlign: PropTypes.string,
-  bold: PropTypes.bool,
-  thin: PropTypes.bool
+  color: PropTypes.string
 }
 
-TextBase.defaultProps = {
+BaseText.defaultProps = {
   color: 'default',
   lineHeight: 1
 }
 
-TextBase.contextTypes = {
+BaseText.contextTypes = {
   panza: PropTypes.object
 }
 
-export default TextBase
+export default BaseText

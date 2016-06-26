@@ -2,7 +2,9 @@
 =========================
 
 Displays a loading indicator, and on iOS an optional
-loading message.
+loading message. React-native 0.27 required to use the
+ActivityIndicator. Prior versions will simply display the
+LoadingText.
 
 Props
 -----
@@ -10,7 +12,7 @@ Props
 ### `alignTop`
 
 type: `bool`
-defaultValue: `false`
+defaultValue: `true`
 
 
 ### `color`
@@ -25,12 +27,6 @@ type: `bool`
 defaultValue: `true`
 
 
-### `large`
-
-type: `bool`
-defaultValue: `false`
-
-
 ### `loadingText`
 
 type: `string`
@@ -41,4 +37,10 @@ defaultValue: `'Loading...'`
 
 type: `bool`
 defaultValue: `true`
+
+
+### `size`
+
+type: `enum('large'|'small')`
+defaultValue: `'small'`
 

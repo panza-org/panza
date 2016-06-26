@@ -2,43 +2,15 @@
 ==================
 
 A general purpose component that converts our props into styles
-defined by the user. Heavily inspired by (and somewhat directly copied)
-from rebass.
+defined by the user. Heavily inspired (and somewhat directly copied)
+by rebass.
 
 Props
 -----
 
-### `align`
-
-set align-items property *
-
-type: `string`
-
-
 ### `backgroundColor`
 
 Background color *
-
-type: `string`
-
-
-### `column`
-
-set flex-direction to column *
-
-type: `bool`
-
-
-### `flex`
-
-flex property *
-
-type: `number`
-
-
-### `justify`
-
-set justify-content property *
 
 type: `string`
 
@@ -139,25 +111,4 @@ type: `enum(0|1|2|3|4)`
 Padding y-axis *
 
 type: `enum(0|1|2|3|4)`
-
-
-### `rounded`
-
-Border radius *
-
-type: `union(bool|number)`
-
-
-### `row`
-
-set flex-direction to row *
-
-type: `bool`
-
-
-### `wrap`
-
-flex-wrap property *
-
-type: `bool`
 
