@@ -7,7 +7,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "generate-doc-json": "react-docgen components/panza/**/* -o documentation/components.json --pretty",
     "generate-doc-markdown": "node scripts/generate-docs.js",
-    "generate-docs": "npm run generate-doc-json && npm run generate-doc-markdown"
+    "generate-docs": "npm run generate-doc-json && npm run generate-doc-markdown",
+    "test": "mocha --require react-native-mock/mock.js --compilers js:babel-core/register --recursive components/**/__specs__/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -33,8 +34,16 @@
     "react-native-vector-icons": "^2.0.3"
   },
   "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-preset-react-native": "^1.9.0",
+    "chai": "^3.5.0",
+    "enzyme": "^2.3.0",
+    "mocha": "^2.5.3",
     "react": "^15.1.0",
+    "react-addons-test-utils": "^15.1.0",
     "react-docgen": "^2.8.2",
-    "react-native": "^0.27.0"
+    "react-dom": "^15.1.0",
+    "react-native": "^0.27.0",
+    "react-native-mock": "^0.2.3"
   }
 }

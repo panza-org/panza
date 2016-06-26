@@ -63,10 +63,7 @@ const black = '800'
 const thin = '300'
 const borderColor = 'rgba(0, 0, 0, 0.25)'
 const borderRadius = 2
-const lineHeightAddition = Platform.select({
-  ios: 3,
-  android: 6
-})
+const lineHeightAddition = Platform.OS === 'ios' ? 3 : 6
 
 const config = {
   fontSizes,
