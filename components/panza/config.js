@@ -59,7 +59,6 @@ const scale = [
 const inverted = colors.white
 
 const bold = '600'
-const black = '800'
 const thin = '300'
 const borderColor = 'rgba(0, 0, 0, 0.25)'
 const borderRadius = 2
@@ -72,7 +71,6 @@ const config = {
   borderColor,
   colors,
   inverted,
-  black,
   bold,
   thin,
   scale,
