@@ -72,6 +72,7 @@ const TextBase = ({
     lineHeights,
     bold,
     thin,
+    black,
     colors,
     lineHeightAddition,
     scale
@@ -82,7 +83,7 @@ const TextBase = ({
     margins(props, scale),
     paddings(props, scale),
     size(fontSize, fontSizes, lineHeight, lineHeights, lineHeightAddition),
-    propsToStyle(props, bold, thin, colors),
+    propsToStyle(props, bold, thin, black, colors),
     style
   ]
 
