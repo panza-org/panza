@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import {
-  TextInput
+  TextInput,
+  Platform
 } from 'react-native'
 import {
   TextBase
@@ -14,6 +15,11 @@ import {
 const PrimaryTextInput = (props) => {
   return (
     <TextBase
+      baseStyle={{
+        ...Platform.select({
+          web: { outline: 'none', borderColor: 'transparent' }
+        })
+      }}
       {...props}
       Component={TextInput}
       underlineColorAndroid='transparent'

@@ -7,5 +7,6 @@ export {
   PrimaryText,
   SecondaryText,
   SubtitleText,
-  LargeText
+  LargeText,
+  SubtitleText as SmallText
 }
