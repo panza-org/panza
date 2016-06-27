@@ -36,7 +36,6 @@
     "react-native-vector-icons": "^2.0.3"
   },
   "devDependencies": {
-    "babel-preset-react-native": "^1.9.0",
     "chai": "^3.5.0",
     "enzyme": "^2.3.0",
     "mocha": "^2.5.3",
