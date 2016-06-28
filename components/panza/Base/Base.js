@@ -221,7 +221,7 @@ class Base extends React.Component {
       flex ? { flex } : null,
       wrap ? { flexWrap: 'wrap' } : null,
       column ? { flexDirection: 'column' } : null,
-      row ? { flexDirection: 'row' }: null,
+      row ? { flexDirection: 'row' } : null,
       align ? { alignItems: align } : null,
       justify ? { justifyContent: justify } : null,
     ]
@@ -234,12 +234,10 @@ class Base extends React.Component {
 
     const Element = Component || View
 
-    return <Element {...props} underlayColor={underlay} style={sx}  />
+    return <Element {...props} underlayColor={underlay} style={sx} />
 
   }
 
 }
-
-
 
 export default Base
