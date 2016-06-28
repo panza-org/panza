@@ -7,7 +7,7 @@ import {
  * Primary Text Size
  */
 
-const PrimaryText = ({children, ...props}) => (
+const PrimaryText = ({ children, ...props }) => (
   <TextBase fontSize={4} {...props}>{children}</TextBase>
 )
 

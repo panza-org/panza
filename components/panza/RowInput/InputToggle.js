@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 var {
   View,
   Switch,
@@ -59,7 +59,7 @@ class InputToggle extends React.Component {
       panza
     } = this.context
 
-    const { colors } = {...config, ...panza || {}}
+    const { colors } = { ...config, ...panza || {} }
     let tintColor = colors[onTintColor]
 
     return (
@@ -84,7 +84,6 @@ class InputToggle extends React.Component {
 
   }
 }
-
 
 
 const styles = StyleSheet.create({

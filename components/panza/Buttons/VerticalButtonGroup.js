@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import {
   View,
   Text,
@@ -47,7 +47,7 @@ function renderOption(option, i) {
  * may be dismissal.
  */
 
-const VerticalButtonGroup = ({style, options, ...other}) => {
+const VerticalButtonGroup = ({ style, options, ...other }) => {
 
   return (
     <Base style={style} {...other}>

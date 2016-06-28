@@ -29,23 +29,24 @@ const SubNav = ({
   borderBottom,
   textColor,
   ...other
-}, { panza } ) => {
+}, { panza }) => {
 
-  const { borderColor } = {...config, ...panza}
+  const { borderColor } = { ...config, ...panza }
 
   return (
     <Base
       flex={1}
       row
       style={[
-        borderBottom && { borderBottomWidth: 1 / PixelRatio.get()},
+        borderBottom && { borderBottomWidth: 1 / PixelRatio.get() },
         { borderBottomColor: borderColor }
       ]}
       justify='space-between'
       p={1}
       px={2}
       backgroundColor={backgroundColor}
-      {...other}>
+      {...other}
+    >
         {options.map((opt, i) => {
 
           let justify = 'flex-start'
@@ -56,7 +57,8 @@ const SubNav = ({
             <View key={opt.label} style={{ flex: 1, alignItems: justify }}>
               <TouchableOpacity
                 style={{ flex: 0 }}
-                onPress={opt.onPress}>
+                onPress={opt.onPress}
+              >
                   <SecondaryText color={textColor}>
                     {opt.label}
                   </SecondaryText>

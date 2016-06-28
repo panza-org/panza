@@ -1,5 +1,5 @@
 import React from 'react'
-import {TextBase} from '../Base'
+import { TextBase } from '../Base'
 import Icon from 'react-native-vector-icons/Ionicons'
 import {
   Platform
@@ -11,7 +11,7 @@ import {
  * react-native-vector-icons
  */
 
-const BaseIcon =  (props) => {
+const BaseIcon = (props) => {
   const {
     name,
     size,

@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import {
   View,
   Text,
@@ -84,7 +84,7 @@ class InputPicker extends React.Component {
       panza
     } = this.context
 
-    const { fontSizes } = {...config, ...panza}
+    const { fontSizes } = { ...config, ...panza }
 
 
     const androidStyles = {
@@ -135,7 +135,8 @@ class InputPicker extends React.Component {
     return (
       <InputExpandable
         expanded={expanded}
-        Row={Row}>
+        Row={Row}
+      >
           {React.Children.only(this.props.children)}
       </InputExpandable>
     )

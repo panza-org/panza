@@ -3,7 +3,7 @@ import {
   TextBase
 } from '../Base'
 
-const SubtitleText = ({ children, ...props}) => (
+const SubtitleText = ({ children, ...props }) => (
   <TextBase fontSize={6} {...props}>{children}</TextBase>
 )
 

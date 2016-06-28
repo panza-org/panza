@@ -85,8 +85,9 @@ class InputDatePicker extends React.Component {
     return (
       <InputExpandable
         expanded={Platform.OS === 'ios' ? expanded : false}
-        Row={Row}>
-          {Platform.OS === 'ios' && this.renderIOS() }
+        Row={Row}
+      >
+          {Platform.OS === 'ios' && this.renderIOS()}
       </InputExpandable>
     )
   }
@@ -94,7 +95,8 @@ class InputDatePicker extends React.Component {
   renderIOS() {
     return (
       <View
-        style={styles.pickerWrapper}>
+        style={styles.pickerWrapper}
+      >
         <DatePickerIOS
           date={new Date(this.props.date)}
           maximumDate={this.props.maxDate}
@@ -125,7 +127,7 @@ class InputDatePicker extends React.Component {
           this.props.onDateChange(new Date(year, month, day))
         }
 
-      } catch({code, message}) {
+      } catch ({ code, message }) {
         console.warn('error opening date picker', code, message)
       }
 

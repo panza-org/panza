@@ -7,7 +7,7 @@ import {
  * Secondary Text Size
  */
 
-const SecondaryText = ({ children, ...props}) => (
+const SecondaryText = ({ children, ...props }) => (
   <TextBase fontSize={5} {...props}>{children}</TextBase>
 )
 

@@ -13,21 +13,21 @@ import {
 /** Props to text-size conversions **/
 const size = (fontSize, fontSizes, lineHeight, lineHeights, lineHeightAddition) => {
 
-  const style = {};
+  const style = {}
 
   // 0, 1, 2, 3, 4, 5, 6
   if (typeof fontSize === 'number') {
-    style.fontSize = fontSizes[fontSize];
+    style.fontSize = fontSizes[fontSize]
     style.lineHeight = Math.round(fontSizes[fontSize] * lineHeights[lineHeight] + lineHeightAddition)
   }
 
   return style
-};
+}
 
 /** Custom text styling conversions **/
 const propsToStyle = (props, bold, thin, thick, colors) => {
 
-  const style = {};
+  const style = {}
 
   if (props.bold) {
     style.fontWeight = bold
@@ -51,7 +51,7 @@ const propsToStyle = (props, bold, thin, thick, colors) => {
 
   return style
 
-};
+}
 
 /**
  * A general purpose text component which
@@ -76,7 +76,7 @@ const TextBase = ({
     colors,
     lineHeightAddition,
     scale
-  } = { ...config, ...panza };
+  } = { ...config, ...panza }
 
   const sx = [
     baseStyle,
@@ -85,15 +85,15 @@ const TextBase = ({
     size(fontSize, fontSizes, lineHeight, lineHeights, lineHeightAddition),
     propsToStyle(props, bold, thin, thick, colors),
     style
-  ];
+  ]
 
-  const Element = Component || Text;
+  const Element = Component || Text
 
   return <Element style={sx} {...props}>{props.children}</Element>
 
-};
+}
 
-TextBase.displayName = 'TextBase';
+TextBase.displayName = 'TextBase'
 
 TextBase.propTypes = {
   fontSize: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
@@ -102,15 +102,15 @@ TextBase.propTypes = {
   textAlign: PropTypes.string,
   bold: PropTypes.bool,
   thin: PropTypes.bool
-};
+}
 
 TextBase.defaultProps = {
   color: 'default',
   lineHeight: 1
-};
+}
 
 TextBase.contextTypes = {
   panza: PropTypes.object
-};
+}
 
 export default TextBase

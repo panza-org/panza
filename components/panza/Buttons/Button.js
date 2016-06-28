@@ -45,7 +45,8 @@ const Button = ({
       ]}
       backgroundColor={backgroundColor}
       underlayColor={underlayColor}
-      {...other}>
+      {...other}
+    >
         <View style={styles.buttonContent}>
           {child || (
             <PrimaryText color={textColor}>{label}</PrimaryText>

@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import {
   View,
   Text,
@@ -14,7 +14,7 @@ import {
 
 /**
  * SectionHeader is used for rendering a section header within a ListView.
- * Supply text as the child.  
+ * Supply text as the child.
  */
 
 const SectionHeader = ({
@@ -26,7 +26,8 @@ const SectionHeader = ({
   return (
     <Base
       backgroundColor={backgroundColor}
-      baseStyle={styles.header} {...other}>
+      baseStyle={styles.header} {...other}
+    >
       <SubtitleText light>{children}</SubtitleText>
     </Base>
   )

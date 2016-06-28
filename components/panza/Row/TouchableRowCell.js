@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import {
   View,
   Text,
@@ -11,7 +11,7 @@ import {
 import { ArrowRightIcon, Base } from '../index'
 
 
-const noop = function(){}
+const noop = function() {}
 
 /**
  * A touchable row cell container, typically used
@@ -45,14 +45,15 @@ const TouchableRowCell = (props) => {
       underlayColor={underlayColor}
       style={[styles.row, disabled && styles.disabled]}
       onPressIn={() => highlighted()}
-      onPressOut={() => highlighted(null)}>
+      onPressOut={() => highlighted(null)}
+    >
 
       <View>
         <Base baseStyle={[styles.rowContainer, heightStyle]} {...other}>
           {children}
           {showMore && (
             <Base px={2}>
-              <ArrowRightIcon size={20}/>
+              <ArrowRightIcon size={20} />
             </Base>
           )}
         </Base>

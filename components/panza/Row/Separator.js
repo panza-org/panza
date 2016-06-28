@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import {
   View,
   Text,
@@ -15,7 +15,7 @@ import { config } from '../index'
  * optional inset margin on the left or right.
  */
 
-const RowSeparator = ({ inset, insetRight, ...other}, { panza }) => {
+const RowSeparator = ({ inset, insetRight, ...other }, { panza }) => {
 
   const { borderColor } = { ...config, ...panza }
 
@@ -25,7 +25,7 @@ const RowSeparator = ({ inset, insetRight, ...other}, { panza }) => {
         styles.separator,
         { backgroundColor: borderColor },
         inset && { marginLeft: inset },
-        insetRight && {marginRight: insetRight}
+        insetRight && { marginRight: insetRight }
       ]}
       {...other}
     />

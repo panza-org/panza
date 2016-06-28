@@ -33,7 +33,8 @@ const TouchableRow = ({
       height={height}
       py={2}
       onPress={onPress}
-      {...other}>
+      {...other}
+    >
 
       {image && (
         <RowImage mr={2} source={image} />
