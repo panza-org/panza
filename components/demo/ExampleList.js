@@ -15,7 +15,8 @@ import ErrorPage from './ErrorExample'
 import LoadingPage from './LoadingExample'
 import IconsExample from './IconsExample'
 import ImageExample from './ImageExample'
-import NavbarExample from './NavBarExample'
+import NavBarExample from './NavBarExample'
+import TabBarExample from './TabBarExample'
 import AllTogetherNow from './AllTogetherNow'
 
 
@@ -52,7 +53,11 @@ const Examples: Array<WidgetExample> = [
   },
   {
     name: 'NavBar',
-    module: NavbarExample
+    module: NavBarExample
+  },
+  {
+    name: 'TabBar',
+    module: TabBarExample
   },
   {
     name: 'Rows',
