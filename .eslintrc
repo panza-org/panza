@@ -1,0 +1,18 @@
+{
+"parser": "babel-eslint",
+"extends": "airbnb",
+ "ecmaFeatures": {
+    "classes": true,
+    "jsx": true
+  },
+"rules": {
+    "semi": [2, "never"],
+    "comma-dangle": "off",
+    "no-confusing-arrow": "off",
+    "padded-blocks": "off",
+    "space-before-function-paren": "off",
+    "react/prefer-stateless-function": "off",
+    "array-bracket-spacing": "off",
+    "jsx-quotes": "off"
+  }
+}
