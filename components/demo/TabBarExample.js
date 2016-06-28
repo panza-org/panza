@@ -33,7 +33,7 @@ export default class NavBarExample extends React.Component {
             height={60}
             activeTab={2}
             backgroundColor='black'
-            goToPage={noop}
+            onTabPress={noop}
             my={2}
           />
 

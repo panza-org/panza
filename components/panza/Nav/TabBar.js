@@ -12,7 +12,7 @@ import { Base, TextBase } from '../Base'
 
 export default class TabBar extends Component {
   static propTypes = {
-    goToPage: React.PropTypes.func,
+    onTabPress: React.PropTypes.func,
     activeTab: React.PropTypes.number,
     tabs: React.PropTypes.array,
     width: React.PropTypes.number,
@@ -33,7 +33,7 @@ export default class TabBar extends Component {
     underlineColor: 'primary',
     backgroundColor: 'white',
     underlineHeight: 2,
-    goToPage: () => {}
+    onTabPress: () => {}
   };
 
   constructor(props) {
@@ -57,9 +57,17 @@ export default class TabBar extends Component {
     }
   }
 
+  onTabPress(i) {
+    LayoutAnimation.easeInEaseOut();
+    this.setState({
+      left: i * this.width / this.props.tabs.length,
+      activeTab: i
+    });
+    this.props.onTabPress(i);
+  }
 
-  renderTabOption(name, page) {
-    const isTabActive = this.state.activeTab === page;
+  renderTabOption(name, i) {
+    const isTabActive = this.state.activeTab === i;
     const { activeTextColor, inactiveTextColor, textProps } = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
 
@@ -68,7 +76,7 @@ export default class TabBar extends Component {
         style={{ flex: 1 }}
         key={name}
         onPress={() => {
-          this.onTabPress(page)
+          this.onTabPress(i)
         }}
       >
         <View style={[styles.tab, this.props.tabStyle]}>
@@ -78,15 +86,6 @@ export default class TabBar extends Component {
         </View>
       </TouchableOpacity>
     );
-  }
-
-  onTabPress(page) {
-    LayoutAnimation.easeInEaseOut();
-    this.setState({
-      left: page * this.width / this.props.tabs.length,
-      activeTab: page
-    });
-    this.props.goToPage(page);
   }
 
   render() {
@@ -132,11 +131,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   container: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
     borderWidth: 0,
     borderBottomWidth: 1,
-    borderBottomColor: '#ccc'
+    borderBottomColor: '#ccc',
+    flexDirection: 'row',
+    justifyContent: 'space-around'
   }
 });
 
