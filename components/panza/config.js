@@ -15,7 +15,7 @@ const baseColors = {
   red: '#f52',
   orange: '#f70',
   green: '#1c7'
-}
+};
 
 const colors = {
   ...baseColors,
@@ -26,7 +26,7 @@ const colors = {
   success: baseColors.green,
   warning: baseColors.orange,
   error: baseColors.red
-}
+};
 
 const fontSizes = [
   48,
@@ -36,7 +36,7 @@ const fontSizes = [
   17,
   15,
   12
-]
+];
 
 const lineHeights = [
   0.7,
@@ -46,7 +46,7 @@ const lineHeights = [
   2,
   2.5,
   3
-]
+];
 
 const scale = [
   0,
@@ -54,14 +54,16 @@ const scale = [
   16,
   32,
   64
-]
+];
 
-const inverted = colors.white
+const inverted = colors.white;
 
-const bold = '600'
-const borderColor = 'rgba(0, 0, 0, 0.25)'
-const borderRadius = 2
-const lineHeightAddition = Platform.OS === 'ios' ? 3 : 6
+const bold = '600';
+const thick = '800';
+const thin = '300';
+const borderColor = 'rgba(0, 0, 0, 0.25)';
+const borderRadius = 2;
+const lineHeightAddition = Platform.OS === 'ios' ? 3 : 6;
 
 const config = {
   fontSizes,
@@ -70,9 +72,11 @@ const config = {
   borderColor,
   colors,
   inverted,
+  thick,
   bold,
+  thin,
   scale,
   lineHeightAddition
-}
+};
 
 export default config

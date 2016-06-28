@@ -13,24 +13,28 @@ import {
 /** Props to text-size conversions **/
 const size = (fontSize, fontSizes, lineHeight, lineHeights, lineHeightAddition) => {
 
-  const style = {}
+  const style = {};
 
   // 0, 1, 2, 3, 4, 5, 6
   if (typeof fontSize === 'number') {
-    style.fontSize = fontSizes[fontSize]
+    style.fontSize = fontSizes[fontSize];
     style.lineHeight = Math.round(fontSizes[fontSize] * lineHeights[lineHeight] + lineHeightAddition)
   }
 
   return style
-}
+};
 
 /** Custom text styling conversions **/
-const propsToStyle = (props, bold, colors) => {
+const propsToStyle = (props, bold, thin, thick, colors) => {
 
-  const style = {}
+  const style = {};
 
   if (props.bold) {
     style.fontWeight = bold
+  } else if (props.thin) {
+    style.fontWeight = thin
+  } else if (props.thick) {
+    style.fontWeight = thick
   }
 
   if (props.light) {
@@ -47,14 +51,14 @@ const propsToStyle = (props, bold, colors) => {
 
   return style
 
-}
+};
 
 /**
  * A general purpose text component which
  * converts props into styles defined in the configuration.
  */
 
-const BaseText = ({
+const TextBase = ({
   style,
   fontSize,
   lineHeight,
@@ -67,41 +71,46 @@ const BaseText = ({
     fontSizes,
     lineHeights,
     bold,
+    thin,
+    thick,
     colors,
     lineHeightAddition,
     scale
-  } = { ...config, ...panza }
+  } = { ...config, ...panza };
 
   const sx = [
     baseStyle,
     margins(props, scale),
     paddings(props, scale),
     size(fontSize, fontSizes, lineHeight, lineHeights, lineHeightAddition),
-    propsToStyle(props, bold, colors),
+    propsToStyle(props, bold, thin, thick, colors),
     style
-  ]
+  ];
 
-  const Element = Component || Text
+  const Element = Component || Text;
 
   return <Element style={sx} {...props}>{props.children}</Element>
 
-}
+};
 
-BaseText.displayName = 'TextBase'
+TextBase.displayName = 'TextBase';
 
-BaseText.propTypes = {
+TextBase.propTypes = {
   fontSize: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
   lineHeight: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
-  color: PropTypes.string
-}
+  color: PropTypes.string,
+  textAlign: PropTypes.string,
+  bold: PropTypes.bool,
+  thin: PropTypes.bool
+};
 
-BaseText.defaultProps = {
+TextBase.defaultProps = {
   color: 'default',
   lineHeight: 1
-}
+};
 
-BaseText.contextTypes = {
+TextBase.contextTypes = {
   panza: PropTypes.object
-}
+};
 
-export default BaseText
+export default TextBase
