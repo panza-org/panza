@@ -8,7 +8,10 @@
     "generate-doc-json": "react-docgen components/panza/**/* -o documentation/components.json --pretty",
     "generate-doc-markdown": "node scripts/generate-docs.js",
     "generate-docs": "npm run generate-doc-json && npm run generate-doc-markdown",
+<<<<<<< HEAD
+=======
     "test": "mocha --require react-native-mock/mock.js --compilers js:babel-core/register --recursive components/**/__specs__/*.spec.js",
+>>>>>>> e9c11cfb7d6069a7072c81a4d11453dab3e36c7f
     "build": "rimraf lib && babel ./components/panza -d lib",
     "web": "NODE_ENV=development node -r ./web/register.js web/server/index.js",
     "web-build": "NODE_ENV=production webpack -p"
@@ -36,9 +39,12 @@
     "react-native-vector-icons": "^2.0.3"
   },
   "devDependencies": {
+<<<<<<< HEAD
+=======
     "chai": "^3.5.0",
     "enzyme": "^2.3.0",
     "mocha": "^2.5.3",
+>>>>>>> e9c11cfb7d6069a7072c81a4d11453dab3e36c7f
     "autoprefixer": "^6.3.6",
     "babel-cli": "^6.8.0",
     "babel-core": "^6.9.1",
@@ -63,7 +69,10 @@
     "react-addons-test-utils": "^15.1.0",
     "react-docgen": "^2.8.2",
     "react-dom": "^15.1.0",
+<<<<<<< HEAD
+=======
     "react-native-mock": "^0.2.3",
+>>>>>>> e9c11cfb7d6069a7072c81a4d11453dab3e36c7f
     "react-native": "^0.28.0",
     "react-native-web": "git+https://github.com/bmcmahen/react-native-web.git",
     "rimraf": "^2.5.2",
