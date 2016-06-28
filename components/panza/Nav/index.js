@@ -4,6 +4,7 @@ import NavIconContainer from './NavIconContainer'
 import NavTouchableIcon from './NavTouchableIcon'
 import NavTouchableText from './NavTouchableText'
 import SubNav from './SubNav'
+import TabBar from './TabBar'
 
 export {
   NavIconContainer,
@@ -11,5 +12,6 @@ export {
   NavBar,
   NavTitle,
   NavTouchableText,
-  SubNav
+  SubNav,
+  TabBar
 }
