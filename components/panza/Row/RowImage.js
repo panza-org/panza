@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 var {
   View,
   Text,
@@ -10,7 +10,7 @@ import Base from '../Base'
 
 /**
  * RowImage composes FadeImage, providing it with
- * sensible defaults for display within a row. 
+ * sensible defaults for display within a row.
  */
 
 class RowImage extends React.Component {

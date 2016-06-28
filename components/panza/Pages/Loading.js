@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import {
   View,
   Text,
@@ -52,7 +52,7 @@ class LoadingPage extends React.Component {
       ...other
     } = this.props
 
-    const size = large ? 'large' : 'small';
+    const size = large ? 'large' : 'small'
     const Indicator = ActivityIndicator || ActivityIndicatorIOS
 
     return (

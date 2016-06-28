@@ -49,24 +49,24 @@ const Navbar = (props) => {
     >
       <View style={[styles.navBar, children && styles.hasChildren, transparent && styles.transparent]}>
         <View style={styles.navTopRow}>
-          { title &&
+          {title &&
             <NavTitle
               color={titleColor}
               style={[styles.titleStyle, { ...Platform.select({
                 web: {
                   left: LeftButton ? '40' : 0
                 }
-              })}]}
+              }) }]}
               label={title}
             />
           }
 
-          {/*left content*/}
+          {/* left content*/}
           <View>
             {LeftButton}
           </View>
 
-          {/*right content*/}
+          {/* right content*/}
           <View>
             {RightButton}
           </View>
@@ -144,22 +144,22 @@ const styles = StyleSheet.create({
   },
   titleStyle: {
 
-   ...Platform.select({
-     android: {
-       position: 'absolute',
-       left: 70,
-       right: 0,
-       bottom: 15
-     },
-     ios: {
-       position: 'absolute',
-       alignItems: 'center',
-       right: 0,
-       bottom: 30,
-       left: 0,
-       justifyContent: 'center',
-     },
-       web: {
+    ...Platform.select({
+      android: {
+        position: 'absolute',
+        left: 70,
+        right: 0,
+        bottom: 15
+      },
+      ios: {
+        position: 'absolute',
+        alignItems: 'center',
+        right: 0,
+        bottom: 30,
+        left: 0,
+        justifyContent: 'center',
+      },
+      web: {
         position: 'absolute',
         alignItems: 'flex-start',
         right: 0,
@@ -168,8 +168,8 @@ const styles = StyleSheet.create({
         left: 0,
         // justifyContent: 'center',
       }
-   })
- },
+    })
+  },
   transparent: {
     borderBottomWidth: 0,
     backgroundColor: 'transparent'

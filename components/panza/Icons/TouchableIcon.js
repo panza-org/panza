@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import {
   TouchableOpacity
 } from 'react-native'
@@ -24,7 +24,8 @@ const TouchableIcon = (props) => {
       style={style}
       accessibilityLabel={accessibilityLabel}
       onPress={onPress}
-      {...other}>
+      {...other}
+    >
         {child}
     </TouchableOpacity>
   )

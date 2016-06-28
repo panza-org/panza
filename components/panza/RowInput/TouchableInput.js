@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import {
   View,
   Text,
@@ -18,7 +18,7 @@ import {
  * the user to select a value from another ListView. In essence,
  * this is very similar to a standard TouchableRow. In the future,
  * we may consider combining the two.
- * 
+ *
  */
 
 const TouchableInput = ({
@@ -48,7 +48,8 @@ const TouchableInput = ({
       underlayColor='darken'
       baseStyle={[styles.container, { height }]}
       onPress={onPress}
-      {...other}>
+      {...other}
+    >
       <View style={styles.innerContainer}>
         {icon}
         <TextStyle color={labelColor}>

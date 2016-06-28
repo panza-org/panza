@@ -12,15 +12,15 @@ import config from '../config'
  * a pseudo border between them.
  */
 
-const Divider = ({style, inset, ...other}, {panza}) => {
-  const { borderColor } = {...config, ...panza}
+const Divider = ({ style, inset, ...other }, { panza }) => {
+  const { borderColor } = { ...config, ...panza }
   return (
     <View style={[
-        styles.divider,
-        style,
-        inset && { marginLeft: inset },
+      styles.divider,
+      style,
+      inset && { marginLeft: inset },
         { backgroundColor: borderColor }
-      ]} />
+    ]} />
   )
 }
 

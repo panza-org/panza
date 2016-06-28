@@ -1,6 +1,6 @@
 {
   "components/panza/Base/Base.js": {
-    "description": "A general purpose component that converts our props into styles\ndefined by the user. Heavily inspired (and somewhat directly copied)\nby rebass.",
+    "description": "A general purpose component that converts our props into styles\ndefined by the user. Heavily inspired by (and somewhat directly copied)\nfrom rebass.",
     "displayName": "Base",
     "methods": [],
     "props": {
@@ -416,6 +416,63 @@
         },
         "required": false,
         "description": "Background color *"
+      },
+      "rounded": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "bool"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Border radius *"
+      },
+      "flex": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "flex property *"
+      },
+      "wrap": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "flex-wrap property *"
+      },
+      "column": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "set flex-direction to column *"
+      },
+      "row": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "set flex-direction to row *"
+      },
+      "align": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "set align-items property *"
+      },
+      "justify": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "set justify-content property *"
       }
     }
   },
@@ -461,6 +518,47 @@
         "required": false,
         "description": ""
       },
+      "lineHeight": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "0",
+              "computed": false
+            },
+            {
+              "value": "1",
+              "computed": false
+            },
+            {
+              "value": "2",
+              "computed": false
+            },
+            {
+              "value": "3",
+              "computed": false
+            },
+            {
+              "value": "4",
+              "computed": false
+            },
+            {
+              "value": "5",
+              "computed": false
+            },
+            {
+              "value": "6",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "1",
+          "computed": false
+        }
+      },
       "color": {
         "type": {
           "name": "string"
@@ -471,6 +569,27 @@
           "value": "'default'",
           "computed": false
         }
+      },
+      "textAlign": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "bold": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "thin": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": ""
       }
     }
   },
@@ -1072,7 +1191,7 @@
     }
   },
   "components/panza/Pages/Loading.js": {
-    "description": "Displays a loading indicator, and on iOS an optional\nloading message. React-native 0.27 required to use the\nActivityIndicator. Prior versions will simply display the\nLoadingText.",
+    "description": "Displays a loading indicator, and on iOS an optional\nloading message.",
     "displayName": "LoadingPage",
     "methods": [],
     "props": {
@@ -1087,24 +1206,14 @@
           "computed": false
         }
       },
-      "size": {
+      "large": {
         "type": {
-          "name": "enum",
-          "value": [
-            {
-              "value": "'large'",
-              "computed": false
-            },
-            {
-              "value": "'small'",
-              "computed": false
-            }
-          ]
+          "name": "bool"
         },
         "required": false,
         "description": "",
         "defaultValue": {
-          "value": "'small'",
+          "value": "false",
           "computed": false
         }
       },
@@ -1148,7 +1257,7 @@
         "required": false,
         "description": "",
         "defaultValue": {
-          "value": "true",
+          "value": "false",
           "computed": false
         }
       }

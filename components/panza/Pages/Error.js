@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import {
   View,
   Text,
@@ -36,7 +36,7 @@ class ErrorPage extends React.Component {
     isOffline: false,
     message: 'Hmm, loading appears to be taking a while.',
     offlineMessage: 'Please ensure that you are connected to the internet.',
-    detailMessage: `It's possible that our server are under heavy load, or that your internet connection is slow. Please try again.`
+    detailMessage: 'It\'s possible that our server are under heavy load, or that your internet connection is slow. Please try again.'
   }
 
   render () {
@@ -61,7 +61,7 @@ class ErrorPage extends React.Component {
             </LargeText>
           </Base>
           <SecondaryText light textAlign='center'>
-            { isOffline ? offlineMessage : detailMessage }
+            {isOffline ? offlineMessage : detailMessage}
           </SecondaryText>
         </View>
         <View>

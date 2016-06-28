@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import {
   View,
   Text,
@@ -46,7 +46,7 @@ class InputExpandable extends React.Component {
     } = this.props
 
     return (
-      <View style={{ flex: 1}}>
+      <View style={{ flex: 1 }}>
         {Row}
         {expanded && (
           <View style={styles.pickerWrapper}>

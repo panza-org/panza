@@ -36,14 +36,14 @@ class RevealingRow extends React.Component {
   showOptions() {
     Animated.spring(
       this.state.leftPosition,
-      {toValue: -this.state.revealWidth}
+      { toValue: -this.state.revealWidth }
     ).start()
   }
 
   hideOptions() {
     Animated.spring(
       this.state.leftPosition,
-      {toValue: 0}
+      { toValue: 0 }
     ).start()
   }
 
@@ -60,11 +60,11 @@ class RevealingRow extends React.Component {
   }
 
   render() {
-    return(
-      <View style={{ position: 'relative', flex: 1}}>
+    return (
+      <View style={{ position: 'relative', flex: 1 }}>
         {this.state.renderRevealOptions && (
           <View style={[styles.revealContainer, { height: this.state.rowHeight }]}>
-            <View onLayout={this.onOptionsLayout} style={{ height: this.state.rowHeight, alignSelf: 'flex-end'}}>
+            <View onLayout={this.onOptionsLayout} style={{ height: this.state.rowHeight, alignSelf: 'flex-end' }}>
               {this.props.revealedContent}
             </View>
           </View>
@@ -75,7 +75,8 @@ class RevealingRow extends React.Component {
             flex: 1,
             backgroundColor: 'white',
             transform: [{ translateX: this.state.leftPosition }]
-          }}>
+          }}
+        >
           {this.props.children}
         </Animated.View>
       </View>

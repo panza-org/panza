@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import {
   View,
   Text,
@@ -28,7 +28,7 @@ function noop() {}
 const MAX_ACTIONS = 2
 
 const VerticalDivider = () => {
-  return <View  style={{ width: 1, backgroundColor: 'white' }} />
+  return <View style={{ width: 1, backgroundColor: 'white' }} />
 }
 
 import RevealingRow from './RevealingRow'
@@ -38,7 +38,7 @@ import RevealingRow from './RevealingRow'
  * a revealing row.
  */
 
-export const RowActions = ({children, style, ...other}) => {
+export const RowActions = ({ children, style, ...other }) => {
 
   let buttons = []
 
@@ -47,7 +47,7 @@ export const RowActions = ({children, style, ...other}) => {
       const isNotLast = i < children.length - 1
       buttons.push(child)
       if (isNotLast) {
-        buttons.push(<VerticalDivider key={'divider'+i} />)
+        buttons.push(<VerticalDivider key={'divider' + i} />)
       }
     })
   } else {
@@ -60,7 +60,8 @@ export const RowActions = ({children, style, ...other}) => {
         { flex: 1, flexDirection: 'row', justifyContent: 'flex-end' },
         style
       ]}
-      {...other}>
+      {...other}
+    >
         {buttons}
     </Base>
   )
@@ -71,15 +72,16 @@ export const RowActions = ({children, style, ...other}) => {
  * as 'Delete', or 'Edit', etc.
  */
 
-export const RowAction = ({children, ...props}) => {
+export const RowAction = ({ children, ...props }) => {
   return (
     <Base
       justify='center'
       underlayColor='darken'
       px={2}
-      baseStyle={ Platform.select({ web: { outline: 'none' }} )}
+      baseStyle={Platform.select({ web: { outline: 'none' } })}
       Component={TouchableHighlight}
-      {...props}>
+      {...props}
+    >
         <View>
           {children}
         </View>
@@ -97,7 +99,8 @@ export const RemoveButton = (props) => {
       Component={TouchableOpacity}
       backgroundColor='error'
       baseStyle={styles.iconButton}
-      {...props}>
+      {...props}
+    >
       <Icon
         name='md-remove'
         size={15}
@@ -116,40 +119,40 @@ class RemovableInput extends React.Component {
 
   static displayName = 'RemovableInput'
 
-    static propTypes = {
-      label: PropTypes.string,
-      autoFocus: PropTypes.bool,
-      removable: PropTypes.bool,
-      placeholder: PropTypes.string,
-      vertical: PropTypes.bool,
-      amountDecorator: PropTypes.bool,
-      condensed: PropTypes.bool,
-      onSelectLabel: PropTypes.func.isRequired,
-      onRemove: PropTypes.func,
-      autoFocus: PropTypes.bool,
-      onChangeText: PropTypes.func.isRequired,
-      value: PropTypes.string,
-      backgroundColor: PropTypes.string,
-      editable: PropTypes.bool,
-      labelWidth: PropTypes.number,
-      verticalHeight: PropTypes.number
-    }
+  static propTypes = {
+    label: PropTypes.string,
+    autoFocus: PropTypes.bool,
+    removable: PropTypes.bool,
+    placeholder: PropTypes.string,
+    vertical: PropTypes.bool,
+    amountDecorator: PropTypes.bool,
+    condensed: PropTypes.bool,
+    onSelectLabel: PropTypes.func.isRequired,
+    onRemove: PropTypes.func,
+    autoFocus: PropTypes.bool,
+    onChangeText: PropTypes.func.isRequired,
+    value: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    editable: PropTypes.bool,
+    labelWidth: PropTypes.number,
+    verticalHeight: PropTypes.number
+  }
 
 
-    static defaultProps = {
-      removable: true,
-      editable: true,
-      backgroundColor: 'white',
-      textAlign: 'right',
-      keyboardType: 'numeric',
-      autoFocus: true,
-      vertical: false,
-      condensed: false,
-      autoFocus: false,
-      onRequestRemove: noop,
-      verticalHeight: 80,
-      height: 50
-    }
+  static defaultProps = {
+    removable: true,
+    editable: true,
+    backgroundColor: 'white',
+    textAlign: 'right',
+    keyboardType: 'numeric',
+    autoFocus: true,
+    vertical: false,
+    condensed: false,
+    autoFocus: false,
+    onRequestRemove: noop,
+    verticalHeight: 80,
+    height: 50
+  }
 
 
   constructor(props) {
@@ -175,10 +178,12 @@ class RemovableInput extends React.Component {
             this.hideDelete()
           }
           this.props.onSelectLabel()
-        }}>
+        }}
+      >
           <TextBase
             color={(this.props.editable && this.props.onSelectLabel) ? 'primary' : 'default'}
-            baseStyle={styles.labelText}>
+            baseStyle={styles.labelText}
+          >
               {this.props.label}
           </TextBase>
         </TouchableOpacity>
@@ -194,7 +199,8 @@ class RemovableInput extends React.Component {
             onPress={() => {
               this.setState({ showingOptions: false })
             }}
-            backgroundColor='#eee'>
+            backgroundColor='#eee'
+          >
               <SecondaryText>Cancel</SecondaryText>
           </RowAction>
           <RowAction
@@ -203,7 +209,8 @@ class RemovableInput extends React.Component {
               this.setState({ showingOptions: false })
               this.props.onRequestRemove()
             }}
-            backgroundColor='red'>
+            backgroundColor='red'
+          >
             <SecondaryText color='white'>Remove</SecondaryText>
           </RowAction>
         </RowActions>
@@ -222,9 +229,10 @@ class RemovableInput extends React.Component {
 
     return (
       <RevealingRow
-        style={{ flex: 1, alignSelf: 'stretch'}}
+        style={{ flex: 1, alignSelf: 'stretch' }}
         showingOptions={this.state.showingOptions}
-        revealedContent={revealed}>
+        revealedContent={revealed}
+      >
 
         <InputRowCell height={height}>
 
@@ -232,8 +240,8 @@ class RemovableInput extends React.Component {
 
             {this.props.removable && (
                 <RemoveButton
-                  style={ { marginRight: 16  } }
-                  onPress={() =>  {
+                  style={{ marginRight: 16 }}
+                  onPress={() => {
                     this.setState({ showingOptions: true })
                   }}
                 />
@@ -242,7 +250,8 @@ class RemovableInput extends React.Component {
             <Base
               flex={1}
               style={{ alignSelf: 'stretch' }}
-              row={!this.props.vertical}>
+              row={!this.props.vertical}
+            >
 
               {this.renderLabel()}
 

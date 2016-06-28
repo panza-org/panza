@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import {
   View,
   Text,
@@ -12,7 +12,7 @@ import { Base } from '../index'
  * Input row cell
  */
 
-const InputRowCell = ({children, height, ...other}) => {
+const InputRowCell = ({ children, height, ...other }) => {
 
   let fixedHeight = height === 'auto' ? null : height
 

@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import {
   View,
   Text,
@@ -17,7 +17,8 @@ const GreenPlusIcon = () => (
   <Base
     backgroundColor='green'
     mr={2}
-    style={styles.iconButton}>
+    style={styles.iconButton}
+  >
     <Icon
       name='md-add'
       size={15}
@@ -46,7 +47,8 @@ const AddRow = ({
       icon={<GreenPlusIcon />}
       backgroundColor={backgroundColor}
       onPress={onPress}
-      {...other} />
+      {...other}
+    />
   )
 }
 

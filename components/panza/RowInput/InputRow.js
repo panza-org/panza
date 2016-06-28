@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import {
   View,
   Text,
@@ -45,7 +45,7 @@ class InputRow extends React.Component {
     height: 50
   }
 
-  focus(){
+  focus() {
     this.refs.input.focus()
   }
 
@@ -67,7 +67,7 @@ class InputRow extends React.Component {
       ...other
     } = this.props
 
-    let alignText = textAlign || ((label && !vertical) ? 'right': 'left')
+    let alignText = textAlign || ((label && !vertical) ? 'right' : 'left')
     let fixedHeight = vertical ? 80 : height
 
     return (
@@ -83,7 +83,8 @@ class InputRow extends React.Component {
           style={{
             alignSelf: 'stretch',
             alignItems: vertical ? 'flex-start' : 'center'
-          }}>
+          }}
+        >
           {label &&
             <Base pl={2} mt={vertical && 2}>
               <SecondaryText bold>{label}</SecondaryText>

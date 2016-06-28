@@ -8,8 +8,8 @@ const BaseIcon = ({
 }) => {
   return (
     <TextBase
-      className={'ion ion-'+ name}
-      style={{ fontSize: size + 'px'}}
+      className={'ion ion-' + name}
+      style={{ fontSize: size + 'px' }}
       {...other}
     />
   )

@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import {
   View,
   Text,
@@ -61,7 +61,7 @@ class FadeImage extends React.Component {
     }
   }
 
-  render(){
+  render() {
     const {
       style,
       source,

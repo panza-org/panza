@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import {
   StyleSheet,
   Platform,
@@ -17,7 +17,7 @@ import {
  * On Android, it composes LargeText.
  */
 
-const NavTitle = ({label, color, children, style, ...other}) => {
+const NavTitle = ({ label, color, children, style, ...other }) => {
 
   return (
     <View style={[styles.container, style]}>

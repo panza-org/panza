@@ -25,7 +25,8 @@ export const RevealOption = ({
       px={1}
       baseStyle={styles.slideOption}
       onPress={onPress}
-      {...other}>
+      {...other}
+    >
         <View style={styles.inputContainer}>
           <PrimaryText color={textColor}>
             {label}

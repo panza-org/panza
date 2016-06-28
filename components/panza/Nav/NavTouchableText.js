@@ -24,12 +24,13 @@ const NavTouchableText = ({
 }) => {
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center'}}>
+    <View style={{ flex: 1, justifyContent: 'center' }}>
       <TextBase
         Component={TouchableOpacity}
-        baseStyle={{ paddingLeft: 16, paddingRight: 16, paddingBottom: 5, paddingTop: 5, opacity: disabled ? 0.3 : 1}}
+        baseStyle={{ paddingLeft: 16, paddingRight: 16, paddingBottom: 5, paddingTop: 5, opacity: disabled ? 0.3 : 1 }}
         disabled={disabled}
-        {...other}>
+        {...other}
+      >
           <PrimaryText color={color} style={{ opacity: disabled ? 0.5 : 1 }}>{children}</PrimaryText>
       </TextBase>
     </View>

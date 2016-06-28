@@ -1,26 +1,26 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
-import { shallow } from 'enzyme';
-import { expect } from 'chai';
-import Base from '../Base';
+import { View, Text, StyleSheet, TouchableHighlight } from 'react-native'
+import { shallow } from 'enzyme'
+import { expect } from 'chai'
+import Base from '../Base'
 import config from '../../config'
 
 function flattenStyle(style) {
-  var result = {};
- for (var i = 0, styleLength = style.length; i < styleLength; ++i) {
-   var computedStyle = flattenStyle(style[i]);
-   if (computedStyle) {
-     for (var key in computedStyle) {
-       result[key] = computedStyle[key];
-     }
-   }
- }
- return result;
+  var result = {}
+  for (var i = 0, styleLength = style.length; i < styleLength; ++i) {
+    var computedStyle = flattenStyle(style[i])
+    if (computedStyle) {
+      for (var key in computedStyle) {
+        result[key] = computedStyle[key]
+      }
+    }
+  }
+  return result
 }
 
 describe('<Base />', () => {
 
-  function renderWithProps({...props}) {
+  function renderWithProps({ ...props }) {
     return shallow(<Base {...props} />).find(View)
   }
 
@@ -44,45 +44,45 @@ describe('<Base />', () => {
 
   it('should apply the proper padding', () => {
 
-    shouldContainStyle(renderWithProps({ p: 1 }), 'padding', 8)
-    shouldContainStyle(renderWithProps({ p: 2 }), 'padding', 16)
-    shouldContainStyle(renderWithProps({ p: 3 }), 'padding', 32)
-    shouldContainStyle(renderWithProps({ p: 4 }), 'padding', 64)
+    shouldContainStyle(renderWithProps({ p: 1 }), 'padding', config.scale[1])
+    shouldContainStyle(renderWithProps({ p: 2 }), 'padding', config.scale[2])
+    shouldContainStyle(renderWithProps({ p: 3 }), 'padding', config.scale[3])
+    shouldContainStyle(renderWithProps({ p: 4 }), 'padding', config.scale[4])
 
-    shouldContainStyle(renderWithProps({ py: 1 }), 'paddingTop', 8)
-    shouldContainStyle(renderWithProps({ py: 1 }), 'paddingBottom', 8)
+    shouldContainStyle(renderWithProps({ py: 1 }), 'paddingTop', config.scale[1])
+    shouldContainStyle(renderWithProps({ py: 1 }), 'paddingBottom', config.scale[1])
 
-    shouldContainStyle(renderWithProps({ pl: 1 }), 'paddingLeft', 8)
-    shouldContainStyle(renderWithProps({ pt: 1 }), 'paddingTop', 8)
-    shouldContainStyle(renderWithProps({ pb: 1 }), 'paddingBottom', 8)
-    shouldContainStyle(renderWithProps({ pr: 1 }), 'paddingRight', 8)
+    shouldContainStyle(renderWithProps({ pl: 1 }), 'paddingLeft', config.scale[1])
+    shouldContainStyle(renderWithProps({ pt: 1 }), 'paddingTop', config.scale[1])
+    shouldContainStyle(renderWithProps({ pb: 1 }), 'paddingBottom', config.scale[1])
+    shouldContainStyle(renderWithProps({ pr: 1 }), 'paddingRight', config.scale[1])
 
-    shouldContainStyle(renderWithProps({ px: 1 }), 'paddingLeft', 8)
-    shouldContainStyle(renderWithProps({ px: 1 }), 'paddingRight', 8)
+    shouldContainStyle(renderWithProps({ px: 1 }), 'paddingLeft', config.scale[1])
+    shouldContainStyle(renderWithProps({ px: 1 }), 'paddingRight', config.scale[1])
 
   })
 
   it('should apply the proper margins', () => {
-    shouldContainStyle(renderWithProps({ m: 1 }), 'margin', 8)
-    shouldContainStyle(renderWithProps({ m: 2 }), 'margin', 16)
-    shouldContainStyle(renderWithProps({ m: 3 }), 'margin', 32)
-    shouldContainStyle(renderWithProps({ m: 4 }), 'margin', 64)
+    shouldContainStyle(renderWithProps({ m: 1 }), 'margin', config.scale[1])
+    shouldContainStyle(renderWithProps({ m: 2 }), 'margin', config.scale[2])
+    shouldContainStyle(renderWithProps({ m: 3 }), 'margin', config.scale[3])
+    shouldContainStyle(renderWithProps({ m: 4 }), 'margin', config.scale[4])
 
-    shouldContainStyle(renderWithProps({ my: 1 }), 'marginTop', 8)
-    shouldContainStyle(renderWithProps({ my: 1 }), 'marginBottom', 8)
+    shouldContainStyle(renderWithProps({ my: 1 }), 'marginTop', config.scale[1])
+    shouldContainStyle(renderWithProps({ my: 1 }), 'marginBottom', config.scale[1])
 
-    shouldContainStyle(renderWithProps({ ml: 1 }), 'marginLeft', 8)
-    shouldContainStyle(renderWithProps({ mt: 1, mb: 1 }), 'marginTop', 8)
-    shouldContainStyle(renderWithProps({ mb: 1, mx: 1 }), 'marginBottom', 8)
-    shouldContainStyle(renderWithProps({ mr: 1 }), 'marginRight', 8)
+    shouldContainStyle(renderWithProps({ ml: 1 }), 'marginLeft', config.scale[1])
+    shouldContainStyle(renderWithProps({ mt: 1, mb: 1 }), 'marginTop', config.scale[1])
+    shouldContainStyle(renderWithProps({ mb: 1, mx: 1 }), 'marginBottom', config.scale[1])
+    shouldContainStyle(renderWithProps({ mr: 1 }), 'marginRight', config.scale[1])
 
-    shouldContainStyle(renderWithProps({ mx: 1 }), 'marginLeft', 8)
-    shouldContainStyle(renderWithProps({ mx: 1 }), 'marginRight', 8)
+    shouldContainStyle(renderWithProps({ mx: 1 }), 'marginLeft', config.scale[1])
+    shouldContainStyle(renderWithProps({ mx: 1 }), 'marginRight', config.scale[1])
   })
 
   it('should render a custom component', () => {
-     let el = shallow(<Base Component={TouchableHighlight} />).find(TouchableHighlight)
-     expect(el).to.have.length(1)
+    let el = shallow(<Base Component={TouchableHighlight} />).find(TouchableHighlight)
+    expect(el).to.have.length(1)
   })
 
   it('should support darken underlayColors', () => {
@@ -96,7 +96,7 @@ describe('<Base />', () => {
   })
 
   it('should convert backgroundColor into style props', () => {
-    shouldContainStyle(renderWithProps({ backgroundColor: '#eee'}), 'backgroundColor', '#eee')
+    shouldContainStyle(renderWithProps({ backgroundColor: '#eee' }), 'backgroundColor', '#eee')
   })
 
   it('should convert config specified colours (primary, etc.) to the appropriate colour', () => {
