@@ -103,7 +103,10 @@ Navbar.propTypes = {
   titleColor: PropTypes.string
 }
 
-Navbar.totalNavHeight = 56
+Navbar.totalNavHeight = Platform.select({
+  ios: 44 + 20,
+  android: 56
+})
 
 export default Navbar
 
@@ -122,7 +125,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: Navbar.totalNavHeight,
     justifyContent: 'space-between',
-    paddingBottom: 15,
+    paddingBottom: 20,
     ...Platform.select({
       web: {
         textAlign: 'center',
