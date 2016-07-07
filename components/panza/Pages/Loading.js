@@ -1,16 +1,12 @@
 import React, { PropTypes } from 'react'
 import {
-  View,
-  Text,
-  Platform,
-  StyleSheet,
   ActivityIndicatorIOS,
   ActivityIndicator
 } from 'react-native'
 
 import {
   Base,
-  PrimaryText
+  Text
 } from '../index'
 
 /**
@@ -66,7 +62,7 @@ class LoadingPage extends React.Component {
             />
           )}
         {showText && (
-          <PrimaryText fontSize={large ? 2 : 4} ml={1} light>{loadingText}</PrimaryText>
+          <Text fontSize={large ? 2 : 4} ml={1} light>{loadingText}</Text>
         )}
         </Base>
       </Base>
@@ -75,20 +71,5 @@ class LoadingPage extends React.Component {
   }
 
 }
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  loading: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-})
 
 export default LoadingPage
