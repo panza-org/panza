@@ -1,8 +1,5 @@
 import React, { PropTypes } from 'react'
 import {
-  View,
-  Text,
-  StyleSheet,
   Image,
   Animated
 } from 'react-native'
@@ -20,14 +17,16 @@ class FadeImage extends React.Component {
   static displayName = 'FadeImage'
 
   static propTypes = {
-    src: PropTypes.string.isRequired,
     fade: PropTypes.bool,
     onLoadEnd: PropTypes.func,
     height: PropTypes.number,
     width: PropTypes.number,
     rounded: PropTypes.bool,
     backgroundColor: PropTypes.string,
-    imageProps: PropTypes.object
+    imageProps: PropTypes.object,
+    style: PropTypes.any,
+    source: PropTypes.object.isRequired,
+    resizeMode: PropTypes.string
   }
 
   static defaultProps = {
@@ -71,7 +70,6 @@ class FadeImage extends React.Component {
       backgroundColor,
       rounded,
       resizeMode,
-      fade,
       ...other
     } = this.props
 
