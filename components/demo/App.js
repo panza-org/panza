@@ -33,7 +33,7 @@ const defaultColors = config.colors
 const myColors = Object.assign(
   {},
   defaultColors,
-  { primary: defaultColors.red }
+  // { primary: defaultColors.red }
 )
 
 

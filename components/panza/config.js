@@ -1,18 +1,14 @@
 // Basically copied from the excellent Rebass library
 // https://github.com/jxnblk/rebass/blob/master/src/config.js
 
-import {
-  Platform
-} from 'react-native'
-
-
 const baseColors = {
   blue: '#08e',
   black: '#111',
   white: '#fff',
   gray: '#fafafa',
   midgray: '#8F8E94',
-  red: '#f52',
+  darkgray: '#1e1e1e',
+  red: '#c30016',
   orange: '#f70',
   green: '#1c7'
 }
@@ -20,10 +16,12 @@ const baseColors = {
 const colors = {
   ...baseColors,
   primary: baseColors.blue,
-  secondary: baseColors.midgray,
+  secondary: baseColors.darkgray,
   default: baseColors.black,
   info: baseColors.blue,
   success: baseColors.green,
+  positive: baseColors.green,
+  negative: baseColors.red,
   warning: baseColors.orange,
   error: baseColors.red
 }
@@ -48,6 +46,7 @@ const lineHeights = [
   3
 ]
 
+
 const scale = [
   0,
   8,
@@ -63,7 +62,7 @@ const thick = '800'
 const thin = '300'
 const borderColor = 'rgba(0, 0, 0, 0.25)'
 const borderRadius = 2
-const lineHeightAddition = Platform.OS === 'ios' ? 3 : 6
+
 
 const config = {
   fontSizes,
@@ -75,8 +74,7 @@ const config = {
   thick,
   bold,
   thin,
-  scale,
-  lineHeightAddition
+  scale
 }
 
 export default config

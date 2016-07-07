@@ -4,7 +4,7 @@
   "description": "a foundation for your react-native projects",
   "main": "components/panza/index.js",
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "node node_modules/react-native/local-cli/cli.js start --reset-cache",
     "generate-doc-json": "react-docgen components/panza/**/* -o documentation/components.json --pretty",
     "generate-doc-markdown": "node scripts/generate-docs.js",
     "generate-docs": "npm run generate-doc-json && npm run generate-doc-markdown",
@@ -34,6 +34,7 @@
   "homepage": "https://github.com/bmcmahen/panza#readme",
   "dependencies": {
     "color": "^0.11.1",
+    "lodash": "^4.13.1",
     "react-native-vector-icons": "^2.0.3"
   },
   "devDependencies": {

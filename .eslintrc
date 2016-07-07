@@ -13,6 +13,7 @@
     "space-before-function-paren": "off",
     "react/prefer-stateless-function": "off",
     "array-bracket-spacing": "off",
-    "jsx-quotes": "off"
+    "jsx-quotes": "off",
+    "no-use-before-define": "off"
   }
 }

@@ -11,14 +11,14 @@ import {
 
 
 /** Props to text-size conversions **/
-const size = (fontSize, fontSizes, lineHeight, lineHeights, lineHeightAddition) => {
+const size = (fontSize, fontSizes, lineHeight, lineHeights) => {
 
   const style = {}
 
   // 0, 1, 2, 3, 4, 5, 6
   if (typeof fontSize === 'number') {
     style.fontSize = fontSizes[fontSize]
-    style.lineHeight = Math.round(fontSizes[fontSize] * lineHeights[lineHeight] + lineHeightAddition)
+    style.lineHeight = Math.round(fontSizes[fontSize] * lineHeights[lineHeight])
   }
 
   return style
@@ -74,7 +74,6 @@ const TextBase = ({
     thin,
     thick,
     colors,
-    lineHeightAddition,
     scale
   } = { ...config, ...panza }
 
@@ -82,7 +81,7 @@ const TextBase = ({
     baseStyle,
     margins(props, scale),
     paddings(props, scale),
-    size(fontSize, fontSizes, lineHeight, lineHeights, lineHeightAddition),
+    size(fontSize, fontSizes, lineHeight, lineHeights),
     propsToStyle(props, bold, thin, thick, colors),
     style
   ]
@@ -96,7 +95,7 @@ const TextBase = ({
 TextBase.displayName = 'TextBase'
 
 TextBase.propTypes = {
-  fontSize: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
+  fontSize: PropTypes.oneOf(['small', 'medium', 'large', 0, 1, 2, 3, 4, 5, 6]),
   lineHeight: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
   color: PropTypes.string,
   textAlign: PropTypes.string,
