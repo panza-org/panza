@@ -7,18 +7,20 @@ import _ from 'lodash'
 
 function mapPropsToStyleProps(props, propsMap) {
   return Object.assign({},
-    textPropsMap.medium,
+    textPropsMap.medium, // default styles
     ..._.filter(propsMap, (v, k) => props[k]),
     props
   )
 }
 
-/** Basic button styles **/
+/** Basic text styles **/
 
 const textPropsMap = {
-  large: { fontSize: 3 },
-  small: { fontSize: 6 },
-  medium: { fontSize: 4 },
+  tiny: { fontSize: 6, lineHeight: 2 },
+  large: { fontSize: 3, lineHeight: 2 },
+  small: { fontSize: 5, lineHeight: 2 },
+  medium: { fontSize: 4, lineHeight: 2 },
+  giant: { fontSize: 2, lineHeight: 2 }
 }
 
 const Text = ({
@@ -32,7 +34,16 @@ const Text = ({
 
 Text.propTypes = {
   children: PropTypes.node,
-  size: PropTypes.oneOf(['small', 'medium', 'large'])
+
+  tiny: PropTypes.bool,
+  small: PropTypes.bool,
+  medium: PropTypes.bool,
+  large: PropTypes.bool,
+  giant: PropTypes.bool,
+
+  thin: PropTypes.bool,
+  thick: PropTypes.bool,
+  bold: PropTypes.bool
 }
 
 Text.displayName = 'Text'

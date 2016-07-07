@@ -131,11 +131,18 @@ const Button = ({
 }
 
 Button.propTypes = {
+
   /** button size **/
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  small: PropTypes.bool,
+  medium: PropTypes.bool,
+  large: PropTypes.bool,
 
   /** button theme **/
-  theme: PropTypes.oneOf(['default', 'primary', 'secondary', 'positive', 'negative']),
+  primary: PropTypes.bool,
+  secondary: PropTypes.bool,
+  positive: PropTypes.bool,
+  negative: PropTypes.bool,
+  default: PropTypes.bool,
 
   children: PropTypes.node,
 
