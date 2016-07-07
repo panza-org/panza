@@ -46,7 +46,7 @@ const TouchableInput = ({
     >
       <View style={styles.innerContainer}>
         {icon}
-        <Text large={condensed} small={!condensed} color={labelColor}>
+        <Text small={condensed} color={labelColor}>
           {label}
         </Text>
 

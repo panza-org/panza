@@ -6,7 +6,7 @@ import InputRowCell from './InputRowCell'
 import {
   Base,
   Text,
-  PrimaryTextInput
+  Input
 } from '../index'
 
 /**
@@ -15,10 +15,9 @@ import {
  * renders a TextInput. If a label prop is provided, the TextInput
  * is aligned to the right of the row.
  *
- * InputRow composes InputRowCell, PrimaryText, and PrimaryTextInput. You can
- * use these components to create your own custom InputRow.
- *
  * To have provide borders, wrap this component (and any other rows) in an InputGroup.
+ *
+ * @composes InputRowCell, Text, Input
  */
 
 class InputRow extends React.Component {
@@ -85,11 +84,11 @@ class InputRow extends React.Component {
         >
           {label &&
             <Base pl={2} mt={vertical && 2}>
-              <Text bold>{label}</Text>
+              <Text bold small>{label}</Text>
             </Base>
           }
           {customInput ||
-            <PrimaryTextInput
+            <Input
               value={value}
               maxLength={maxLength}
               px={2}

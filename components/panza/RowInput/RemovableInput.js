@@ -10,21 +10,16 @@ import {
 import {
   Base,
   Icon,
-  TextBase,
-  PrimaryText,
   Text,
-  SecondaryText,
   InputRowCell,
-  PrimaryTextInput
+  Input
 } from '../index'
 
 function noop() {}
 
-const MAX_ACTIONS = 2
-
-const VerticalDivider = () => {
-  return <View style={{ width: 1, backgroundColor: 'white' }} />
-}
+const VerticalDivider = () => (
+  <View style={{ width: 1, backgroundColor: 'white' }} />
+)
 
 import RevealingRow from './RevealingRow'
 
@@ -42,7 +37,7 @@ export const RowActions = ({ children, style, ...other }) => {
       const isNotLast = i < children.length - 1
       buttons.push(child)
       if (isNotLast) {
-        buttons.push(<VerticalDivider key={'divider' + i} />)
+        buttons.push(<VerticalDivider key={`divider${i}`} />)
       }
     })
   } else {
@@ -62,48 +57,53 @@ export const RowActions = ({ children, style, ...other }) => {
   )
 }
 
+RowActions.propTypes = {
+  children: PropTypes.node,
+  style: PropTypes.any
+}
+
 /**
  * A row action that hide underneath the row, such
  * as 'Delete', or 'Edit', etc.
  */
 
-export const RowAction = ({ children, ...props }) => {
-  return (
-    <Base
-      justify='center'
-      underlayColor='darken'
-      px={2}
-      baseStyle={Platform.select({ web: { outline: 'none' } })}
-      Component={TouchableHighlight}
-      {...props}
-    >
-        <View>
-          {children}
-        </View>
-    </Base>
-  )
+export const RowAction = ({ children, ...props }) => (
+  <Base
+    justify='center'
+    underlayColor='darken'
+    px={2}
+    baseStyle={Platform.select({ web: { outline: 'none' } })}
+    Component={TouchableHighlight}
+    {...props}
+  >
+    <View>
+      {children}
+    </View>
+  </Base>
+)
+
+RowAction.propTypes = {
+  children: PropTypes.node
 }
 
 /**
  * Remove button
  */
 
-export const RemoveButton = (props) => {
-  return (
-    <Base
-      Component={TouchableOpacity}
-      backgroundColor='error'
-      baseStyle={styles.iconButton}
-      {...props}
-    >
-      <Icon
-        name='md-remove'
-        size={15}
-        color='white'
-      />
-    </Base>
-  )
-}
+export const RemoveButton = (props) => (
+  <Base
+    Component={TouchableOpacity}
+    backgroundColor='error'
+    baseStyle={styles.iconButton}
+    {...props}
+  >
+    <Icon
+      name='md-remove'
+      size={15}
+      color='white'
+    />
+  </Base>
+)
 
 
 /**
@@ -170,12 +170,12 @@ class RemovableInput extends React.Component {
           this.props.onSelectLabel()
         }}
       >
-        <TextBase
+        <Text
           color={(this.props.editable && this.props.onSelectLabel) ? 'primary' : 'default'}
           baseStyle={styles.labelText}
         >
           {this.props.label}
-        </TextBase>
+        </Text>
       </TouchableOpacity>
     )
   }
@@ -191,7 +191,7 @@ class RemovableInput extends React.Component {
           }}
           backgroundColor='#eee'
         >
-          <SecondaryText>Cancel</SecondaryText>
+          <Text small>Cancel</Text>
         </RowAction>
         <RowAction
           key='delete'
@@ -201,7 +201,7 @@ class RemovableInput extends React.Component {
           }}
           backgroundColor='red'
         >
-          <SecondaryText color='white'>Remove</SecondaryText>
+          <Text small color='white'>Remove</Text>
         </RowAction>
       </RowActions>
     )
@@ -246,7 +246,7 @@ class RemovableInput extends React.Component {
               {this.renderLabel()}
 
               {this.props.editable ? (
-                <PrimaryTextInput
+                <Input
                   autoFocus={this.props.autoFocus}
                   disabled={!this.props.editable}
                   placeholder={this.props.placeholder}
@@ -258,9 +258,9 @@ class RemovableInput extends React.Component {
                 />
                 ) : (
                 <Base px={0} flex={1} justifyContent='center'>
-                  <PrimaryText numberOfLines={1}>
+                  <Text numberOfLines={1}>
                     {this.props.value}
-                  </PrimaryText>
+                  </Text>
                 </Base>
                 )
               }
