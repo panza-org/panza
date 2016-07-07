@@ -1,14 +1,9 @@
 import React, { PropTypes } from 'react'
 import {
-  View,
-  Text,
-  StyleSheet,
-  PixelRatio
+  StyleSheet
 } from 'react-native'
 
-import Base from '../Base'
-
-import { config } from '../index'
+import { config, Base } from '../index'
 
 /**
  * A simple component used to separate rows, with an

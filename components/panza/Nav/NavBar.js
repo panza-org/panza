@@ -2,17 +2,13 @@ import React, { PropTypes } from 'react'
 
 import {
   View,
-  Text,
   Platform,
   StyleSheet,
-  Navigator,
-  TouchableOpacity,
   PixelRatio
 } from 'react-native'
 
 import Base from '../Base'
 import NavTitle from './NavTitle'
-import NavTextAction from './NavTouchableText'
 
 const defaultNavbarStyle = {
   backgroundColor: 'white',
@@ -47,7 +43,13 @@ const Navbar = (props) => {
       backgroundColor={backgroundColor}
       {...other}
     >
-      <View style={[styles.navBar, children && styles.hasChildren, transparent && styles.transparent]}>
+      <View
+        style={[
+          styles.navBar,
+          children && styles.hasChildren,
+          transparent && styles.transparent
+        ]}
+      >
         <View style={styles.navTopRow}>
           {title &&
             <NavTitle
@@ -93,7 +95,12 @@ Navbar.defaultStyles = defaultNavbarStyle
 Navbar.propTypes = {
   title: PropTypes.string,
   LeftButton: PropTypes.node,
-  RightButton: PropTypes.node
+  RightButton: PropTypes.node,
+  style: PropTypes.any,
+  children: PropTypes.node,
+  transparent: PropTypes.bool,
+  backgroundColor: PropTypes.string,
+  titleColor: PropTypes.string
 }
 
 Navbar.totalNavHeight = 56
@@ -173,16 +180,5 @@ const styles = StyleSheet.create({
   transparent: {
     borderBottomWidth: 0,
     backgroundColor: 'transparent'
-  },
-  close: {
-    height: 40,
-    width: 40
-  },
-  navBarIcon: {
-    marginVertical: 25
-  },
-  navWrapper: {
-    // borderBottomWidth: 1 / PixelRatio.get(),
-    // borderBottomColor: 'rgba(0,0,0,0.25)'
   }
 })

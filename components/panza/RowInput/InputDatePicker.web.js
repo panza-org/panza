@@ -1,17 +1,16 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import {
-  View,
-  Text
+  View
 } from 'react-native'
 
 class InputDatePicker extends React.Component {
 
   render() {
     return (
-      <View>
-        <Text>Date picker web</Text>
-      </View>
+      <View />
     )
   }
 
 }
+
+export default InputDatePicker

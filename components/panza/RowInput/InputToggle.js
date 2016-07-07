@@ -1,14 +1,12 @@
 import React, { PropTypes } from 'react'
-var {
-  View,
+import {
   Switch,
   Platform,
-  Text,
   StyleSheet
-} = require('react-native')
+} from 'react-native'
 import {
   Base,
-  PrimaryText,
+  Text,
   InputRowCell
 } from '../index'
 
@@ -29,7 +27,9 @@ class InputToggle extends React.Component {
     backgroundColor: PropTypes.string,
     label: PropTypes.string.isRequired,
     onValueChange: PropTypes.func.isRequired,
-    editable: PropTypes.bool
+    editable: PropTypes.bool,
+    switchProps: PropTypes.object,
+    onTintColor: PropTypes.string
   }
 
   static defaultProps = {
@@ -44,15 +44,12 @@ class InputToggle extends React.Component {
 
   render () {
     const {
-      style,
       label,
       value,
       editable,
       onValueChange,
       switchProps,
-      onTintColor,
-      backgroundColor,
-      ...other
+      onTintColor
     } = this.props
 
     const {
@@ -65,9 +62,9 @@ class InputToggle extends React.Component {
     return (
       <InputRowCell>
         <Base pl={2}>
-          <PrimaryText>
+          <Text>
             {label}
-          </PrimaryText>
+          </Text>
         </Base>
         <Base flex={1}>
           <Switch
@@ -78,10 +75,9 @@ class InputToggle extends React.Component {
             {...switchProps}
             onValueChange={onValueChange}
           />
-      </Base>
-    </InputRowCell>
+        </Base>
+      </InputRowCell>
     )
-
   }
 }
 

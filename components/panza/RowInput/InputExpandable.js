@@ -1,26 +1,11 @@
 import React, { PropTypes } from 'react'
 import {
   View,
-  Text,
   StyleSheet,
-  TouchableHighlight,
-  Animated,
-  LayoutAnimation,
-  Platform,
-  DatePickerIOS,
   Dimensions
 } from 'react-native'
 
-import {
-  PrimaryText,
-  Base
-} from '../index'
-
-import InputRowCell from './InputRowCell'
-
 const screen = Dimensions.get('window')
-
-import config from '../config'
 
 /**
  * A touchable input field that expands (iOS) or
@@ -33,7 +18,8 @@ class InputExpandable extends React.Component {
 
   static propTypes = {
     expanded: PropTypes.bool.isRequired,
-    Row: PropTypes.node.isRequired
+    Row: PropTypes.node.isRequired,
+    children: PropTypes.node
   }
 
   render () {
@@ -41,8 +27,7 @@ class InputExpandable extends React.Component {
     const {
       expanded,
       Row,
-      children,
-      ...other
+      children
     } = this.props
 
     return (

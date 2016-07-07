@@ -1,9 +1,7 @@
 import React, { PropTypes } from 'react'
 
 import {
-  PrimaryText,
-  SecondaryText,
-  SubtitleText,
+  Text,
   Base
 } from '../index'
 
@@ -16,6 +14,7 @@ import TouchableRowCell from './TouchableRowCell'
  * an image, primary text, secondary text, a value,
  * and an arrow right icon if the respective props are
  * specified.
+ * @composes TouchableRowCell
  */
 
 const TouchableRow = ({
@@ -26,39 +25,36 @@ const TouchableRow = ({
   onPress,
   value,
   ...other
-}) => {
+}) => (
+  <TouchableRowCell
+    height={height}
+    py={2}
+    onPress={onPress}
+    {...other}
+  >
 
-  return (
-    <TouchableRowCell
-      height={height}
-      py={2}
-      onPress={onPress}
-      {...other}
-    >
+    {image && (
+      <RowImage mr={2} source={image} />
+    )}
 
-      {image && (
-        <RowImage mr={2} source={image} />
-      )}
-
-      <Base flex={1} row align='center' justify='space-between'>
-        <Base flex={1}>
-          {primaryText && (
-            <PrimaryText numberOfLines={1}>{primaryText}</PrimaryText>
-          )}
-          {secondaryText && (
-            <SecondaryText light numberOfLines={1}>{secondaryText}</SecondaryText>
-          )}
-        </Base>
-
-        {value && (
-          <PrimaryText light>{value}</PrimaryText>
+    <Base flex={1} row align='center' justify='space-between'>
+      <Base flex={1}>
+        {primaryText && (
+          <Text numberOfLines={1}>{primaryText}</Text>
         )}
-
+        {secondaryText && (
+          <Text small light numberOfLines={1}>{secondaryText}</Text>
+        )}
       </Base>
 
-    </TouchableRowCell>
-  )
-}
+      {value && (
+        <Text light>{value}</Text>
+      )}
+
+    </Base>
+
+  </TouchableRowCell>
+)
 
 TouchableRow.displayName = 'TouchableRow'
 
@@ -67,7 +63,8 @@ TouchableRow.propTypes = {
   secondaryText: PropTypes.string,
   value: PropTypes.string,
   onPress: PropTypes.func,
-  image: PropTypes.object
+  image: PropTypes.object,
+  height: PropTypes.number
 }
 
 export default TouchableRow

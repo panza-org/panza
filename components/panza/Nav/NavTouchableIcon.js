@@ -44,6 +44,11 @@ const NavTouchableIcon = (props) => {
   )
 }
 
+NavTouchableIcon.propTypes = {
+  children: PropTypes.node.isRequired,
+  onPress: PropTypes.func.isRequired
+}
+
 NavTouchableIcon.displayName = 'NavTouchableIcon'
 
 export default NavTouchableIcon

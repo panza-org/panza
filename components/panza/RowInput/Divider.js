@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react'
 import {
   View,
-  StyleSheet,
-  PixelRatio
+  StyleSheet
 } from 'react-native'
 
 import config from '../config'
@@ -15,19 +14,22 @@ import config from '../config'
 const Divider = ({ style, inset, ...other }, { panza }) => {
   const { borderColor } = { ...config, ...panza }
   return (
-    <View style={[
-      styles.divider,
-      style,
-      inset && { marginLeft: inset },
+    <View
+      style={[
+        styles.divider,
+        style,
+        inset && { marginLeft: inset },
         { backgroundColor: borderColor }
-    ]} />
+      ]}
+    />
   )
 }
 
 Divider.displayName = 'Divider'
 
 Divider.propTypes = {
-  inset: PropTypes.number
+  inset: PropTypes.number,
+  style: PropTypes.any
 }
 
 Divider.contextTypes = {

@@ -1,20 +1,15 @@
 import React, { PropTypes } from 'react'
 import {
-  Base,
   InputExpandable,
   TouchableInput
 } from '../index'
 import {
   Platform,
   View,
-  Text,
-  Dimensions,
   DatePickerIOS,
   DatePickerAndroid,
   StyleSheet
 } from 'react-native'
-
-const screen = Dimensions.get('window')
 
 /**
  * InputDatePicker a cross-platform InputRow inputting
@@ -55,6 +50,47 @@ class InputDatePicker extends React.Component {
     editable: true
   }
 
+  renderIOS() {
+    return (
+      <View
+        style={styles.pickerWrapper}
+      >
+        <DatePickerIOS
+          date={new Date(this.props.date)}
+          maximumDate={this.props.maxDate}
+          minimumDate={this.props.minDate}
+          mode={this.props.mode}
+          onDateChange={(date) => {
+            this.props.onDateChange(date)
+          }}
+        />
+      </View>
+    )
+  }
+
+  async toggleDatePicker() {
+    if (Platform.OS === 'android') {
+      try {
+
+        const { action, year, month, day } = await DatePickerAndroid.open({
+          date: this.props.date,
+          minDate: this.props.minDate,
+          maxDate: this.props.maxDate
+        })
+
+        if (action === DatePickerAndroid.dismissedAction) {
+          // console.log('dismissed')
+        } else {
+          this.props.onDateChange(new Date(year, month, day))
+        }
+
+      } catch ({ code, message }) {
+        // console.warn('error opening date picker', code, message)
+      }
+
+    }
+  }
+
   render() {
 
     const {
@@ -72,7 +108,7 @@ class InputDatePicker extends React.Component {
         value={value}
         onPress={() => {
           if (Platform.OS === 'ios') {
-            return onToggleExpansion()
+            onToggleExpansion()
           } else if (Platform.OS === 'android') {
             this.toggleDatePicker()
           }
@@ -92,47 +128,8 @@ class InputDatePicker extends React.Component {
     )
   }
 
-  renderIOS() {
-    return (
-      <View
-        style={styles.pickerWrapper}
-      >
-        <DatePickerIOS
-          date={new Date(this.props.date)}
-          maximumDate={this.props.maxDate}
-          minimumDate={this.props.minDate}
-          mode={this.props.mode}
-          onDateChange={(date) => {
-            this.props.onDateChange(date)
-          }}
-        />
-      </View>
-    )
-  }
 
 
-  async toggleDatePicker() {
-    if (Platform.OS === 'android') {
-      try {
-
-        const { action, year, month, day } = await DatePickerAndroid.open({
-          date: this.props.date,
-          minDate: this.props.minDate,
-          maxDate: this.props.maxDate
-        })
-
-        if (action === DatePickerAndroid.dismissedAction) {
-          console.log('dismissed')
-        } else {
-          this.props.onDateChange(new Date(year, month, day))
-        }
-
-      } catch ({ code, message }) {
-        console.warn('error opening date picker', code, message)
-      }
-
-    }
-  }
 
 }
 

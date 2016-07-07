@@ -1,19 +1,12 @@
 import React, { PropTypes } from 'react'
 import {
   View,
-  Text,
-  StyleSheet,
-  TouchableHighlight,
-  Animated,
-  LayoutAnimation,
   Platform
 } from 'react-native'
 
 import {
-  PrimaryText,
   Base,
-  InputRowCell,
-  SecondaryText,
+  Text,
   InputExpandable,
   TouchableInput,
   config
@@ -51,7 +44,9 @@ class InputPicker extends React.Component {
     label: PropTypes.string.isRequired,
 
     /** controls whether the picker is visible. (iOS only) **/
-    expanded: PropTypes.bool
+    expanded: PropTypes.bool,
+    children: PropTypes.node,
+    backgroundColor: PropTypes.string
   }
 
   static contextTypes = {
@@ -60,17 +55,6 @@ class InputPicker extends React.Component {
 
   static defaultProps = {
     editable: true
-  }
-
-  render() {
-    return (
-      <View style={{ flex: 1 }}>
-        {Platform.OS === 'android'
-          ? this.renderAndroid()
-          : this.renderIOS()
-        }
-      </View>
-    )
   }
 
   renderAndroid() {
@@ -101,7 +85,7 @@ class InputPicker extends React.Component {
     return (
       <Base px={1} pt={2}>
         <Base px={1}>
-          <SecondaryText light>{label}</SecondaryText>
+          <Text small light>{label}</Text>
         </Base>
         {clone}
       </Base>
@@ -137,10 +121,22 @@ class InputPicker extends React.Component {
         expanded={expanded}
         Row={Row}
       >
-          {React.Children.only(this.props.children)}
+        {React.Children.only(this.props.children)}
       </InputExpandable>
     )
   }
+
+  render() {
+    return (
+      <View style={{ flex: 1 }}>
+        {Platform.OS === 'android'
+          ? this.renderAndroid()
+          : this.renderIOS()
+        }
+      </View>
+    )
+  }
+
 }
 
 export default InputPicker

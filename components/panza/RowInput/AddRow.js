@@ -1,15 +1,10 @@
 import React, { PropTypes } from 'react'
 import {
-  View,
-  Text,
-  Platform,
-  TouchableHighlight,
   StyleSheet
 } from 'react-native'
 import {
   Icon,
   Base,
-  SecondaryText,
   TouchableInput
 } from '../index'
 
@@ -38,19 +33,17 @@ const AddRow = ({
   backgroundColor,
   disabled,
   ...other
-}) => {
-  return (
-    <TouchableInput
-      disabled={disabled}
-      label={label}
-      labelColor='primary'
-      icon={<GreenPlusIcon />}
-      backgroundColor={backgroundColor}
-      onPress={onPress}
-      {...other}
-    />
-  )
-}
+}) => (
+  <TouchableInput
+    disabled={disabled}
+    label={label}
+    labelColor='primary'
+    icon={<GreenPlusIcon />}
+    backgroundColor={backgroundColor}
+    onPress={onPress}
+    {...other}
+  />
+)
 
 AddRow.displayName = 'AddRow'
 
@@ -85,9 +78,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     overflow: 'hidden',
     justifyContent: 'center',
-    alignItems: 'center',
     alignSelf: 'center',
-    justifyContent: 'center',
     padding: 4
   },
   icon: {

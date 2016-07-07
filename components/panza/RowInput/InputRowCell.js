@@ -1,9 +1,7 @@
 import React, { PropTypes } from 'react'
 import {
   View,
-  Text,
-  StyleSheet,
-  PixelRatio
+  StyleSheet
 } from 'react-native'
 
 import { Base } from '../index'
@@ -14,7 +12,7 @@ import { Base } from '../index'
 
 const InputRowCell = ({ children, height, ...other }) => {
 
-  let fixedHeight = height === 'auto' ? null : height
+  const fixedHeight = height === 'auto' ? null : height
 
   let baseStyle = {
     alignSelf: 'stretch',
@@ -37,12 +35,16 @@ const InputRowCell = ({ children, height, ...other }) => {
 
 InputRowCell.displayName = 'InputRowCell'
 
+InputRowCell.propTypes = {
+  children: PropTypes.any,
+  height: PropTypes.number
+}
+
 InputRowCell.defaultProps = {
   height: 50
 }
 
 export default InputRowCell
-
 
 const styles = StyleSheet.create({
   row: {

@@ -1,19 +1,19 @@
 import React, { PropTypes } from 'react'
 import {
-  Text,
   View,
   TouchableOpacity
 } from 'react-native'
 
 import {
-  NavButton,
-  PrimaryText,
+  Text,
   TextBase
 } from '../index'
 
 /**
  * Makes a touchable text component for the NavBar. Typically
  * used on iOS.
+ *
+ * @composes TextBase
  */
 
 const NavTouchableText = ({
@@ -21,24 +21,36 @@ const NavTouchableText = ({
   disabled,
   color,
   ...other
-}) => {
-
-  return (
-    <View style={{ flex: 1, justifyContent: 'center' }}>
-      <TextBase
-        Component={TouchableOpacity}
-        baseStyle={{ paddingLeft: 16, paddingRight: 16, paddingBottom: 5, paddingTop: 5, opacity: disabled ? 0.3 : 1 }}
-        disabled={disabled}
-        {...other}
+}) => (
+  <View style={{ flex: 1, justifyContent: 'center' }}>
+    <TextBase
+      Component={TouchableOpacity}
+      px={2}
+      baseStyle={{
+        paddingBottom: 5,
+        paddingTop: 5,
+        opacity: disabled ? 0.3 : 1
+      }}
+      disabled={disabled}
+      {...other}
+    >
+      <Text
+        color={color}
+        style={{ opacity: disabled ? 0.5 : 1 }}
       >
-          <PrimaryText color={color} style={{ opacity: disabled ? 0.5 : 1 }}>{children}</PrimaryText>
-      </TextBase>
-    </View>
-  )
-
-}
+        {children}
+      </Text>
+    </TextBase>
+  </View>
+)
 
 NavTouchableText.displayName = 'NavTouchableText'
+
+NavTouchableText.propTypes = {
+  disabled: PropTypes.bool,
+  color: PropTypes.string,
+  children: PropTypes.node
+}
 
 NavTouchableText.defaultProps = {
   color: 'primary'
