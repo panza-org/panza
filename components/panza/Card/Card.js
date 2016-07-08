@@ -22,10 +22,11 @@ export const CardHeader = ({
   children,
   ...other
 }) => (
-  <Base p={1} {...other}>
+  <Base flexDirection='row' p={2} {...other}>
+
     {avatar && (
       typeof avatar === 'string'
-        ? <Image width={40} height={40} circular />
+        ? <Image width={40} height={40} mr={1} source={{ uri: avatar }} circular />
         : avatar
     )}
     <Base flex={1}>
@@ -40,7 +41,7 @@ export const CardHeader = ({
           : subtitle
       )}
     </Base>
-    <Base flex={0}>
+    <Base flex={0} justify='center'>
       {children}
     </Base>
   </Base>
@@ -68,7 +69,7 @@ CardHeader.propTypes = {
  * @composes Base
  */
 
-const Card = ({
+export const Card = ({
   children,
   ...other
 }, { panza }) => {
@@ -86,6 +87,7 @@ Card.propTypes = {
 
 const styles = StyleSheet.create({
   card: {
+    backgroundColor: 'white',
     borderTopWidth: StyleSheet.hairlineWidth,
     borderBottomWidth: StyleSheet.hairlineWidth
   }
