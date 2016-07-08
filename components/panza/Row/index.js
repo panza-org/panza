@@ -10,5 +10,6 @@ export {
   Separator,
   RowImage,
   SectionHeader,
-  Separator as RowSeparator
+  Separator as RowSeparator,
+  Separator as Divider
 }

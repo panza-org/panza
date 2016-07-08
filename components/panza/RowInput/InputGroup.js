@@ -3,8 +3,7 @@ import {
   View,
   StyleSheet,
 } from 'react-native'
-import Divider from './Divider'
-import { Base, SectionHeader } from '../index'
+import { Base, SectionHeader, Divider } from '../index'
 
 /**
  * Wrapping components with InputGroup gives you the

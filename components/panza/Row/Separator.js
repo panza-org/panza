@@ -10,7 +10,7 @@ import { config, Base } from '../index'
  * optional inset margin on the left or right.
  */
 
-const RowSeparator = ({ inset, insetRight, ...other }, { panza }) => {
+const Divider = ({ inset, insetRight, ...other }, { panza }) => {
 
   const { borderColor } = { ...config, ...panza }
 
@@ -27,19 +27,19 @@ const RowSeparator = ({ inset, insetRight, ...other }, { panza }) => {
   )
 }
 
-RowSeparator.displayName = 'RowSeparator'
+Divider.displayName = 'Divider'
 
-RowSeparator.propTypes = {
+Divider.propTypes = {
   inset: PropTypes.number,
   insetRight: PropTypes.number
 }
 
-RowSeparator.defaultProps = {
+Divider.defaultProps = {
   inset: 0,
   insetRight: 0
 }
 
-RowSeparator.contextTypes = {
+Divider.contextTypes = {
   panza: PropTypes.object
 }
 
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default RowSeparator
+export default Divider
