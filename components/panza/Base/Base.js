@@ -195,7 +195,10 @@ class Base extends React.Component {
     align: PropTypes.string,
 
     /** set justify-content property **/
-    justify: PropTypes.string
+    justify: PropTypes.string,
+
+    /** set the height of the element **/
+    height: PropTypes.string
   }
 
   static displayName = 'Base'

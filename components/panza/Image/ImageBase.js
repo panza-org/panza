@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
 import {
-  Image,
   Animated
 } from 'react-native'
 
@@ -21,18 +20,22 @@ class ImageBase extends React.Component {
     onLoadEnd: PropTypes.func,
     height: PropTypes.number,
     width: PropTypes.number,
+
+    /** set the border radius to be fully round (given an equal height/width) **/
     circular: PropTypes.bool,
-    imageProps: PropTypes.object,
+
     style: PropTypes.any,
     source: PropTypes.object.isRequired,
-    resizeMode: PropTypes.string
+    resizeMode: PropTypes.string,
+
+    /** the border radius of the image **/
+    rounded: PropTypes.number
   }
 
   static defaultProps = {
     fade: true,
     resizeMode: 'cover',
     rounded: false,
-    imageProps: {},
     circular: false
   }
 
@@ -63,8 +66,8 @@ class ImageBase extends React.Component {
       source,
       height,
       width,
-      imageProps,
       circular,
+      rounded,
       resizeMode,
       ...other
     } = this.props
@@ -72,22 +75,21 @@ class ImageBase extends React.Component {
     const sx = [{
       height,
       width,
-      borderRadius: circular ? height / 2 : 0,
       opacity: this.state.fade
     }, style]
 
     return (
-      <Base {...other}>
-        <Animated.Image
-          style={sx}
-          onLoadEnd={() => {
-            this.onLoad()
-          }}
-          source={source}
-          resizeMode={resizeMode}
-          {...imageProps}
-        />
-      </Base>
+      <Base
+        {...other}
+        baseStyle={sx}
+        onLoadEnd={() => {
+          this.onLoad()
+        }}
+        rounded={(circular ? (height / 2) : rounded)}
+        source={source}
+        resizeMode={resizeMode}
+        Component={Animated.Image}
+      />
     )
   }
 

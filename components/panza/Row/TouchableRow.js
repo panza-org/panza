@@ -2,19 +2,17 @@ import React, { PropTypes } from 'react'
 
 import {
   Text,
-  Base
+  Base,
+  Image,
+  TouchableRowCell
 } from '../index'
-
-
-import RowImage from './RowImage'
-import TouchableRowCell from './TouchableRowCell'
 
 /**
  * The basic RowCell that I use about 80% of the time. It displays
  * an image, primary text, secondary text, a value,
  * and an arrow right icon if the respective props are
  * specified.
- * @composes TouchableRowCell
+ * @composes TouchableRowCell, Image, Text
  */
 
 const TouchableRow = ({
@@ -34,16 +32,16 @@ const TouchableRow = ({
   >
 
     {image && (
-      <RowImage mr={2} source={image} />
+      <Image mr={2} width={40} height={40} source={image} />
     )}
 
     <Base flex={1} row align='center' justify='space-between'>
       <Base flex={1}>
         {primaryText && (
-          <Text numberOfLines={1}>{primaryText}</Text>
+          <Text lineHeight={2} numberOfLines={1}>{primaryText}</Text>
         )}
         {secondaryText && (
-          <Text small light numberOfLines={1}>{secondaryText}</Text>
+          <Text small lineHeight={2} light numberOfLines={1}>{secondaryText}</Text>
         )}
       </Base>
 

@@ -1,15 +1,11 @@
 import TouchableRowCell from './TouchableRowCell'
-import Separator from './Separator'
-import RowImage from './RowImage'
+import Divider from './Divider'
 import TouchableRow from './TouchableRow'
 import SectionHeader from './SectionHeader'
 
 export {
   TouchableRowCell,
   TouchableRow,
-  Separator,
-  RowImage,
-  SectionHeader,
-  Separator as RowSeparator,
-  Separator as Divider
+  Divider,
+  SectionHeader
 }
