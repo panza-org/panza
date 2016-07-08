@@ -4,6 +4,8 @@ import { Base } from '../index'
 const ButtonGroup = ({
   children,
   rounded,
+  segmented,
+  vertical,
   ...other
 }) => {
 
@@ -18,25 +20,41 @@ const ButtonGroup = ({
     const isOutline = child.props.outline
     const w = 2
 
+    const style = vertical
+      ? [
+        isOutline && { borderBottomWidth: w / 2, borderTopWidth: w / 2 },
+        isOutline && isFirst && { borderTopWidth: w },
+        isOutline && isLast && { borderBottomWidth: w },
+        isFirst && rounded && { borderTopLeftRadius: round, borderTopRightRadius: round },
+        isLast && rounded && { borderBottomLeftRadius: round, borderBottomRightRadius: round }
+      ]
+      : [
+        isOutline && { borderLeftWidth: w / 2, borderRightWidth: w / 2 },
+        isOutline && isFirst && { borderLeftWidth: w },
+        isOutline && isLast && { borderRightWidth: w },
+        isFirst && rounded && { borderTopLeftRadius: round, borderBottomLeftRadius: round },
+        isLast && rounded && { borderTopRightRadius: round, borderBottomRightRadius: round }
+      ]
 
-    const style = [
-      isOutline && { borderLeftWidth: w / 2, borderRightWidth: w / 2 },
-      isOutline && isFirst && { borderLeftWidth: w },
-      isOutline && isLast && { borderRightWidth: w },
-      isFirst && { borderTopLeftRadius: round, borderBottomLeftRadius: round },
-      isLast && { borderTopRightRadius: round, borderBottomRightRadius: round }
-    ]
-
-    return React.cloneElement(child, {
+    const newProps = {
       flex: 1,
-      block: true,
-      rounded: false,
       style
-    })
+    }
+
+    if (segmented) {
+      newProps.block = true
+      newProps.rounded = false
+    }
+
+    return React.cloneElement(child, newProps)
   })
 
   return (
-    <Base flexDirection='row' flex={1} {...other}>
+    <Base
+      flexDirection={vertical ? 'column' : 'row'}
+      flex={vertical ? 0 : 1}
+      {...other}
+    >
       {kids}
     </Base>
   )
@@ -45,7 +63,11 @@ const ButtonGroup = ({
 
 ButtonGroup.propTypes = {
   children: PropTypes.node,
-  rounded: PropTypes.oneOfType([PropTypes.bool, PropTypes.number])
+  rounded: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
+  vertical: PropTypes.bool,
+
+  /** A helper to create segemented controls that align together **/
+  segmented: PropTypes.bool
 }
 
 export default ButtonGroup

@@ -74,15 +74,20 @@ export default class Buttons extends React.Component {
           </Button>
 
           <Base mt={2} p={2}>
-            <ButtonGroup rounded={5}>
+            <ButtonGroup segmented rounded={5}>
               <Button primary>One</Button>
-              <Button primary outline>Two</Button>
-              <Button primary outline>Three</Button>
+              <Button primary outline onPress={noop}>Two</Button>
+              <Button primary outline onPress={noop}>Three</Button>
             </ButtonGroup>
 
-            <ButtonGroup mt={2} rounded={5}>
+            <ButtonGroup mt={2} segmented rounded={5}>
               <Button positive>One</Button>
               <Button positive outline>Two</Button>
+            </ButtonGroup>
+
+            <ButtonGroup mt={2} vertical>
+              <Button primary>Primary Vertical</Button>
+              <Button transparent mt={1}>Secondary Option</Button>
             </ButtonGroup>
 
             <ButtonGroup mt={2}>
