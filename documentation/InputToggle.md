@@ -26,6 +26,7 @@ type: `string`
 
 ### `onTintColor`
 
+type: `string`
 defaultValue: `'success'`
 
 
@@ -37,6 +38,11 @@ type: `func`
 ### `style`
 
 type: `any`
+
+
+### `switchProps`
+
+type: `object`
 
 
 ### `value` (required)

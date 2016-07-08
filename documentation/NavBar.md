@@ -18,9 +18,34 @@ type: `node`
 type: `node`
 
 
+### `backgroundColor`
+
+type: `string`
+
+
+### `children`
+
+type: `node`
+
+
+### `style`
+
+type: `any`
+
+
 ### `title`
 
 type: `string`
+
+
+### `titleColor`
+
+type: `string`
+
+
+### `transparent`
+
+type: `bool`
 
 ![NavBar example](images/NavBar.png)
 

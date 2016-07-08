@@ -2,106 +2,11 @@ import React, { PropTypes } from 'react'
 import config from '../config'
 import { View } from 'react-native'
 import colorTransform from 'color'
+import colorStyle, { getColor } from './utils/colors'
+import margins from './utils/margins'
+import paddings from './utils/paddings'
+import radii from './utils/radii'
 
-/**
-* The below functions are taken from rebass
-* https://github.com/jxnblk/rebass/tree/master/src/util
-**/
-
-const n = (key, x, s) => typeof x === 'number' ? { [key]: s[x] } : null
-
-export const margins = (props, scale) => {
-
-  const s = scale || []
-  const {
-    m, mx, my, mt, mr, mb, ml
-  } = props || {}
-
-  const result = Object.assign({},
-    n('margin', m, s),
-    n('marginTop', mt, s),
-    n('marginBottom', mb, s),
-    n('marginTop', my, s),
-    n('marginBottom', my, s),
-    n('marginLeft', ml, s),
-    n('marginRight', mr, s),
-    n('marginLeft', mx, s),
-    n('marginRight', mx, s)
-  )
-
-  return result
-}
-
-export const paddings = (props, scale) => {
-  const s = scale || []
-  const {
-    p, px, py, pt, pr, pb, pl
-  } = props || {}
-
-  const result = Object.assign({},
-    n('padding', p, s),
-    n('paddingTop', pt, s),
-    n('paddingBottom', pb, s),
-    n('paddingTop', py, s),
-    n('paddingBottom', py, s),
-    n('paddingLeft', pl, s),
-    n('paddingRight', pr, s),
-    n('paddingLeft', px, s),
-    n('paddingRight', px, s)
-  )
-
-  return result
-}
-
-const getColor = (color, colors) => {
-  if (color && colors[color]) {
-    return colors[color]
-  }
-
-  return color
-}
-
-export function radii (props, r = 2) {
-  const {
-    rounded
-  } = props || {}
-
-  let borderRadius
-
-  if (rounded === true) {
-    borderRadius = r
-  } else if (rounded === false) {
-    borderRadius = 0
-  } else if (typeof rounded === 'number') {
-    borderRadius = rounded
-  }
-
-  if (typeof borderRadius === 'undefined') {
-    return {}
-  }
-
-  return { borderRadius }
-}
-
-export const colorStyle = (props, colors = {}) => {
-
-  const {
-    backgroundColor,
-    borderColor
-  } = props || {}
-
-  const result = {}
-
-  if (backgroundColor) {
-    result.backgroundColor = getColor(backgroundColor, colors)
-  }
-
-  if (borderColor) {
-    result.borderColor = getColor(borderColor, colors)
-  }
-
-  return result
-}
 
 /**
  * A general purpose component that converts our props into styles

@@ -7,6 +7,11 @@ rendering rows in a <ListView>.
 Props
 -----
 
+### `children`
+
+type: `node`
+
+
 ### `disabled`
 
 type: `bool`
@@ -15,13 +20,13 @@ defaultValue: `false`
 
 ### `height`
 
-defaultValue: `Platform.OS === 'ios' ? 60 : 65`
+type: `number`
 
 
 ### `highlighted`
 
 type: `func`
-defaultValue: `function(){}`
+defaultValue: `function noop () {}`
 
 
 ### `onPress` (required)

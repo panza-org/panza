@@ -6,6 +6,15 @@ offer additional information about the above inputs. This is
 just a simple wrapper around SecondaryText with some padding
 provided, and the text color set to light.
 
+@composes Text
+
+Props
+-----
+
+### `children`
+
+type: `node`
+
 ## Examples
 
 ### InputHelpText after an InputGroup

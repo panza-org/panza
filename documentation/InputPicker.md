@@ -18,6 +18,16 @@ since the Android picker already prints the value for us.
 Props
 -----
 
+### `backgroundColor`
+
+type: `string`
+
+
+### `children`
+
+type: `node`
+
+
 ### `editable`
 
 type: `bool`

@@ -7,6 +7,8 @@ This is typically used only on iOS devices. On Android,
 you'd supply icons for these options instead, and display
 them on the right side of the primary Navigation Bar.
 
+@composes Base
+
 Props
 -----
 

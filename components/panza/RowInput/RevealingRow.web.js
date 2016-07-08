@@ -8,6 +8,8 @@ import {
 
 class RevealingRow extends React.Component {
 
+  static displayName = 'ReavealingRow'
+
   static propTypes = {
     showingOptions: PropTypes.bool.isRequired,
     revealedContent: PropTypes.node.isRequired
@@ -15,6 +17,15 @@ class RevealingRow extends React.Component {
 
   static defaultProps = {
     showingOptions: false
+  }
+
+  componentDidUpdate() {
+    if (this._actions) {
+      const width = -this._actions.clientWidth
+      if (this.state.revealWidth !== width) {
+        this.setState({ revealWidth: width })
+      }
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -41,14 +52,7 @@ class RevealingRow extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-    if (this._actions) {
-      const width = -this._actions.clientWidth
-      if (this.state.revealWidth !== width) {
-        this.setState({ revealWidth: width })
-      }
-    }
-  }
+
 
   componentDidMount() {
     this.setState({

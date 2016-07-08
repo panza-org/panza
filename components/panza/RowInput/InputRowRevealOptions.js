@@ -46,6 +46,8 @@ RevealOption.defaultProps = {
   backgroundColor: 'midgray'
 }
 
+RevealOption.displayName = 'RevealOption'
+
 /**
  * Revealable row options container. Typically used
  * to delete a row.
@@ -89,10 +91,11 @@ InputRowRevealOptions.propTypes = {
   options: PropTypes.array
 }
 
-
 InputRowRevealOptions.defaultProps = {
   height: 40
 }
+
+InputRowRevealOptions.displayName = 'InputRowRevealOptions'
 
 export default InputRowRevealOptions
 

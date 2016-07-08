@@ -5,7 +5,7 @@
   "main": "components/panza/index.js",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start --reset-cache",
-    "generate-doc-json": "react-docgen components/panza/**/* -o documentation/components.json --pretty",
+    "generate-doc-json": "react-docgen components/panza/**/* --resolver findAllComponentDefinitions -o documentation/components.json --pretty",
     "generate-doc-markdown": "node scripts/generate-docs.js",
     "generate-docs": "npm run generate-doc-json && npm run generate-doc-markdown",
     "test": "mocha --require react-native-mock/mock.js --compilers js:babel-core/register --recursive components/**/__specs__/*.spec.js",

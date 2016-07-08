@@ -62,6 +62,8 @@ RowActions.propTypes = {
   style: PropTypes.any
 }
 
+RowActions.displayName = 'RowActions'
+
 /**
  * A row action that hide underneath the row, such
  * as 'Delete', or 'Edit', etc.
@@ -86,6 +88,8 @@ RowAction.propTypes = {
   children: PropTypes.node
 }
 
+RowAction.displayName = 'RowAction'
+
 /**
  * Remove button
  */
@@ -104,6 +108,8 @@ export const RemoveButton = (props) => (
     />
   </Base>
 )
+
+RemoveButton.displayName = 'RemoveButton'
 
 
 /**

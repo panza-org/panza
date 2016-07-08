@@ -1,27 +1,15 @@
 `RemovableInput` (component)
 ============================
 
-An input row typically used for inputing lists of
-things, and lists of things with changeable labels, such
-as a list of phone numbers, addresses, etc. You can see
-this ui-pattern used in Apple's address book app.
-
-By default, these inputs are removable. 
-
-This needs a refactor.
+A removable input
 
 Props
 -----
 
-### `amountDecorator`
-
-type: `bool`
-
-
 ### `autoFocus`
 
 type: `bool`
-defaultValue: `false`
+defaultValue: `true`
 
 
 ### `backgroundColor`
@@ -30,16 +18,16 @@ type: `string`
 defaultValue: `'white'`
 
 
-### `condensed`
-
-type: `bool`
-defaultValue: `false`
-
-
 ### `editable`
 
 type: `bool`
 defaultValue: `true`
+
+
+### `height`
+
+type: `number`
+defaultValue: `50`
 
 
 ### `keyboardType`
@@ -62,9 +50,10 @@ type: `number`
 type: `func`
 
 
-### `onRemove`
+### `onRequestRemove`
 
 type: `func`
+defaultValue: `function noop() {}`
 
 
 ### `onSelectLabel` (required)
@@ -97,6 +86,12 @@ type: `string`
 
 type: `bool`
 defaultValue: `false`
+
+
+### `verticalHeight`
+
+type: `number`
+defaultValue: `80`
 
 ## Examples
 

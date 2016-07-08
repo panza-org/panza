@@ -70,4 +70,6 @@ ButtonGroup.propTypes = {
   segmented: PropTypes.bool
 }
 
+ButtonGroup.displayName = 'ButtonGroup'
+
 export default ButtonGroup

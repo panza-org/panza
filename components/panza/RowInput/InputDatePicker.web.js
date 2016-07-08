@@ -13,4 +13,6 @@ class InputDatePicker extends React.Component {
 
 }
 
+InputDatePicker.displayName = 'InputDatePickerWeb'
+
 export default InputDatePicker

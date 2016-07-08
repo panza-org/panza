@@ -77,17 +77,25 @@ function generateMarkdown(name, reactAPI) {
 const keys = Object.keys(documents)
 
 keys.forEach((key) => {
-  const comp = documents[key]
-  const name = comp.displayName || key
-  const md = generateMarkdown(name, comp)
-
-  var exampleExists = fs.existsSync(__dirname + '/../documentation/Examples/'+name+'.md')
-
-  var example = exampleExists ? fs.readFileSync(__dirname + '/../documentation/Examples/'+name+'.md', {
-    encoding: 'utf-8'
-  }) : ''
-
-  fs.writeFileSync(__dirname + '/../documentation/'+ name + '.md', md + example)
-
-
+  const file = documents[key]
+  file.forEach(comp => {
+    const name = comp.displayName
+    try {
+      if (!name) {
+        throw new Error('No displayName for:'+ key)
+      }
+      const md = generateMarkdown(name, comp)
+      const exampleExists = fs.existsSync(
+        `${__dirname}/../documentation/Examples/${name}.md`
+      )
+      const exampleBuffer = exampleExists
+        ? fs.readFileSync(__dirname + '/../documentation/Examples/'+name+'.md', {
+          encoding: 'utf-8'
+        })
+        : ''
+      fs.writeFileSync(__dirname + '/../documentation/'+ name + '.md', md + exampleBuffer)
+    } catch(err) {
+      console.warn(err) // eslint-disable-line
+    }
+  })
 })

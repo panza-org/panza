@@ -3,6 +3,7 @@
 
 SectionHeader is used for rendering a section header within a ListView.
 Supply text as the child.
+@composes Base
 
 Props
 -----
@@ -11,6 +12,11 @@ Props
 
 type: `string`
 defaultValue: `'gray'`
+
+
+### `children`
+
+type: `node`
 
 ![Section header](images/SectionHeader.png)
 

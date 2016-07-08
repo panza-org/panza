@@ -7,9 +7,24 @@ converts props into styles defined in the configuration.
 Props
 -----
 
+### `Component`
+
+type: `any`
+
+
+### `baseStyle`
+
+type: `any`
+
+
 ### `bold`
 
 type: `bool`
+
+
+### `children`
+
+type: `node`
 
 
 ### `color`
@@ -27,6 +42,11 @@ type: `enum(0|1|2|3|4|5|6)`
 
 type: `enum(0|1|2|3|4|5|6)`
 defaultValue: `1`
+
+
+### `style`
+
+type: `any`
 
 
 ### `textAlign`

@@ -6,10 +6,9 @@ a label if either of the props are provided, and it always
 renders a TextInput. If a label prop is provided, the TextInput
 is aligned to the right of the row.
 
-InputRow composes InputRowCell, PrimaryText, and PrimaryTextInput. You can
-use these components to create your own custom InputRow.
-
 To have provide borders, wrap this component (and any other rows) in an InputGroup.
+
+@composes InputRowCell, Text, Input
 
 Props
 -----
@@ -22,6 +21,12 @@ type: `node`
 ### `editable`
 
 defaultValue: `true`
+
+
+### `height`
+
+type: `number`
+defaultValue: `50`
 
 
 ### `icon`
@@ -44,9 +49,24 @@ type: `number`
 type: `func`
 
 
+### `style`
+
+type: `any`
+
+
+### `textAlign`
+
+type: `string`
+
+
 ### `value`
 
 type: `string`
+
+
+### `vertical`
+
+type: `bool`
 
 ## Examples
 

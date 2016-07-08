@@ -1,5 +1,0 @@
-`SubtitleText` (component)
-==========================
-
-
-

@@ -11,9 +11,9 @@ import {
  * Fade-in an image when it loads.
  */
 
-class ImageBase extends React.Component {
+class Image extends React.Component {
 
-  static displayName = 'ImageBase'
+  static displayName = 'Image'
 
   static propTypes = {
     fade: PropTypes.bool,
@@ -95,4 +95,4 @@ class ImageBase extends React.Component {
 
 }
 
-export default ImageBase
+export default Image

@@ -12,6 +12,8 @@ import {
 
 class RevealingRow extends React.Component {
 
+  static displayName = 'RevealingROw'
+
   static propTypes = {
     showingOptions: PropTypes.bool.isRequired,
     revealedContent: PropTypes.node.isRequired,

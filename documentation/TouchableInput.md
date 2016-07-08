@@ -15,6 +15,17 @@ type: `string`
 defaultValue: `'white'`
 
 
+### `condensed`
+
+type: `bool`
+
+
+### `disabled`
+
+type: `bool`
+defaultValue: `false`
+
+
 ### `icon`
 
 type: `node`
@@ -29,6 +40,11 @@ type: `string`
 
 type: `string`
 defaultValue: `'default'`
+
+
+### `onPress` (required)
+
+type: `func`
 
 
 ### `showMore`

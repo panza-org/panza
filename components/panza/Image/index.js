@@ -1,6 +1,5 @@
-import ImageBase from './ImageBase'
+import Image from './Image'
 
 export {
-  ImageBase,
-  ImageBase as Image
+  Image
 }

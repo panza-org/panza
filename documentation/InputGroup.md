@@ -11,12 +11,22 @@ child components, too.
 Props
 -----
 
+### `backgroundColor`
+
+type: `string`
+
+
 ### `bottomInset`
 
 left margin inset of the bottom border *
 
 type: `number`
 defaultValue: `0`
+
+
+### `children`
+
+type: `node`
 
 
 ### `inset`

@@ -1,5 +1,5 @@
-`LoadingPage` (component)
-=========================
+`Loader` (component)
+====================
 
 Displays a loading indicator, and on iOS an optional
 loading message.

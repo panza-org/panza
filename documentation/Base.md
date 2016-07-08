@@ -8,6 +8,13 @@ from rebass.
 Props
 -----
 
+### `Component`
+
+Custom Component *
+
+type: `any`
+
+
 ### `align`
 
 set align-items property *
@@ -18,6 +25,20 @@ type: `string`
 ### `backgroundColor`
 
 Background color *
+
+type: `string`
+
+
+### `baseStyle`
+
+Base style *
+
+type: `any`
+
+
+### `borderColor`
+
+Border color *
 
 type: `string`
 
@@ -34,6 +55,13 @@ type: `bool`
 flex property *
 
 type: `number`
+
+
+### `height`
+
+set the height of the element *
+
+type: `string`
 
 
 ### `justify`
@@ -153,6 +181,20 @@ type: `union(bool|number)`
 set flex-direction to row *
 
 type: `bool`
+
+
+### `style`
+
+Regular style attribute *
+
+type: `any`
+
+
+### `underlayColor`
+
+Underlay color. Use 'darken' to automatically darken the backgroundColor *
+
+type: `string`
 
 
 ### `wrap`

@@ -14,6 +14,8 @@ export const ArrowRightIcon = (props) => {
   )
 }
 
+ArrowRightIcon.displayName = 'ArrowRightIcon'
+
 export const PlusIcon = (props) => {
   return (
     <Icon
@@ -26,6 +28,8 @@ export const PlusIcon = (props) => {
     />
   )
 }
+
+PlusIcon.displayName = 'PlusIcon'
 
 // on android we use 'back', on ios we use 'close'
 export const CloseIcon = (props) => {
@@ -41,6 +45,7 @@ export const CloseIcon = (props) => {
   )
 }
 
+CloseIcon.displayName = 'CloseIcon'
 
 export const BackIcon = (props) => {
   return (
@@ -56,6 +61,8 @@ export const BackIcon = (props) => {
   )
 }
 
+BackIcon.displayName = 'BackIcon'
+
 export const SearchIcon = (props) => (
   <Icon
     name={Platform.select({
@@ -68,6 +75,8 @@ export const SearchIcon = (props) => (
   />
 )
 
+SearchIcon.displayName = 'SearchIcon'
+
 export const MoreIcon = (props) => (
   <Icon
     name={Platform.select({
@@ -75,5 +84,8 @@ export const MoreIcon = (props) => (
       android: 'md-more',
       web: 'ios-more'
     })}
+    {...props}
   />
 )
+
+MoreIcon.displayName = 'MoreIcon'

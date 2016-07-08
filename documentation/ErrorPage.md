@@ -8,15 +8,15 @@ when an error state and retry function are provided.
 Props
 -----
 
+### `children`
+
+type: `node`
+
+
 ### `detailMessage`
 
 type: `string`
-defaultValue: ``It's possible that our server are under heavy load, or that your internet connection is slow. Please try again.``
-
-
-### `error` (required)
-
-type: `object`
+defaultValue: `'It\'s possible that our server are under heavy load, or that your internet connection is slow. Please try again.'`
 
 
 ### `isOffline`

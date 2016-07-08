@@ -3,12 +3,8 @@ import config from '../config'
 import {
   Text
 } from 'react-native'
-
-import {
-  margins,
-  paddings
-} from './Base'
-
+import margins from './utils/margins'
+import paddings from './utils/paddings'
 
 /** Props to text-size conversions **/
 const size = (fontSize, fontSizes, lineHeight, lineHeights) => {

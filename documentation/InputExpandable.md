@@ -12,6 +12,11 @@ Props
 type: `node`
 
 
+### `children`
+
+type: `node`
+
+
 ### `expanded` (required)
 
 type: `bool`

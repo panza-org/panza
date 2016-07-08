@@ -10,7 +10,6 @@ Props
 ### `backgroundColor`
 
 type: `string`
-defaultValue: `'info'`
 
 
 ### `block`
@@ -21,6 +20,21 @@ type: `bool`
 defaultValue: `false`
 
 
+### `borderColor`
+
+type: `string`
+
+
+### `children`
+
+type: `node`
+
+
+### `default`
+
+type: `bool`
+
+
 ### `disabled`
 
 disables the button, and reduces its opacity *
@@ -29,11 +43,26 @@ type: `bool`
 defaultValue: `false`
 
 
-### `label`
+### `icon`
 
-the text string for the button. alternatively, pass a Text as a child *
+optional icon *
 
-type: `string`
+type: `enum(PropTypes.string|PropTypes.node)`
+
+
+### `large`
+
+type: `bool`
+
+
+### `medium`
+
+type: `bool`
+
+
+### `negative`
+
+type: `bool`
 
 
 ### `onPress` (required)
@@ -41,9 +70,43 @@ type: `string`
 type: `func`
 
 
-### `p`
+### `outline`
 
-defaultValue: `2`
+defaultValue: `false`
+
+
+### `positive`
+
+type: `bool`
+
+
+### `primary`
+
+button theme *
+
+type: `bool`
+
+
+### `rounded`
+
+defaultValue: `6`
+
+
+### `secondary`
+
+type: `bool`
+
+
+### `size`
+
+defaultValue: `'medium'`
+
+
+### `small`
+
+button size *
+
+type: `bool`
 
 
 ### `textColor`
@@ -51,13 +114,16 @@ defaultValue: `2`
 style text colour when using label prop *
 
 type: `string`
-defaultValue: `'white'`
+
+
+### `theme`
+
+defaultValue: `'default'`
 
 
 ### `underlayColor`
 
 type: `string`
-defaultValue: `'darken'`
 
 ## Examples
 

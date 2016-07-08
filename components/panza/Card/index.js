@@ -1,7 +1,5 @@
-import {
-  Card,
-  CardHeader
-} from './Card'
+import Card from './Card'
+import CardHeader from './CardHeader'
 
 export {
   Card,
