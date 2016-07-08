@@ -11,7 +11,8 @@ import {
   PlusIcon,
   Base,
   Text,
-  VerticalButtonGroup
+  VerticalButtonGroup,
+  ButtonGroup
 } from '../panza'
 
 import React from 'react'
@@ -71,6 +72,27 @@ export default class Buttons extends React.Component {
           <Button mt={1}>
             <Text size='large' textColor='blue'>Custom Child</Text>
           </Button>
+
+          <Base mt={2}>
+            <ButtonGroup>
+              <Button outline>One</Button>
+              <Button outline>Two</Button>
+              <Button outline>Three</Button>
+            </ButtonGroup>
+
+            <ButtonGroup>
+              <Button onPress={noop} transparent icon='ios-add-outline'>
+                One
+              </Button>
+              <Button onPress={noop} transparent icon='ios-add-outline'>
+                Two
+              </Button>
+              <Button onPress={noop} transparent icon='ios-add-outline'>
+                Three
+              </Button>
+            </ButtonGroup>
+          </Base>
+
         </View>
       </ScrollView>
     )
@@ -79,7 +101,6 @@ export default class Buttons extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
-    padding: 20
+    backgroundColor: 'white'
   }
 })

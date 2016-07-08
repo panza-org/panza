@@ -11,9 +11,14 @@ import {
   Image,
   Text,
   Base,
+  Divider,
+  ButtonGroup,
+  Button,
   TouchableIcon,
   Icon
 } from '../panza'
+
+function noop() {}
 
 const screen = Dimensions.get('window')
 
@@ -21,7 +26,7 @@ export default class CardExample extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: '#fafafa'}}>
+      <View style={{ flex: 1, backgroundColor: '#fafafa' }}>
         <Card>
           <CardHeader
             avatar='http://placehold.it/128/08e/fff'
@@ -43,6 +48,18 @@ export default class CardExample extends React.Component {
               Ad id Lorem officia reprehenderit magna commodo ut voluptate. Ex ipsum in exercitation in officia reprehenderit dolor tempor.
             </Text>
           </Base>
+          <Divider />
+          <ButtonGroup py={1}>
+            <Button small onPress={noop} transparent icon='ios-heart-outline'>
+              Like
+            </Button>
+            <Button small onPress={noop} transparent icon='ios-text-outline'>
+              Comment
+            </Button>
+            <Button small onPress={noop} transparent icon='ios-share-outline'>
+              Share
+            </Button>
+          </ButtonGroup>
         </Card>
       </View>
     )

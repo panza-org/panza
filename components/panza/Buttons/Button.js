@@ -68,7 +68,8 @@ const buttonPropsMap = {
     backgroundColor: 'transparent',
     borderWidth: 0,
     borderColor: 'transparent',
-    underlayColor: 'rgba(0,0,0,0.1)'
+    underlayColor: 'transparent',
+    textColor: 'default'
   }
 }
 
@@ -87,7 +88,7 @@ const Button = ({
 
   // determine our basic style props
   const props = mapPropsToStyleProps(other, buttonPropsMap)
-  const textColor = other.outline
+  let textColor = other.outline
     ? props.borderColor
     : props.textColor
 
@@ -107,7 +108,7 @@ const Button = ({
 
   // create an icon if necessary
   const iconNode = (icon && typeof icon === 'string')
-    ? <Icon name={icon} mr={1} size={35} color={textColor} />
+    ? <Icon name={icon} mr={1} size={25} color={textColor} />
     : icon
 
   return (
