@@ -21,8 +21,7 @@ class ImageBase extends React.Component {
     onLoadEnd: PropTypes.func,
     height: PropTypes.number,
     width: PropTypes.number,
-    rounded: PropTypes.bool,
-    backgroundColor: PropTypes.string,
+    circular: PropTypes.bool,
     imageProps: PropTypes.object,
     style: PropTypes.any,
     source: PropTypes.object.isRequired,
@@ -33,8 +32,8 @@ class ImageBase extends React.Component {
     fade: true,
     resizeMode: 'cover',
     rounded: false,
-    backgroundColor: '#fafafa',
-    imageProps: {}
+    imageProps: {},
+    circular: false
   }
 
   state = {
@@ -65,7 +64,7 @@ class ImageBase extends React.Component {
       height,
       width,
       imageProps,
-      rounded,
+      circular,
       resizeMode,
       ...other
     } = this.props
@@ -73,7 +72,7 @@ class ImageBase extends React.Component {
     const sx = [{
       height,
       width,
-      borderRadius: rounded ? height / 2 : 0,
+      borderRadius: circular ? height / 2 : 0,
       opacity: this.state.fade
     }, style]
 

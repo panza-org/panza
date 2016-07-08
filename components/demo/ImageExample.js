@@ -25,6 +25,15 @@ export default class ImageExample extends React.Component {
             height={300}
             source={{ uri: URL }}
           />
+
+          <Image
+            my={1}
+            width={100}
+            height={100}
+            circular
+            source={{ uri: URL }}
+          />
+
         </Base>
       </ScrollView>
     )
