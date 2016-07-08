@@ -3,5 +3,5 @@ import LoadingPage from './Loading'
 
 export {
   ErrorPage,
-  LoadingPage
+  LoadingPage as Loader
 }

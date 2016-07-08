@@ -15,9 +15,9 @@ import {
  */
 
 
-class LoadingPage extends React.Component {
+class Loader extends React.Component {
 
-  static displayName = 'LoadingPage'
+  static displayName = 'Loader'
 
   static propTypes = {
     isLoading: PropTypes.bool,
@@ -72,4 +72,4 @@ class LoadingPage extends React.Component {
 
 }
 
-export default LoadingPage
+export default Loader
