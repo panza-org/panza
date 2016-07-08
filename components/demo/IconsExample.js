@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react'
 import {
-  View,
-  Text,
   ScrollView
 } from 'react-native'
 
@@ -11,45 +9,57 @@ import {
   PlusIcon,
   CloseIcon,
   BackIcon,
-  PrimaryText,
+  Text,
   TouchableIcon,
   MoreIcon,
+  CheckMark,
   SearchIcon,
   Base
 } from '../panza'
 
 export default class IconExample extends React.Component {
 
+  state = {
+    checked: false
+  }
+
   render() {
     return (
       <ScrollView>
+        <TouchableIcon onPress={() => this.setState({ checked: !this.state.checked })}>
+          <CheckMark
+            isChecked={this.state.checked}
+          />
+        </TouchableIcon>
+
+
         <Base p={2}>
-          <PrimaryText>ArrowRightIcon</PrimaryText>
+          <Text>ArrowRightIcon</Text>
           <ArrowRightIcon/>
         </Base>
         <Base p={2}>
-          <PrimaryText>PlusIcon</PrimaryText>
+          <Text>PlusIcon</Text>
           <PlusIcon />
         </Base>
         <Base p={2}>
-          <PrimaryText>CloseIcon</PrimaryText>
+          <Text>CloseIcon</Text>
           <CloseIcon />
         </Base>
         <Base p={2}>
-          <PrimaryText>BackIcon</PrimaryText>
+          <Text>BackIcon</Text>
           <BackIcon />
         </Base>
         <Base p={2}>
-          <PrimaryText>MoreIcon</PrimaryText>
+          <Text>MoreIcon</Text>
           <MoreIcon />
         </Base>
         <Base p={2}>
-          <PrimaryText>SearchIcon</PrimaryText>
+          <Text>SearchIcon</Text>
           <SearchIcon />
         </Base>
 
         <Base p={2}>
-          <PrimaryText>TouchableIcon</PrimaryText>
+          <Text>TouchableIcon</Text>
           <TouchableIcon>
             <MoreIcon color='black' />
           </TouchableIcon>

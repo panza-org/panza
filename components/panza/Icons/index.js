@@ -7,7 +7,8 @@ import {
   BackIcon
 } from './Icons'
 
-import Icon from './BaseIcon'
+import Icon from './BaseIcon' // eslint-disable-line
+import CheckMark from './CheckMark'
 
 import TouchableIcon from './TouchableIcon'
 
@@ -19,5 +20,6 @@ export {
   BackIcon,
   TouchableIcon,
   SearchIcon,
-  MoreIcon
+  MoreIcon,
+  CheckMark
 }

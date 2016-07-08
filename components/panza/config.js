@@ -23,7 +23,8 @@ const colors = {
   positive: baseColors.green,
   negative: baseColors.red,
   warning: baseColors.orange,
-  error: baseColors.red
+  error: baseColors.red,
+  light: baseColors.midgray
 }
 
 const fontSizes = [

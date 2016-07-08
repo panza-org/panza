@@ -95,6 +95,10 @@ const TextBase = ({
 TextBase.displayName = 'TextBase'
 
 TextBase.propTypes = {
+  Component: PropTypes.any,
+  style: PropTypes.any,
+  baseStyle: PropTypes.any,
+  children: PropTypes.node,
   fontSize: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
   lineHeight: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
   color: PropTypes.string,
