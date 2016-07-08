@@ -73,14 +73,19 @@ export default class Buttons extends React.Component {
             <Text size='large' textColor='blue'>Custom Child</Text>
           </Button>
 
-          <Base mt={2}>
-            <ButtonGroup>
-              <Button outline>One</Button>
-              <Button outline>Two</Button>
-              <Button outline>Three</Button>
+          <Base mt={2} p={2}>
+            <ButtonGroup rounded={5}>
+              <Button primary>One</Button>
+              <Button primary outline>Two</Button>
+              <Button primary outline>Three</Button>
             </ButtonGroup>
 
-            <ButtonGroup>
+            <ButtonGroup mt={2} rounded={5}>
+              <Button positive>One</Button>
+              <Button positive outline>Two</Button>
+            </ButtonGroup>
+
+            <ButtonGroup mt={2}>
               <Button onPress={noop} transparent icon='ios-add-outline'>
                 One
               </Button>
