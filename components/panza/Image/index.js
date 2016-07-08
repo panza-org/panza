@@ -1,5 +1,6 @@
 import FadeImage from './FadeImage'
 
 export {
-  FadeImage
+  FadeImage,
+  FadeImage as Image
 }

@@ -12,9 +12,9 @@ import {
  * Fade-in an image when it loads.
  */
 
-class FadeImage extends React.Component {
+class ImageBase extends React.Component {
 
-  static displayName = 'FadeImage'
+  static displayName = 'ImageBase'
 
   static propTypes = {
     fade: PropTypes.bool,
@@ -32,8 +32,6 @@ class FadeImage extends React.Component {
   static defaultProps = {
     fade: true,
     resizeMode: 'cover',
-    height: 50,
-    width: 50,
     rounded: false,
     backgroundColor: '#fafafa',
     imageProps: {}
@@ -67,7 +65,6 @@ class FadeImage extends React.Component {
       height,
       width,
       imageProps,
-      backgroundColor,
       rounded,
       resizeMode,
       ...other
@@ -76,8 +73,8 @@ class FadeImage extends React.Component {
     const sx = [{
       height,
       width,
-      backgroundColor,
-      borderRadius: rounded ? height / 2 : 0
+      borderRadius: rounded ? height / 2 : 0,
+      opacity: this.state.fade
     }, style]
 
     return (
@@ -97,4 +94,4 @@ class FadeImage extends React.Component {
 
 }
 
-export default FadeImage
+export default ImageBase
