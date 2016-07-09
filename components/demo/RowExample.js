@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, ListView } from 'react-native'
+import { View, StyleSheet, ListView } from 'react-native'
 import {
   PrimaryText,
   SecondaryText,
   SubtitleText,
   Separator,
   SectionHeader,
-  RowImage,
+  Image,
   Base,
+  Divider,
   TouchableRow,
+  Text,
   TouchableRowCell
 } from '../panza'
 
@@ -37,7 +39,7 @@ const rows = [
       return (
         <TouchableRowCell onPress={noop}>
           <Base flex={1}>
-            <PrimaryText>PrimaryText</PrimaryText>
+            <Text>Text</Text>
           </Base>
         </TouchableRowCell>
       )
@@ -48,8 +50,8 @@ const rows = [
       return (
         <TouchableRowCell onPress={noop}>
           <Base flex={1}>
-            <PrimaryText>PrimaryText</PrimaryText>
-            <SubtitleText light>SubtitleText</SubtitleText>
+            <Text>Text</Text>
+            <Text small light>SubtitleText</Text>
           </Base>
         </TouchableRowCell>
       )
@@ -58,11 +60,11 @@ const rows = [
   {
     render: () => {
       return (
-        <TouchableRowCell  onPress={noop}>
-          <RowImage mr={2} source={{ uri: 'https://pbs.twimg.com/profile_images/2966797788/e3f7b52206be4d11c86a32a67dfe2fab_400x400.png'}} />
+        <TouchableRowCell onPress={noop}>
+          <Image mr={2} width={40} height={40} circular source={{ uri: 'https://pbs.twimg.com/profile_images/2966797788/e3f7b52206be4d11c86a32a67dfe2fab_400x400.png'}} />
           <Base flex={1}>
-            <PrimaryText>PrimaryText</PrimaryText>
-            <SubtitleText light>SubtitleText</SubtitleText>
+            <Text>Text</Text>
+            <Text small light>SubtitleText</Text>
           </Base>
         </TouchableRowCell>
       )
@@ -71,14 +73,14 @@ const rows = [
   {
     render: () => {
       return (
-        <TouchableRowCell  py={2} showMore={true} onPress={noop}>
+        <TouchableRowCell py={2} showMore={true} onPress={noop}>
           <Base flex={1}>
             <Base row align='center' justify='space-between'>
-              <PrimaryText bold numberOfLines={1}>Ben McMahen</PrimaryText>
-              <SecondaryText numberOfLines={1} light>2 weeks ago</SecondaryText>
+              <Text bold numberOfLines={1}>Ben McMahen</Text>
+              <Text small numberOfLines={1} light>2 weeks ago</Text>
             </Base>
-            <SecondaryText numberOfLines={1}>Miss you already</SecondaryText>
-            <SecondaryText numberOfLines={3} light>Do ex duis velit nisi eu ex excepteur sint irure nulla duis adipisicing minim in. Lorem ut et dolor proident nisi duis id do anim laboris non.</SecondaryText>
+            <Text small numberOfLines={1}>Miss you already</Text>
+            <Text small numberOfLines={3} light>Do ex duis velit nisi eu ex excepteur sint irure nulla duis adipisicing minim in. Lorem ut et dolor proident nisi duis id do anim laboris non.</Text>
           </Base>
         </TouchableRowCell>
       )
@@ -96,7 +98,7 @@ const rows = [
   //     return (
   //       <TouchableRowCell onPress={noop}>
   //         <Base flex={1} row align='center' justify='space-between'>
-  //           <PrimaryText>PrimaryText</PrimaryText>
+  //           <Text>PrimaryText</PrimaryText>
   //           <PrimaryText light>Value</PrimaryText>
   //         </Base>
   //       </TouchableRowCell>
@@ -115,7 +117,7 @@ class RowExample extends Component {
       <ListView
         dataSource={dataSource}
         style={styles.list}
-        renderSeparator={(a, b) => <Separator key={a + b} />}
+        renderSeparator={(a, b) => <Divider key={a + b} />}
         renderRow={(rowData) => {
           return rowData.render()
         }}

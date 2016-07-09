@@ -182,6 +182,16 @@ export default class InputRowExample extends React.Component {
               value={this.state.removeInput}
             />
             <RemovableInput
+              icon={<SearchIcon />}
+              placeholder='Non removable without label'
+              removable={false}
+              editable={this.state.editable}
+              onRemove={noop}
+              onChangeText={(removeInput) => this.setState({ removeInput })}
+              value={this.state.removeInput}
+            />
+
+            <RemovableInput
               placeholder='Non touchable label'
               removable={true}
               height={40}

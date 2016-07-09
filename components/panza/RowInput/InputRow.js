@@ -34,12 +34,14 @@ class InputRow extends React.Component {
     height: PropTypes.number,
     vertical: PropTypes.bool,
     textAlign: PropTypes.string,
-    style: PropTypes.any
+    style: PropTypes.any,
+    verticalHeight: PropTypes.number
   }
 
   static defaultProps = {
     editable: true,
-    height: 50
+    height: 50,
+    verticalHeight: 80
   }
 
   focus() {
@@ -58,6 +60,7 @@ class InputRow extends React.Component {
       icon,
       height,
       vertical,
+      verticalHeight,
       maxLength,
       textAlign,
       customInput,
@@ -65,7 +68,7 @@ class InputRow extends React.Component {
     } = this.props
 
     let alignText = textAlign || ((label && !vertical) ? 'right' : 'left')
-    let fixedHeight = vertical ? 80 : height
+    let fixedHeight = vertical ? verticalHeight : height
 
     return (
       <InputRowCell height={fixedHeight}>

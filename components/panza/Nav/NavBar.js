@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: Navbar.totalNavHeight,
     justifyContent: 'space-between',
-    paddingBottom: 20,
+    paddingBottom: 16,
     ...Platform.select({
       web: {
         textAlign: 'center',

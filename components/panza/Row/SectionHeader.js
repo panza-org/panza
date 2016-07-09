@@ -22,7 +22,7 @@ const SectionHeader = ({
     backgroundColor={backgroundColor}
     baseStyle={styles.header} {...other}
   >
-    <Text small light>{children}</Text>
+    <Text tiny light>{children}</Text>
   </Base>
 )
 

@@ -94,23 +94,7 @@ export default class NavBarExample extends React.Component {
           )}
           title='Touchable Text'
         />
-        <SubNav
-          options={[
-            {
-              label: 'Option one',
-              onPress: noop
-            },
-            {
-              label: 'Option two',
-              onPress: noop
-            },
-            {
-              label: 'Option three',
-              onPress: noop
-            }
-          ]}
-        />
-
+      
     </View>
         )}
 

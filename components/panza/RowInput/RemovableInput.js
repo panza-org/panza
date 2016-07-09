@@ -139,7 +139,7 @@ class RemovableInput extends React.Component {
 
 
   static defaultProps = {
-    removable: true,
+    removable: false,
     editable: true,
     backgroundColor: 'white',
     textAlign: 'right',
@@ -177,6 +177,8 @@ class RemovableInput extends React.Component {
         }}
       >
         <Text
+          bold
+          small
           color={(this.props.editable && this.props.onSelectLabel) ? 'primary' : 'default'}
           baseStyle={styles.labelText}
         >
@@ -243,11 +245,19 @@ class RemovableInput extends React.Component {
               />
             )}
 
+
             <Base
               flex={1}
               style={{ alignSelf: 'stretch' }}
               row={!this.props.vertical}
             >
+
+            {this.props.icon && (
+              React.cloneElement(this.props.icon, {
+                baseStyle: { alignSelf: 'center' },
+                mr: 2
+              })
+            )}
 
               {this.renderLabel()}
 
