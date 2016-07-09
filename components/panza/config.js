@@ -91,12 +91,16 @@ export function customizeTheme(customTheme) {
   baseTheme = extend(config, customTheme)
 }
 
+/**
+ * Higher order component
+ */
+
 export function themeProvider(Component) {
 
   return class Theme extends React.Component {
 
     render() {
-      return <Component theme={baseTheme} />
+      return <Component panza={baseTheme} {...this.props} />
     }
 
   }

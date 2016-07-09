@@ -7,11 +7,10 @@ import {
 import {
   Base,
   Text,
-  InputRowCell,
-  themeProvider
+  InputRowCell
 } from '../index'
 
-import config from '../config'
+import { themeProvider } from '../config'
 
 /**
  * An basic input row with a label and Switch, allowing
@@ -30,7 +29,10 @@ class InputToggle extends React.Component {
     onValueChange: PropTypes.func.isRequired,
     editable: PropTypes.bool,
     switchProps: PropTypes.object,
-    onTintColor: PropTypes.string
+    onTintColor: PropTypes.string,
+
+    /** theme provided by panza **/
+    panza: PropTypes.object.isRequired
   }
 
   static defaultProps = {
@@ -47,10 +49,10 @@ class InputToggle extends React.Component {
       onValueChange,
       switchProps,
       onTintColor,
-      theme
+      panza
     } = this.props
 
-    const { colors } = theme
+    const { colors } = panza
     let tintColor = colors[onTintColor]
 
     return (

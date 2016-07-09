@@ -3,16 +3,17 @@ import {
   StyleSheet
 } from 'react-native'
 
-import { themeProvider, Base } from '../index'
+import { Base } from '../index'
+import { themeProvider } from '../config'
 
 /**
  * A simple component used to separate rows, with an
  * optional inset margin on the left or right.
  */
 
-const Divider = ({ inset, insetRight, theme, ...other }) => {
+const Divider = ({ inset, insetRight, panza, ...other }) => {
 
-  const { borderColor } = theme
+  const { borderColor } = panza
 
   return (
     <Base
@@ -34,7 +35,7 @@ Divider.propTypes = {
   insetRight: PropTypes.number,
 
   /** theme provided by higher order component **/
-  theme: PropTypes.object.isRequired
+  panza: PropTypes.object.isRequired
 }
 
 Divider.defaultProps = {

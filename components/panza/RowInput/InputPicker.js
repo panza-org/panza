@@ -8,9 +8,12 @@ import {
   Base,
   Text,
   InputExpandable,
-  TouchableInput,
-  themeProvider
+  TouchableInput
 } from '../index'
+
+import {
+  themeProvider
+} from '../config'
 
 /**
  * InputPicker provides a unified API for Android and iOS
@@ -49,7 +52,7 @@ class InputPicker extends React.Component {
     backgroundColor: PropTypes.string,
 
     /** theme provided by higher order component **/
-    theme: PropTypes.object.isRequired
+    panza: PropTypes.object.isRequired
   }
 
 
@@ -62,10 +65,10 @@ class InputPicker extends React.Component {
     const {
       label,
       editable,
-      theme
+      panza
     } = this.props
 
-    const { fontSizes } = theme
+    const { fontSizes } = panza
 
     const androidStyles = {
       padding: 0,

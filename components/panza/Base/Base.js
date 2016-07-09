@@ -5,7 +5,7 @@ import colorStyle, { getColor } from './utils/colors'
 import margins from './utils/margins'
 import paddings from './utils/paddings'
 import radii from './utils/radii'
-import { themeProvider } from '../index'
+import { themeProvider } from '../config'
 
 /**
  * A general purpose component that converts our props into styles
@@ -105,7 +105,7 @@ class Base extends React.Component {
     height: PropTypes.string,
 
     /** theme provided by a higher order component **/
-    theme: PropTypes.object
+    panza: PropTypes.object
   }
 
   static displayName = 'Base'
@@ -124,7 +124,7 @@ class Base extends React.Component {
       align,
       height,
       justify,
-      theme,
+      panza,
       ...props
     } = this.props
 
@@ -132,14 +132,14 @@ class Base extends React.Component {
       scale,
       colors,
       borderRadius
-    } = theme
+    } = panza
 
     const sx = [
       baseStyle,
       style,
       margins(props, scale),
       paddings(props, scale),
-      colorStyle(props, colors, theme),
+      colorStyle(props, colors, panza),
       radii(props, borderRadius),
       flex ? { flex } : null,
       wrap ? { flexWrap: 'wrap' } : null,

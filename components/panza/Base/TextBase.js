@@ -4,7 +4,7 @@ import {
 } from 'react-native'
 import margins from './utils/margins'
 import paddings from './utils/paddings'
-import { themeProvider } from '../index'
+import { themeProvider } from '../config'
 
 /** Props to text-size conversions **/
 const size = (fontSize, fontSizes, lineHeight, lineHeights) => {
@@ -59,7 +59,7 @@ const TextBase = ({
   fontSize,
   lineHeight,
   baseStyle,
-  theme,
+  panza,
   Component,
   ...props
 }) => {
@@ -72,7 +72,7 @@ const TextBase = ({
     thick,
     colors,
     scale
-  } = theme
+  } = panza
 
   const sx = [
     baseStyle,
@@ -118,7 +118,7 @@ TextBase.propTypes = {
   thin: PropTypes.bool,
 
   /** a theme provided by a higher order component **/
-  theme: PropTypes.object.isRequired
+  panza: PropTypes.object.isRequired
 }
 
 TextBase.defaultProps = {
