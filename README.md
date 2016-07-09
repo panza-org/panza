@@ -1,9 +1,12 @@
 # panza
-Panza (named after Sancho Panza, from Don Quixote), is a collection of  stateless, functional ui-components for react-native, and heavily inspired by the excellent [rebass](https://github.com/jxnblk/rebass) library. 
+Panza (named after Sancho Panza, from Don Quixote), provides a UI foundation for your react-native applications, and is inspired by the excellent [rebass](https://github.com/jxnblk/rebass) library.
+ 
+Panza gives you:
 
-The goal with Panza is to provide a set of commonly used (mostly) functional ui components for react-native, that work well in both android and iOS environments. These components should look nice out of the box, but still offer a high degree of customization. This is achieved primarily through the use of composition. Each component is comprised of smaller components including a [Base](documentation/Base.md) component, which provides some nice shorthands to transform props into styles based upon a global configuration. A component like [TouchableRow](documentation/TouchableRow.md) may suit your needs eighty percent of the time, but in cases where you need something a bit more custom, you can construct your own row using TouchableRowCell, PrimaryText, SecondaryText, RowImage, Base, ArrowRightIcon, and any other components that you’d like.
-
-You can see Panza in production with [Payback](http://payback.panzeo.com), an app that manages shared expenses between individuals and groups.
+- The standard building blocks of most mobile applications. See the [included components](#Inputs)
+- Beautiful UI-styles out of the box, suitable for iOS, Android, and the web.
+- Overridable themes, with suitable defaults.
+- Most components extend a `Base` component, which provides useful shorthands for styling your components with props. For example, use `p={2}` to provide padding, or `backgroundColor='primary'` to set the background color of your component. You can also use the `Base` or `TextBase` as a replacement for `View` throughout your application.
 
 <p>
 <img src='images/panza-ios-large.png' width='375px' />
@@ -19,72 +22,56 @@ $ rnpm link react-native-vector-icons
 
 ## Components
 
-### Inputs
-* [InputRow](documentation/InputRow.md)
-* [InputGroup](documentation/InputGroup.md)
-* [InputHelpText](documentation/InputHelpText.md)
-* [InputToggle](documentation/InputToggle.md)
-* [InputPicker](documentation/InputPicker.md)
-* [InputDatePicker](documentation/InputDatePicker.md)
-* [RemovableInput](documentation/RemovableInput.md)
-* [AddRow](documentation/AddRow.md)
-* [TouchableInput](documentation/TouchableInput.md)
+### Elements
+* [Base](documentation/Base.md)
+* [Text](documentation/Text.md)
+* [Button](documentation/Button.md)
+* [Icon](documentation/Icon.md)
+* [Image](documentation/Image.md)
+* [Input](documentation/Input.md)
+* [Divider](documentation/Divider.md)
+* [Loader](documentation/Loader.md)
+* [CheckMark](documentation/CheckMark.md)
 
-### Rows
-* [TouchableRow](documentation/TouchableRow.md)
-* [RowSeparator](documentation/RowSeparator.md)
-* [RowImage](documentation/RowImage.md)
-* [SectionHeader](documentation/SectionHeader.md)
+### Views
 
-### Navigation
+#### Navigation
 * [NavBar](documentation/NavBar.md)
 * [NavTitle](documentation/NavTitle.md)
-* [NavTouchableIcon](documentation/NavTouchableIcon.md)
 * [NavTouchableText](documentation/NavTouchableText.md)
-* [SubNav](documentation/SubNav.md)
+* [NavTouchableIcon](documentation/NavTouchableIcon.md)
 
-### Pages
+#### Input
+* [InputGroup](documentation/InputGroup.md)
+* [InputRow](documentation/InputRow.md)
+* [InputToggle](documentation/InputToggle.md)
+* [InputDatePicker](documentation/InputDatePicker.md)
+* [InputExpandable](documentation/InputExpandable.md)
+* [RemovableInput](documentation/RemovableInput.md)
+* [TouchableInput](documentation/TouchableInput.md)
+* [HelpText](documentation/HelpText.md)
+
+#### Lists
+* [TouchableRow](documentation/TouchableRow.md)
+* [SectionHeader](documentation/SectionHeader.md)
+
+#### Buttons
+* [ButtonGroup](documentation/ButtonGroup.md)
+
+#### Cards
+* [Card](documentation/Card.md)
+* [CardHeader](documentation/CardHeader.md)
+
+#### Pages
 * [ErrorPage](documentation/ErrorPage.md)
-* [LoadingPage](documentation/LoadingPage.md)
-
-### Buttons
-* [Button](documentation/Button.md)
-* [PrimaryButton](documentation/PrimaryButton.md)
-* [WarningButton](documentation/WarningButton.md)
-* [ErrorButton](documentation/ErrorButton.md)
-* [SuccessButton](documentation/SuccessButton.md)
-* [NakedButton](documentation/NakedButton.md)
-* [VerticalButtonGroup](documentation/VerticalButtonGroup.md)
-
-### Text
-* [PrimaryText](documentation/PrimaryText.md)
-* [SecondaryText](documentation/SecondaryText.md)
-* [LargeText](documentation/LargeText.md)
-* [SubtitleText](documentation/SubtitleText.md)
-* [PrimaryTextInput](documentation/PrimaryTextInput.md)
-* [SecondaryTextInput](documentation/SecondaryTextInput.md)
-
-### Images
-* [FadeImage](documentation/FadeImage.md)
-
-### Icons
-* [Icon](documentation/Icon.md)
-* TouchableIcon
-* PlusIcon
-* ArrowRightIcon
-* CloseIcon
-* BackIcon
-* SearchIcon
-* MoreIcon
-
-### Base Components
-* [Base](documentation/Base.md)
-* [TextBase](documentation/TextBase.md)
 
 
-## Customize
+### Modules
+Coming soon
 
-You can override parts of the global configuration to provide custom colours, font sizes, scales, etc.
+## Themes
+
+You can override parts of the global theme to provide custom colours, font sizes, scales, etc.
 
 ```javascript
 import { config } from 'panza'

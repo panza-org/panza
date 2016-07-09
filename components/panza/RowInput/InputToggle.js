@@ -7,7 +7,8 @@ import {
 import {
   Base,
   Text,
-  InputRowCell
+  InputRowCell,
+  themeProvider
 } from '../index'
 
 import config from '../config'
@@ -38,10 +39,6 @@ class InputToggle extends React.Component {
     onTintColor: 'success'
   }
 
-  static contextTypes = {
-    panza: PropTypes.object
-  }
-
   render () {
     const {
       label,
@@ -49,14 +46,11 @@ class InputToggle extends React.Component {
       editable,
       onValueChange,
       switchProps,
-      onTintColor
+      onTintColor,
+      theme
     } = this.props
 
-    const {
-      panza
-    } = this.context
-
-    const { colors } = { ...config, ...panza || {} }
+    const { colors } = theme
     let tintColor = colors[onTintColor]
 
     return (
@@ -94,4 +88,4 @@ const styles = StyleSheet.create({
   }
 })
 
-module.exports = InputToggle
+module.exports = themeProvider(InputToggle)

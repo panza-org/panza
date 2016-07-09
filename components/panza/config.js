@@ -1,5 +1,5 @@
-// Basically copied from the excellent Rebass library
-// https://github.com/jxnblk/rebass/blob/master/src/config.js
+import React from 'react'
+import extend from 'deep-assign'
 
 const baseColors = {
   blue: '#08e',
@@ -56,14 +56,18 @@ const scale = [
   64
 ]
 
+// Inverted colour
 const inverted = colors.white
 
+// Font weights
 const bold = '600'
 const thick = '800'
 const thin = '300'
-const borderColor = 'rgba(0, 0, 0, 0.25)'
-const borderRadius = 2
 
+// Borders
+const borderColor = 'rgba(0, 0, 0, 0.25)'
+const invertedBorderColor = 'rgba(255,255,255,0.8)'
+const borderRadius = 2
 
 const config = {
   fontSizes,
@@ -72,6 +76,7 @@ const config = {
   borderColor,
   colors,
   inverted,
+  invertedBorderColor,
   thick,
   bold,
   thin,
@@ -79,3 +84,21 @@ const config = {
 }
 
 export default config
+
+let baseTheme = config
+
+export function customizeTheme(customTheme) {
+  baseTheme = extend(config, customTheme)
+}
+
+export function themeProvider(Component) {
+
+  return class Theme extends React.Component {
+
+    render() {
+      return <Component theme={baseTheme} />
+    }
+
+  }
+
+}

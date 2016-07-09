@@ -1,12 +1,11 @@
 import React, { PropTypes } from 'react'
-import config from '../config'
 import { View } from 'react-native'
 import colorTransform from 'color'
 import colorStyle, { getColor } from './utils/colors'
 import margins from './utils/margins'
 import paddings from './utils/paddings'
 import radii from './utils/radii'
-
+import { themeProvider } from '../index'
 
 /**
  * A general purpose component that converts our props into styles
@@ -103,14 +102,13 @@ class Base extends React.Component {
     justify: PropTypes.string,
 
     /** set the height of the element **/
-    height: PropTypes.string
+    height: PropTypes.string,
+
+    /** theme provided by a higher order component **/
+    theme: PropTypes.object
   }
 
   static displayName = 'Base'
-
-  static contextTypes = {
-    panza: PropTypes.object
-  }
 
   render() {
 
@@ -126,25 +124,22 @@ class Base extends React.Component {
       align,
       height,
       justify,
+      theme,
       ...props
     } = this.props
-
-    const {
-      panza
-    } = this.context
 
     const {
       scale,
       colors,
       borderRadius
-    } = { ...config, ...panza }
+    } = theme
 
     const sx = [
       baseStyle,
       style,
       margins(props, scale),
       paddings(props, scale),
-      colorStyle(props, colors, panza),
+      colorStyle(props, colors, theme),
       radii(props, borderRadius),
       flex ? { flex } : null,
       wrap ? { flexWrap: 'wrap' } : null,
@@ -169,4 +164,4 @@ class Base extends React.Component {
 
 }
 
-export default Base
+export default themeProvider(Base)

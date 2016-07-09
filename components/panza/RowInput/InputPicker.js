@@ -9,7 +9,7 @@ import {
   Text,
   InputExpandable,
   TouchableInput,
-  config
+  themeProvider
 } from '../index'
 
 /**
@@ -46,12 +46,12 @@ class InputPicker extends React.Component {
     /** controls whether the picker is visible. (iOS only) **/
     expanded: PropTypes.bool,
     children: PropTypes.node,
-    backgroundColor: PropTypes.string
+    backgroundColor: PropTypes.string,
+
+    /** theme provided by higher order component **/
+    theme: PropTypes.object.isRequired
   }
 
-  static contextTypes = {
-    panza: PropTypes.object
-  }
 
   static defaultProps = {
     editable: true
@@ -61,15 +61,11 @@ class InputPicker extends React.Component {
 
     const {
       label,
-      editable
+      editable,
+      theme
     } = this.props
 
-    const {
-      panza
-    } = this.context
-
-    const { fontSizes } = { ...config, ...panza }
-
+    const { fontSizes } = theme
 
     const androidStyles = {
       padding: 0,
@@ -139,4 +135,4 @@ class InputPicker extends React.Component {
 
 }
 
-export default InputPicker
+export default themeProvider(InputPicker)

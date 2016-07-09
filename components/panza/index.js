@@ -1,4 +1,4 @@
-import config from './config'
+import config, { customizeTheme, themeProvider } from './config'
 
 export * from './Buttons'
 export * from './Row'
@@ -12,4 +12,8 @@ export * from './Pages'
 export * from './Image'
 export * from './Card'
 
-export { config }
+export {
+  config,
+  customizeTheme,
+  themeProvider
+}

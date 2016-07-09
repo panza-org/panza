@@ -3,16 +3,16 @@ import {
   StyleSheet
 } from 'react-native'
 
-import { config, Base } from '../index'
+import { themeProvider, Base } from '../index'
 
 /**
  * A simple component used to separate rows, with an
  * optional inset margin on the left or right.
  */
 
-const Divider = ({ inset, insetRight, ...other }, { panza }) => {
+const Divider = ({ inset, insetRight, theme, ...other }) => {
 
-  const { borderColor } = { ...config, ...panza }
+  const { borderColor } = theme
 
   return (
     <Base
@@ -31,16 +31,15 @@ Divider.displayName = 'Divider'
 
 Divider.propTypes = {
   inset: PropTypes.number,
-  insetRight: PropTypes.number
+  insetRight: PropTypes.number,
+
+  /** theme provided by higher order component **/
+  theme: PropTypes.object.isRequired
 }
 
 Divider.defaultProps = {
   inset: 0,
   insetRight: 0
-}
-
-Divider.contextTypes = {
-  panza: PropTypes.object
 }
 
 const styles = StyleSheet.create({
@@ -49,4 +48,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Divider
+export default themeProvider(Divider)

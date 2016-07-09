@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react'
-import config from '../config'
 import {
   Text
 } from 'react-native'
 import margins from './utils/margins'
 import paddings from './utils/paddings'
+import { themeProvider } from '../index'
 
 /** Props to text-size conversions **/
 const size = (fontSize, fontSizes, lineHeight, lineHeights) => {
@@ -59,9 +59,10 @@ const TextBase = ({
   fontSize,
   lineHeight,
   baseStyle,
+  theme,
   Component,
   ...props
-}, { panza }) => {
+}) => {
 
   const {
     fontSizes,
@@ -71,7 +72,7 @@ const TextBase = ({
     thick,
     colors,
     scale
-  } = { ...config, ...panza }
+  } = theme
 
   const sx = [
     baseStyle,
@@ -94,13 +95,30 @@ TextBase.propTypes = {
   Component: PropTypes.any,
   style: PropTypes.any,
   baseStyle: PropTypes.any,
+
+  /** children (typically text) **/
   children: PropTypes.node,
+
+  /** text size **/
   fontSize: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
+
+  /** text lineheight **/
   lineHeight: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
+
+  /** text colour **/
   color: PropTypes.string,
+
+  /** text alignment **/
   textAlign: PropTypes.string,
+
+  /** bold font weight **/
   bold: PropTypes.bool,
-  thin: PropTypes.bool
+
+  /** thin font weight **/
+  thin: PropTypes.bool,
+
+  /** a theme provided by a higher order component **/
+  theme: PropTypes.object.isRequired
 }
 
 TextBase.defaultProps = {
@@ -108,8 +126,5 @@ TextBase.defaultProps = {
   lineHeight: 1
 }
 
-TextBase.contextTypes = {
-  panza: PropTypes.object
-}
 
-export default TextBase
+export default themeProvider(TextBase)
