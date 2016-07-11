@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "Panza.app"
-               BlueprintName = "Panza"
-               ReferencedContainer = "container:Panza.xcodeproj">
+               BuildableName = "panza.app"
+               BlueprintName = "panza"
+               ReferencedContainer = "container:panza.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "PanzaTests.xctest"
-               BlueprintName = "PanzaTests"
-               ReferencedContainer = "container:Panza.xcodeproj">
+               BuildableName = "panzaTests.xctest"
+               BlueprintName = "panzaTests"
+               ReferencedContainer = "container:panza.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "PanzaTests.xctest"
-               BlueprintName = "PanzaTests"
-               ReferencedContainer = "container:Panza.xcodeproj">
+               BuildableName = "panzaTests.xctest"
+               BlueprintName = "panzaTests"
+               ReferencedContainer = "container:panza.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Panza.app"
-            BlueprintName = "Panza"
-            ReferencedContainer = "container:Panza.xcodeproj">
+            BuildableName = "panza.app"
+            BlueprintName = "panza"
+            ReferencedContainer = "container:panza.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Panza.app"
-            BlueprintName = "Panza"
-            ReferencedContainer = "container:Panza.xcodeproj">
+            BuildableName = "panza.app"
+            BlueprintName = "panza"
+            ReferencedContainer = "container:panza.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Panza.app"
-            BlueprintName = "Panza"
-            ReferencedContainer = "container:Panza.xcodeproj">
+            BuildableName = "panza.app"
+            BlueprintName = "panza"
+            ReferencedContainer = "container:panza.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

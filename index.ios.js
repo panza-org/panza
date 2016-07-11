@@ -9,4 +9,4 @@ import {
 } from 'react-native';
 import App from './components/demo/App'
 
-AppRegistry.registerComponent('Panza', () => App);
+AppRegistry.registerComponent('panza', () => App);

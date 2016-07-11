@@ -72,7 +72,7 @@
     "react-addons-test-utils": "^15.1.0",
     "react-docgen": "^2.8.2",
     "react-dom": "^15.1.0",
-    "react-native": "^0.28.0",
+    "react-native": "^0.29.0",
     "react-native-mock": "^0.2.3",
     "react-native-web": "git+https://github.com/bmcmahen/react-native-web.git",
     "rimraf": "^2.5.2",
