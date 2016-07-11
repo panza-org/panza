@@ -111,10 +111,14 @@ const Button = ({
     ? <Icon name={icon} mr={1} size={25} color={textColor} />
     : icon
 
+  const traits = ['button']
+  if (disabled) traits.push('disabled')
+
   return (
     <Base
       Component={TouchableHighlight}
       accessibilityComponentType='button'
+      accessibilityTraits={traits}
       disabled={disabled}
       baseStyle={[
         styles.button,

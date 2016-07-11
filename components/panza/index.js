@@ -11,6 +11,7 @@ export * from './Input'
 export * from './Pages'
 export * from './Image'
 export * from './Card'
+export * from './Popup'
 
 export {
   config,

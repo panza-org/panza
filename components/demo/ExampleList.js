@@ -18,7 +18,7 @@ import ImageExample from './ImageExample'
 import NavbarExample from './NavBarExample'
 import AllTogetherNow from './AllTogetherNow'
 import Card from './CardExample'
-
+import Popup from './PopupExample'
 
 import {
   TouchableRow,
@@ -74,6 +74,10 @@ const Examples: Array<WidgetExample> = [
   {
     name: 'Card',
     module: Card
+  },
+  {
+    name: 'Popup',
+    module: Popup
   }
 ]
 

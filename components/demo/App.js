@@ -6,7 +6,6 @@ import React, { Component, PropTypes } from 'react'
 import {
   View,
   Platform,
-  Text,
   StyleSheet,
   Navigator
 } from 'react-native'
@@ -21,18 +20,20 @@ import {
   customizeTheme,
   SearchIcon,
   Base,
+  Text,
   CloseIcon,
+  PopupMenu,
   PlusIcon,
   config
 } from '../panza'
 
 function noop(){}
-
-customizeTheme({
-  colors: {
-    primary: '#aaa'
-  }
-})
+//
+// customizeTheme({
+//   colors: {
+//     primary: '#aaa'
+//   }
+// })
 
 console.disableYellowBox = true
 
@@ -60,9 +61,14 @@ class App extends Component {
     super()
 
     this.state = {
-      styles: {
-        colors: myColors
-      }
+      showing: false,
+      content: (
+        <View style={{ backgroundColor: 'white', height: 300 }}>
+          <Text>
+            Hello world
+          </Text>
+        </View>
+      )
     }
 
     this.NavigationBarRouteMapper = {
@@ -77,9 +83,10 @@ class App extends Component {
       },
 
       RightButton: (route, navigator, index) => {
-        if (index === 0) return null
         return (
-          <NavTouchableIcon onPress={noop}>
+          <NavTouchableIcon onPress={() => {
+            this.setState({ showing: true })
+          }}>
             <PlusIcon size={40}/>
           </NavTouchableIcon>
 
@@ -97,35 +104,48 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Navigator
-          initialRoute={{ name: 'Home' }}
-          style={styles.nav}
-          sceneStyle={{ marginTop: NavBar.totalNavHeight, flex: 1, backgroundColor: 'white' }}
-          navigationBar={
-            <Navigator.NavigationBar
-              routeMapper={this.NavigationBarRouteMapper}
-              style={NavBar.defaultStyles}
-            />
-          }
-          renderScene={(route, navigator) => {
+        <PopupMenu
+          title='Share...'
+          description='Select who you want to share this with.'
+          showing={this.state.showing}
+          options={[
+            { label: 'Select that', onPress: noop },
+            { label: 'Select this', onPress: noop }
+          ]}
+          showCancel
+          onRequestClose={() => this.setState({ showing: false })}
+        >
 
-            switch(route.name) {
-
-              case 'Home':
-                return (
-                  <ExampleList
-                    onSelect={(route) => {
-                      console.log('push', route)
-                      navigator.push(route)
-                    }}
-                  />
-                )
-
-              default:
-                return <route.module />
+          <Navigator
+            initialRoute={{ name: 'Home' }}
+            style={styles.nav}
+            sceneStyle={{ marginTop: NavBar.totalNavHeight, flex: 1, backgroundColor: 'white' }}
+            navigationBar={
+              <Navigator.NavigationBar
+                routeMapper={this.NavigationBarRouteMapper}
+                style={NavBar.defaultStyles}
+              />
             }
-          }}
-        />
+            renderScene={(route, navigator) => {
+
+              switch(route.name) {
+
+                case 'Home':
+                  return (
+                    <ExampleList
+                      onSelect={(route) => {
+                        console.log('push', route)
+                        navigator.push(route)
+                      }}
+                    />
+                  )
+
+                default:
+                  return <route.module />
+              }
+            }}
+          />
+        </PopupMenu>
       </View>
     )
   }
