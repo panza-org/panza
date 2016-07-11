@@ -14,27 +14,35 @@ const PopupMenuOption = ({
   opt
 }) => {
 
-
   if (React.isValidElement(opt)) {
     return opt
   }
 
+  const {
+    onPress,
+    label,
+    primary,
+    condensed,
+    ...other
+  } = opt
+
   return (
     <Base
-      py={2}
+      py={condensed ? 1 : 2}
       px={2}
       underlayColor='#eee'
       backgroundColor='white'
       Component={TouchableHighlight}
-      onPress={opt.onPress}
+      onPress={onPress}
       style={{
         borderTopWidth: StyleSheet.hairlineWidth,
         borderTopColor: '#aaa'
       }}
+      {...other}
     >
       <View style={{ justifyContent: 'center' }}>
-        <Text bold numberOfLines={1} textAlign='center' color='primary'>
-          {opt.label}
+        <Text bold={primary} small={condensed} color='primary' numberOfLines={1} textAlign='center'>
+          {label}
         </Text>
       </View>
     </Base>
@@ -97,9 +105,9 @@ class PopupMenu extends React.Component {
       optionEls.push(
         <PopupMenuOption
           opt={{
-            isCancel: true,
             label: 'Cancel',
-            value: 'cancel',
+            condensed: false,
+            primary: true,
             onPress: () => onRequestClose()
           }}
           key='cancel'
@@ -110,9 +118,9 @@ class PopupMenu extends React.Component {
     const opts = (
       <Base>
         {(title || description) && (
-          <Base backgroundColor='transparent' py={1} px={2} align='center'>
-            {title && <Text bold color='white'>{title}</Text>}
-            {description && <Text color='white' small>{description}</Text>}
+          <Base backgroundColor='transparent' py={2} px={2} align='center'>
+            {title && <Text color='white' bold >{title}</Text>}
+            {description && <Text lineHeight={3} color='white' small>{description}</Text>}
           </Base>
         )}
         <Base style={{ overflow: 'hidden' }}>

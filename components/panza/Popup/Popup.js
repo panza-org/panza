@@ -92,7 +92,7 @@ class Popup extends React.Component {
 
     const opacity = this.state.animated.interpolate({
       inputRange: [0, 1],
-      outputRange: [0.4, 1],
+      outputRange: [0.3, 1],
       extrapolate: 'clamp'
     })
 

@@ -105,12 +105,15 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <PopupMenu
-          title='Share...'
-          description='Select who you want to share this with.'
+          title='Share Panza'
+          description='Panza is pretty great. You should share it.'
           showing={this.state.showing}
           options={[
-            { label: 'Select that', onPress: noop },
-            { label: 'Select this', onPress: noop }
+            { label: 'Share to Facebook', onPress: noop },
+            { label: 'Share to Messenger', onPress: noop },
+            { label: 'Tweet', onPress: noop },
+            { label: 'Copy Share URL', onPress: noop },
+            { label: 'Turn on Push Notifications', onPress: noop }
           ]}
           showCancel
           onRequestClose={() => this.setState({ showing: false })}
