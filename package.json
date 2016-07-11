@@ -1,18 +1,17 @@
 {
   "name": "panza",
-  "version": "2.3.0",
-  "description": "a foundation for your react-native projects",
-  "main": "components/panza/index.js",
+  "version": "3.0.0",
+  "description": "a beautiful foundation for your react-native projects",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start --reset-cache",
-    "generate-doc-json": "react-docgen components/panza/**/* --resolver findAllComponentDefinitions -o documentation/components.json --pretty",
+    "generate-doc-json": "react-docgen src/**/* --resolver findAllComponentDefinitions -o documentation/components.json --pretty",
     "generate-doc-markdown": "node scripts/generate-docs.js",
     "generate-docs": "npm run generate-doc-json && npm run generate-doc-markdown",
     "test": "mocha --require react-native-mock/mock.js --compilers js:babel-core/register --recursive components/**/__specs__/*.spec.js",
-    "build": "rimraf lib && babel ./components/panza -d lib",
+    "build": "rimraf lib && babel ./src -d lib",
     "web": "NODE_ENV=development node -r ./web/register.js web/server/index.js",
     "web-build": "NODE_ENV=production webpack -p",
-    "lint": "eslint components/panza"
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -38,47 +37,23 @@
     "lodash": "^4.13.1",
     "react-native-vector-icons": "^2.0.3"
   },
+  "peerDependencies": {
+    "react": "^15.1.0",
+    "react-native": "^0.29.0"
+  },
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
-    "babel-cli": "^6.8.0",
-    "babel-core": "^6.9.1",
-    "babel-eslint": "^6.1.0",
-    "babel-loader": "^6.2.4",
-    "babel-plugin-transform-class-properties": "^6.9.1",
-    "babel-plugin-transform-object-assign": "^6.8.0",
-    "babel-polyfill": "^6.9.1",
-    "babel-preset-es2015": "^6.6.0",
-    "babel-preset-react": "^6.5.0",
-    "babel-preset-stage-0": "^6.5.0",
-    "babel-preset-stage-1": "^6.5.0",
     "chai": "^3.5.0",
-    "cookie-parser": "^1.4.2",
-    "cookie-session": "^1.2.0",
-    "css-loader": "^0.23.1",
     "enzyme": "^2.3.0",
-    "errorhandler": "^1.4.3",
     "eslint": "^2.13.1",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.9.2",
     "eslint-plugin-jsx-a11y": "^1.5.3",
     "eslint-plugin-react": "^5.2.2",
-    "express": "^4.13.4",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "invariant": "^2.2.1",
     "mocha": "^2.5.3",
-    "morgan": "^1.7.0",
-    "postcss-loader": "^0.9.1",
-    "react": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
     "react-docgen": "^2.8.2",
-    "react-dom": "^15.1.0",
-    "react-native": "^0.29.0",
     "react-native-mock": "^0.2.3",
-    "react-native-web": "git+https://github.com/bmcmahen/react-native-web.git",
     "rimraf": "^2.5.2",
-    "style-loader": "^0.13.1",
-    "throng": "^4.0.0",
-    "webpack": "^1.13.0",
-    "webpack-dev-server": "^1.14.1"
+    "throng": "^4.0.0"
   }
 }

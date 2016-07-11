@@ -102,7 +102,10 @@ class Base extends React.Component {
     justify: PropTypes.string,
 
     /** set the height of the element **/
-    height: PropTypes.string,
+    height: PropTypes.number,
+
+    /** set the width of the element **/
+    width: PropTypes.number,
 
     /** theme provided by a higher order component **/
     panza: PropTypes.object
@@ -119,6 +122,7 @@ class Base extends React.Component {
       wrap,
       underlayColor,
       flex,
+      width,
       row,
       column,
       align,
@@ -147,7 +151,8 @@ class Base extends React.Component {
       row ? { flexDirection: 'row' } : null,
       align ? { alignItems: align } : null,
       justify ? { justifyContent: justify } : null,
-      height ? { height } : null
+      height ? { height } : null,
+      width ? { width } : null
     ]
 
     const underlay = (underlayColor === 'darken' && props.backgroundColor)

@@ -97,5 +97,14 @@ $ react-native run-ios
 $ react-native run-android
 ```
 
+### Contributing
+
+If you are interested in working on Panza and want to develop it locally within a react-native project, we recommend using [wml](https://github.com/wix/wml) to directly copy your local `panza` directory into your `node_modules` folder inside of your react-native project. This is the best solution until react-native fully support symlinks.
+
+```
+$ wml add ~/panza ~/panza-example/node_modules/panza
+$ wml start
+```
+
 ## License
 MIT
