@@ -15,6 +15,8 @@ const screen = Dimensions.get('window')
 
 class Popup extends React.Component {
 
+  static displayName = 'Popup'
+
   static propTypes = {
     children: PropTypes.any.isRequired,
     showing: PropTypes.bool.isRequired,
@@ -54,14 +56,14 @@ class Popup extends React.Component {
   animateIn() {
     Animated.timing(
       this.state.animated,
-      { toValue: 0, easing: Easing.inOut(Easing.quad), duration: 250 }
+      { toValue: 0, easing: Easing.ease, duration: 250 }
     ).start()
   }
 
   animateOut() {
     Animated.timing(
       this.state.animated,
-      { toValue: 1, easing: Easing.inOut(Easing.quad), duration: 250 }
+      { toValue: 1, easing: Easing.ease, duration: 250 }
     ).start()
   }
 

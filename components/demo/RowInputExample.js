@@ -64,6 +64,7 @@ export default class InputRowExample extends React.Component {
               editable={this.state.editable}
               onChangeText={(label) => this.setState({ label })} />
 
+
           <InputRow
               label='Basic Input with Label & Vertical'
               placeholder='Your value'
@@ -72,6 +73,16 @@ export default class InputRowExample extends React.Component {
               editable={this.state.editable}
               onChangeText={(label) => this.setState({ label })} />
 
+              <InputRow
+                removable
+                onRemove={() => {
+
+                }}
+                label='Removable'
+                placeholder='Your value'
+                value={this.state.label}
+                editable={this.state.editable}
+                onChangeText={(label) => this.setState({ label })} />
             <InputRow
               icon={<SearchIcon />}
               textAlign='left'
@@ -87,8 +98,6 @@ export default class InputRowExample extends React.Component {
               textAlign='center'
               editable={this.state.editable}
               placeholder='Centered input' />
-
-
           </Base>
 
           <InputGroup inset={16} mt={3}>
@@ -170,7 +179,7 @@ export default class InputRowExample extends React.Component {
           </InputGroup>
 
 
-          <InputGroup
+          {/*<InputGroup
             label='REMOVABLE INPUT'
             inset={16} mt={3} mb={3}>
             <RemovableInput
@@ -281,7 +290,7 @@ export default class InputRowExample extends React.Component {
             />
 
 
-          </InputGroup>
+          </InputGroup>*/}
 
           <InputGroup>
             <TouchableInput

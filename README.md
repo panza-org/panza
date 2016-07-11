@@ -65,9 +65,10 @@ $ rnpm link react-native-vector-icons
 #### Pages
 * [ErrorPage](documentation/ErrorPage.md)
 
-
 ### Modules
-Coming soon
+* [Popup](documentation/Popup.md)
+* [PopupMenu](documentation/PopupMenu.md)
+* [RevealingRow](documentation/RevealingRow.md)
 
 ## Themes
 

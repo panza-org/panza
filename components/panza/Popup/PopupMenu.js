@@ -76,7 +76,8 @@ class PopupMenu extends React.Component {
     showCancel: PropTypes.bool,
     title: PropTypes.string,
     description: PropTypes.string,
-    position: PropTypes.oneOf(['bottom', 'center', 'top'])
+    position: PropTypes.oneOf(['bottom', 'center', 'top']),
+    customHeader: PropTypes.node
   }
 
   static defaultProps = {
@@ -94,6 +95,7 @@ class PopupMenu extends React.Component {
       description,
       showCancel,
       onRequestClose,
+      customHeader,
       ...other
     } = this.props
 
@@ -117,6 +119,7 @@ class PopupMenu extends React.Component {
 
     const opts = (
       <Base>
+        {customHeader}
         {(title || description) && (
           <Base backgroundColor='transparent' py={2} px={2} align='center'>
             {title && <Text color='white' bold >{title}</Text>}
