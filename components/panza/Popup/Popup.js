@@ -54,16 +54,16 @@ class Popup extends React.Component {
   }
 
   animateIn() {
-    Animated.timing(
+    Animated.spring(
       this.state.animated,
-      { toValue: 0, easing: Easing.ease, duration: 250 }
+      { toValue: 0 }
     ).start()
   }
 
   animateOut() {
-    Animated.timing(
+    Animated.spring(
       this.state.animated,
-      { toValue: 1, easing: Easing.ease, duration: 250 }
+      { toValue: 1 }
     ).start()
   }
 

@@ -88,7 +88,7 @@ export default config
 let baseTheme = config
 
 export function customizeTheme(customTheme) {
-  baseTheme = extend(config, customTheme)
+  baseTheme = extend({}, config, customTheme)
 }
 
 /**

@@ -83,6 +83,18 @@ export default class InputRowExample extends React.Component {
                 value={this.state.label}
                 editable={this.state.editable}
                 onChangeText={(label) => this.setState({ label })} />
+                <InputRow
+                  removable
+                  condensed
+                  onRemove={() => {
+
+                  }}
+                  label='Removable Condensed'
+                  placeholder='Your value'
+                  value={this.state.label}
+                  editable={this.state.editable}
+                  onChangeText={(label) => this.setState({ label })} />
+
             <InputRow
               icon={<SearchIcon />}
               textAlign='left'

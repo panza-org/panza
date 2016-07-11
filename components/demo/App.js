@@ -105,8 +105,6 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <PopupMenu
-          title='Share Panza'
-          description='Panza is pretty great. You should share it.'
           showing={this.state.showing}
           options={[
             { label: 'Share to Facebook', onPress: noop },

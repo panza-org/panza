@@ -221,6 +221,10 @@ class InputRow extends React.Component {
       height = this.props.verticalHeight
     }
 
+    if (this.props.condensed) {
+      height = 40
+    }
+
     if (height === 'auto') {
       height = null
     }

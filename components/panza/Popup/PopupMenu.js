@@ -82,7 +82,7 @@ class PopupMenu extends React.Component {
 
   static defaultProps = {
     showing: false,
-    position: 'bottom'
+    position: 'center'
   }
 
   render() {
@@ -118,15 +118,15 @@ class PopupMenu extends React.Component {
     }
 
     const opts = (
-      <Base>
+      <Base backgroundColor='white' rounded={15} m={2} style={{ overflow: 'hidden' }}>
         {customHeader}
         {(title || description) && (
-          <Base backgroundColor='transparent' py={2} px={2} align='center'>
-            {title && <Text color='white' bold >{title}</Text>}
-            {description && <Text lineHeight={3} color='white' small>{description}</Text>}
+          <Base py={2} px={2} align='center'>
+            {title && <Text bold >{title}</Text>}
+            {description && <Text lineHeight={3} light small>{description}</Text>}
           </Base>
         )}
-        <Base style={{ overflow: 'hidden' }}>
+        <Base>
           {optionEls}
         </Base>
       </Base>
