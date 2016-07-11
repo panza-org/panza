@@ -18,6 +18,7 @@ import {
   NavTouchableText,
   NavTouchableIcon,
   BackIcon,
+  customizeTheme,
   SearchIcon,
   Base,
   CloseIcon,
@@ -26,6 +27,12 @@ import {
 } from '../panza'
 
 function noop(){}
+
+customizeTheme({
+  colors: {
+    primary: '#aaa'
+  }
+})
 
 console.disableYellowBox = true
 

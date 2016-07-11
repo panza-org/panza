@@ -71,33 +71,18 @@ Coming soon
 
 ## Themes
 
-You can override parts of the global theme to provide custom colours, font sizes, scales, etc.
+You can override parts of the global theme to provide custom colours, font sizes, scales, etc. Use the `customizeTheme` function provided by Panza to supply a custom theme before registering your application. Check out the [default config](components/panza/config.js) to see which variables you can override.
 
 ```javascript
-import { config } from 'panza'
+import { customizeTheme } from 'panza'
 
-class App extends React.Component {
-
-  static childContextTypes = {
-    panza: PropTypes.object
+customizeTheme({
+  colors: {
+    primary: '#08e'
   }
+})
 
-  getChildContext() {
-    panza: this.state.styles
-  }
-
-  state = {
-    styles: {
-      colors: Object.assign(
-        {},
-        config.colors,
-        { primary: config.colors.red } // change the primary color from blue to red
-      )
-    }
-  }
-
-  // ... render your app
-}
+// mount your application
 ```
 
 ## Example
