@@ -86,9 +86,9 @@ customizeTheme({
 // mount your application
 ```
 
-## Example
+## Examples
 
-Coming soon...
+[UIExplorer](https://github.com/bmcmahen/panza-ui-explorer)
 
 ### Contributing
 

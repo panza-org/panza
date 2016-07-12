@@ -24,6 +24,7 @@ export const PlusIcon = (props) => {
         android: 'md-add',
         web: 'ios-add-outline'
       })}
+      size={35}
       {...props}
     />
   )
@@ -40,6 +41,7 @@ export const CloseIcon = (props) => {
         android: 'md-arrow-back',
         web: 'ios-close'
       })}
+      size={35}
       {...props}
     />
   )
@@ -84,6 +86,7 @@ export const MoreIcon = (props) => (
       android: 'md-more',
       web: 'ios-more'
     })}
+    size={25}
     {...props}
   />
 )

@@ -46,6 +46,10 @@ const ButtonGroup = ({
       newProps.rounded = false
     }
 
+    if (vertical) {
+      newProps.block = true
+    }
+
     return React.cloneElement(child, newProps)
   })
 

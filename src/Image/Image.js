@@ -29,7 +29,7 @@ class Image extends React.Component {
     resizeMode: PropTypes.string,
 
     /** the border radius of the image **/
-    rounded: PropTypes.number
+    rounded: PropTypes.oneOfType([PropTypes.number, PropTypes.bool])
   }
 
   static defaultProps = {

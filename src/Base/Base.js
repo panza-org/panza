@@ -129,6 +129,8 @@ class Base extends React.Component {
       height,
       justify,
       panza,
+      backgroundColor,
+      borderColor,
       ...props
     } = this.props
 
@@ -143,7 +145,7 @@ class Base extends React.Component {
       style,
       margins(props, scale),
       paddings(props, scale),
-      colorStyle(props, colors, panza),
+      colorStyle({ backgroundColor, borderColor }, colors, panza),
       radii(props, borderRadius),
       flex ? { flex } : null,
       wrap ? { flexWrap: 'wrap' } : null,
@@ -155,8 +157,8 @@ class Base extends React.Component {
       width ? { width } : null
     ]
 
-    const underlay = (underlayColor === 'darken' && props.backgroundColor)
-      ? colorTransform(getColor(props.backgroundColor, colors))
+    const underlay = (underlayColor === 'darken' && backgroundColor)
+      ? colorTransform(getColor(backgroundColor, colors))
         .darken(0.1)
         .hexString()
       : underlayColor
