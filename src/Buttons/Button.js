@@ -165,7 +165,7 @@ Button.propTypes = {
   textColor: PropTypes.string,
 
   /** optional icon **/
-  icon: PropTypes.oneOf([PropTypes.string, PropTypes.node])
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
 }
 
 Button.displayName = 'Button'

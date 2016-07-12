@@ -1,9 +1,6 @@
 import React from 'react'
 import { TextBase } from '../Base'
 import Icon from 'react-native-vector-icons/Ionicons'
-import {
-  Platform
-} from 'react-native'
 
 /**
  * Our base icon component that all other icons
@@ -18,7 +15,6 @@ const BaseIcon = (props) => {
     ...other
   } = props
 
-  console.log('ICON SIZE', iconSize)
   return (
     <TextBase
       name={name}

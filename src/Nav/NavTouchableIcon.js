@@ -26,8 +26,8 @@ const defaultSize = Platform.select({
  * to ensure that they look right.
  */
 
-const NavTouchableIcon = (props) => {
-  const child = React.Children.only(props.children)
+const NavTouchableIcon = ({ children, onPress, ...other }) => {
+  const child = React.Children.only(children)
   const clone = React.cloneElement(child, {
     color: child.props.color || defaultColor,
     size: typeof child.props.size === 'number'
@@ -37,7 +37,7 @@ const NavTouchableIcon = (props) => {
 
   return (
     <NavIconContainer>
-      <TouchableIcon onPress={props.onPress}>
+      <TouchableIcon {...other} onPress={onPress}>
         {clone}
       </TouchableIcon>
     </NavIconContainer>
