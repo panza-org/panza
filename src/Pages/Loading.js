@@ -25,7 +25,8 @@ class Loader extends React.Component {
     color: PropTypes.string,
     showText: PropTypes.bool,
     loadingText: PropTypes.string,
-    alignTop: PropTypes.bool
+    alignTop: PropTypes.bool,
+    inverted: PropTypes.bool
   }
 
   static defaultProps = {
@@ -41,6 +42,7 @@ class Loader extends React.Component {
     const {
       color,
       isLoading,
+      inverted,
       large,
       showText,
       loadingText,
@@ -62,7 +64,9 @@ class Loader extends React.Component {
             />
           )}
         {showText && (
-          <Text fontSize={large ? 2 : 4} ml={1} light>{loadingText}</Text>
+          <Text fontSize={large ? 2 : 4} ml={1} light inverted={inverted}>
+            {loadingText}
+          </Text>
         )}
         </Base>
       </Base>

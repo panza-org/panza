@@ -18,19 +18,21 @@ class InputHelpText extends React.Component {
   static displayName = 'InputHelpText'
 
   static propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node,
+    inverted: PropTypes.bool
   }
 
   render () {
 
     const {
       children,
+      inverted,
       ...other
     } = this.props
 
     return (
       <Base p={2}>
-        <Text small light {...other}>
+        <Text small light inverted={inverted} {...other}>
           {children}
         </Text>
       </Base>

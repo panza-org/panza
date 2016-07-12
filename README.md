@@ -44,11 +44,11 @@ $ rnpm link react-native-vector-icons
 #### Input
 * [InputGroup](documentation/InputGroup.md)
 * [InputRow](documentation/InputRow.md)
+* [InputTouchable](documentation/InputTouchable.md)
 * [InputToggle](documentation/InputToggle.md)
+* [InputPicker](documentation/InputPicker.md)
 * [InputDatePicker](documentation/InputDatePicker.md)
 * [InputExpandable](documentation/InputExpandable.md)
-* [RemovableInput](documentation/RemovableInput.md)
-* [TouchableInput](documentation/TouchableInput.md)
 * [HelpText](documentation/HelpText.md)
 
 #### Lists
@@ -88,14 +88,7 @@ customizeTheme({
 
 ## Example
 
-You can install the example application contained within this repository.
-
-```
-$ git clone https://github.com/bmcmahen/panza.git
-$ cd panza && npm install
-$ react-native run-ios
-$ react-native run-android
-```
+Coming soon...
 
 ### Contributing
 

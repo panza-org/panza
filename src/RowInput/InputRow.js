@@ -135,7 +135,9 @@ class InputRow extends React.Component {
     verticalHeight: PropTypes.number,
     onRequestRemove: PropTypes.func,
     height: PropTypes.number,
-    icon: PropTypes.node
+    icon: PropTypes.node,
+    inverted: PropTypes.bool,
+    condensed: PropTypes.bool
   }
 
 
@@ -229,6 +231,7 @@ class InputRow extends React.Component {
       height = null
     }
 
+    const inverted = this.props.inverted
 
     return (
       <RevealingRow
@@ -270,6 +273,7 @@ class InputRow extends React.Component {
                 <Input
                   autoFocus={this.props.autoFocus}
                   disabled={!this.props.editable}
+                  inverted={inverted}
                   placeholder={this.props.placeholder}
                   style={[
                     styles.input,
@@ -279,7 +283,7 @@ class InputRow extends React.Component {
                 />
                 ) : (
                 <Base px={0} flex={1} justifyContent='center'>
-                  <Text numberOfLines={1}>
+                  <Text numberOfLines={1} inverted={inverted}>
                     {this.props.value}
                   </Text>
                 </Base>

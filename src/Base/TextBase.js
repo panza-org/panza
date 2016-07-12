@@ -35,6 +35,8 @@ const propsToStyle = (props, bold, thin, thick, colors) => {
 
   if (props.light) {
     style.color = colors.midgray
+  } else if (props.inverted) {
+    style.color = colors.inverted
   } else if (props.color && colors[props.color]) {
     style.color = colors[props.color]
   } else if (typeof props.color === 'string') {
@@ -118,7 +120,10 @@ TextBase.propTypes = {
   thin: PropTypes.bool,
 
   /** a theme provided by a higher order component **/
-  panza: PropTypes.object.isRequired
+  panza: PropTypes.object.isRequired,
+
+  /** use the inverted color (by default, white) **/
+  inverted: PropTypes.bool
 }
 
 TextBase.defaultProps = {

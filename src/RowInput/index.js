@@ -6,8 +6,8 @@ import InputPicker from './InputPicker'
 import InputDatePicker from './InputDatePicker'
 import InputRow from './InputRow'
 import InputRowRevealOptions, { RevealOption } from './InputRowRevealOptions'
-import AddRow from './AddRow'
-import TouchableInput from './TouchableInput'
+import InputAddRow from './InputAddRow'
+import InputTouchable from './InputTouchable'
 import InputExpandable from './InputExpandable'
 import RevealingRow from './RevealingRow'
 
@@ -21,8 +21,8 @@ export {
   InputRow,
   InputRowRevealOptions,
   RevealOption,
-  AddRow,
-  TouchableInput,
+  InputAddRow,
+  InputTouchable,
   InputExpandable,
   RevealingRow
 }

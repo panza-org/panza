@@ -8,7 +8,7 @@ import {
   Base,
   Text,
   InputExpandable,
-  TouchableInput
+  InputTouchable
 } from '../index'
 
 import {
@@ -29,6 +29,8 @@ import {
  * selected, the picker prompt will occur. A label is
  * rendered above the picker. The value prop is ignored,
  * since the Android picker already prints the value for us.
+ *
+ * @composes InputTouchable, InputExpandable
  */
 
 class InputPicker extends React.Component {
@@ -105,7 +107,7 @@ class InputPicker extends React.Component {
     } = this.props
 
     const Row = (
-      <TouchableInput
+      <InputTouchable
         label={label}
         value={value}
         onPress={onToggleExpansion}

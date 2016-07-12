@@ -27,7 +27,7 @@ const GreenPlusIcon = () => (
  * will be used in conjunction with <RemovableInput />
  */
 
-const AddRow = ({
+const InputAddRow = ({
   label,
   onPress,
   backgroundColor,
@@ -45,20 +45,20 @@ const AddRow = ({
   />
 )
 
-AddRow.displayName = 'AddRow'
+InputAddRow.displayName = 'InputAddRow'
 
-AddRow.propTypes = {
+InputAddRow.propTypes = {
   backgroundColor: PropTypes.string,
   onPress: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
   disabled: PropTypes.bool
 }
 
-AddRow.defaultProps = {
+InputAddRow.defaultProps = {
   backgroundColor: 'white'
 }
 
-export default AddRow
+export default InputAddRow
 
 const styles = StyleSheet.create({
   innerContainer: {

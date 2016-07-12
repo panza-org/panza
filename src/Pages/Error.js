@@ -27,7 +27,8 @@ class ErrorPage extends React.Component {
     offlineMessage: PropTypes.string,
     style: PropTypes.any,
     isOffline: PropTypes.bool,
-    children: PropTypes.node
+    children: PropTypes.node,
+    inverted: PropTypes.bool
   }
 
   static defaultProps = {
@@ -44,6 +45,7 @@ class ErrorPage extends React.Component {
       message,
       isOffline,
       children,
+      inverted,
       offlineMessage,
       detailMessage,
       ...other
@@ -53,11 +55,11 @@ class ErrorPage extends React.Component {
       <Base baseStyle={styles.container} {...other}>
         <View style={styles.messageContainer}>
           <Base pb={2}>
-            <Text large light textAlign='center'>
+            <Text inverted={inverted} large light textAlign='center'>
               {message}
             </Text>
           </Base>
-          <Text small light textAlign='center'>
+          <Text small light inverted={inverted} textAlign='center'>
             {isOffline ? offlineMessage : detailMessage}
           </Text>
         </View>

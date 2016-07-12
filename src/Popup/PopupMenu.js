@@ -3,7 +3,8 @@ import { TouchableHighlight, View, StyleSheet } from 'react-native'
 import {
   Popup,
   Text,
-  Base
+  Base,
+  themeProvider
 } from '../index'
 
 /**
@@ -11,7 +12,8 @@ import {
  */
 
 const PopupMenuOption = ({
-  opt
+  opt,
+  inverted
 }) => {
 
   if (React.isValidElement(opt)) {
@@ -23,6 +25,7 @@ const PopupMenuOption = ({
     label,
     primary,
     condensed,
+    panza,
     ...other
   } = opt
 
@@ -36,12 +39,19 @@ const PopupMenuOption = ({
       onPress={onPress}
       style={{
         borderTopWidth: StyleSheet.hairlineWidth,
-        borderTopColor: '#aaa'
+        borderTopColor: inverted ? panza.invertedBorderColor : panza.borderColor
       }}
       {...other}
     >
       <View style={{ justifyContent: 'center' }}>
-        <Text bold={primary} small={condensed} color='primary' numberOfLines={1} textAlign='center'>
+        <Text
+          bold={primary}
+          small={condensed}
+          color='primary'
+          numberOfLines={1}
+          textAlign='center'
+          inverted={inverted}
+        >
           {label}
         </Text>
       </View>
@@ -50,11 +60,14 @@ const PopupMenuOption = ({
 }
 
 PopupMenuOption.propTypes = {
+  inverted: PropTypes.bool,
   opt: PropTypes.shape({
     onPress: PropTypes.func.isRequired,
     label: PropTypes.func.isRequired
   })
 }
+
+const Option = themeProvider(PopupMenuOption)
 
 /**
  * PopupMenu provides similar functionality to Apple's
@@ -77,19 +90,24 @@ class PopupMenu extends React.Component {
     title: PropTypes.string,
     description: PropTypes.string,
     position: PropTypes.oneOf(['bottom', 'center', 'top']),
-    customHeader: PropTypes.node
+    customHeader: PropTypes.node,
+    inverted: PropTypes.bool,
+    backgroundColor: PropTypes.string
   }
 
   static defaultProps = {
     showing: false,
-    position: 'center'
+    position: 'center',
+    backgroundColor: 'white'
   }
 
   render() {
 
     const {
       position,
+      inverted,
       children,
+      backgroundColor,
       options,
       title,
       description,
@@ -100,12 +118,12 @@ class PopupMenu extends React.Component {
     } = this.props
 
     const optionEls = options.map((opt, i) => (
-      <PopupMenuOption opt={opt} key={opt.key || i} />
+      <Option opt={opt} key={opt.key || i} />
     ))
 
     if (showCancel) {
       optionEls.push(
-        <PopupMenuOption
+        <Option
           opt={{
             label: 'Cancel',
             condensed: false,
@@ -118,12 +136,16 @@ class PopupMenu extends React.Component {
     }
 
     const opts = (
-      <Base backgroundColor='white' rounded={15} m={2} style={{ overflow: 'hidden' }}>
+      <Base backgroundColor={backgroundColor} rounded={15} m={2} style={{ overflow: 'hidden' }}>
         {customHeader}
         {(title || description) && (
           <Base py={2} px={2} align='center'>
-            {title && <Text bold >{title}</Text>}
-            {description && <Text lineHeight={3} light small>{description}</Text>}
+            {title && <Text bold inverted={inverted}>{title}</Text>}
+            {description && (
+              <Text lineHeight={3} light small inverted={inverted}>
+                {description}
+              </Text>
+            )}
           </Base>
         )}
         <Base>

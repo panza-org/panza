@@ -29,6 +29,7 @@ const Navbar = (props) => {
     children,
     title,
     transparent,
+    inverted,
     backgroundColor,
     titleColor,
     LeftButton,
@@ -54,6 +55,7 @@ const Navbar = (props) => {
           {title &&
             <NavTitle
               color={titleColor}
+              inverted={inverted}
               style={[styles.titleStyle, { ...Platform.select({
                 web: {
                   left: LeftButton ? '40' : 0
@@ -100,7 +102,8 @@ Navbar.propTypes = {
   children: PropTypes.node,
   transparent: PropTypes.bool,
   backgroundColor: PropTypes.string,
-  titleColor: PropTypes.string
+  titleColor: PropTypes.string,
+  inverted: PropTypes.bool
 }
 
 Navbar.totalNavHeight = Platform.select({

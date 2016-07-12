@@ -11,15 +11,18 @@ import { themeProvider } from '../config'
  * optional inset margin on the left or right.
  */
 
-const Divider = ({ inset, insetRight, panza, ...other }) => {
+const Divider = ({ inset, inverted, insetRight, panza, ...other }) => {
 
-  const { borderColor } = panza
+  const {
+    borderColor,
+    invertedBorderColor
+  } = panza
 
   return (
     <Base
       baseStyle={[
         styles.separator,
-        { backgroundColor: borderColor },
+        { backgroundColor: inverted ? invertedBorderColor : borderColor },
         inset && { marginLeft: inset },
         insetRight && { marginRight: insetRight }
       ]}
@@ -35,7 +38,10 @@ Divider.propTypes = {
   insetRight: PropTypes.number,
 
   /** theme provided by higher order component **/
-  panza: PropTypes.object.isRequired
+  panza: PropTypes.object.isRequired,
+
+  /** Use the inverted colour **/
+  inverted: PropTypes.bool
 }
 
 Divider.defaultProps = {

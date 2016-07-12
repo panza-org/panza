@@ -8,10 +8,11 @@ import {
 } from '../index'
 
 /**
- * The basic RowCell that I use about 80% of the time. It displays
+ * The basic RowCell for use within ListView. It displays
  * an image, primary text, secondary text, a value,
  * and an arrow right icon if the respective props are
  * specified.
+ *
  * @composes TouchableRowCell, Image, Text
  */
 
@@ -32,8 +33,13 @@ const TouchableRow = ({
   >
 
     {image && (
-      <Image mr={2} width={40} height={40} source={image} />
-    )}
+      React.isValidElement(image)
+        ? image
+        : (
+        <Image mr={2} width={40} height={40} source={image} />
+        )
+      )
+    }
 
     <Base flex={1} row align='center' justify='space-between'>
       <Base flex={1}>
@@ -60,9 +66,12 @@ TouchableRow.propTypes = {
   primaryText: PropTypes.string,
   secondaryText: PropTypes.string,
   value: PropTypes.string,
-  onPress: PropTypes.func,
-  image: PropTypes.object,
-  height: PropTypes.number
+  onPress: PropTypes.func.isRequired,
+  image: PropTypes.oneOfType([ PropTypes.object, PropTypes.node ]),
+  height: PropTypes.number,
+
+  /** Displays a > arrow **/
+  showMore: PropTypes.bool
 }
 
 export default TouchableRow

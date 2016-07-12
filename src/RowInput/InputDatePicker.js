@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react'
 import {
-  InputExpandable,
-  TouchableInput
+  InputTouchable
 } from '../index'
 import {
   Platform,
@@ -23,6 +22,7 @@ import {
  * On Anroid, the date-picker prompts the user to select
  * a date in a modal menu.
  *
+ * @composes InputTouchable, DatePickerIOS, DatePickerAndroid
  */
 
 class InputDatePicker extends React.Component {
@@ -50,24 +50,6 @@ class InputDatePicker extends React.Component {
     editable: true
   }
 
-  renderIOS() {
-    return (
-      <View
-        style={styles.pickerWrapper}
-      >
-        <DatePickerIOS
-          date={new Date(this.props.date)}
-          maximumDate={this.props.maxDate}
-          minimumDate={this.props.minDate}
-          mode={this.props.mode}
-          onDateChange={(date) => {
-            this.props.onDateChange(date)
-          }}
-        />
-      </View>
-    )
-  }
-
   async toggleDatePicker() {
     if (Platform.OS === 'android') {
       try {
@@ -91,6 +73,24 @@ class InputDatePicker extends React.Component {
     }
   }
 
+  renderIOS() {
+    return (
+      <View
+        style={styles.pickerWrapper}
+      >
+        <DatePickerIOS
+          date={new Date(this.props.date)}
+          maximumDate={this.props.maxDate}
+          minimumDate={this.props.minDate}
+          mode={this.props.mode}
+          onDateChange={(date) => {
+            this.props.onDateChange(date)
+          }}
+        />
+      </View>
+    )
+  }
+
   render() {
 
     const {
@@ -103,7 +103,7 @@ class InputDatePicker extends React.Component {
     } = this.props
 
     const Row = (
-      <TouchableInput
+      <InputTouchable
         label={label}
         value={value}
         onPress={() => {
@@ -119,17 +119,14 @@ class InputDatePicker extends React.Component {
     )
 
     return (
-      <InputExpandable
+      <InputTouchable
         expanded={Platform.OS === 'ios' ? expanded : false}
         Row={Row}
       >
           {Platform.OS === 'ios' && this.renderIOS()}
-      </InputExpandable>
+      </InputTouchable>
     )
   }
-
-
-
 
 }
 

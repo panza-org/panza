@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import {
   Base,
-  config
+  themeProvider
 } from '../index'
 import {
   StyleSheet
@@ -14,11 +14,22 @@ import {
 
 const Card = ({
   children,
+  panza,
+  inverted,
   ...other
-}, { panza }) => {
-  const { borderColor } = { ...config, ...panza }
+}) => {
+
+  const {
+    borderColor,
+    invertedBorderColor
+  } = panza
+
+  const border = inverted
+    ? invertedBorderColor
+    : borderColor
+
   return (
-    <Base mt={1} baseStyle={[ { borderColor }, styles.card]} {...other}>
+    <Base mt={1} baseStyle={[ { borderColor: border }, styles.card]} {...other}>
       {children}
     </Base>
   )
@@ -27,7 +38,9 @@ const Card = ({
 Card.displayName = 'Card'
 
 Card.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  inverted: PropTypes.bool,
+  panza: PropTypes.object.isRequired
 }
 
 const styles = StyleSheet.create({
@@ -38,4 +51,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Card
+export default themeProvider(Card)

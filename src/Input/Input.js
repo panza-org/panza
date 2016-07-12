@@ -25,7 +25,8 @@ Input.propTypes = {
   large: PropTypes.bool,
   small: PropTypes.bool,
   medium: PropTypes.bool,
-  giant: PropTypes.bool
+  giant: PropTypes.bool,
+  inverted: PropTypes.bool
 }
 
 Input.displayName = 'Input'

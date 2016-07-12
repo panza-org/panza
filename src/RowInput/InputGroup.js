@@ -43,7 +43,9 @@ class InputGroup extends React.Component {
     label: PropTypes.string,
 
     children: PropTypes.node,
-    backgroundColor: PropTypes.string
+    backgroundColor: PropTypes.string,
+
+    inverted: PropTypes.bool
   }
 
   static defaultProps = {
@@ -61,6 +63,7 @@ class InputGroup extends React.Component {
       showBottomBorder,
       backgroundColor,
       topInset,
+      inverted,
       bottomInset,
       ...other
     } = this.props
@@ -75,7 +78,7 @@ class InputGroup extends React.Component {
         <View>
           {child}
           {(this.props.showBorder && (!isLast && showBottomBorder)) &&
-            <Divider inset={inset} />}
+            <Divider inset={inset} inverted={inverted} />}
         </View>
       )
     })
@@ -88,12 +91,17 @@ class InputGroup extends React.Component {
     return (
       <Base baseStyle={style} {...other}>
         {this.props.label && (
-          <SectionHeader backgroundColor='transparent'>{this.props.label}</SectionHeader>
+          <SectionHeader
+            inverted={inverted}
+            backgroundColor='transparent'
+          >
+              {this.props.label}
+          </SectionHeader>
         )}
         <Base backgroundColor={backgroundColor}>
-          {this.props.showTopBorder && <Divider inset={topInset} />}
+          {this.props.showTopBorder && <Divider inverted={inverted} inset={topInset} />}
           {children}
-          {this.props.showBottomBorder && <Divider inset={bottomInset} />}
+          {this.props.showBottomBorder && <Divider inverted={inverted} inset={bottomInset} />}
         </Base>
       </Base>
     )
@@ -102,16 +110,8 @@ class InputGroup extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  border: {
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: 'rgba(0,0,0,0.25)'
-  },
   group: {
     backgroundColor: 'transparent'
-  },
-  margin: {
-    marginTop: 30,
-    marginBottom: 30
   }
 })
 

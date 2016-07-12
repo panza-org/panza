@@ -18,7 +18,13 @@ import {
  * @composes Text
  */
 
-const NavTitle = ({ label, color, children, style, ...other }) => (
+const NavTitle = ({
+  label,
+  color,
+  children,
+  style,
+  ...other
+}) => (
   <View style={[styles.container, style]}>
     {Platform.OS === 'ios'
       ? <Text color={color} bold {...other}>{label || children}</Text>
@@ -33,7 +39,8 @@ NavTitle.propTypes = {
   label: PropTypes.string,
   color: PropTypes.string,
   children: PropTypes.node,
-  style: PropTypes.any
+  style: PropTypes.any,
+  inverted: PropTypes.bool
 }
 
 const styles = StyleSheet.create({
