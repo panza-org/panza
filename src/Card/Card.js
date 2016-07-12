@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react'
 import {
-  Base,
-  themeProvider
+  Base
 } from '../index'
+import {
+  themeProvider
+} from '../config'
 import {
   StyleSheet
 } from 'react-native'

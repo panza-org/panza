@@ -3,9 +3,11 @@ import { TouchableHighlight, View, StyleSheet } from 'react-native'
 import {
   Popup,
   Text,
-  Base,
-  themeProvider
+  Base
 } from '../index'
+import {
+  themeProvider
+} from '../config'
 
 /**
  * Render a PopupMenu option
