@@ -18,7 +18,7 @@ const CardHeader = ({
   children,
   ...other
 }) => (
-  <Base flexDirection='row' p={2} {...other}>
+  <Base row alignSelf='stretch' p={2} {...other}>
 
     {avatar && (
       typeof avatar === 'string'

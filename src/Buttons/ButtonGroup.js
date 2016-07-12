@@ -55,7 +55,8 @@ const ButtonGroup = ({
 
   return (
     <Base
-      flexDirection={vertical ? 'column' : 'row'}
+      row={!vertical}
+      column={vertical}
       flex={vertical ? 0 : 1}
       {...other}
     >

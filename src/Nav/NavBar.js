@@ -108,7 +108,8 @@ Navbar.propTypes = {
 
 Navbar.totalNavHeight = Platform.select({
   ios: 44 + 20,
-  android: 56
+  android: 56,
+  web: 44 + 20
 })
 
 export default Navbar
@@ -142,8 +143,6 @@ const styles = StyleSheet.create({
     ...defaultNavbarStyle,
     height: Navbar.totalNavHeight,
     flexDirection: 'column',
-    backgroundColor: 'transparent',
-
     justifyContent: 'flex-start',
     ...Platform.select({
       ios: { paddingTop: 20 },

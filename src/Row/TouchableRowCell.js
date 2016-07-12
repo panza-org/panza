@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import {
   View,
   StyleSheet,
+  Platform,
   TouchableHighlight
 } from 'react-native'
 
@@ -44,8 +45,8 @@ const TouchableRowCell = (props) => {
       onPressOut={() => highlighted(null)}
     >
 
-      <View>
-        <Base baseStyle={[styles.rowContainer, heightStyle]} {...other}>
+      <View style={{ alignSelf: 'stretch', flexDirection: 'row', flex: 1 }}>
+        <Base row baseStyle={[styles.rowContainer, heightStyle]} {...other}>
           {children}
           {showMore && (
             <Base px={2}>
@@ -81,7 +82,13 @@ TouchableRowCell.defaultProps = {
 const styles = StyleSheet.create({
   row: {
     overflow: 'hidden',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignSelf: 'stretch',
+    alignItems: 'stretch',
+    flexDirection: 'row',
+    ...Platform.select({
+      web: { width: '100%' }
+    })
   },
   disabled: {
     opacity: 0.5
