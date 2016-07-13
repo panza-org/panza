@@ -182,6 +182,7 @@ class InputRow extends React.Component {
         <Text
           bold
           small
+          numberOfLines={1}
           color={(this.props.editable && this.props.onSelectLabel) ? 'primary' : 'default'}
           baseStyle={styles.labelText}
         >
@@ -276,6 +277,7 @@ class InputRow extends React.Component {
                   inverted={inverted}
                   flex={1}
                   placeholder={this.props.placeholder}
+                  placeholderTextColor={'#888'}
                   style={[
                     styles.input,
                     (this.props.vertical || !this.props.label) && { paddingLeft: 0 }]}
@@ -307,11 +309,15 @@ const styles = StyleSheet.create({
     paddingRight: 16,
     paddingLeft: 16,
     ...Platform.select({
-      web: { height: '100%', borderColor: 'transparent' }
+      web: {
+        borderColor: 'transparent',
+        width: '100%'
+      }
     })
   },
   label: {
     flex: 0,
+    flexShrink: 0,
     alignItems: 'center',
     flexDirection: 'row'
   },
