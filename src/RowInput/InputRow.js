@@ -317,7 +317,11 @@ const styles = StyleSheet.create({
   },
   label: {
     flex: 0,
-    flexShrink: 0,
+    ...Platform.select({
+      web: {
+        flexShrink: 0
+      }
+    }),
     alignItems: 'center',
     flexDirection: 'row'
   },

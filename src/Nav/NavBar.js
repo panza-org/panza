@@ -11,7 +11,6 @@ import Base from '../Base'
 import NavTitle from './NavTitle'
 
 const defaultNavbarStyle = {
-  backgroundColor: 'white',
   borderBottomWidth: 1 / PixelRatio.get(),
   borderBottomColor: 'rgba(0,0,0,0.3)'
 }

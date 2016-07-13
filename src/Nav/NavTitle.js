@@ -21,14 +21,15 @@ import {
 const NavTitle = ({
   label,
   color,
+  inverted,
   children,
   style,
   ...other
 }) => (
   <View style={[styles.container, style]}>
     {Platform.OS === 'ios'
-      ? <Text color={color} bold {...other}>{label || children}</Text>
-      : <Text color={color} large {...other}>{label || children}</Text>
+      ? <Text color={color} inverted={inverted} bold {...other}>{label || children}</Text>
+      : <Text color={color} inverted={inverted} large {...other}>{label || children}</Text>
     }
   </View>
 )
