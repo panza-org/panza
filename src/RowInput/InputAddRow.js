@@ -5,7 +5,7 @@ import {
 import {
   Icon,
   Base,
-  TouchableInput
+  InputTouchable
 } from '../index'
 
 const GreenPlusIcon = () => (
@@ -34,7 +34,7 @@ const InputAddRow = ({
   disabled,
   ...other
 }) => (
-  <TouchableInput
+  <InputTouchable
     disabled={disabled}
     label={label}
     labelColor='primary'
@@ -52,10 +52,6 @@ InputAddRow.propTypes = {
   onPress: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
   disabled: PropTypes.bool
-}
-
-InputAddRow.defaultProps = {
-  backgroundColor: 'white'
 }
 
 export default InputAddRow

@@ -31,7 +31,7 @@ class InputExpandable extends React.Component {
     } = this.props
 
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, overflow: 'hidden' }}>
         {Row}
         {expanded && (
           <View style={styles.pickerWrapper}>

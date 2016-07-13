@@ -126,7 +126,7 @@ class InputRow extends React.Component {
     removable: PropTypes.bool,
     placeholder: PropTypes.string,
     vertical: PropTypes.bool,
-    onSelectLabel: PropTypes.func.isRequired,
+    onSelectLabel: PropTypes.func,
     onChangeText: PropTypes.func.isRequired,
     value: PropTypes.string,
     backgroundColor: PropTypes.string,
@@ -274,6 +274,7 @@ class InputRow extends React.Component {
                   autoFocus={this.props.autoFocus}
                   disabled={!this.props.editable}
                   inverted={inverted}
+                  flex={1}
                   placeholder={this.props.placeholder}
                   style={[
                     styles.input,
@@ -301,10 +302,12 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     alignSelf: 'stretch',
+    borderWidth: 0,
+    borderColor: 'transparent',
     paddingRight: 16,
     paddingLeft: 16,
     ...Platform.select({
-      web: { height: '100%' }
+      web: { height: '100%', borderColor: 'transparent' }
     })
   },
   label: {

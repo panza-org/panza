@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import {
-  InputTouchable
+  InputTouchable,
+  InputExpandable
 } from '../index'
 import {
   Platform,
@@ -119,12 +120,12 @@ class InputDatePicker extends React.Component {
     )
 
     return (
-      <InputTouchable
+      <InputExpandable
         expanded={Platform.OS === 'ios' ? expanded : false}
         Row={Row}
       >
           {Platform.OS === 'ios' && this.renderIOS()}
-      </InputTouchable>
+      </InputExpandable>
     )
   }
 

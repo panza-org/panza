@@ -11,7 +11,11 @@ const Input = (props) => (
   <Text
     baseStyle={{
       ...Platform.select({
-        web: { outline: 'none', borderColor: 'transparent' }
+        web: {
+          outline: 'none',
+          borderColor: 'transparent',
+          borderWidth: 0
+        }
       })
     }}
     {...props}
