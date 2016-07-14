@@ -15,7 +15,8 @@ import {
 
 const PopupMenuOption = ({
   opt,
-  inverted
+  inverted,
+  panza
 }) => {
 
   if (React.isValidElement(opt)) {
@@ -27,7 +28,6 @@ const PopupMenuOption = ({
     label,
     primary,
     condensed,
-    panza,
     ...other
   } = opt
 
@@ -65,8 +65,9 @@ PopupMenuOption.propTypes = {
   inverted: PropTypes.bool,
   opt: PropTypes.shape({
     onPress: PropTypes.func.isRequired,
-    label: PropTypes.func.isRequired
-  })
+    label: PropTypes.string.isRequired
+  }),
+  panza: PropTypes.object.isRequired
 }
 
 const Option = themeProvider(PopupMenuOption)
@@ -84,7 +85,6 @@ class PopupMenu extends React.Component {
   static propTypes = {
     children: PropTypes.any.isRequired,
     showing: PropTypes.bool.isRequired,
-    Content: PropTypes.node.isRequired,
     onRequestClose: PropTypes.func.isRequired,
     onRequestShow: PropTypes.func,
     options: PropTypes.array.isRequired,

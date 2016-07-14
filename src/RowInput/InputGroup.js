@@ -61,27 +61,59 @@ class InputGroup extends React.Component {
     const {
       inset,
       showBottomBorder,
+      showTopBorder,
       backgroundColor,
       topInset,
       inverted,
+      label,
       bottomInset,
       ...other
     } = this.props
 
-    const isArray = Array.isArray(this.props.children)
+    const kids = []
+    let count = 0
 
-    const children = React.Children.map(this.props.children, (child, i) => {
-      const isLast = (i === this.props.children.length - 1) || !isArray
-      if (!child) return null
+    React.Children.forEach(this.props.children, (child) => {
 
-      return (
-        <View>
-          {child}
-          {(this.props.showBorder && (!isLast && showBottomBorder)) &&
-            <Divider inset={inset} inverted={inverted} />}
-        </View>
-      )
+      // handle null values
+      if (!child) return
+
+      // top border
+      if (count === 0 && showTopBorder) {
+        kids.push(
+          <Divider
+            key='divider-top'
+            inset={topInset}
+            inverted={inverted}
+          />
+        )
+      }
+
+      // regular border
+      if (count > 0) {
+        kids.push(
+          <Divider
+            key={`divider-${count}`}
+            inset={inset}
+            inverted={inverted}
+          />
+        )
+      }
+
+      kids.push(child)
+      count++
     })
+
+    // bottom border
+    if (showBottomBorder) {
+      kids.push(
+        <Divider
+          key='divider-bottom'
+          inset={bottomInset}
+          inverted={inverted}
+        />
+      )
+    }
 
     const style = [
       styles.group,
@@ -90,18 +122,18 @@ class InputGroup extends React.Component {
 
     return (
       <Base baseStyle={style} {...other}>
-        {this.props.label && (
+
+        {label && (
           <SectionHeader
             inverted={inverted}
             backgroundColor='transparent'
           >
-              {this.props.label}
+            {label}
           </SectionHeader>
         )}
+
         <Base backgroundColor={backgroundColor}>
-          {this.props.showTopBorder && <Divider inverted={inverted} inset={topInset} />}
-          {children}
-          {this.props.showBottomBorder && <Divider inverted={inverted} inset={bottomInset} />}
+          {kids}
         </Base>
       </Base>
     )

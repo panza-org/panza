@@ -49,7 +49,7 @@ $ rnpm link react-native-vector-icons
 * [InputPicker](documentation/InputPicker.md)
 * [InputDatePicker](documentation/InputDatePicker.md)
 * [InputExpandable](documentation/InputExpandable.md)
-* [HelpText](documentation/HelpText.md)
+* [InputHelpText](documentation/HelpText.md)
 
 #### Lists
 * [TouchableRow](documentation/TouchableRow.md)
