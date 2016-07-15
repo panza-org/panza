@@ -31,6 +31,7 @@ const InputTouchable = ({
 
   return (
     <TouchableRow
+      py={0}
       height={height}
       disabled={disabled}
       backgroundColor={backgroundColor}

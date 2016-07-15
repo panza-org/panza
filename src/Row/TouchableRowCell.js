@@ -24,6 +24,7 @@ const TouchableRowCell = (props) => {
     showMore,
     children,
     height,
+    showMoreProps,
     disabled,
     ...other
   } = props
@@ -50,7 +51,7 @@ const TouchableRowCell = (props) => {
           {children}
           {showMore && (
             <Base px={2}>
-              <ArrowRightIcon size={20} />
+              <ArrowRightIcon size={20} {...showMoreProps} />
             </Base>
           )}
         </Base>
@@ -67,6 +68,7 @@ TouchableRowCell.propTypes = {
   disabled: PropTypes.bool,
   highlighted: PropTypes.func,
   showMore: PropTypes.bool,
+  showMoreProps: PropTypes.object,
   underlayColor: PropTypes.string,
   height: PropTypes.number,
   children: PropTypes.node

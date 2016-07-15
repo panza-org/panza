@@ -1,9 +1,12 @@
 import React, { PropTypes } from 'react'
 import {
-  View,
-  StyleSheet,
+  StyleSheet
 } from 'react-native'
-import { Base, SectionHeader, Divider } from '../index'
+import {
+  Base,
+  SectionHeader,
+  Divider
+} from '../index'
 
 /**
  * Wrapping components with InputGroup gives you the
@@ -73,21 +76,21 @@ class InputGroup extends React.Component {
     const kids = []
     let count = 0
 
+    // top border
+    if (showTopBorder) {
+      kids.push(
+        <Divider
+          key='divider-top'
+          inset={topInset}
+          inverted={inverted}
+        />
+      )
+    }
+
     React.Children.forEach(this.props.children, (child) => {
 
       // handle null values
       if (!child) return
-
-      // top border
-      if (count === 0 && showTopBorder) {
-        kids.push(
-          <Divider
-            key='divider-top'
-            inset={topInset}
-            inverted={inverted}
-          />
-        )
-      }
 
       // regular border
       if (count > 0) {
@@ -122,7 +125,6 @@ class InputGroup extends React.Component {
 
     return (
       <Base baseStyle={style} {...other}>
-
         {label && (
           <SectionHeader
             inverted={inverted}
@@ -131,7 +133,6 @@ class InputGroup extends React.Component {
             {label}
           </SectionHeader>
         )}
-
         <Base backgroundColor={backgroundColor}>
           {kids}
         </Base>
