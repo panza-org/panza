@@ -147,7 +147,7 @@ class InputRow extends React.Component {
     backgroundColor: 'white',
     textAlign: 'right',
     keyboardType: 'numeric',
-    autoFocus: true,
+    autoFocus: false,
     vertical: false,
     onRequestRemove: noop,
     verticalHeight: 80,
