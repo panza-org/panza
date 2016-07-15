@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react'
 
 import {
-  TouchableRow
+  TouchableRow,
+  Text
 } from '../index'
 
 /**
@@ -20,6 +21,7 @@ const InputTouchable = ({
   showMore,
   backgroundColor,
   value,
+  labelColor,
   condensed,
   onPress,
   disabled,
@@ -36,7 +38,11 @@ const InputTouchable = ({
       disabled={disabled}
       backgroundColor={backgroundColor}
       image={icon || image}
-      primaryText={label}
+      primaryText={(
+        <Text numberOfLines={1} lineHeight={2} color={labelColor}>
+          {label}
+        </Text>
+      )}
       value={value}
       showMore={showMore}
       onPress={onPress}
@@ -56,7 +62,8 @@ InputTouchable.propTypes = {
   showMore: PropTypes.bool,
   condensed: PropTypes.bool,
   onPress: PropTypes.func.isRequired,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  labelColor: PropTypes.string
 }
 
 InputTouchable.defaultProps = {
