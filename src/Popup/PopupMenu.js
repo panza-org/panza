@@ -170,4 +170,6 @@ class PopupMenu extends React.Component {
   }
 }
 
+PopupMenu.displayName = 'PopupMenu'
+
 export default PopupMenu
