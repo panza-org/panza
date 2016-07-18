@@ -38,11 +38,11 @@ const InputTouchable = ({
       disabled={disabled}
       backgroundColor={backgroundColor}
       image={icon || image}
-      primaryText={(
+      primaryText={
         <Text numberOfLines={1} lineHeight={2} color={labelColor}>
           {label}
         </Text>
-      )}
+      }
       value={value}
       showMore={showMore}
       onPress={onPress}

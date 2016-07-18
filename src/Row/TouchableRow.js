@@ -44,7 +44,9 @@ const TouchableRow = ({
     <Base flex={1} row align='center' justify='space-between'>
       <Base flex={1}>
         {primaryText && (
-          <Text lineHeight={2} numberOfLines={1}>{primaryText}</Text>
+          React.isValidElement(primaryText)
+            ? primaryText
+            : <Text lineHeight={2} numberOfLines={1}>{primaryText}</Text>
         )}
         {secondaryText && (
           <Text small lineHeight={2} light numberOfLines={1}>{secondaryText}</Text>
@@ -63,7 +65,7 @@ const TouchableRow = ({
 TouchableRow.displayName = 'TouchableRow'
 
 TouchableRow.propTypes = {
-  primaryText: PropTypes.string,
+  primaryText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   secondaryText: PropTypes.string,
   value: PropTypes.string,
   onPress: PropTypes.func.isRequired,
