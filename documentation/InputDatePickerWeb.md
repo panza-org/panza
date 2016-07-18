@@ -1,5 +1,0 @@
-`InputDatePickerWeb` (component)
-================================
-
-
-
