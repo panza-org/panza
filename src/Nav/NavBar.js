@@ -53,7 +53,7 @@ const Navbar = (props) => {
           styles.navBar,
           children && styles.hasChildren,
           transparent && styles.transparent,
-          { borderColor: border }
+          { borderBottomColor: border }
         ]}
       >
         <View style={styles.navTopRow}>

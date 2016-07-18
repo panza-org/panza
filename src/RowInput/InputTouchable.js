@@ -21,6 +21,7 @@ const InputTouchable = ({
   showMore,
   backgroundColor,
   value,
+  inverted,
   labelColor,
   condensed,
   onPress,
@@ -39,11 +40,12 @@ const InputTouchable = ({
       backgroundColor={backgroundColor}
       image={icon || image}
       primaryText={
-        <Text numberOfLines={1} lineHeight={2} color={labelColor}>
+        <Text small bold numberOfLines={1} inverted={inverted} lineHeight={2} color={labelColor}>
           {label}
         </Text>
       }
       value={value}
+      inverted={inverted}
       showMore={showMore}
       onPress={onPress}
       {...other}
@@ -63,7 +65,8 @@ InputTouchable.propTypes = {
   condensed: PropTypes.bool,
   onPress: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
-  labelColor: PropTypes.string
+  labelColor: PropTypes.string,
+  inverted: PropTypes.bool
 }
 
 InputTouchable.defaultProps = {

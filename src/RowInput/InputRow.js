@@ -137,7 +137,8 @@ class InputRow extends React.Component {
     height: PropTypes.number,
     icon: PropTypes.node,
     inverted: PropTypes.bool,
-    condensed: PropTypes.bool
+    condensed: PropTypes.bool,
+    multiline: PropTypes.bool
   }
 
 
@@ -182,6 +183,7 @@ class InputRow extends React.Component {
         <Text
           bold
           small
+          inverted={this.props.inverted && !this.props.onSelectLabel}
           numberOfLines={1}
           color={(this.props.editable && this.props.onSelectLabel) ? 'primary' : 'default'}
           baseStyle={styles.labelText}
@@ -272,6 +274,7 @@ class InputRow extends React.Component {
                   disabled={!this.props.editable}
                   inverted={inverted}
                   flex={1}
+                  multiline={this.props.multiline}
                   placeholder={this.props.placeholder}
                   placeholderTextColor={'#888'}
                   style={[

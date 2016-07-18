@@ -21,6 +21,7 @@ const TouchableRow = ({
   secondaryText,
   image,
   height,
+  inverted,
   onPress,
   value,
   ...other
@@ -46,7 +47,7 @@ const TouchableRow = ({
         {primaryText && (
           React.isValidElement(primaryText)
             ? primaryText
-            : <Text lineHeight={2} numberOfLines={1}>{primaryText}</Text>
+            : <Text lineHeight={2} inverted={inverted} numberOfLines={1}>{primaryText}</Text>
         )}
         {secondaryText && (
           <Text small lineHeight={2} light numberOfLines={1}>{secondaryText}</Text>
@@ -71,6 +72,7 @@ TouchableRow.propTypes = {
   onPress: PropTypes.func.isRequired,
   image: PropTypes.oneOfType([ PropTypes.object, PropTypes.node ]),
   height: PropTypes.number,
+  inverted: PropTypes.bool,
 
   /** Displays a > arrow **/
   showMore: PropTypes.bool

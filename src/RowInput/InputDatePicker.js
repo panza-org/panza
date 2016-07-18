@@ -44,7 +44,8 @@ class InputDatePicker extends React.Component {
     mode: PropTypes.string,
     date: PropTypes.object.isRequired,
     onDateChange: PropTypes.func.isRequired,
-    editable: PropTypes.bool
+    editable: PropTypes.bool,
+    inverted: PropTypes.bool
   }
 
   static defaultProps = {
@@ -99,6 +100,7 @@ class InputDatePicker extends React.Component {
       onToggleExpansion,
       label,
       value,
+      inverted,
       editable,
       ...other
     } = this.props
@@ -106,7 +108,9 @@ class InputDatePicker extends React.Component {
     const Row = (
       <InputTouchable
         label={label}
+        inverted={inverted}
         value={value}
+        pr={2}
         onPress={() => {
           if (Platform.OS === 'ios') {
             onToggleExpansion()

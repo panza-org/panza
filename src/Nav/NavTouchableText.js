@@ -20,6 +20,7 @@ const NavTouchableText = ({
   children,
   disabled,
   inverted,
+  bold,
   color,
   ...other
 }) => (
@@ -36,6 +37,7 @@ const NavTouchableText = ({
       {...other}
     >
       <Text
+        bold={bold}
         color={color}
         inverted={inverted}
         style={{ opacity: disabled ? 0.5 : 1 }}
@@ -52,6 +54,7 @@ NavTouchableText.propTypes = {
   disabled: PropTypes.bool,
   color: PropTypes.string,
   children: PropTypes.node,
+  bold: PropTypes.bool,
   inverted: PropTypes.bool
 }
 
