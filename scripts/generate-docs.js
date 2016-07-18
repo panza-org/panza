@@ -1,4 +1,6 @@
-var documents = require('../documentation/components.json')
+/** eslint-disable **/
+
+var documents = require('../docs/api/components.json')
 var fs = require('fs')
 
 function stringOfLength(string, length) {
@@ -86,14 +88,14 @@ keys.forEach((key) => {
       }
       const md = generateMarkdown(name, comp)
       const exampleExists = fs.existsSync(
-        `${__dirname}/../documentation/Examples/${name}.md`
+        `${__dirname}/../docs/api/examples/${name}.md`
       )
       const exampleBuffer = exampleExists
-        ? fs.readFileSync(__dirname + '/../documentation/Examples/'+name+'.md', {
+        ? fs.readFileSync(__dirname + '/../docs/api/examples/'+name+'.md', {
           encoding: 'utf-8'
         })
         : ''
-      fs.writeFileSync(__dirname + '/../documentation/'+ name + '.md', md + exampleBuffer)
+      fs.writeFileSync(__dirname + '/../docs/api/'+ name + '.md', md + exampleBuffer)
     } catch(err) {
       console.warn(err) // eslint-disable-line
     }
