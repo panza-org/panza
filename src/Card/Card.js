@@ -14,7 +14,7 @@ import {
  * @composes Base
  */
 
-const Card = ({
+export const Card = ({
   children,
   panza,
   inverted,

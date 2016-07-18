@@ -7,7 +7,7 @@
     "generate-doc-json": "react-docgen src/**/* --resolver findAllComponentDefinitions -o documentation/components.json --pretty",
     "generate-doc-markdown": "node scripts/generate-docs.js",
     "generate-docs": "npm run generate-doc-json && npm run generate-doc-markdown",
-    "test": "mocha --require react-native-mock/mock.js --compilers js:babel-core/register --recursive components/**/__specs__/*.spec.js",
+    "test": "mocha --require react-native-mock/mock.js scripts/mocks.js --compilers js:babel-core/register --recursive src/**/__specs__/*.spec.js",
     "build": "rimraf lib && babel ./src -d lib",
     "web": "NODE_ENV=development node -r ./web/register.js web/server/index.js",
     "web-build": "NODE_ENV=production webpack -p",
@@ -42,7 +42,9 @@
     "react-native": "^0.29.0"
   },
   "devDependencies": {
+    "babel-preset-react-native": "^1.9.0",
     "chai": "^3.5.0",
+    "chai-subset": "^1.3.0",
     "enzyme": "^2.3.0",
     "eslint": "^2.13.1",
     "eslint-config-airbnb": "^9.0.1",

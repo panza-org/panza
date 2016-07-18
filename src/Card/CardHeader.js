@@ -11,7 +11,7 @@ import {
  * @composes Base, Image, Text
  */
 
-const CardHeader = ({
+export const CardHeader = ({
   avatar,
   title,
   subtitle,

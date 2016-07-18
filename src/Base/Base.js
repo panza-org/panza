@@ -1,10 +1,7 @@
 import React, { PropTypes } from 'react'
 import { View } from 'react-native'
 import colorTransform from 'color'
-import colorStyle, { getColor } from './utils/colors'
-import margins from './utils/margins'
-import paddings from './utils/paddings'
-import radii from './utils/radii'
+import getBaseStyle, { getColor } from './utils/getBaseStyle'
 import { themeProvider } from '../config'
 
 /**
@@ -13,7 +10,7 @@ import { themeProvider } from '../config'
  * from rebass.
  */
 
-class Base extends React.Component {
+export class Base extends React.Component {
 
   static propTypes = {
 
@@ -26,7 +23,7 @@ class Base extends React.Component {
     /** Base style **/
     baseStyle: PropTypes.any,
 
-    /** Underlay color. Use 'darken' to automatically darken the backgroundColor **/
+    /** Underlay color. Use 'darken' to automatically darken the backgroundColor. **/
     underlayColor: PropTypes.string,
 
     /** Margin **/
@@ -118,54 +115,31 @@ class Base extends React.Component {
     const {
       style,
       Component,
-      baseStyle = {},
-      wrap,
+      baseStyle,
       underlayColor,
-      flex,
-      width,
-      row,
-      column,
-      align,
-      height,
-      justify,
       panza,
-      backgroundColor,
-      borderColor,
       ...props
     } = this.props
 
-    const {
-      scale,
-      colors,
-      borderRadius
-    } = panza
+    const { styles, other } = getBaseStyle(props, panza)
+    const { colors } = panza
 
     const sx = [
       baseStyle,
-      style,
-      margins(props, scale),
-      paddings(props, scale),
-      colorStyle({ backgroundColor, borderColor }, colors, panza),
-      radii(props, borderRadius),
-      flex ? { flex } : null,
-      wrap ? { flexWrap: 'wrap' } : null,
-      column ? { flexDirection: 'column' } : null,
-      row ? { flexDirection: 'row' } : null,
-      align ? { alignItems: align } : null,
-      justify ? { justifyContent: justify } : null,
-      height ? { height } : null,
-      width ? { width } : null
+      styles,
+      style
     ]
 
-    const underlay = (underlayColor === 'darken' && backgroundColor)
-      ? colorTransform(getColor(backgroundColor, colors))
+    // determine underlay colour
+    const underlay = (underlayColor && (underlayColor === 'darken') && props.backgroundColor)
+      ? colorTransform(getColor(props.backgroundColor, colors))
         .darken(0.1)
         .hexString()
       : underlayColor
 
     const Element = Component || View
 
-    return <Element {...props} underlayColor={underlay} style={sx} />
+    return <Element {...other} underlayColor={underlay} style={sx} />
 
   }
 

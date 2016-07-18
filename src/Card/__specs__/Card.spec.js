@@ -1,54 +1,61 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import { expect } from 'chai'
-import config from '../../config'
 import {
   Text,
-  Image,
-  Card,
-  CardHeader
-} from '../../index'
-import {
   View,
+  Image,
   StyleSheet
 } from 'react-native'
 
-import { shouldContainStyle } from '../../Buttons/__specs__/Button.spec'
+import { shallow } from 'enzyme'
+import chai, { expect } from 'chai'
+import chaiSubset from 'chai-subset'
+
+chai.use(chaiSubset)
+
+import { Card } from '../Card'
+import { CardHeader } from '../CardHeader'
+import config from '../../config'
+
+function flatten(style) {
+  return StyleSheet.flatten(style)
+}
+
+function render({ ...props }) {
+  return shallow(<Card {...props} panza={config}><Text>Hi</Text></Card>)
+}
+
+function contains(el, s) {
+  const style = flatten(el.props().style)
+  return expect(style).to.containSubset(s)
+}
+
+function n(p, m) {
+  return contains(render(p), m)
+}
 
 describe('<Card />', () => {
 
-  function render({ ...props }) {
-    return shallow(
-      <Card {...props}><Text>Hi</Text></Card>
-    ).find(View)
-  }
-
-  it('should render with certain props', () => {
-    let card = render()
-    expect(card.props).to.have.properties('mt', 1)
-    shouldContainStyle(card, 'backgroundColor', 'white')
-    shouldContainStyle(card, 'borderTopWidth', StyleSheet.hairlineWidth)
-    shouldContainStyle(card, 'borderBottomWidth', StyleSheet.hairlineWidth)
+  it('should render with props', () => {
+    const props = render().props()
+    expect(props.mt).to.equal(1)
   })
+
+
 })
 
 describe('<CardHeader />', () => {
 
-  function render({ ...props }) {
+  function r(props) {
     return shallow(
       <CardHeader
         avatar='hi'
         title='title'
         subtitle='subtitle'
         {...props}
-      ><Text>Child</Text></CardHeader>
-    ).find(View)
+      >
+        <Text>Child</Text>
+      </CardHeader>
+    )
   }
-
-  it('should render the appropriate widgets', () => {
-    const header = render()
-    expect(header.find(Image)).to.have.length(1)
-    expect(header.find(Text)).to.have.length(3)
-  })
 
 })

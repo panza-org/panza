@@ -15,5 +15,9 @@
     "array-bracket-spacing": "off",
     "jsx-quotes": "off",
     "no-use-before-define": "off"
+  },
+  "globals": {
+    "describe": true,
+    "it": true
   }
 }

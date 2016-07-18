@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Base } from '../index'
 
-const ButtonGroup = ({
+export const ButtonGroup = ({
   children,
   rounded,
   segmented,
@@ -9,7 +9,7 @@ const ButtonGroup = ({
   ...other
 }) => {
 
-  const round = rounded
+  const round = rounded // eslint-disable-line 
     ? (typeof rounded === 'number' ? rounded : 2)
     : 0
 

@@ -1,89 +1,84 @@
 import React from 'react'
+import {
+  StyleSheet,
+  TouchableHighlight
+} from 'react-native'
+
 import { shallow } from 'enzyme'
-import { expect } from 'chai'
+import chai, { expect } from 'chai'
+import chaiSubset from 'chai-subset'
+
+chai.use(chaiSubset)
+
+import { Button } from '../Button'
 import config from '../../config'
-import Button from '../Button'
-import { Text, Icon } from '../../index'
-import {TouchableHighlight} from 'react-native'
-import { View } from 'react-native'
 
-export function flattenStyle(style) {
-  var result = {}
-  for (var i = 0, styleLength = style.length; i < styleLength; ++i) {
-    var computedStyle = flattenStyle(style[i])
-    if (computedStyle) {
-      for (var key in computedStyle) {
-        result[key] = computedStyle[key]
-      }
-    }
-  }
-  return result
+function flatten(style) {
+  return StyleSheet.flatten(style)
 }
 
-export function shouldContainStyle(base, key, value) {
-  let styles = base.props().style
-  if (Array.isArray(styles)) {
-    styles = Object.assign.apply(null, styles)
-  }
-
-  return expect(styles[key]).to.equal(value)
+function render(props) {
+  return shallow(
+    <Button {...props} panza={config}>Hello</Button>
+  )
 }
+
+function contains(el, s) {
+  const props = flatten(el.props())
+  return expect(props).to.containSubset(s)
+}
+
+function n(p, m) {
+  return contains(render(p), m)
+}
+
+// todo: the HOC makes testing with enyme
+// shallow renderer more difficult. Hopefully enzyme
+// eventually allows an option to shallow render
+// multiple levels deep.
 
 describe('<Button />', () => {
 
-  function render({ ...props }, child) {
-    return shallow(<Button {...props}>{child || 'Hi'}</Button>).find(TouchableHighlight)
-  }
-  
-  it('should render 1 TouchableHighlight component', () => {
+  it('should render 1 component', () => {
     expect(render()).to.have.length(1)
   })
 
-  it('should render different types', () => {
-    shouldContainStyle(render(), 'backgroundColor', config.colors.default)
-    shouldContainStyle(render({ primary: true }), 'backgroundColor', config.colors.primary)
-    shouldContainStyle(render({ secondary: true }), 'backgroundColor', config.colors.secondary)
-    shouldContainStyle(render({ positive: true }), 'backgroundColor', config.colors.positive)
-    shouldContainStyle(render({ negative: true }), 'backgroundColor', config.colors.negative)
+  it('should add default props', () => {
+    expect(render().props()).to.containSubset({
+      Component: TouchableHighlight,
+      accessibilityComponentType: 'button',
+      disabled: false,
+      backgroundColor: 'midgray',
+      textColor: 'white',
+      borderColor: 'midgray',
+      underlayColor: 'darken',
+      height: 40,
+      px: 2,
+      size: 'medium',
+      outline: false,
+      rounded: 6
+    })
   })
 
-  it('should render outline types', () => {
-    const outline = render({ outline: true })
-    shouldContainStyle(outline, 'backgroundColor', 'transparent')
-    shouldContainStyle(outline, 'borderColor', config.colors.default)
-    const outlinePrimary = render({ primary: true, outline: true })
-    shouldContainStyle(outlinePrimary, 'borderColor', config.colors.primary)
-    shouldContainStyle(outlinePrimary, 'backgroundColor', 'transparent')
+
+  it('should render outline buttons', () => {
+    n({ outline: true }, {
+      backgroundColor: 'transparent',
+      textColor: 'default',
+      borderColor: 'midgray',
+      underlayColor: '#eee'
+    })
+
+    n({ primary: true, outline: true }, {
+      borderColor: 'primary',
+      backgroundColor: 'transparent'
+    })
+
   })
 
   it('should render different sizes', () => {
-
-    // small
-    const small = render({ small: true })
-    shouldContainStyle(small, 'height', '30')
-    const text = small.find(Text)
-    shouldContainStyle(text, 'fontSize', config.fontSizes[6])
-
-    // large
-    shouldContainStyle(render({ large: true }), 'height', '55')
-    shouldContainStyle(render({ large: true }).find(Text), 'fontSize', config.fontSizes[3])
-
-
-  })
-
-  it('should render the correct children', () => {
-    const basic = render().find(Text)
-    expect(basic).to.have.length(1)
-    const custom = render({}, <View />).find(View)
-    expect(custom).to.have.length(1)
-  })
-
-  it('should render icons', () => {
-    const basic = render({ icon: 'ios-arrow-left' })
-    expect(basic.find(Icon)).to.have.length(1)
-
-    const withIcon = render({ icon: <Icon name='ios-arrow-left' /> })
-    expect(withIcon.find(Icon)).to.have.length(1)
+    n({ small: true }, { height: 30 })
+    n({ large: true }, { height: 55 })
   })
 
 })

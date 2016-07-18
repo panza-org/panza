@@ -78,7 +78,7 @@ const buttonPropsMap = {
  * based upon background color configuration.
  */
 
-const Button = ({
+export const Button = ({
   block,
   children,
   icon,
