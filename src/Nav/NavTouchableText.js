@@ -6,7 +6,7 @@ import {
 
 import {
   Text,
-  TextBase
+  Base
 } from '../index'
 
 /**
@@ -24,7 +24,7 @@ const NavTouchableText = ({
   ...other
 }) => (
   <View style={{ flex: 1, justifyContent: 'center' }}>
-    <TextBase
+    <Base
       Component={TouchableOpacity}
       px={2}
       baseStyle={{
@@ -42,7 +42,7 @@ const NavTouchableText = ({
       >
         {children}
       </Text>
-    </TextBase>
+    </Base>
   </View>
 )
 

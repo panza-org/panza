@@ -18,9 +18,9 @@ const Input = (props) => (
         }
       })
     }}
+    underlineColorAndroid='transparent'
     {...props}
     Component={TextInput}
-    underlineColorAndroid='transparent'
   />
 )
 

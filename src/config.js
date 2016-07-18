@@ -1,5 +1,6 @@
 import React from 'react'
 import extend from 'deep-assign'
+import hoistNonReactStatic from 'hoist-non-react-statics'
 
 const baseColors = {
   blue: '#08e',
@@ -98,12 +99,16 @@ export function customizeTheme(customTheme) {
 
 export function themeProvider(Component) {
 
-  return class Theme extends React.Component {
+  class Theme extends React.Component {
 
     render() {
       return <Component panza={baseTheme} {...this.props} />
     }
 
   }
+
+  hoistNonReactStatic(Theme, Component)
+
+  return Theme
 
 }

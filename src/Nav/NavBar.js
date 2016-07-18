@@ -9,6 +9,7 @@ import {
 
 import Base from '../Base'
 import NavTitle from './NavTitle'
+import { themeProvider } from '../config'
 
 const defaultNavbarStyle = {
   borderBottomWidth: 1 / PixelRatio.get(),
@@ -33,8 +34,12 @@ const Navbar = (props) => {
     titleColor,
     LeftButton,
     RightButton,
+    panza,
     ...other
   } = props
+
+  const { borderColor, invertedBorderColor } = panza
+  const border = inverted ? invertedBorderColor : borderColor
 
   return (
     <Base
@@ -47,7 +52,8 @@ const Navbar = (props) => {
         style={[
           styles.navBar,
           children && styles.hasChildren,
-          transparent && styles.transparent
+          transparent && styles.transparent,
+          { borderColor: border }
         ]}
       >
         <View style={styles.navTopRow}>
@@ -102,7 +108,8 @@ Navbar.propTypes = {
   transparent: PropTypes.bool,
   backgroundColor: PropTypes.string,
   titleColor: PropTypes.string,
-  inverted: PropTypes.bool
+  inverted: PropTypes.bool,
+  panza: PropTypes.object.isRequired
 }
 
 Navbar.totalNavHeight = Platform.select({
@@ -111,7 +118,7 @@ Navbar.totalNavHeight = Platform.select({
   web: 44 + 20
 })
 
-export default Navbar
+export default themeProvider(Navbar)
 
 const styles = StyleSheet.create({
   hasChildren: {
