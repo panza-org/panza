@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
 import {
-  View,
   StyleSheet
 } from 'react-native'
 
@@ -14,22 +13,10 @@ const InputRowCell = ({ children, height, ...other }) => {
 
   const fixedHeight = height === 'auto' ? null : height
 
-  let baseStyle = {
-    alignSelf: 'stretch',
-    padding: 0,
-    justifyContent: 'center',
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-    height: fixedHeight
-  }
-
   return (
-    <View style={styles.row}>
-      <Base baseStyle={baseStyle} {...other}>
-        {children}
-      </Base>
-    </View>
+    <Base {...other} baseStyle={styles.baseStyle} height={fixedHeight}>
+      {children}
+    </Base>
   )
 }
 
@@ -49,5 +36,13 @@ export default InputRowCell
 const styles = StyleSheet.create({
   row: {
     overflow: 'hidden'
+  },
+  baseStyle: {
+    alignSelf: 'stretch',
+    padding: 0,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 0
   }
 })

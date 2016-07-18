@@ -18,7 +18,7 @@ import {
 function noop() {}
 
 const VerticalDivider = () => (
-  <View style={{ width: 1, backgroundColor: 'white' }} />
+  <View style={{ width: StyleSheet.hairlineWidth, backgroundColor: 'white' }} />
 )
 
 import RevealingRow from './RevealingRow'
@@ -211,7 +211,7 @@ class InputRow extends React.Component {
             this.setState({ showingOptions: false })
             this.props.onRequestRemove()
           }}
-          backgroundColor='red'
+          backgroundColor='negative'
         >
           <Text small color='white'>Remove</Text>
         </RowAction>
@@ -228,15 +228,12 @@ class InputRow extends React.Component {
       height = 40
     }
 
-    if (height === 'auto') {
-      height = null
-    }
-
     const inverted = this.props.inverted
 
     return (
       <RevealingRow
-        style={{ flex: 1, alignSelf: 'stretch' }}
+        backgroundColor={this.props.backgroundColor}
+        style={{ flex: 0, alignSelf: 'stretch' }}
         showingOptions={this.state.showingOptions}
         revealedContent={revealed}
       >
@@ -253,7 +250,6 @@ class InputRow extends React.Component {
                 }}
               />
             )}
-
 
             <Base
               flex={1}
