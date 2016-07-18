@@ -11,19 +11,9 @@ import {
   Icon
 } from '../index'
 
-import _ from 'lodash'
-
-function mapPropsToStyleProps(props, propsMap) {
-  return Object.assign({},
-    buttonPropsMap.default,
-    buttonPropsMap.medium,
-    ..._.filter(propsMap, (v, k) => props[k]),
-    props
-  )
-}
+import mapToProps from '../Base/utils/mapPropsToStyles'
 
 /** Basic button styles **/
-
 const buttonPropsMap = {
   large: { height: 55, px: 3 },
   small: { height: 30, px: 1 },
@@ -87,7 +77,8 @@ export const Button = ({
 }) => {
 
   // determine our basic style props
-  const props = mapPropsToStyleProps(other, buttonPropsMap)
+  const defaults = { ...buttonPropsMap.medium, ...buttonPropsMap.default }
+  const props = mapToProps(other, buttonPropsMap, defaults)
   let textColor = other.outline
     ? props.borderColor
     : props.textColor

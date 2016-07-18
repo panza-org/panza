@@ -2,19 +2,10 @@ import React, { PropTypes } from 'react'
 import {
   TextBase
 } from '../index'
+import mapToProps from '../Base/utils/mapPropsToStyles'
 
-import _ from 'lodash'
-
-function mapPropsToStyleProps(props, propsMap) {
-  return Object.assign({},
-    textPropsMap.medium, // default styles
-    ..._.filter(propsMap, (v, k) => props[k]),
-    props
-  )
-}
 
 /** Basic text styles **/
-
 const textPropsMap = {
   tiny: { fontSize: 6, lineHeight: 2 },
   large: { fontSize: 3, lineHeight: 2 },
@@ -23,11 +14,16 @@ const textPropsMap = {
   giant: { fontSize: 2, lineHeight: 2 }
 }
 
+/**
+ * Basic Text Component that provides shorthands for sizing,
+ * lineHeight, and fontWeights.
+ */
+
 const Text = ({
   children,
   ...other
 }) => (
-  <TextBase {...mapPropsToStyleProps(other, textPropsMap)} {...other}>
+  <TextBase {...mapToProps(other, textPropsMap, textPropsMap.medium)}>
     {children}
   </TextBase>
 )
@@ -50,8 +46,5 @@ Text.propTypes = {
 
 Text.displayName = 'Text'
 
-Text.defaultProps = {
-  size: 'medium'
-}
 
 export default Text

@@ -39,10 +39,10 @@ const getStyle = (props, defaults) => {
   // font sizes
   if (typeof fontSize === 'number') {
     style.fontSize = fontSizes[fontSize]
-  }
-
-  if (typeof lineHeight === 'number') {
-    style.lineHeight = lineHeights[lineHeight]
+    if (lineHeight) {
+      // for now, we round it, because of a bug in react-native android
+      style.lineHeight = Math.round((fontSizes[fontSize] * lineHeights[lineHeight]))
+    }
   }
 
   return { textStyle: style, other }

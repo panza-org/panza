@@ -39,6 +39,7 @@
   "dependencies": {
     "color": "^0.11.1",
     "deep-assign": "^2.0.0",
+    "hoist-non-react-statics": "^1.2.0",
     "lodash": "^4.13.1",
     "react-native-vector-icons": "^2.0.3"
   },
