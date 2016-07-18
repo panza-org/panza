@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Read Me | Panza</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Panza (named after Sancho Panza, from Don Quixote), provides a UI foundation for your react-native applications, and is inspired by the excellent rebass library.">
+        <meta name="generator" content="GitBook 2.4.3">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-edit-link/plugin.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./docs/api/index.html" />
+    
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="0" data-basepath="." data-revision="Sun Jul 17 2016 23:34:08 GMT-0700 (PDT)">
+    
+
+<div class="book-summary">
+    <div class="book-search" role="search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter active" data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Read Me
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="docs/introduction/index.html">
+            
+            <span><b>1.</b> Introduction</span>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="docs/api/index.html">
+            
+                
+                    <a href="./docs/api/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Components
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="docs/Themes.html">
+            
+            <span><b>3.</b> Themes</span>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="docs/examples/index.html">
+            
+            <span><b>4.</b> Example Applications</span>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="CHANGELOG.html">
+            
+                
+                    <a href="./CHANGELOG.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Change Log
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Panza</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <a id="edit-link" href="https://github.com/bmcmahen/panza/tree/master/README.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="panza">panza</h1>
+<p>Panza (named after Sancho Panza, from Don Quixote), provides a UI foundation for your react-native applications, and is inspired by the excellent <a href="https://github.com/jxnblk/rebass" target="_blank">rebass</a> library.</p>
+<p>Panza gives you:</p>
+<ul>
+<li>The standard building blocks of most mobile applications. See the <a href="#Inputs">included components</a></li>
+<li>Beautiful UI-styles out of the box, suitable for iOS, Android, and the web.</li>
+<li>Overridable themes, with suitable defaults.</li>
+<li>Most components extend a <code>Base</code> component, which provides useful shorthands for styling your components with props. For example, use <code>p={2}</code> to provide padding, or <code>backgroundColor=&apos;primary&apos;</code> to set the background color of your component. You can also use the <code>Base</code> or <code>TextBase</code> as a replacement for <code>View</code> throughout your application.</li>
+</ul>
+<p>
+<img src="images/panza-ios-large.png" width="375px">
+<img src="images/panza-android-large.png" width="360px">
+</p>
+
+<h2 id="getting-started">Getting Started</h2>
+<pre><code>$ npm i panza --save
+$ npm i react-native-vector-icons --save
+$ rnpm link react-native-vector-icons
+</code></pre><h2 id="components">Components</h2>
+<h3 id="elements">Elements</h3>
+<ul>
+<li><a href="documentation/Base.md">Base</a></li>
+<li><a href="documentation/Text.md">Text</a></li>
+<li><a href="documentation/Button.md">Button</a></li>
+<li><a href="documentation/Icon.md">Icon</a></li>
+<li><a href="documentation/Image.md">Image</a></li>
+<li><a href="documentation/Input.md">Input</a></li>
+<li><a href="documentation/Divider.md">Divider</a></li>
+<li><a href="documentation/Loader.md">Loader</a></li>
+<li><a href="documentation/CheckMark.md">CheckMark</a></li>
+</ul>
+<h3 id="views">Views</h3>
+<h4 id="navigation">Navigation</h4>
+<ul>
+<li><a href="documentation/NavBar.md">NavBar</a></li>
+<li><a href="documentation/NavTitle.md">NavTitle</a></li>
+<li><a href="documentation/NavTouchableText.md">NavTouchableText</a></li>
+<li><a href="documentation/NavTouchableIcon.md">NavTouchableIcon</a></li>
+</ul>
+<h4 id="input">Input</h4>
+<ul>
+<li><a href="documentation/InputGroup.md">InputGroup</a></li>
+<li><a href="documentation/InputRow.md">InputRow</a></li>
+<li><a href="documentation/InputTouchable.md">InputTouchable</a></li>
+<li><a href="documentation/InputToggle.md">InputToggle</a></li>
+<li><a href="documentation/InputPicker.md">InputPicker</a></li>
+<li><a href="documentation/InputDatePicker.md">InputDatePicker</a></li>
+<li><a href="documentation/InputExpandable.md">InputExpandable</a></li>
+<li><a href="documentation/HelpText.md">InputHelpText</a></li>
+</ul>
+<h4 id="lists">Lists</h4>
+<ul>
+<li><a href="documentation/TouchableRow.md">TouchableRow</a></li>
+<li><a href="documentation/SectionHeader.md">SectionHeader</a></li>
+</ul>
+<h4 id="buttons">Buttons</h4>
+<ul>
+<li><a href="documentation/ButtonGroup.md">ButtonGroup</a></li>
+</ul>
+<h4 id="cards">Cards</h4>
+<ul>
+<li><a href="documentation/Card.md">Card</a></li>
+<li><a href="documentation/CardHeader.md">CardHeader</a></li>
+</ul>
+<h4 id="pages">Pages</h4>
+<ul>
+<li><a href="documentation/ErrorPage.md">ErrorPage</a></li>
+</ul>
+<h3 id="modules">Modules</h3>
+<ul>
+<li><a href="documentation/Popup.md">Popup</a></li>
+<li><a href="documentation/PopupMenu.md">PopupMenu</a></li>
+<li><a href="documentation/RevealingRow.md">RevealingRow</a></li>
+</ul>
+<h2 id="themes">Themes</h2>
+<p>You can override parts of the global theme to provide custom colours, font sizes, scales, etc. Use the <code>customizeTheme</code> function provided by Panza to supply a custom theme before registering your application. Check out the <a href="components/panza/config.js">default config</a> to see which variables you can override.</p>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> customizeTheme <span class="token punctuation">}</span> from <span class="token string">&apos;panza&apos;</span>
+
+<span class="token function">customizeTheme</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  colors<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    primary<span class="token punctuation">:</span> <span class="token string">&apos;#08e&apos;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// mount your application</span>
+</code></pre>
+<h2 id="examples">Examples</h2>
+<p><a href="https://github.com/bmcmahen/panza-ui-explorer" target="_blank">UIExplorer</a></p>
+<h3 id="contributing">Contributing</h3>
+<p>If you are interested in working on Panza and want to develop it locally within a react-native project, we recommend using <a href="https://github.com/wix/wml" target="_blank">wml</a> to directly copy your local <code>panza</code> directory into your <code>node_modules</code> folder inside of your react-native project. This is the best solution until react-native fully support symlinks.</p>
+<pre><code>wml add ~/panza ~/panza-example/node_modules/panza
+wml start
+</code></pre><p>To run the tests:</p>
+<pre><code>npm test
+</code></pre><h2 id="license">License</h2>
+<p>MIT</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        
+        <a href="./docs/api/index.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Components"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-edit-link/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-github/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-anker-enable/anker.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"edit-link":{"base":"https://github.com/bmcmahen/panza/tree/master","label":"Edit This Page"},"github":{"url":"https://github.com/bmcmahen/panza/"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
