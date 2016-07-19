@@ -276,6 +276,7 @@ class InputRow extends React.Component {
                 <Input
                   disabled={!editable}
                   flex={1}
+                  inverted={inverted}
                   placeholderTextColor={'#888'}
                   style={[
                     styles.input,

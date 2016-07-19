@@ -99,7 +99,8 @@ class RevealingRow extends React.Component {
             transform: [{ translateX: this.state.leftPosition }]
           }}
           backgroundColor={this.props.backgroundColor}
-          Component={Animated.View}>
+          Component={Animated.View}
+        >
             {this.props.children}
         </Base>
       </View>

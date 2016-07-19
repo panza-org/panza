@@ -68,6 +68,7 @@ class InputGroup extends React.Component {
       backgroundColor,
       topInset,
       inverted,
+      showBorder,
       label,
       bottomInset,
       ...other
@@ -93,7 +94,7 @@ class InputGroup extends React.Component {
       if (!child) return
 
       // regular border
-      if (count > 0) {
+      if ((count > 0) && showBorder) {
         kids.push(
           <Divider
             key={`divider-${count}`}
