@@ -68,7 +68,7 @@ const thin = '300'
 
 // Borders
 const borderColor = 'rgba(0, 0, 0, 0.25)'
-const invertedBorderColor = 'rgba(255,255,255,0.25)'
+const invertedBorderColor = 'rgba(255,255,255,0.15)'
 const borderRadius = 2
 
 const config = {
