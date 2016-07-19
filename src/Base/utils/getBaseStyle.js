@@ -95,10 +95,6 @@ const getStyle = (props, defaults) => {
     styles.borderColor = getColor(borderColor, colors)
   }
 
-  if (height) {
-    console.log('HEIGHT', styles)
-  }
-
   return {
     styles,
     other

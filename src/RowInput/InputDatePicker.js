@@ -78,7 +78,10 @@ class InputDatePicker extends React.Component {
   renderIOS() {
     return (
       <View
-        style={styles.pickerWrapper}
+        style={[
+          styles.pickerWrapper,
+          this.props.inverted && { backgroundColor: 'rgba(255,255,255,1)' }
+        ]}
       >
         <DatePickerIOS
           date={new Date(this.props.date)}

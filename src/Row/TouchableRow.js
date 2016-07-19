@@ -33,29 +33,44 @@ const TouchableRow = ({
     {...other}
   >
 
+    {/* The image */}
     {image && (
       React.isValidElement(image)
         ? image
         : (
-        <Image mr={2} width={40} height={40} source={image} />
+        <Image
+          mr={2}
+          width={40}
+          height={40}
+          source={image}
+        />
         )
       )
     }
 
-    <Base flex={1} row align='center' justify='space-between'>
+    <Base
+      flex={1}
+      row
+      align='center'
+      justify='space-between'
+    >
+      {/* Left aligned content */}
       <Base flex={1}>
         {primaryText && (
           React.isValidElement(primaryText)
             ? primaryText
             : <Text lineHeight={2} inverted={inverted} numberOfLines={1}>{primaryText}</Text>
         )}
+
         {secondaryText && (
           <Text small lineHeight={2} light numberOfLines={1}>{secondaryText}</Text>
         )}
       </Base>
 
       {value && (
-        <Text light>{value}</Text>
+        React.isValidElement(value)
+          ? value
+          : <Text light>{value}</Text>
       )}
 
     </Base>
@@ -68,7 +83,7 @@ TouchableRow.displayName = 'TouchableRow'
 TouchableRow.propTypes = {
   primaryText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   secondaryText: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   onPress: PropTypes.func.isRequired,
   image: PropTypes.oneOfType([ PropTypes.object, PropTypes.node ]),
   height: PropTypes.number,
