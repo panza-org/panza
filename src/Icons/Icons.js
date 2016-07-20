@@ -37,7 +37,7 @@ export const CloseIcon = (props) => {
   return (
     <Icon
       name={Platform.select({
-        ios: 'md-close',
+        ios: 'ios-close',
         android: 'md-arrow-back',
         web: 'md-close'
       })}

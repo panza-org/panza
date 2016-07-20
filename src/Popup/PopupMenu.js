@@ -157,7 +157,8 @@ class PopupMenu extends React.Component {
           opt={{
             label: 'Cancel',
             condensed: false,
-            primary: true
+            primary: true,
+            underlayColor: inverted ? '#222' : '#eee'
           }}
           key='cancel'
         />
