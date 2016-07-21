@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import { TextBase } from '../Base'
 import Icon from 'react-native-vector-icons/Ionicons'
 
@@ -11,14 +11,14 @@ import Icon from 'react-native-vector-icons/Ionicons'
 const BaseIcon = (props) => {
   const {
     name,
-    iconSize,
+    size,
     ...other
   } = props
 
   return (
     <TextBase
       name={name}
-      iconSize={iconSize}
+      size={size}
       Component={Icon}
       {...other}
     />
@@ -27,8 +27,13 @@ const BaseIcon = (props) => {
 
 BaseIcon.displayName = 'BaseIcon'
 
+BaseIcon.propTypes = {
+  name: PropTypes.string,
+  size: PropTypes.number
+}
+
 BaseIcon.defaultProps = {
-  iconSize: 35
+  size: 35
 }
 
 export default BaseIcon

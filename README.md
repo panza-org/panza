@@ -1,76 +1,92 @@
-# panza
-Panza (named after Sancho Panza, from Don Quixote), provides a UI foundation for your react-native applications, and is inspired by the excellent [rebass](https://github.com/jxnblk/rebass) library.
+# Panza
+Panza is a UI foundation for [react-native](https://github.com/facebook/react-native) (on iOS and Android) with experimental support for [react-native-web](https://github.com/necolas/react-native-web). It's inspired by the excellent [rebass](https://github.com/jxnblk/rebass) library.
  
 Panza gives you:
 
 - The standard building blocks of most mobile applications. See the [included components](#Inputs)
 - Beautiful UI-styles out of the box, suitable for iOS, Android, and the web.
-- Overridable themes, with suitable defaults.
-- Most components extend a `Base` component, which provides useful shorthands for styling your components with props. For example, use `p={2}` to provide padding, or `backgroundColor='primary'` to set the background color of your component. You can also use the `Base` or `TextBase` as a replacement for `View` throughout your application.
-
-<p>
-<img src='images/panza-ios-large.png' width='375px' />
-<img src='images/panza-android-large.png' width='360px' />
-</p>
+- A method for [theming](docs/themes.md) your application.
+- A [Base](docs/api/Base.md) and [TextBase](docs/api/TextBase.md) component, which provide useful shorthand [prop to style conversions](docs/api/Base.md). Use `p={2}` to provide padding, or `backgroundColor='primary'` to provide a background colour. Most UI-components compose `Base`, and thus accept these props.
 
 ## Getting Started
+
+Install using NPM.
+
 ```
-$ npm i panza --save
-$ npm i react-native-vector-icons --save
-$ rnpm link react-native-vector-icons
+npm i panza --save
+npm i react-native-vector-icons --save
+rnpm link react-native-vector-icons
 ```
 
-## Components
+And import your components.
+
+```javascript
+import { Base, Button, Text } from 'panza'
+
+const Hello = ({ onPress }) => (
+  <Base flex={1} backgroundColor='light'>
+    <Text large color='positive'>I am text</Text>
+    <Button
+      primary
+      outline
+      onPress={onPress}>
+        I am a button
+    </Button>
+  </Base>
+)
+```
+
+## [Components](docs/Components.md)
 
 ### Elements
-* [Base](documentation/Base.md)
-* [Text](documentation/Text.md)
-* [Button](documentation/Button.md)
-* [Icon](documentation/Icon.md)
-* [Image](documentation/Image.md)
-* [Input](documentation/Input.md)
-* [Divider](documentation/Divider.md)
-* [Loader](documentation/Loader.md)
-* [CheckMark](documentation/CheckMark.md)
+* [Base](docs/api/Base.md)
+* [Text](docs/api/Text.md)
+* [Button](docs/api/Button.md)
+* [Icon](docs/api/Icon.md)
+* [Image](docs/api/Image.md)
+* [Input](docs/api/Input.md)
+* [Divider](docs/api/Divider.md)
+* [Loader](docs/api/Loader.md)
+* [CheckMark](docs/api/CheckMark.md)
 
 ### Views
 
 #### Navigation
-* [NavBar](documentation/NavBar.md)
-* [NavTitle](documentation/NavTitle.md)
-* [NavTouchableText](documentation/NavTouchableText.md)
-* [NavTouchableIcon](documentation/NavTouchableIcon.md)
+* [NavBar](docs/api/NavBar.md)
+* [NavTitle](docs/api/NavTitle.md)
+* [NavTouchableText](docs/api/NavTouchableText.md)
+* [NavTouchableIcon](docs/api/NavTouchableIcon.md)
 
 #### Input
-* [InputGroup](documentation/InputGroup.md)
-* [InputRow](documentation/InputRow.md)
-* [InputTouchable](documentation/InputTouchable.md)
-* [InputToggle](documentation/InputToggle.md)
-* [InputPicker](documentation/InputPicker.md)
-* [InputDatePicker](documentation/InputDatePicker.md)
-* [InputExpandable](documentation/InputExpandable.md)
-* [InputHelpText](documentation/HelpText.md)
+* [InputGroup](docs/api/InputGroup.md)
+* [InputRow](docs/api/InputRow.md)
+* [InputTouchable](docs/api/InputTouchable.md)
+* [InputToggle](docs/api/InputToggle.md)
+* [InputPicker](docs/api/InputPicker.md)
+* [InputDatePicker](docs/api/InputDatePicker.md)
+* [InputExpandable](docs/api/InputExpandable.md)
+* [InputHelpText](docs/api/HelpText.md)
 
 #### Lists
-* [TouchableRow](documentation/TouchableRow.md)
-* [SectionHeader](documentation/SectionHeader.md)
+* [TouchableRow](docs/api/TouchableRow.md)
+* [SectionHeader](docs/api/SectionHeader.md)
 
 #### Buttons
-* [ButtonGroup](documentation/ButtonGroup.md)
+* [ButtonGroup](docs/api/ButtonGroup.md)
 
 #### Cards
-* [Card](documentation/Card.md)
-* [CardHeader](documentation/CardHeader.md)
+* [Card](docs/api/Card.md)
+* [CardHeader](docs/api/CardHeader.md)
 
 #### Pages
-* [ErrorPage](documentation/ErrorPage.md)
+* [ErrorPage](docs/api/ErrorPage.md)
 
 ### Modules
-* [Popup](documentation/Popup.md)
-* [PopupMenu](documentation/PopupMenu.md)
-* [RevealingRow](documentation/RevealingRow.md)
+* [Popup](docs/api/Popup.md)
+* [PopupMenu](docs/api/PopupMenu.md)
+* [RevealingRow](docs/api/RevealingRow.md)
 
-## Themes
+## [Themes](docs/themes.md)
 
 You can override parts of the global theme to provide custom colours, font sizes, scales, etc. Use the `customizeTheme` function provided by Panza to supply a custom theme before registering your application. Check out the [default config](components/panza/config.js) to see which variables you can override.
 
@@ -89,6 +105,10 @@ customizeTheme({
 ## Examples
 
 [UIExplorer](https://github.com/bmcmahen/panza-ui-explorer)
+[bRandom - Randomize your routine](https://github.com/bmcmahen/random-routine). [App Store](https://itunes.apple.com/ca/app/brandom-randomize-your-routine/id1135088308?mt=8)
+[Roast Buddy](https://github.com/bmcmahen/roast-buddy).
+
+Built something with Panza? Let us know!
 
 ### Contributing
 

@@ -2,7 +2,7 @@
   "name": "panza",
   "version": "3.0.0-beta1",
   "description": "a beautiful foundation for your react-native projects",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "generate-doc-json": "react-docgen src/**/* --resolver findAllComponentDefinitions -o docs/api/components.json --pretty",
     "generate-doc-markdown": "node scripts/generate-docs.js",
@@ -13,9 +13,9 @@
     "docs:build": "npm run generate-docs && npm run docs:prepare && gitbook build",
     "docs:publish": "npm run docs:clean && npm run docs:build && gh-pages -d _book",
     "test": "mocha --require react-native-mock/mock.js scripts/mocks.js --compilers js:babel-core/register --recursive src/**/__specs__/*.spec.js",
-    "build": "rimraf lib && babel ./src -d lib",
-    "web": "NODE_ENV=development node -r ./web/register.js web/server/index.js",
-    "web-build": "NODE_ENV=production webpack -p",
+    "prepublish": "npm run lint && npm run test && npm run build && npm run build:umd",
+    "build": "rimraf dist && babel ./src -d dist --ignore **/__specs__",
+    "build:umd": "webpack --config webpack.config.js --progress",
     "lint": "eslint src"
   },
   "repository": {
@@ -48,6 +48,7 @@
     "react-native": "^0.29.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.11.4",
     "babel-preset-react-native": "^1.9.0",
     "chai": "^3.5.0",
     "chai-subset": "^1.3.0",
@@ -64,6 +65,7 @@
     "react-docgen": "^2.8.2",
     "react-native-mock": "^0.2.3",
     "rimraf": "^2.5.2",
-    "throng": "^4.0.0"
+    "throng": "^4.0.0",
+    "webpack": "^1.13.1"
   }
 }
