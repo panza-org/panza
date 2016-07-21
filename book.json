@@ -4,6 +4,11 @@
   "structure": {
     "summary": "docs/README.md"
   },
+  "website": {
+    "js": [
+      "https://fb.me/react-15.2.1.min.js"
+    ]
+  },
   "plugins": ["edit-link", "prism", "-highlight", "github", "anker-enable"],
   "pluginsConfig": {
     "edit-link": {
