@@ -23,16 +23,16 @@ function generateDesciption(description) {
 // we could eventually build this tree using babel.
 // would be a fun hack project.
 function buildCompositionLinks(description) {
-  const regex = /@Composes(.*)/
+  const regex = /@Composes(.*)/i
   const comp = description.match(regex)
   const newDescription = description.replace(regex, '')
   if (comp && comp[1]) {
     const m = comp[1]
     const links = m.split(',').map((c) => {
-      return `[${c.trim()}](/docs/api/${c.trim()}.md)`
+      return `[${c.trim()}](${c.trim()}.md)`
     }).join(', ')
 
-    return `${newDescription || ''} \n __Composes__ ${links} \n`
+    return `${newDescription || ''} \n __Composes__ ${links} \n\n`
 
   }
 
@@ -46,7 +46,7 @@ function generatePropType(type) {
     return ''
   }
 
-  const n = (type.name === 'union') ? '' : type.name
+  const n = (type.name === 'union' || type.name === 'enum') ? '' : type.name
 
   let values
   if (Array.isArray(type.value)) {
@@ -72,6 +72,7 @@ function generateProp(propName, prop) {
   const description = prop.description || ''
   const type = generatePropType(prop.type)
   const df = generatePropDefaultValue(prop.defaultValue)
+
   return `${propName} | ${type + required} | ${df} | ${description}`
 }
 
@@ -80,13 +81,16 @@ function generateProps(props) {
 
   // Table Header
   const parts = [
-    '### Props',
+    '\n ### Props',
     'Name | Type | Default Value | Description',
     '--- | --- | --- | --- \n'
   ].join('\n')
 
   // The props
   const propTable = Object.keys(props)
+    .filter(name => (
+      name !== 'panza' && name !== 'children'
+    ))
     .map(name => (
       generateProp(name, props[name])
     ))

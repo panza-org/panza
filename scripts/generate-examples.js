@@ -1,5 +1,6 @@
-var babel = require('babel-core')
-var react = require('babel-preset-react')
+const babel = require('babel-core')
+const react = require('babel-preset-react')
+const es2015 = require('babel-preset-es2015')
 
 /**
  * Make a copy of our react code as a string
@@ -15,7 +16,7 @@ function plugin(src) {
         JSXElement(path) {
           const start = path.node.start
           const end = path.node.end
-          path.findParent(function(p) { //eslint-disable-line 
+          path.findParent(function(p) { //eslint-disable-line
             if (p.node.type === 'ObjectProperty' && p.node.key.name === 'render') {
               p.insertAfter(t.ObjectProperty( //eslint-disable-line
                 t.identifier('code'),
@@ -40,9 +41,9 @@ const top = `
   <script src="https://fb.me/react-dom-15.2.1.js"></script>
   <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/ReactNative.js"></script>
   <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/panza.web.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js"></script>
+  <link href='https://cdn.rawgit.com/driftyco/ionicons/3.0/dist/css/ionicons.css' rel='stylesheet'><link>
   <div style="position: relative; width: 375px; height: 667px; border: 1px solid #ddd;" id='react-root'></div>
-  <script type="text/babel">
+  <script>
 `
 
 const template = (examples) => (`
@@ -78,7 +79,11 @@ const template = (examples) => (`
             <Text mb={1} bold>{row.title}</Text>
             {row.render()}
             <Base mt={1}>
-              <Text>{row.code}</Text>
+              <code>
+                <pre>
+                  {row.code}
+                </pre>
+              </code>
             </Base>
           </Base>
         )}
@@ -103,10 +108,14 @@ const bottom = `
 
 module.exports = function transform(exampleBuffer) {
 
+  if (exampleBuffer.length === 0) {
+    return ''
+  }
+
   const buf = template(exampleBuffer)
 
   const out = babel.transform(buf, {
-    presets: [react],
+    presets: [react, es2015],
     plugins: [plugin(buf)],
     comments: false
   })

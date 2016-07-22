@@ -15,7 +15,7 @@ const Examples = () => {
      title: 'Primary',
      description: 'A primary Button',
      render: () => (
-       <Button primary onPress={noop}>
+      <Button primary onPress={noop}>
         Primary Button
       </Button>
      )

@@ -10,28 +10,28 @@
             "name": "any"
           },
           "required": false,
-          "description": "Custom Component *"
-        },
-        "style": {
-          "type": {
-            "name": "any"
-          },
-          "required": false,
-          "description": "Regular style attribute *"
+          "description": "Custom Component"
         },
         "baseStyle": {
           "type": {
             "name": "any"
           },
           "required": false,
-          "description": "Base style *"
+          "description": "The base style will be supplanted by style props, or regular style properties."
+        },
+        "style": {
+          "type": {
+            "name": "any"
+          },
+          "required": false,
+          "description": "Regular style attribute"
         },
         "underlayColor": {
           "type": {
             "name": "string"
           },
           "required": false,
-          "description": "Underlay color. Use 'darken' to automatically darken the backgroundColor. *"
+          "description": "Underlay color. Use 'darken' to automatically darken the backgroundColor."
         },
         "m": {
           "type": {
@@ -60,7 +60,7 @@
             ]
           },
           "required": false,
-          "description": "Margin *"
+          "description": "Margin based on the configured scale"
         },
         "mt": {
           "type": {
@@ -89,7 +89,7 @@
             ]
           },
           "required": false,
-          "description": "Margin top *"
+          "description": "Margin top based on the configured scale"
         },
         "mr": {
           "type": {
@@ -118,7 +118,7 @@
             ]
           },
           "required": false,
-          "description": "Margin right *"
+          "description": "Margin right based on the configured scale"
         },
         "mb": {
           "type": {
@@ -147,7 +147,7 @@
             ]
           },
           "required": false,
-          "description": "Margin bottom *"
+          "description": "Margin bottom based on the configured scale"
         },
         "ml": {
           "type": {
@@ -176,7 +176,7 @@
             ]
           },
           "required": false,
-          "description": "Margin left *"
+          "description": "Margin left based on the configured scale"
         },
         "mx": {
           "type": {
@@ -205,7 +205,7 @@
             ]
           },
           "required": false,
-          "description": "Margin x-axis *"
+          "description": "Margin x-axis based on the configured scale"
         },
         "my": {
           "type": {
@@ -234,7 +234,7 @@
             ]
           },
           "required": false,
-          "description": "Margin y-asix *"
+          "description": "Margin y-asix based on the configured scale"
         },
         "p": {
           "type": {
@@ -263,7 +263,7 @@
             ]
           },
           "required": false,
-          "description": "Padding *"
+          "description": "Padding based on the configured scale"
         },
         "pt": {
           "type": {
@@ -292,7 +292,7 @@
             ]
           },
           "required": false,
-          "description": "Padding top *"
+          "description": "Padding top based on the configured scale"
         },
         "pr": {
           "type": {
@@ -321,7 +321,7 @@
             ]
           },
           "required": false,
-          "description": "Padding right *"
+          "description": "Padding right based on the configured scale"
         },
         "pb": {
           "type": {
@@ -350,7 +350,7 @@
             ]
           },
           "required": false,
-          "description": "Padding bottom *"
+          "description": "Padding bottom based on the configured scale"
         },
         "pl": {
           "type": {
@@ -379,7 +379,7 @@
             ]
           },
           "required": false,
-          "description": "Padding left *"
+          "description": "Padding left based on the configured scale"
         },
         "px": {
           "type": {
@@ -408,7 +408,7 @@
             ]
           },
           "required": false,
-          "description": "Padding x-axis *"
+          "description": "Padding x-axis based on the configured scale"
         },
         "py": {
           "type": {
@@ -437,14 +437,14 @@
             ]
           },
           "required": false,
-          "description": "Padding y-axis *"
+          "description": "Padding y-axis based on the configured scale"
         },
         "backgroundColor": {
           "type": {
             "name": "string"
           },
           "required": false,
-          "description": "Background color *"
+          "description": "Background color."
         },
         "rounded": {
           "type": {
@@ -459,77 +459,77 @@
             ]
           },
           "required": false,
-          "description": "Border radius *"
+          "description": "Border radius"
         },
         "borderColor": {
           "type": {
             "name": "string"
           },
           "required": false,
-          "description": "Border color *"
+          "description": "Border color"
         },
         "flex": {
           "type": {
             "name": "number"
           },
           "required": false,
-          "description": "flex property *"
+          "description": "Flex property"
         },
         "wrap": {
           "type": {
             "name": "bool"
           },
           "required": false,
-          "description": "flex-wrap property *"
+          "description": "Flex-wrap property"
         },
         "column": {
           "type": {
             "name": "bool"
           },
           "required": false,
-          "description": "set flex-direction to column *"
+          "description": "Set the flex-direction to column"
         },
         "row": {
           "type": {
             "name": "bool"
           },
           "required": false,
-          "description": "set flex-direction to row *"
+          "description": "Set the flex-direction to row"
         },
         "align": {
           "type": {
             "name": "string"
           },
           "required": false,
-          "description": "set align-items property *"
+          "description": "Align-items property"
         },
         "justify": {
           "type": {
             "name": "string"
           },
           "required": false,
-          "description": "set justify-content property *"
+          "description": "Justify-content property"
         },
         "height": {
           "type": {
             "name": "number"
           },
           "required": false,
-          "description": "set the height of the element *"
+          "description": "The height of the element"
         },
         "width": {
           "type": {
             "name": "number"
           },
           "required": false,
-          "description": "set the width of the element *"
+          "description": "The width of the element"
         },
         "panza": {
           "type": {
             "name": "object"
           },
           "required": false,
-          "description": "theme provided by a higher order component *"
+          "description": "theme provided by a higher order component"
         }
       }
     }
@@ -1868,7 +1868,7 @@
   ],
   "src/Nav/NavBar.js": [
     {
-      "description": "Static navigation bar that mimics that found\nwithin ReactNative. To be used when you want a static\nrepresentation of the NavBar, without transitions.",
+      "description": "Static navigation bar that mimics that found\nwithin ReactNative. To be used when you want a static\nrepresentation of the NavBar, without transitions.\n\n@Composes Base, NavTitle",
       "displayName": "NavBar",
       "methods": [],
       "props": {
