@@ -1,74 +1,83 @@
-`InputToggle` (component)
-=========================
-
+## InputToggle 
+ 
 An basic input row with a label and Switch, allowing
-the user to toggle a boolean value.
+the user to toggle a boolean value.### Props
+Name | Type | Default Value | Description
+--- | --- | --- | --- 
+style | any  |   | 
+value | bool  (required) |   | 
+backgroundColor | string  | 'transparent' | 
+label | string  (required) |   | 
+onValueChange | func  (required) |   | 
+editable | bool  | true | 
+switchProps | object  |   | 
+onTintColor | string  | 'success' | 
+panza | object  (required) |   | theme provided by panza *
+ 
 
-Props
------
+  ### Examples
 
-### `backgroundColor`
+  <script src="https://fb.me/react-15.2.1.js"></script>
+  <script src="https://fb.me/react-dom-15.2.1.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/ReactNative.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/panza.web.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js"></script>
+  <div style="position: relative; width: 375px; height: 667px; border: 1px solid #ddd;" id='react-root'></div>
+  <script type="text/babel">
 
-type: `string`
-defaultValue: `'transparent'`
+const {
+  Button,
+  Divider,
+  Base,
+  Text
+} = Panza;
 
+const {
+  ListView
+} = ReactNative;
 
-### `editable`
+function noop() {
+  console.log('button pressed');
+}
 
-type: `bool`
-defaultValue: `true`
+const ds = new ListView.DataSource({
+  rowHasChanged: (r1, r2) => r1 !== r2
+});
 
+const Module = ({ examples }) => {
 
-### `label` (required)
+  const datas = ds.cloneWithRows(examples);
 
-type: `string`
+  return React.createElement(Base, {
+    Component: ListView,
+    dataSource: datas,
+    renderRow: row => React.createElement(
+      Base,
+      { p: 2 },
+      React.createElement(
+        Text,
+        { mb: 1, bold: true },
+        row.title
+      ),
+      row.render(),
+      React.createElement(
+        Base,
+        { mt: 1 },
+        React.createElement(
+          Text,
+          null,
+          row.code
+        )
+      )
+    ),
+    renderSeparator: (a, b) => React.createElement(Divider, { key: a + b })
+  });
+};
 
+const App = () => React.createElement(Module, { examples: Examples() });
 
-### `onTintColor`
-
-type: `string`
-defaultValue: `'success'`
-
-
-### `onValueChange` (required)
-
-type: `func`
-
-
-### `panza` (required)
-
-theme provided by panza *
-
-type: `object`
-
-
-### `style`
-
-type: `any`
-
-
-### `switchProps`
-
-type: `object`
-
-
-### `value` (required)
-
-type: `bool`
-
-## Examples
-
-### Basic example with label and custom tint color
-
-![Input Toggle](images/InputToggle.png)
-
-```javascript
-import { InputToggle } from 'panza'
-
-<InputToggle
-  value={this.state.editable}
-  onTintColor='warning'
-  onValueChange={(editable) => this.setState({ editable })}
-  label='Editable?'
-/>
-```
+ReactNative.AppRegistry.registerComponent('MyApp', () => App);
+ReactNative.AppRegistry.runApplication('MyApp', {
+  rootTag: document.getElementById('react-root')
+});
+  </script>

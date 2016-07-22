@@ -1,18 +1,75 @@
-`InputRowCell` (component)
-==========================
+## InputRowCell 
+ 
+Input row cell### Props
+Name | Type | Default Value | Description
+--- | --- | --- | --- 
+children | any  |   | 
+height | number  | 50 | 
+ 
 
-Input row cell
+  ### Examples
 
-Props
------
+  <script src="https://fb.me/react-15.2.1.js"></script>
+  <script src="https://fb.me/react-dom-15.2.1.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/ReactNative.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/panza.web.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js"></script>
+  <div style="position: relative; width: 375px; height: 667px; border: 1px solid #ddd;" id='react-root'></div>
+  <script type="text/babel">
 
-### `children`
+const {
+  Button,
+  Divider,
+  Base,
+  Text
+} = Panza;
 
-type: `any`
+const {
+  ListView
+} = ReactNative;
 
+function noop() {
+  console.log('button pressed');
+}
 
-### `height`
+const ds = new ListView.DataSource({
+  rowHasChanged: (r1, r2) => r1 !== r2
+});
 
-type: `number`
-defaultValue: `50`
+const Module = ({ examples }) => {
 
+  const datas = ds.cloneWithRows(examples);
+
+  return React.createElement(Base, {
+    Component: ListView,
+    dataSource: datas,
+    renderRow: row => React.createElement(
+      Base,
+      { p: 2 },
+      React.createElement(
+        Text,
+        { mb: 1, bold: true },
+        row.title
+      ),
+      row.render(),
+      React.createElement(
+        Base,
+        { mt: 1 },
+        React.createElement(
+          Text,
+          null,
+          row.code
+        )
+      )
+    ),
+    renderSeparator: (a, b) => React.createElement(Divider, { key: a + b })
+  });
+};
+
+const App = () => React.createElement(Module, { examples: Examples() });
+
+ReactNative.AppRegistry.registerComponent('MyApp', () => App);
+ReactNative.AppRegistry.runApplication('MyApp', {
+  rootTag: document.getElementById('react-root')
+});
+  </script>

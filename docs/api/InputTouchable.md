@@ -1,66 +1,89 @@
-`InputTouchable` (component)
-============================
-
+## InputTouchable 
+ 
 An InputTouchable is typically used when you want the user
 to select a value within another view -- whether it's a ListView,
 PopupMenu, etc. This module composes TouchableRow, providing
 default heights and styling to fit in with other Input rows.
 
-@composes TouchableRow
+@composes TouchableRow### Props
+Name | Type | Default Value | Description
+--- | --- | --- | --- 
+backgroundColor | string  | 'white' | 
+label | string  (required) |   | 
+icon | node  |   | 
+image | object  |   | 
+value | string  |   | 
+showMore | bool  | false | 
+condensed | bool  |   | 
+onPress | func  (required) |   | 
+disabled | bool  | false | 
+labelColor | string  | 'default' | 
+inverted | bool  |   | 
+ 
 
-Props
------
+  ### Examples
 
-### `backgroundColor`
+  <script src="https://fb.me/react-15.2.1.js"></script>
+  <script src="https://fb.me/react-dom-15.2.1.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/ReactNative.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/panza.web.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js"></script>
+  <div style="position: relative; width: 375px; height: 667px; border: 1px solid #ddd;" id='react-root'></div>
+  <script type="text/babel">
 
-type: `string`
-defaultValue: `'white'`
+const {
+  Button,
+  Divider,
+  Base,
+  Text
+} = Panza;
 
+const {
+  ListView
+} = ReactNative;
 
-### `condensed`
+function noop() {
+  console.log('button pressed');
+}
 
-type: `bool`
+const ds = new ListView.DataSource({
+  rowHasChanged: (r1, r2) => r1 !== r2
+});
 
+const Module = ({ examples }) => {
 
-### `disabled`
+  const datas = ds.cloneWithRows(examples);
 
-type: `bool`
-defaultValue: `false`
+  return React.createElement(Base, {
+    Component: ListView,
+    dataSource: datas,
+    renderRow: row => React.createElement(
+      Base,
+      { p: 2 },
+      React.createElement(
+        Text,
+        { mb: 1, bold: true },
+        row.title
+      ),
+      row.render(),
+      React.createElement(
+        Base,
+        { mt: 1 },
+        React.createElement(
+          Text,
+          null,
+          row.code
+        )
+      )
+    ),
+    renderSeparator: (a, b) => React.createElement(Divider, { key: a + b })
+  });
+};
 
+const App = () => React.createElement(Module, { examples: Examples() });
 
-### `icon`
-
-type: `node`
-
-
-### `image`
-
-type: `object`
-
-
-### `label` (required)
-
-type: `string`
-
-
-### `labelColor`
-
-type: `string`
-defaultValue: `'default'`
-
-
-### `onPress` (required)
-
-type: `func`
-
-
-### `showMore`
-
-type: `bool`
-defaultValue: `false`
-
-
-### `value`
-
-type: `string`
-
+ReactNative.AppRegistry.registerComponent('MyApp', () => App);
+ReactNative.AppRegistry.runApplication('MyApp', {
+  rootTag: document.getElementById('react-root')
+});
+  </script>

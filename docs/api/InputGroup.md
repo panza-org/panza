@@ -1,127 +1,89 @@
-`InputGroup` (component)
-========================
-
+## InputGroup 
+ 
 Wrapping components with InputGroup gives you the
 option of giving Inputs dividing borders, dividing
 borders with an inset, a top border (with a unique inset value),
 a bottom border (with a unique inset value), shared background
 colours, margins, and a label. You could supply your own
-child components, too.
+child components, too.### Props
+Name | Type | Default Value | Description
+--- | --- | --- | --- 
+style | object  |   | 
+inset | number  | 0 | left margin inset for the divider border *
+showTopBorder | bool  | true | whether show the top border *
+showBottomBorder | bool  | true | whether to show the bottom border *
+showBorder | bool  | true | whether to show the dividing border *
+topInset | number  | 0 | left margin inset of the top border *
+bottomInset | number  | 0 | left margin inset of the bottom border *
+label | string  |   | an optional label for the input group *
+children | node  |   | 
+backgroundColor | string  |   | 
+inverted | bool  |   | 
+ 
 
-Props
------
+  ### Examples
 
-### `backgroundColor`
+  <script src="https://fb.me/react-15.2.1.js"></script>
+  <script src="https://fb.me/react-dom-15.2.1.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/ReactNative.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/panza.web.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js"></script>
+  <div style="position: relative; width: 375px; height: 667px; border: 1px solid #ddd;" id='react-root'></div>
+  <script type="text/babel">
 
-type: `string`
+const {
+  Button,
+  Divider,
+  Base,
+  Text
+} = Panza;
 
+const {
+  ListView
+} = ReactNative;
 
-### `bottomInset`
+function noop() {
+  console.log('button pressed');
+}
 
-left margin inset of the bottom border *
+const ds = new ListView.DataSource({
+  rowHasChanged: (r1, r2) => r1 !== r2
+});
 
-type: `number`
-defaultValue: `0`
+const Module = ({ examples }) => {
 
+  const datas = ds.cloneWithRows(examples);
 
-### `children`
+  return React.createElement(Base, {
+    Component: ListView,
+    dataSource: datas,
+    renderRow: row => React.createElement(
+      Base,
+      { p: 2 },
+      React.createElement(
+        Text,
+        { mb: 1, bold: true },
+        row.title
+      ),
+      row.render(),
+      React.createElement(
+        Base,
+        { mt: 1 },
+        React.createElement(
+          Text,
+          null,
+          row.code
+        )
+      )
+    ),
+    renderSeparator: (a, b) => React.createElement(Divider, { key: a + b })
+  });
+};
 
-type: `node`
+const App = () => React.createElement(Module, { examples: Examples() });
 
-
-### `inset`
-
-left margin inset for the divider border *
-
-type: `number`
-defaultValue: `0`
-
-
-### `inverted`
-
-type: `bool`
-
-
-### `label`
-
-an optional label for the input group *
-
-type: `string`
-
-
-### `showBorder`
-
-whether to show the dividing border *
-
-type: `bool`
-defaultValue: `true`
-
-
-### `showBottomBorder`
-
-whether to show the bottom border *
-
-type: `bool`
-defaultValue: `true`
-
-
-### `showTopBorder`
-
-whether show the top border *
-
-type: `bool`
-defaultValue: `true`
-
-
-### `style`
-
-type: `object`
-
-
-### `topInset`
-
-left margin inset of the top border *
-
-type: `number`
-defaultValue: `0`
-
-## Examples
-
-
-### An InputGroup with Input children
-
-![Input group](images/InputGroup.png)
-
-```javascript
-import {
-  InputGroup,
-  InputToggle,
-  InputRow,
-  SearchIcon
-} from 'panza'
-
-<InputGroup label='ROW INPUT' inset={16} mt={3}>
-  <InputToggle
-    value={this.state.editable}
-    onTintColor='warning'
-    onValueChange={(editable) => this.setState({ editable })}
-    label='Editable?'
-  />
-  <InputRow
-    placeholder='Basic Input'
-    value={this.state.basic}
-    editable={this.state.editable}
-    onChangeText={(basic) => this.setState({ basic })} />
-  <InputRow
-    label='Basic Input with Label'
-    placeholder='Your value'
-    value={this.state.label}
-    editable={this.state.editable}
-    onChangeText={(label) => this.setState({ label })} />
-  <InputRow
-    icon={<SearchIcon />}
-    textAlign='left'
-    editable={this.state.editable}
-    placeholder='Input with icon' />
-</InputGroup>
-```
+ReactNative.AppRegistry.registerComponent('MyApp', () => App);
+ReactNative.AppRegistry.runApplication('MyApp', {
+  rootTag: document.getElementById('react-root')
+});
+  </script>

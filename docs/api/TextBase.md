@@ -1,271 +1,113 @@
-`TextBase` (component)
-======================
-
+## TextBase 
+ 
 A general purpose text component which
 converts props into styles defined in the configuration.
-Unlike Base, TextBase supports special Text props.
-
-Props
------
-
-### `Component`
-
-type: `any`
-
-
-### `align`
-
-set align-items property *
-
-type: `string`
-
-
-### `backgroundColor`
-
-Background color *
-
-type: `string`
-
-
-### `baseStyle`
-
-type: `any`
-
-
-### `bold`
-
-bold font weight *
-
-type: `bool`
-
-
-### `borderColor`
-
-Border color *
-
-type: `string`
-
-
-### `children`
-
-children (typically text) *
-
-type: `node`
-
-
-### `color`
-
-text colour *
-
-type: `string`
-defaultValue: `'default'`
-
-
-### `column`
-
-set flex-direction to column *
-
-type: `bool`
-
-
-### `flex`
-
-flex property *
-
-type: `number`
-
-
-### `fontSize`
-
-text size *
-
-type: `enum(0|1|2|3|4|5|6)`
-
-
-### `height`
-
-set the height of the element *
-
-type: `number`
-
-
-### `inverted`
-
-use the inverted color (by default, white) *
-
-type: `bool`
-
-
-### `justify`
-
-set justify-content property *
-
-type: `string`
-
-
-### `lineHeight`
-
-text lineheight *
-
-type: `enum(0|1|2|3|4|5|6)`
-defaultValue: `1`
-
-
-### `m`
-
-Margin *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `mb`
-
-Margin bottom *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `ml`
-
-Margin left *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `mr`
-
-Margin right *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `mt`
-
-Margin top *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `mx`
-
-Margin x-axis *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `my`
-
-Margin y-asix *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `p`
-
-Padding *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `panza` (required)
-
-a theme provided by a higher order component *
-
-type: `object`
-
-
-### `pb`
-
-Padding bottom *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `pl`
-
-Padding left *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `pr`
-
-Padding right *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `pt`
-
-Padding top *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `px`
-
-Padding x-axis *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `py`
-
-Padding y-axis *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `rounded`
-
-Border radius *
-
-type: `union(bool|number)`
-
-
-### `row`
-
-set flex-direction to row *
-
-type: `bool`
-
-
-### `style`
-
-type: `any`
-
-
-### `textAlign`
-
-text alignment *
-
-type: `string`
-
-
-### `thick`
-
-thick font weight *
-
-type: `bool`
-
-
-### `thin`
-
-thin font weight *
-
-type: `bool`
-
-
-### `width`
-
-set the width of the element *
-
-type: `number`
-
-
-### `wrap`
-
-flex-wrap property *
-
-type: `bool`
-
+Unlike Base, TextBase supports special Text props.### Props
+Name | Type | Default Value | Description
+--- | --- | --- | --- 
+Component | any  |   | 
+style | any  |   | 
+baseStyle | any  |   | 
+children | node  |   | children (typically text) *
+fontSize | enum0&#124;1&#124;2&#124;3&#124;4&#124;5&#124;6 |   | text size *
+lineHeight | enum0&#124;1&#124;2&#124;3&#124;4&#124;5&#124;6 | 1 | text lineheight *
+color | string  | 'default' | text colour *
+textAlign | string  |   | text alignment *
+bold | bool  |   | bold font weight *
+thin | bool  |   | thin font weight *
+thick | bool  |   | thick font weight *
+panza | object  (required) |   | a theme provided by a higher order component *
+inverted | bool  |   | use the inverted color (by default, white) *
+m | enum0&#124;1&#124;2&#124;3&#124;4 |   | Margin *
+mt | enum0&#124;1&#124;2&#124;3&#124;4 |   | Margin top *
+mr | enum0&#124;1&#124;2&#124;3&#124;4 |   | Margin right *
+mb | enum0&#124;1&#124;2&#124;3&#124;4 |   | Margin bottom *
+ml | enum0&#124;1&#124;2&#124;3&#124;4 |   | Margin left *
+mx | enum0&#124;1&#124;2&#124;3&#124;4 |   | Margin x-axis *
+my | enum0&#124;1&#124;2&#124;3&#124;4 |   | Margin y-asix *
+p | enum0&#124;1&#124;2&#124;3&#124;4 |   | Padding *
+pt | enum0&#124;1&#124;2&#124;3&#124;4 |   | Padding top *
+pr | enum0&#124;1&#124;2&#124;3&#124;4 |   | Padding right *
+pb | enum0&#124;1&#124;2&#124;3&#124;4 |   | Padding bottom *
+pl | enum0&#124;1&#124;2&#124;3&#124;4 |   | Padding left *
+px | enum0&#124;1&#124;2&#124;3&#124;4 |   | Padding x-axis *
+py | enum0&#124;1&#124;2&#124;3&#124;4 |   | Padding y-axis *
+backgroundColor | string  |   | Background color *
+rounded | bool&#124;number |   | Border radius *
+borderColor | string  |   | Border color *
+flex | number  |   | flex property *
+wrap | bool  |   | flex-wrap property *
+column | bool  |   | set flex-direction to column *
+row | bool  |   | set flex-direction to row *
+align | string  |   | set align-items property *
+justify | string  |   | set justify-content property *
+height | number  |   | set the height of the element *
+width | number  |   | set the width of the element *
+ 
+
+  ### Examples
+
+  <script src="https://fb.me/react-15.2.1.js"></script>
+  <script src="https://fb.me/react-dom-15.2.1.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/ReactNative.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/panza.web.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js"></script>
+  <div style="position: relative; width: 375px; height: 667px; border: 1px solid #ddd;" id='react-root'></div>
+  <script type="text/babel">
+
+const {
+  Button,
+  Divider,
+  Base,
+  Text
+} = Panza;
+
+const {
+  ListView
+} = ReactNative;
+
+function noop() {
+  console.log('button pressed');
+}
+
+const ds = new ListView.DataSource({
+  rowHasChanged: (r1, r2) => r1 !== r2
+});
+
+const Module = ({ examples }) => {
+
+  const datas = ds.cloneWithRows(examples);
+
+  return React.createElement(Base, {
+    Component: ListView,
+    dataSource: datas,
+    renderRow: row => React.createElement(
+      Base,
+      { p: 2 },
+      React.createElement(
+        Text,
+        { mb: 1, bold: true },
+        row.title
+      ),
+      row.render(),
+      React.createElement(
+        Base,
+        { mt: 1 },
+        React.createElement(
+          Text,
+          null,
+          row.code
+        )
+      )
+    ),
+    renderSeparator: (a, b) => React.createElement(Divider, { key: a + b })
+  });
+};
+
+const App = () => React.createElement(Module, { examples: Examples() });
+
+ReactNative.AppRegistry.registerComponent('MyApp', () => App);
+ReactNative.AppRegistry.runApplication('MyApp', {
+  rootTag: document.getElementById('react-root')
+});
+  </script>

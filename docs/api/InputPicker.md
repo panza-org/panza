@@ -1,6 +1,5 @@
-`InputPicker` (component)
-=========================
-
+## InputPicker 
+ 
 InputPicker provides a unified API for Android and iOS
 picker rows.
 
@@ -15,88 +14,82 @@ selected, the picker prompt will occur. A label is
 rendered above the picker. The value prop is ignored,
 since the Android picker already prints the value for us.
 
-@composes InputTouchable, InputExpandable
+@composes InputTouchable, InputExpandable### Props
+Name | Type | Default Value | Description
+--- | --- | --- | --- 
+onToggleExpansion | func  (required) |   | a function called when toggling the visibility of the picker. (iOS only) *
+editable | bool  | true | 
+value | string  |   | the picker value displayed in the row. (iOS only) *
+label | string  (required) |   | the label for the picker *
+expanded | bool  |   | controls whether the picker is visible. (iOS only) *
+children | node  |   | 
+backgroundColor | string  |   | 
+panza | object  (required) |   | theme provided by higher order component *
+ 
 
-Props
------
+  ### Examples
 
-### `backgroundColor`
+  <script src="https://fb.me/react-15.2.1.js"></script>
+  <script src="https://fb.me/react-dom-15.2.1.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/ReactNative.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/panza.web.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js"></script>
+  <div style="position: relative; width: 375px; height: 667px; border: 1px solid #ddd;" id='react-root'></div>
+  <script type="text/babel">
 
-type: `string`
+const {
+  Button,
+  Divider,
+  Base,
+  Text
+} = Panza;
 
+const {
+  ListView
+} = ReactNative;
 
-### `children`
+function noop() {
+  console.log('button pressed');
+}
 
-type: `node`
+const ds = new ListView.DataSource({
+  rowHasChanged: (r1, r2) => r1 !== r2
+});
 
+const Module = ({ examples }) => {
 
-### `editable`
+  const datas = ds.cloneWithRows(examples);
 
-type: `bool`
-defaultValue: `true`
+  return React.createElement(Base, {
+    Component: ListView,
+    dataSource: datas,
+    renderRow: row => React.createElement(
+      Base,
+      { p: 2 },
+      React.createElement(
+        Text,
+        { mb: 1, bold: true },
+        row.title
+      ),
+      row.render(),
+      React.createElement(
+        Base,
+        { mt: 1 },
+        React.createElement(
+          Text,
+          null,
+          row.code
+        )
+      )
+    ),
+    renderSeparator: (a, b) => React.createElement(Divider, { key: a + b })
+  });
+};
 
+const App = () => React.createElement(Module, { examples: Examples() });
 
-### `expanded`
-
-controls whether the picker is visible. (iOS only) *
-
-type: `bool`
-
-
-### `label` (required)
-
-the label for the picker *
-
-type: `string`
-
-
-### `onToggleExpansion` (required)
-
-a function called when toggling the visibility of the picker. (iOS only) *
-
-type: `func`
-
-
-### `panza` (required)
-
-theme provided by higher order component *
-
-type: `object`
-
-
-### `value`
-
-the picker value displayed in the row. (iOS only) *
-
-type: `string`
-
-## Examples
-
-### InputPicker with Picker Child
-
-![Input Picker iOS image](images/InputPickerIOS.png)
-
-```javascript
-import { InputPicker } from 'panza'
-import {
-  Picker
-} from 'react-native'
-
-<InputPicker
-  expanded={this.state.focusPicker}
-  value={this.state.language}
-  label='Select a Language'
-  editable={this.state.editable}
-  onToggleExpansion={() => {
-    this.setState({ focusPicker: !this.state.focusPicker })
-  }}>
-  <Picker
-    prompt='Select a language'
-    style={{ width: 300 }}
-    selectedValue={this.state.language}
-    onValueChange={(lang) => this.setState({ language: lang })}>
-      <Picker.Item label='Java' value='Java' />
-      <Picker.Item label='Javascript' value='Javascript' />
-  </Picker>
-</InputPicker>
-```
+ReactNative.AppRegistry.registerComponent('MyApp', () => App);
+ReactNative.AppRegistry.runApplication('MyApp', {
+  rootTag: document.getElementById('react-root')
+});
+  </script>

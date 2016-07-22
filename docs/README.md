@@ -7,3 +7,4 @@
 
 * [Example Applications](/docs/examples/README.md)
 * [Change Log](/CHANGELOG.md)
+* [Button](/docs/api/Button.md)

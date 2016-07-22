@@ -1,60 +1,82 @@
-`Image` (component)
-===================
+## Image 
+ 
+Fade-in an image when it loads.### Props
+Name | Type | Default Value | Description
+--- | --- | --- | --- 
+fade | bool  | true | 
+onLoadEnd | func  |   | 
+height | number  |   | 
+width | number  |   | 
+circular | bool  | false | set the border radius to be fully round (given an equal height/width) *
+style | any  |   | 
+source | object  (required) |   | 
+resizeMode | string  | 'cover' | 
+rounded | number&#124;bool | false | the border radius of the image *
+ 
 
-Fade-in an image when it loads.
+  ### Examples
 
-Props
------
+  <script src="https://fb.me/react-15.2.1.js"></script>
+  <script src="https://fb.me/react-dom-15.2.1.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/ReactNative.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/panza.web.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js"></script>
+  <div style="position: relative; width: 375px; height: 667px; border: 1px solid #ddd;" id='react-root'></div>
+  <script type="text/babel">
 
-### `circular`
+const {
+  Button,
+  Divider,
+  Base,
+  Text
+} = Panza;
 
-set the border radius to be fully round (given an equal height/width) *
+const {
+  ListView
+} = ReactNative;
 
-type: `bool`
-defaultValue: `false`
+function noop() {
+  console.log('button pressed');
+}
 
+const ds = new ListView.DataSource({
+  rowHasChanged: (r1, r2) => r1 !== r2
+});
 
-### `fade`
+const Module = ({ examples }) => {
 
-type: `bool`
-defaultValue: `true`
+  const datas = ds.cloneWithRows(examples);
 
+  return React.createElement(Base, {
+    Component: ListView,
+    dataSource: datas,
+    renderRow: row => React.createElement(
+      Base,
+      { p: 2 },
+      React.createElement(
+        Text,
+        { mb: 1, bold: true },
+        row.title
+      ),
+      row.render(),
+      React.createElement(
+        Base,
+        { mt: 1 },
+        React.createElement(
+          Text,
+          null,
+          row.code
+        )
+      )
+    ),
+    renderSeparator: (a, b) => React.createElement(Divider, { key: a + b })
+  });
+};
 
-### `height`
+const App = () => React.createElement(Module, { examples: Examples() });
 
-type: `number`
-
-
-### `onLoadEnd`
-
-type: `func`
-
-
-### `resizeMode`
-
-type: `string`
-defaultValue: `'cover'`
-
-
-### `rounded`
-
-the border radius of the image *
-
-type: `union(number|bool)`
-defaultValue: `false`
-
-
-### `source` (required)
-
-type: `object`
-
-
-### `style`
-
-type: `any`
-
-
-### `width`
-
-type: `number`
-
+ReactNative.AppRegistry.registerComponent('MyApp', () => App);
+ReactNative.AppRegistry.runApplication('MyApp', {
+  rootTag: document.getElementById('react-root')
+});
+  </script>

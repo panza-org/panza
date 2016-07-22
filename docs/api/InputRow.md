@@ -1,192 +1,91 @@
-`InputRow` (component)
-======================
-
-A removable input
-
-Props
------
-
-### `autoFocus`
-
-type: `bool`
-defaultValue: `false`
-
-
-### `backgroundColor`
-
-type: `string`
-defaultValue: `'white'`
-
-
-### `condensed`
-
-type: `bool`
-
-
-### `editable`
-
-type: `bool`
-defaultValue: `true`
-
-
-### `height`
-
-type: `number`
-defaultValue: `50`
-
-
-### `icon`
-
-type: `node`
-
-
-### `inverted`
-
-type: `bool`
-
-
-### `keyboardType`
-
-defaultValue: `'numeric'`
-
-
-### `label`
-
-type: `string`
-
-
-### `labelWidth`
-
-type: `number`
-
-
-### `onChangeText` (required)
-
-type: `func`
-
-
-### `onRequestRemove`
-
-type: `func`
-defaultValue: `function noop() {}`
-
-
-### `onSelectLabel`
-
-type: `func`
-
-
-### `placeholder`
-
-type: `string`
-
-
-### `removable`
-
-type: `bool`
-defaultValue: `false`
-
-
-### `textAlign`
-
-defaultValue: `'right'`
-
-
-### `value`
-
-type: `string`
-
-
-### `vertical`
-
-type: `bool`
-defaultValue: `false`
-
-
-### `verticalHeight`
-
-type: `number`
-defaultValue: `80`
-
-## Examples
-
-### Basic input with placeholder
-
-![Input Row](images/InputRow.png)
-
-```javascript
-import { InputRow } from 'panza'
-
-<InputRow
-  placeholder='Basic Input'
-  value={value}
-  editable
-  onChangeText={(text) => {
-    props.onChangeText(text)
-  }}
-/>
-```
-
-### Basic input with label and placeholder
-
-![Input row with label](images/InputRowLabel.png)
-```javascript
-import { InputRow } from 'panza'
-
-<InputRow
-  label='Basic Input with Label'
-  placeholder='Your value'
-  value={value}
-  onChangeText={onChangeText}
-/>
-```
-
-### Basic input with an icon
-
-![Input row with icon](images/InputRowIcon.png)
-```javascript
-import { InputRow, SearchIcon } from 'panza'
-
-<InputRow
-  icon={<SearchIcon />}
-  textAlign='left'
-  editable={this.state.editable}
-  placeholder='Input with icon'
-/>
-```
-
-### Within an InputGroup
-![Input group](images/InputGroup.png)
-```javascript
-import {
-  InputGroup,
-  InputToggle,
-  InputRow,
-  SearchIcon
-} from 'panza'
-
-<InputGroup label='ROW INPUT' inset={16} mt={3}>
-  <InputToggle
-    value={this.state.editable}
-    onTintColor='warning'
-    onValueChange={(editable) => this.setState({ editable })}
-    label='Editable?'
-  />
-  <InputRow
-    placeholder='Basic Input'
-    value={this.state.basic}
-    editable={this.state.editable}
-    onChangeText={(basic) => this.setState({ basic })} />
-  <InputRow
-    label='Basic Input with Label'
-    placeholder='Your value'
-    value={this.state.label}
-    editable={this.state.editable}
-    onChangeText={(label) => this.setState({ label })} />
-  <InputRow
-    icon={<SearchIcon />}
-    textAlign='left'
-    editable={this.state.editable}
-    placeholder='Input with icon' />
-</InputGroup>
-```
+## InputRow 
+ 
+A removable input### Props
+Name | Type | Default Value | Description
+--- | --- | --- | --- 
+label | string  |   | 
+autoFocus | bool  |   | 
+removable | bool  | false | 
+placeholder | string  |   | 
+vertical | bool  |   | 
+onSelectLabel | func  |   | 
+onChangeText | func  (required) |   | 
+value | string  |   | 
+backgroundColor | string  | 'white' | 
+editable | bool  | true | 
+labelWidth | number  |   | 
+verticalHeight | number  | 80 | 
+onRequestRemove | func  |   | 
+height | number  | 50 | 
+icon | node  |   | 
+inverted | bool  |   | 
+condensed | bool  |   | 
+multiline | bool  |   | 
+ 
+
+  ### Examples
+
+  <script src="https://fb.me/react-15.2.1.js"></script>
+  <script src="https://fb.me/react-dom-15.2.1.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/ReactNative.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/panza.web.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js"></script>
+  <div style="position: relative; width: 375px; height: 667px; border: 1px solid #ddd;" id='react-root'></div>
+  <script type="text/babel">
+
+const {
+  Button,
+  Divider,
+  Base,
+  Text
+} = Panza;
+
+const {
+  ListView
+} = ReactNative;
+
+function noop() {
+  console.log('button pressed');
+}
+
+const ds = new ListView.DataSource({
+  rowHasChanged: (r1, r2) => r1 !== r2
+});
+
+const Module = ({ examples }) => {
+
+  const datas = ds.cloneWithRows(examples);
+
+  return React.createElement(Base, {
+    Component: ListView,
+    dataSource: datas,
+    renderRow: row => React.createElement(
+      Base,
+      { p: 2 },
+      React.createElement(
+        Text,
+        { mb: 1, bold: true },
+        row.title
+      ),
+      row.render(),
+      React.createElement(
+        Base,
+        { mt: 1 },
+        React.createElement(
+          Text,
+          null,
+          row.code
+        )
+      )
+    ),
+    renderSeparator: (a, b) => React.createElement(Divider, { key: a + b })
+  });
+};
+
+const App = () => React.createElement(Module, { examples: Examples() });
+
+ReactNative.AppRegistry.registerComponent('MyApp', () => App);
+ReactNative.AppRegistry.runApplication('MyApp', {
+  rootTag: document.getElementById('react-root')
+});
+  </script>

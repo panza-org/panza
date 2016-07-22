@@ -1195,7 +1195,7 @@
   ],
   "src/Buttons/Button.js": [
     {
-      "description": "A basic button that inherits from Base, and provides colourization\nbased upon background color configuration.",
+      "description": "A basic button that inherits from Base, and provides colourization\nbased upon background color configuration.\n@Composes Base, Text, Icon",
       "displayName": "Button",
       "methods": [],
       "props": {
@@ -1204,7 +1204,7 @@
             "name": "bool"
           },
           "required": false,
-          "description": "button size *"
+          "description": "button size"
         },
         "medium": {
           "type": {
@@ -1225,51 +1225,73 @@
             "name": "bool"
           },
           "required": false,
-          "description": "button theme *"
+          "description": "Uses the primary colour to style the button."
         },
         "secondary": {
           "type": {
             "name": "bool"
           },
           "required": false,
-          "description": ""
+          "description": "Uses the secondary colour to style the button."
         },
         "positive": {
           "type": {
             "name": "bool"
           },
           "required": false,
-          "description": ""
+          "description": "Uses the positive colour to style the button."
         },
         "negative": {
           "type": {
             "name": "bool"
           },
           "required": false,
-          "description": ""
+          "description": "Uses the negative colour to style the button."
         },
         "default": {
           "type": {
             "name": "bool"
           },
           "required": false,
-          "description": ""
+          "description": "Uses the midgray colour to style the button."
+        },
+        "outline": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Use an outline button style *",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
         },
         "children": {
           "type": {
             "name": "node"
           },
           "required": false,
-          "description": ""
+          "description": "Accepts either a text string or a custom node"
         },
         "disabled": {
           "type": {
             "name": "bool"
           },
           "required": false,
-          "description": "disables the button, and reduces its opacity *",
+          "description": "disables the button, and reduces its opacity",
           "defaultValue": {
             "value": "false",
+            "computed": false
+          }
+        },
+        "rounded": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "6",
             "computed": false
           }
         },
@@ -1306,18 +1328,11 @@
             "name": "bool"
           },
           "required": false,
-          "description": "stretch the button width *",
+          "description": "stretch the button width",
           "defaultValue": {
             "value": "false",
             "computed": false
           }
-        },
-        "textColor": {
-          "type": {
-            "name": "string"
-          },
-          "required": false,
-          "description": "style text colour when using label prop *"
         },
         "icon": {
           "type": {
@@ -1332,29 +1347,11 @@
             ]
           },
           "required": false,
-          "description": "optional icon *"
-        },
-        "theme": {
-          "defaultValue": {
-            "value": "'default'",
-            "computed": false
-          }
+          "description": "optional icon string or node"
         },
         "size": {
           "defaultValue": {
             "value": "'medium'",
-            "computed": false
-          }
-        },
-        "outline": {
-          "defaultValue": {
-            "value": "false",
-            "computed": false
-          }
-        },
-        "rounded": {
-          "defaultValue": {
-            "value": "6",
             "computed": false
           }
         }
@@ -1518,7 +1515,19 @@
       "displayName": "BaseIcon",
       "methods": [],
       "props": {
-        "iconSize": {
+        "name": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "size": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "",
           "defaultValue": {
             "value": "35",
             "computed": false
@@ -1680,6 +1689,13 @@
           },
           "required": true,
           "description": ""
+        },
+        "disabled": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
         }
       }
     }
@@ -1835,6 +1851,17 @@
           },
           "required": false,
           "description": ""
+        },
+        "placeholderTextColor": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "'#888'",
+            "computed": false
+          }
         }
       }
     }
@@ -1906,6 +1933,13 @@
             "name": "bool"
           },
           "required": false,
+          "description": ""
+        },
+        "panza": {
+          "type": {
+            "name": "object"
+          },
+          "required": true,
           "description": ""
         }
       }
@@ -2021,6 +2055,13 @@
         "children": {
           "type": {
             "name": "node"
+          },
+          "required": false,
+          "description": ""
+        },
+        "bold": {
+          "type": {
+            "name": "bool"
           },
           "required": false,
           "description": ""
@@ -2311,13 +2352,27 @@
           "required": false,
           "description": ""
         },
+        "onPress": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "backgroundColor": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
         "opt": {
           "type": {
             "name": "shape",
             "value": {
               "onPress": {
                 "name": "func",
-                "required": true
+                "required": false
               },
               "label": {
                 "name": "string",
@@ -2451,6 +2506,24 @@
             "value": "'white'",
             "computed": false
           }
+        },
+        "autoDismiss": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "containerBackgroundColor": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "'black'",
+            "computed": false
+          }
         }
       }
     }
@@ -2535,7 +2608,15 @@
       "props": {
         "primaryText": {
           "type": {
-            "name": "string"
+            "name": "union",
+            "value": [
+              {
+                "name": "string"
+              },
+              {
+                "name": "node"
+              }
+            ]
           },
           "required": false,
           "description": ""
@@ -2549,7 +2630,15 @@
         },
         "value": {
           "type": {
-            "name": "string"
+            "name": "union",
+            "value": [
+              {
+                "name": "string"
+              },
+              {
+                "name": "node"
+              }
+            ]
           },
           "required": false,
           "description": ""
@@ -2579,6 +2668,13 @@
         "height": {
           "type": {
             "name": "number"
+          },
+          "required": false,
+          "description": ""
+        },
+        "inverted": {
+          "type": {
+            "name": "bool"
           },
           "required": false,
           "description": ""
@@ -2842,6 +2938,13 @@
             "value": "true",
             "computed": false
           }
+        },
+        "inverted": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
         }
       }
     }
@@ -3182,11 +3285,7 @@
             "name": "bool"
           },
           "required": false,
-          "description": "",
-          "defaultValue": {
-            "value": "false",
-            "computed": false
-          }
+          "description": ""
         },
         "removable": {
           "type": {
@@ -3211,11 +3310,7 @@
             "name": "bool"
           },
           "required": false,
-          "description": "",
-          "defaultValue": {
-            "value": "false",
-            "computed": false
-          }
+          "description": ""
         },
         "onSelectLabel": {
           "type": {
@@ -3283,11 +3378,7 @@
             "name": "func"
           },
           "required": false,
-          "description": "",
-          "defaultValue": {
-            "value": "function noop() {}",
-            "computed": false
-          }
+          "description": ""
         },
         "height": {
           "type": {
@@ -3321,17 +3412,12 @@
           "required": false,
           "description": ""
         },
-        "textAlign": {
-          "defaultValue": {
-            "value": "'right'",
-            "computed": false
-          }
-        },
-        "keyboardType": {
-          "defaultValue": {
-            "value": "'numeric'",
-            "computed": false
-          }
+        "multiline": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
         }
       }
     }
@@ -3590,6 +3676,13 @@
             "value": "'default'",
             "computed": false
           }
+        },
+        "inverted": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
         }
       }
     }
@@ -3651,7 +3744,7 @@
   "src/RowInput/RevealingRow.js": [
     {
       "description": "ReavealingRow enables a row to have revealed options\nthat appear, for instance, when editing it.",
-      "displayName": "RevealingROw",
+      "displayName": "RevealingRow",
       "methods": [
         {
           "name": "onViewLayout",
@@ -3717,13 +3810,24 @@
           },
           "required": false,
           "description": ""
+        },
+        "backgroundColor": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "'white'",
+            "computed": false
+          }
         }
       }
     }
   ],
   "src/Text/Text.js": [
     {
-      "description": "",
+      "description": "Basic Text Component that provides shorthands for sizing,\nlineHeight, and fontWeights.",
       "displayName": "Text",
       "methods": [],
       "props": {
@@ -3796,12 +3900,6 @@
           },
           "required": false,
           "description": ""
-        },
-        "size": {
-          "defaultValue": {
-            "value": "'medium'",
-            "computed": false
-          }
         }
       }
     }

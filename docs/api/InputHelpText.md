@@ -1,57 +1,80 @@
-`InputHelpText` (component)
-===========================
-
+## InputHelpText 
+ 
 InputHelpText is typically used after an InputGroup to
 offer additional information about the above inputs. This is
 just a simple wrapper around SecondaryText with some padding
 provided, and the text color set to light.
 
-@composes Text
+@composes Text### Props
+Name | Type | Default Value | Description
+--- | --- | --- | --- 
+children | node  |   | 
+inverted | bool  |   | 
+ 
 
-Props
------
+  ### Examples
 
-### `children`
+  <script src="https://fb.me/react-15.2.1.js"></script>
+  <script src="https://fb.me/react-dom-15.2.1.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/ReactNative.js"></script>
+  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/panza.web.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js"></script>
+  <div style="position: relative; width: 375px; height: 667px; border: 1px solid #ddd;" id='react-root'></div>
+  <script type="text/babel">
 
-type: `node`
+const {
+  Button,
+  Divider,
+  Base,
+  Text
+} = Panza;
 
+const {
+  ListView
+} = ReactNative;
 
-### `inverted`
+function noop() {
+  console.log('button pressed');
+}
 
-type: `bool`
+const ds = new ListView.DataSource({
+  rowHasChanged: (r1, r2) => r1 !== r2
+});
 
-## Examples
+const Module = ({ examples }) => {
 
-### InputHelpText after an InputGroup
-![Input help text example](images/InputHelpText.png)
+  const datas = ds.cloneWithRows(examples);
 
-```javascript
-<InputGroup label='ROW INPUT' inset={16} mt={3}>
-  <InputToggle
-    value={this.state.editable}
-    onTintColor='warning'
-    onValueChange={(editable) => this.setState({ editable })}
-    label='Editable?'
-  />
-  <InputRow
-    placeholder='Basic Input'
-    value={this.state.basic}
-    editable={this.state.editable}
-    onChangeText={(basic) => this.setState({ basic })} />
+  return React.createElement(Base, {
+    Component: ListView,
+    dataSource: datas,
+    renderRow: row => React.createElement(
+      Base,
+      { p: 2 },
+      React.createElement(
+        Text,
+        { mb: 1, bold: true },
+        row.title
+      ),
+      row.render(),
+      React.createElement(
+        Base,
+        { mt: 1 },
+        React.createElement(
+          Text,
+          null,
+          row.code
+        )
+      )
+    ),
+    renderSeparator: (a, b) => React.createElement(Divider, { key: a + b })
+  });
+};
 
-  <InputRow
-    label='Basic Input with Label'
-    placeholder='Your value'
-    value={this.state.label}
-    editable={this.state.editable}
-    onChangeText={(label) => this.setState({ label })} />
-  <InputRow
-    icon={<SearchIcon />}
-    textAlign='left'
-    editable={this.state.editable}
-    placeholder='Input with icon' />
-</InputGroup>
-<InputHelpText>
-  Some help text. Aute nulla ex ea amet sunt occaecat qui fugiat cupidatat fugiat in. Veniam amet elit et tempor sit ea nulla adipisicing laboris pariatur.
-</InputHelpText>
-```javascript
+const App = () => React.createElement(Module, { examples: Examples() });
+
+ReactNative.AppRegistry.registerComponent('MyApp', () => App);
+ReactNative.AppRegistry.runApplication('MyApp', {
+  rootTag: document.getElementById('react-root')
+});
+  </script>
