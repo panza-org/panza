@@ -10,29 +10,25 @@ function plugin(src) {
   return function run(b) {
     const t = b.types
 
-    function insertCopy(path) {
-      path.insertAfter(t.ObjectProperty( // eslint-disable-line
-        t.identifier('code'),
-        t.stringLiteral(
-          src.slice(path.node.start, path.node.end)
-        )
-      ))
-    }
-
     return {
       visitor: {
-        ObjectProperty: {
-          enter(path) {
-            if (path.node.key.name === 'render') {
-              insertCopy(path)
+        JSXElement(path) {
+          const start = path.node.start
+          const end = path.node.end
+          path.findParent(function(p) { //eslint-disable-line 
+            if (p.node.type === 'ObjectProperty' && p.node.key.name === 'render') {
+              p.insertAfter(t.ObjectProperty( //eslint-disable-line
+                t.identifier('code'),
+                t.stringLiteral(
+                  src.slice(start, end)
+                )
+              ))
             }
-          }
+          })
         }
       }
     }
-
   }
-
 }
 
 

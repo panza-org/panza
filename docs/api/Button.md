@@ -99,7 +99,7 @@ const Examples = () => {
       { onPress: noop },
       'Bacon'
     ),
-    code: 'render: () => (\n        <Button onPress={noop}>Bacon</Button>\n      )'
+    code: '<Button onPress={noop}>Bacon</Button>'
   }, {
     title: 'Primary',
     description: 'A primary Button',
@@ -108,7 +108,7 @@ const Examples = () => {
       { primary: true, onPress: noop },
       'Primary Button'
     ),
-    code: 'render: () => <Button primary onPress={noop}>Primary Button</Button>'
+    code: '<Button primary onPress={noop}>\n        Primary Button\n      </Button>'
   }, {
     title: 'Secondary',
     description: 'A secondary Button',
@@ -117,7 +117,7 @@ const Examples = () => {
       { secondary: true, onPress: noop },
       'Secondary Button'
     ),
-    code: 'render: () => <Button secondary onPress={noop}>Secondary Button</Button>'
+    code: '<Button secondary onPress={noop}>Secondary Button</Button>'
   }, {
     title: 'Positive',
     description: 'A positive Button',
@@ -126,7 +126,7 @@ const Examples = () => {
       { positive: true, onPress: noop },
       'Positive Button'
     ),
-    code: 'render: () => <Button positive onPress={noop}>Positive Button</Button>'
+    code: '<Button positive onPress={noop}>Positive Button</Button>'
   }, {
     title: 'Negative',
     description: 'A negative Button',
@@ -135,7 +135,7 @@ const Examples = () => {
       { negative: true, onPress: noop },
       'Negative Button'
     ),
-    code: 'render: () => <Button negative onPress={noop}>Negative Button</Button>'
+    code: '<Button negative onPress={noop}>Negative Button</Button>'
   }, {
     title: 'Outline',
     description: 'An outline Button',
@@ -144,7 +144,7 @@ const Examples = () => {
       { outline: true, onPress: noop },
       'Outline Button'
     ),
-    code: 'render: () => <Button outline onPress={noop}>Outline Button</Button>'
+    code: '<Button outline onPress={noop}>Outline Button</Button>'
   }, {
     title: 'Primary Outline',
     description: 'A primary, outline Button',
@@ -153,7 +153,7 @@ const Examples = () => {
       { primary: true, outline: true, onPress: noop },
       'Primary Outline Button'
     ),
-    code: 'render: () => <Button primary outline onPress={noop}>Primary Outline Button</Button>'
+    code: '<Button primary outline onPress={noop}>Primary Outline Button</Button>'
   }, {
     title: 'Block',
     description: 'A block button stretches it to the full width of the container element',
@@ -162,7 +162,7 @@ const Examples = () => {
       { block: true, onPress: noop },
       'Block Button'
     ),
-    code: 'render: () => <Button block onPress={noop}>Block Button</Button>'
+    code: '<Button block onPress={noop}>Block Button</Button>'
   }, {
     title: 'Icon',
     description: 'A primary outline button with an icon (ios-add)',
@@ -171,7 +171,7 @@ const Examples = () => {
       { primary: true, outline: true, icon: 'ios-add', onPress: noop },
       'Icon Button'
     ),
-    code: 'render: () => <Button primary outline icon=\'ios-add\' onPress={noop}>Icon Button</Button>'
+    code: '<Button primary outline icon=\'ios-add\' onPress={noop}>Icon Button</Button>'
   }, {
     title: 'Rounded',
     description: 'A button with a custom rounded value',
@@ -180,7 +180,7 @@ const Examples = () => {
       { onPress: noop, primary: true, rounded: 25 },
       'Rounded'
     ),
-    code: 'render: () => <Button onPress={noop} primary rounded={25}>Rounded</Button>'
+    code: '<Button onPress={noop} primary rounded={25}>Rounded</Button>'
   }, {
     title: 'Small',
     description: 'A small button',
@@ -189,7 +189,7 @@ const Examples = () => {
       { onPress: noop, small: true },
       'Small'
     ),
-    code: 'render: () => <Button onPress={noop} small>Small</Button>'
+    code: '<Button onPress={noop} small>Small</Button>'
   }, {
     title: 'Large',
     description: 'A large button',
@@ -198,7 +198,7 @@ const Examples = () => {
       { onPress: noop, large: true },
       'Large'
     ),
-    code: 'render: () => <Button onPress={noop} large>Large</Button>'
+    code: '<Button onPress={noop} large>Large</Button>'
   }];
 };
 
