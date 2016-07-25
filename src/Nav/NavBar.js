@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         alignItems: 'flex-start',
         right: 0,
-        bottom: 13,
+        bottom: 19,
         paddingLeft: 16,
         left: 0,
         // justifyContent: 'center',
