@@ -16,7 +16,8 @@ import {
 const PopupMenuOption = ({
   opt,
   inverted,
-  panza
+  panza,
+  ...props
 }) => {
 
   if (React.isValidElement(opt)) {
@@ -27,6 +28,7 @@ const PopupMenuOption = ({
     onPress,
     label,
     primary,
+    backgroundColor,
     condensed,
     ...other
   } = opt
@@ -36,9 +38,12 @@ const PopupMenuOption = ({
       py={condensed ? 1 : 2}
       px={2}
       underlayColor='#eee'
-      backgroundColor='white'
+      backgroundColor={backgroundColor}
       Component={TouchableHighlight}
-      onPress={onPress}
+      onPress={() => {
+        props.onPress()
+        if (onPress) onPress()
+      }}
       style={{
         borderTopWidth: StyleSheet.hairlineWidth,
         borderTopColor: inverted ? panza.invertedBorderColor : panza.borderColor
@@ -63,8 +68,10 @@ const PopupMenuOption = ({
 
 PopupMenuOption.propTypes = {
   inverted: PropTypes.bool,
+  onPress: PropTypes.func,
+  backgroundColor: PropTypes.string,
   opt: PropTypes.shape({
-    onPress: PropTypes.func.isRequired,
+    onPress: PropTypes.func,
     label: PropTypes.string.isRequired
   }),
   panza: PropTypes.object.isRequired
@@ -94,13 +101,18 @@ class PopupMenu extends React.Component {
     position: PropTypes.oneOf(['bottom', 'center', 'top']),
     customHeader: PropTypes.node,
     inverted: PropTypes.bool,
-    backgroundColor: PropTypes.string
+    backgroundColor: PropTypes.string,
+
+    // Close the popup menu when an option is selected
+    autoDismiss: PropTypes.bool,
+    containerBackgroundColor: PropTypes.string
   }
 
   static defaultProps = {
     showing: false,
     position: 'center',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    containerBackgroundColor: 'black'
   }
 
   render() {
@@ -110,8 +122,10 @@ class PopupMenu extends React.Component {
       inverted,
       children,
       backgroundColor,
+      containerBackgroundColor,
       options,
       title,
+      autoDismiss,
       description,
       showCancel,
       onRequestClose,
@@ -120,17 +134,31 @@ class PopupMenu extends React.Component {
     } = this.props
 
     const optionEls = options.map((opt, i) => (
-      <Option opt={opt} key={opt.key || i} />
+      <Option
+        backgroundColor={backgroundColor}
+        inverted={inverted}
+        opt={opt}
+        key={opt.key || i}
+        onPress={() => {
+          if (autoDismiss) {
+            onRequestClose()
+          }
+        }}
+      />
     ))
+
 
     if (showCancel) {
       optionEls.push(
         <Option
+          backgroundColor={backgroundColor}
+          inverted={inverted}
+          onPress={onRequestClose}
           opt={{
             label: 'Cancel',
             condensed: false,
             primary: true,
-            onPress: () => onRequestClose()
+            underlayColor: inverted ? '#222' : '#eee'
           }}
           key='cancel'
         />
@@ -138,7 +166,12 @@ class PopupMenu extends React.Component {
     }
 
     const opts = (
-      <Base backgroundColor={backgroundColor} rounded={15} m={2} style={{ overflow: 'hidden' }}>
+      <Base
+        backgroundColor={backgroundColor}
+        rounded={15}
+        m={2}
+        style={{ overflow: 'hidden' }}
+      >
         {customHeader}
         {(title || description) && (
           <Base py={2} px={2} align='center'>
@@ -161,7 +194,7 @@ class PopupMenu extends React.Component {
         Content={opts}
         position={position}
         onRequestClose={onRequestClose}
-        backgroundColor='black'
+        backgroundColor={containerBackgroundColor}
         {...other}
       >
         {children}

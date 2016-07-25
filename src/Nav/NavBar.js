@@ -9,6 +9,7 @@ import {
 
 import Base from '../Base'
 import NavTitle from './NavTitle'
+import { themeProvider } from '../config'
 
 const defaultNavbarStyle = {
   borderBottomWidth: 1 / PixelRatio.get(),
@@ -19,6 +20,8 @@ const defaultNavbarStyle = {
  * Static navigation bar that mimics that found
  * within ReactNative. To be used when you want a static
  * representation of the NavBar, without transitions.
+ *
+ * @Composes Base, NavTitle
  */
 
 const Navbar = (props) => {
@@ -33,8 +36,12 @@ const Navbar = (props) => {
     titleColor,
     LeftButton,
     RightButton,
+    panza,
     ...other
   } = props
+
+  const { borderColor, invertedBorderColor } = panza
+  const border = inverted ? invertedBorderColor : borderColor
 
   return (
     <Base
@@ -47,7 +54,8 @@ const Navbar = (props) => {
         style={[
           styles.navBar,
           children && styles.hasChildren,
-          transparent && styles.transparent
+          transparent && styles.transparent,
+          { borderBottomColor: border }
         ]}
       >
         <View style={styles.navTopRow}>
@@ -102,7 +110,8 @@ Navbar.propTypes = {
   transparent: PropTypes.bool,
   backgroundColor: PropTypes.string,
   titleColor: PropTypes.string,
-  inverted: PropTypes.bool
+  inverted: PropTypes.bool,
+  panza: PropTypes.object.isRequired
 }
 
 Navbar.totalNavHeight = Platform.select({
@@ -111,7 +120,7 @@ Navbar.totalNavHeight = Platform.select({
   web: 44 + 20
 })
 
-export default Navbar
+export default themeProvider(Navbar)
 
 const styles = StyleSheet.create({
   hasChildren: {
@@ -174,7 +183,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         alignItems: 'flex-start',
         right: 0,
-        bottom: 13,
+        bottom: 19,
         paddingLeft: 16,
         left: 0,
         // justifyContent: 'center',

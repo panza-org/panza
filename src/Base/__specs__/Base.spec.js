@@ -122,6 +122,11 @@ describe('<Base />', () => {
     n({ wrap: true }, { flexWrap: 'wrap' })
   })
 
+  it('should convert other layout props to styles', () => {
+    n({ height: 40 }, { height: 40 })
+    n({ width: 50 }, { width: 50 })
+  })
+
   it('should support the rounded prop', () => {
     n({ rounded: true }, { borderRadius: config.borderRadius })
     n({ rounded: 10 }, { borderRadius: 10 })

@@ -23,7 +23,8 @@ import {
  * On Anroid, the date-picker prompts the user to select
  * a date in a modal menu.
  *
- * @composes InputTouchable, DatePickerIOS, DatePickerAndroid
+ * @Platform ios, android
+ * @composes InputTouchable
  */
 
 class InputDatePicker extends React.Component {
@@ -44,7 +45,8 @@ class InputDatePicker extends React.Component {
     mode: PropTypes.string,
     date: PropTypes.object.isRequired,
     onDateChange: PropTypes.func.isRequired,
-    editable: PropTypes.bool
+    editable: PropTypes.bool,
+    inverted: PropTypes.bool
   }
 
   static defaultProps = {
@@ -77,7 +79,10 @@ class InputDatePicker extends React.Component {
   renderIOS() {
     return (
       <View
-        style={styles.pickerWrapper}
+        style={[
+          styles.pickerWrapper,
+          this.props.inverted && { backgroundColor: 'rgba(255,255,255,1)' }
+        ]}
       >
         <DatePickerIOS
           date={new Date(this.props.date)}
@@ -99,6 +104,7 @@ class InputDatePicker extends React.Component {
       onToggleExpansion,
       label,
       value,
+      inverted,
       editable,
       ...other
     } = this.props
@@ -106,7 +112,9 @@ class InputDatePicker extends React.Component {
     const Row = (
       <InputTouchable
         label={label}
+        inverted={inverted}
         value={value}
+        pr={2}
         onPress={() => {
           if (Platform.OS === 'ios') {
             onToggleExpansion()

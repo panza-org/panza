@@ -16,6 +16,7 @@ export const TextBase = ({
   style,
   baseStyle,
   panza,
+  children,
   Component,
   ...props
 }) => {
@@ -32,7 +33,7 @@ export const TextBase = ({
 
   const Element = Component || Text
 
-  return <Element style={sx} {...other}>{props.children}</Element>
+  return <Element style={sx} {...other}>{children}</Element>
 
 }
 

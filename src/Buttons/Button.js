@@ -11,19 +11,9 @@ import {
   Icon
 } from '../index'
 
-import _ from 'lodash'
-
-function mapPropsToStyleProps(props, propsMap) {
-  return Object.assign({},
-    buttonPropsMap.default,
-    buttonPropsMap.medium,
-    ..._.filter(propsMap, (v, k) => props[k]),
-    props
-  )
-}
+import mapToProps from '../Base/utils/mapPropsToStyles'
 
 /** Basic button styles **/
-
 const buttonPropsMap = {
   large: { height: 55, px: 3 },
   small: { height: 30, px: 1 },
@@ -76,6 +66,7 @@ const buttonPropsMap = {
 /**
  * A basic button that inherits from Base, and provides colourization
  * based upon background color configuration.
+ * @Composes Base, Text, Icon
  */
 
 export const Button = ({
@@ -87,10 +78,11 @@ export const Button = ({
 }) => {
 
   // determine our basic style props
-  const props = mapPropsToStyleProps(other, buttonPropsMap)
+  const defaults = { ...buttonPropsMap.medium, ...buttonPropsMap.default }
+  const mappedProps = mapToProps(other, buttonPropsMap, defaults)
   let textColor = other.outline
-    ? props.borderColor
-    : props.textColor
+    ? mappedProps.borderColor
+    : mappedProps.textColor
 
   // create our text component if necessary
   const child = (children && typeof children === 'string')
@@ -125,7 +117,7 @@ export const Button = ({
         block && styles.block,
         disabled && styles.disabled
       ]}
-      {...props}
+      {...mappedProps}
     >
       <View style={styles.buttonContent}>
         {iconNode}
@@ -137,41 +129,50 @@ export const Button = ({
 
 Button.propTypes = {
 
-  /** button size **/
+  /** button size */
   small: PropTypes.bool,
   medium: PropTypes.bool,
   large: PropTypes.bool,
 
-  /** button theme **/
+  /** Uses the primary colour to style the button. */
   primary: PropTypes.bool,
+
+  /** Uses the secondary colour to style the button. */
   secondary: PropTypes.bool,
+
+  /** Uses the positive colour to style the button. */
   positive: PropTypes.bool,
+
+  /** Uses the negative colour to style the button. */
   negative: PropTypes.bool,
+
+  /** Uses the midgray colour to style the button. */
   default: PropTypes.bool,
 
+  /** Use an outline button style **/
+  outline: PropTypes.bool,
+
+  /** Accepts either a text string or a custom node */
   children: PropTypes.node,
 
-  /** disables the button, and reduces its opacity **/
+  /** disables the button, and reduces its opacity */
   disabled: PropTypes.bool,
+  rounded: PropTypes.number,
   onPress: PropTypes.func,
   underlayColor: PropTypes.string,
   backgroundColor: PropTypes.string,
   borderColor: PropTypes.string,
 
-  /** stretch the button width **/
+  /** stretch the button width */
   block: PropTypes.bool,
 
-  /** style text colour when using label prop **/
-  textColor: PropTypes.string,
-
-  /** optional icon **/
+  /** optional icon string or node */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
 }
 
 Button.displayName = 'Button'
 
 Button.defaultProps = {
-  theme: 'default',
   size: 'medium',
   disabled: false,
   outline: false,

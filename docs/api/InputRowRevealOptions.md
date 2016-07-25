@@ -1,19 +1,10 @@
-`InputRowRevealOptions` (component)
-===================================
-
+## InputRowRevealOptions 
+ 
 Revealable row options container. Typically used
 to delete a row.
-
-Props
------
-
-### `height`
-
-type: `number`
-defaultValue: `40`
-
-
-### `options`
-
-type: `array`
-
+ ### Props
+Name | Type | Default Value | Description
+--- | --- | --- | --- 
+height | number  | 40 | 
+options | array  |   | 
+ 

@@ -4,8 +4,14 @@ import InputHelpText from './InputHelpText'
 import InputToggle from './InputToggle'
 import InputPicker from './InputPicker'
 import InputDatePicker from './InputDatePicker'
-import InputRow from './InputRow'
-import InputRowRevealOptions, { RevealOption } from './InputRowRevealOptions'
+import InputRow, {
+  RowActions,
+  RowAction,
+  RemoveButton
+} from './InputRow'
+import InputRowRevealOptions, {
+  RevealOption
+} from './InputRowRevealOptions'
 import InputAddRow from './InputAddRow'
 import InputTouchable from './InputTouchable'
 import InputExpandable from './InputExpandable'
@@ -24,5 +30,8 @@ export {
   InputAddRow,
   InputTouchable,
   InputExpandable,
-  RevealingRow
+  RevealingRow,
+  RowActions,
+  RowAction,
+  RemoveButton
 }

@@ -15,10 +15,8 @@ import {
   Input
 } from '../index'
 
-function noop() {}
-
 const VerticalDivider = () => (
-  <View style={{ width: 1, backgroundColor: 'white' }} />
+  <View style={{ width: StyleSheet.hairlineWidth, backgroundColor: 'white' }} />
 )
 
 import RevealingRow from './RevealingRow'
@@ -113,7 +111,11 @@ RemoveButton.displayName = 'RemoveButton'
 
 
 /**
- * A removable input
+ * An Input field with a lot of added functionality. You'd typically
+ * want to wrap this within an InputGroup.
+ *
+ * @Platform ios, android, web
+ * @Composes RevealingRow, InputRowCell, RemoveButton, Input, Base, Text, RowAction, RowActions
  */
 
 class InputRow extends React.Component {
@@ -137,7 +139,8 @@ class InputRow extends React.Component {
     height: PropTypes.number,
     icon: PropTypes.node,
     inverted: PropTypes.bool,
-    condensed: PropTypes.bool
+    condensed: PropTypes.bool,
+    multiline: PropTypes.bool
   }
 
 
@@ -145,11 +148,6 @@ class InputRow extends React.Component {
     removable: false,
     editable: true,
     backgroundColor: 'white',
-    textAlign: 'right',
-    keyboardType: 'numeric',
-    autoFocus: false,
-    vertical: false,
-    onRequestRemove: noop,
     verticalHeight: 80,
     height: 50
   }
@@ -182,6 +180,7 @@ class InputRow extends React.Component {
         <Text
           bold
           small
+          inverted={this.props.inverted && !this.props.onSelectLabel}
           numberOfLines={1}
           color={(this.props.editable && this.props.onSelectLabel) ? 'primary' : 'default'}
           baseStyle={styles.labelText}
@@ -193,6 +192,19 @@ class InputRow extends React.Component {
   }
 
   render() {
+    const {
+      height,
+      onRequestRemove,
+      inverted,
+      editable,
+      backgroundColor,
+      removable,
+      vertical,
+      condensed,
+      icon,
+      value,
+      ...other
+    } = this.props
 
     const revealed = (
       <RowActions>
@@ -209,43 +221,38 @@ class InputRow extends React.Component {
           key='delete'
           onPress={() => {
             this.setState({ showingOptions: false })
-            this.props.onRequestRemove()
+            onRequestRemove()
           }}
-          backgroundColor='red'
+          backgroundColor='negative'
         >
           <Text small color='white'>Remove</Text>
         </RowAction>
       </RowActions>
     )
 
-    let height = this.props.height
+    let h = height
 
-    if (this.props.vertical) {
-      height = this.props.verticalHeight
+    if (vertical) {
+      h = this.props.verticalHeight
     }
 
-    if (this.props.condensed) {
-      height = 40
+    if (condensed) {
+      h = 40
     }
-
-    if (height === 'auto') {
-      height = null
-    }
-
-    const inverted = this.props.inverted
 
     return (
       <RevealingRow
-        style={{ flex: 1, alignSelf: 'stretch' }}
+        backgroundColor={backgroundColor}
+        style={{ flex: 0, alignSelf: 'stretch' }}
         showingOptions={this.state.showingOptions}
         revealedContent={revealed}
       >
 
-        <InputRowCell height={height}>
+        <InputRowCell height={h}>
 
-          <Base row={this.props.removable} style={{ alignSelf: 'stretch' }} flex={1} pl={2}>
+          <Base row={removable} alignSelf='stretch' flex={1} pl={2}>
 
-            {this.props.removable && (
+            {removable && (
               <RemoveButton
                 style={{ marginRight: 16 }}
                 onPress={() => {
@@ -254,15 +261,14 @@ class InputRow extends React.Component {
               />
             )}
 
-
             <Base
               flex={1}
               style={{ alignSelf: 'stretch' }}
-              row={!this.props.vertical}
+              row={!vertical}
             >
 
-            {this.props.icon && (
-              React.cloneElement(this.props.icon, {
+            {icon && (
+              React.cloneElement(icon, {
                 baseStyle: { alignSelf: 'center' },
                 mr: 2
               })
@@ -270,24 +276,21 @@ class InputRow extends React.Component {
 
               {this.renderLabel()}
 
-              {this.props.editable ? (
+              {editable ? (
                 <Input
-                  autoFocus={this.props.autoFocus}
-                  disabled={!this.props.editable}
-                  inverted={inverted}
+                  disabled={!editable}
                   flex={1}
-                  placeholder={this.props.placeholder}
+                  inverted={inverted}
                   placeholderTextColor={'#888'}
                   style={[
                     styles.input,
                     (this.props.vertical || !this.props.label) && { paddingLeft: 0 }]}
-                  value={this.props.value}
-                  onChangeText={this.props.onChangeText}
+                  {...other}
                 />
                 ) : (
                 <Base px={0} flex={1} justifyContent='center'>
                   <Text numberOfLines={1} inverted={inverted}>
-                    {this.props.value}
+                    {value}
                   </Text>
                 </Base>
                 )

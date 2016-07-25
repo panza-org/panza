@@ -1,271 +1,45 @@
-`TextBase` (component)
-======================
-
+## TextBase 
+ 
 A general purpose text component which
 converts props into styles defined in the configuration.
 Unlike Base, TextBase supports special Text props.
-
-Props
------
-
-### `Component`
-
-type: `any`
-
-
-### `align`
-
-set align-items property *
-
-type: `string`
-
-
-### `backgroundColor`
-
-Background color *
-
-type: `string`
-
-
-### `baseStyle`
-
-type: `any`
-
-
-### `bold`
-
-bold font weight *
-
-type: `bool`
-
-
-### `borderColor`
-
-Border color *
-
-type: `string`
-
-
-### `children`
-
-children (typically text) *
-
-type: `node`
-
-
-### `color`
-
-text colour *
-
-type: `string`
-defaultValue: `'default'`
-
-
-### `column`
-
-set flex-direction to column *
-
-type: `bool`
-
-
-### `flex`
-
-flex property *
-
-type: `number`
-
-
-### `fontSize`
-
-text size *
-
-type: `enum(0|1|2|3|4|5|6)`
-
-
-### `height`
-
-set the height of the element *
-
-type: `number`
-
-
-### `inverted`
-
-use the inverted color (by default, white) *
-
-type: `bool`
-
-
-### `justify`
-
-set justify-content property *
-
-type: `string`
-
-
-### `lineHeight`
-
-text lineheight *
-
-type: `enum(0|1|2|3|4|5|6)`
-defaultValue: `1`
-
-
-### `m`
-
-Margin *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `mb`
-
-Margin bottom *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `ml`
-
-Margin left *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `mr`
-
-Margin right *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `mt`
-
-Margin top *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `mx`
-
-Margin x-axis *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `my`
-
-Margin y-asix *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `p`
-
-Padding *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `panza` (required)
-
-a theme provided by a higher order component *
-
-type: `object`
-
-
-### `pb`
-
-Padding bottom *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `pl`
-
-Padding left *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `pr`
-
-Padding right *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `pt`
-
-Padding top *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `px`
-
-Padding x-axis *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `py`
-
-Padding y-axis *
-
-type: `enum(0|1|2|3|4)`
-
-
-### `rounded`
-
-Border radius *
-
-type: `union(bool|number)`
-
-
-### `row`
-
-set flex-direction to row *
-
-type: `bool`
-
-
-### `style`
-
-type: `any`
-
-
-### `textAlign`
-
-text alignment *
-
-type: `string`
-
-
-### `thick`
-
-thick font weight *
-
-type: `bool`
-
-
-### `thin`
-
-thin font weight *
-
-type: `bool`
-
-
-### `width`
-
-set the width of the element *
-
-type: `number`
-
-
-### `wrap`
-
-flex-wrap property *
-
-type: `bool`
-
+ ### Props
+Name | Type | Default Value | Description
+--- | --- | --- | --- 
+Component | any  |   | 
+style | any  |   | 
+baseStyle | any  |   | 
+fontSize | 0&#124;1&#124;2&#124;3&#124;4&#124;5&#124;6 |   | text size *
+lineHeight | 0&#124;1&#124;2&#124;3&#124;4&#124;5&#124;6 | 1 | text lineheight *
+color | string  | 'default' | text colour *
+textAlign | string  |   | text alignment *
+bold | bool  |   | bold font weight *
+thin | bool  |   | thin font weight *
+thick | bool  |   | thick font weight *
+inverted | bool  |   | use the inverted color (by default, white) *
+m | 0&#124;1&#124;2&#124;3&#124;4 |   | Margin *
+mt | 0&#124;1&#124;2&#124;3&#124;4 |   | Margin top *
+mr | 0&#124;1&#124;2&#124;3&#124;4 |   | Margin right *
+mb | 0&#124;1&#124;2&#124;3&#124;4 |   | Margin bottom *
+ml | 0&#124;1&#124;2&#124;3&#124;4 |   | Margin left *
+mx | 0&#124;1&#124;2&#124;3&#124;4 |   | Margin x-axis *
+my | 0&#124;1&#124;2&#124;3&#124;4 |   | Margin y-asix *
+p | 0&#124;1&#124;2&#124;3&#124;4 |   | Padding *
+pt | 0&#124;1&#124;2&#124;3&#124;4 |   | Padding top *
+pr | 0&#124;1&#124;2&#124;3&#124;4 |   | Padding right *
+pb | 0&#124;1&#124;2&#124;3&#124;4 |   | Padding bottom *
+pl | 0&#124;1&#124;2&#124;3&#124;4 |   | Padding left *
+px | 0&#124;1&#124;2&#124;3&#124;4 |   | Padding x-axis *
+py | 0&#124;1&#124;2&#124;3&#124;4 |   | Padding y-axis *
+backgroundColor | string  |   | Background color *
+rounded | bool&#124;number |   | Border radius *
+borderColor | string  |   | Border color *
+flex | number  |   | flex property *
+wrap | bool  |   | flex-wrap property *
+column | bool  |   | set flex-direction to column *
+row | bool  |   | set flex-direction to row *
+align | string  |   | set align-items property *
+justify | string  |   | set justify-content property *
+height | number  |   | set the height of the element *
+width | number  |   | set the width of the element *
+ 

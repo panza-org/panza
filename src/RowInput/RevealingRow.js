@@ -4,24 +4,32 @@ import {
   StyleSheet,
   View
 } from 'react-native'
+import {
+  Base
+} from '../index'
 
 /**
  * ReavealingRow enables a row to have revealed options
  * that appear, for instance, when editing it.
+ *
+ * @Platform ios, android, web
+ * @Composes Base
  */
 
 class RevealingRow extends React.Component {
 
-  static displayName = 'RevealingROw'
+  static displayName = 'RevealingRow'
 
   static propTypes = {
     showingOptions: PropTypes.bool.isRequired,
     revealedContent: PropTypes.node.isRequired,
-    children: PropTypes.node
+    children: PropTypes.node,
+    backgroundColor: PropTypes.string
   }
 
   static defaultProps = {
-    showingOptions: false
+    showingOptions: false,
+    backgroundColor: 'white'
   }
 
   constructor(props) {
@@ -76,7 +84,7 @@ class RevealingRow extends React.Component {
 
   render() {
     return (
-      <View style={{ position: 'relative', flex: 1 }}>
+      <View style={{ position: 'relative' }}>
         {this.state.renderRevealOptions && (
           <View style={[styles.revealContainer, { height: this.state.rowHeight }]}>
             <View
@@ -87,16 +95,17 @@ class RevealingRow extends React.Component {
             </View>
           </View>
         )}
-        <Animated.View
+        <Base
           onLayout={this.onViewLayout}
           style={{
             flex: 1,
-            backgroundColor: 'white',
             transform: [{ translateX: this.state.leftPosition }]
           }}
+          backgroundColor={this.props.backgroundColor}
+          Component={Animated.View}
         >
-          {this.props.children}
-        </Animated.View>
+            {this.props.children}
+        </Base>
       </View>
     )
   }

@@ -1,5 +1,6 @@
 import React from 'react'
 import extend from 'deep-assign'
+import hoistNonReactStatic from 'hoist-non-react-statics'
 
 const baseColors = {
   blue: '#08e',
@@ -67,7 +68,7 @@ const thin = '300'
 
 // Borders
 const borderColor = 'rgba(0, 0, 0, 0.25)'
-const invertedBorderColor = 'rgba(255,255,255,0.8)'
+const invertedBorderColor = 'rgba(255,255,255,0.15)'
 const borderRadius = 2
 
 const config = {
@@ -98,12 +99,16 @@ export function customizeTheme(customTheme) {
 
 export function themeProvider(Component) {
 
-  return class Theme extends React.Component {
+  class Theme extends React.Component {
 
     render() {
       return <Component panza={baseTheme} {...this.props} />
     }
 
   }
+
+  hoistNonReactStatic(Theme, Component)
+
+  return Theme
 
 }

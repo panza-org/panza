@@ -1,28 +1,19 @@
-`InputAddRow` (component)
-=========================
+## InputAddRow 
+ 
+An InputTouchable with a plus icon. This is typically used
+within the context of an InputGroup consisting of
+removable inputs.
 
-Arrow row button. Typically the condensed form
-will be used in conjunction with <RemovableInput />
-
-Props
------
-
-### `backgroundColor`
-
-type: `string`
+__Platforms__:  ios, android, web
+ 
+ __Composes__: [InputTouchable](InputTouchable.md), [Icon](Icon.md) 
 
 
-### `disabled`
-
-type: `bool`
-
-
-### `label` (required)
-
-type: `string`
-
-
-### `onPress` (required)
-
-type: `func`
-
+ ### Props
+Name | Type | Default Value | Description
+--- | --- | --- | --- 
+backgroundColor | string  |   | 
+onPress | func  (required) |   | 
+label | string  (required) |   | 
+disabled | bool  |   | 
+ 

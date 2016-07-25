@@ -1,35 +1,26 @@
 import React, { PropTypes } from 'react'
 import {
-  View,
   StyleSheet
 } from 'react-native'
 
 import { Base } from '../index'
 
 /**
- * Input row cell
+ * A simple component that is used to wrap various Input Rows.
+ * It provides a fixed height, and other default styles.
+ *
+ * @Platform ios, android, web
+ * @Composes Base
  */
 
 const InputRowCell = ({ children, height, ...other }) => {
 
   const fixedHeight = height === 'auto' ? null : height
 
-  let baseStyle = {
-    alignSelf: 'stretch',
-    padding: 0,
-    justifyContent: 'center',
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-    height: fixedHeight
-  }
-
   return (
-    <View style={styles.row}>
-      <Base baseStyle={baseStyle} {...other}>
-        {children}
-      </Base>
-    </View>
+    <Base {...other} baseStyle={styles.baseStyle} height={fixedHeight}>
+      {children}
+    </Base>
   )
 }
 
@@ -49,5 +40,13 @@ export default InputRowCell
 const styles = StyleSheet.create({
   row: {
     overflow: 'hidden'
+  },
+  baseStyle: {
+    alignSelf: 'stretch',
+    padding: 0,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 0
   }
 })

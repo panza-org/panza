@@ -80,13 +80,11 @@ describe('<TextBase />', () => {
     n({ thin: true }, { fontWeight: config.thin })
     n({ inverted: true }, { color: config.colors.inverted })
     n({ thick: true }, { fontWeight: config.thick })
-    n({ lineHeight: 0 }, { lineHeight: config.lineHeights[0] })
   })
 
   it('should set the correct defaults', () => {
     n({}, {
-      color: config.colors.default,
-      lineHeight: config.lineHeights[1]
+      color: config.colors.default
     })
   })
 })

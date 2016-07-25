@@ -1,52 +1,15 @@
-`TouchableRowCell` (component)
-==============================
-
+## TouchableRowCell 
+ 
 A touchable row cell container, typically used
 rendering rows in a <ListView>.
-
-Props
------
-
-### `children`
-
-type: `node`
-
-
-### `disabled`
-
-type: `bool`
-defaultValue: `false`
-
-
-### `height`
-
-type: `number`
-
-
-### `highlighted`
-
-type: `func`
-defaultValue: `function noop () {}`
-
-
-### `onPress` (required)
-
-type: `func`
-
-
-### `showMore`
-
-type: `bool`
-defaultValue: `true`
-
-
-### `showMoreProps`
-
-type: `object`
-
-
-### `underlayColor`
-
-type: `string`
-defaultValue: `'rgba(0,0,0,0.1)'`
-
+ ### Props
+Name | Type | Default Value | Description
+--- | --- | --- | --- 
+onPress | func  (required) |   | 
+disabled | bool  | false | 
+highlighted | func  | function noop () {} | 
+showMore | bool  | true | 
+showMoreProps | object  |   | 
+underlayColor | string  | 'rgba(0,0,0,0.1)' | 
+height | number  |   | 
+ 

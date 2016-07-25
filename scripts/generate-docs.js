@@ -1,102 +1,139 @@
 /** eslint-disable **/
 
-var documents = require('../docs/api/components.json')
-var fs = require('fs')
+const documents = require('../docs/api/components.json')
+const fs = require('fs')
+const buildExampleBuffer = require('./generate-examples')
 
 function stringOfLength(string, length) {
-  var newString = '';
-  for (var i = 0; i < length; i++) {
-    newString += string;
+  let newString = ''
+  for (let i = 0; i < length; i++) {
+    newString += string
   }
-  return newString;
+  return newString
 }
 
 function generateTitle(name) {
-  var title = '`' + name + '` (component)';
-  return title + '\n' + stringOfLength('=', title.length) + '\n';
+  return `## ${name} \n ${stringOfLength('=', name)}`
 }
 
 function generateDesciption(description) {
-  return description + '\n';
+  return `${description} \n`
+}
+
+
+// we could eventually build this tree using babel.
+// would be a fun hack project.
+function buildCompositionLinks(description) {
+  const regex = /@Composes(.*)/i
+  const comp = description.match(regex)
+  let newDescription = description.replace(regex, '')
+
+  const platformRegex = /@Platform/i
+  newDescription = newDescription.replace(platformRegex, '__Platforms__: ')
+
+  if (comp && comp[1]) {
+    const m = comp[1]
+    const links = m.split(',').map((c) => {
+      return `[${c.trim()}](${c.trim()}.md)`
+    }).join(', ')
+
+    return `${newDescription || ''} \n __Composes__: ${links} \n\n`
+
+  }
+
+  return newDescription || ''
+
 }
 
 function generatePropType(type) {
-  var values;
-  if (Array.isArray(type.value)) {
-    values = '(' +
-      type.value.map(function(typeValue) {
-        return typeValue.name || typeValue.value;
-      }).join('|') +
-      ')';
-  } else {
-    values = type.value;
+
+  if (!type) {
+    return ''
   }
 
-  return 'type: `' + type.name + (values ? values: '') + '`\n';
+  const n = (type.name === 'union' || type.name === 'enum') ? '' : type.name
+
+  let values
+  if (Array.isArray(type.value)) {
+    const t = type.value
+      .map((typeValue) => typeValue.name || typeValue.value)
+      .join('&#124;')
+
+    values = `${t}`
+  } else {
+    values = type.value
+  }
+
+  return `${n + (values || ' ')}`
 }
 
 function generatePropDefaultValue(value) {
-  return 'defaultValue: `' + value.value + '`\n';
+  if (!value) return ' '
+  return value.value || ' '
 }
 
 function generateProp(propName, prop) {
-  return (
-    '### `' + propName + '`' + (prop.required ? ' (required)' : '') + '\n' +
-    '\n' +
-    (prop.description ? prop.description + '\n\n' : '') +
-    (prop.type ? generatePropType(prop.type) : '') +
-    (prop.defaultValue ? generatePropDefaultValue(prop.defaultValue) : '') +
-    '\n'
-  );
+  const required = prop.required ? ' (required)' : ''
+  const description = prop.description || ''
+  const type = generatePropType(prop.type)
+  const df = generatePropDefaultValue(prop.defaultValue)
+
+  return `${propName} | ${type + required} | ${df} | ${description}`
 }
 
 function generateProps(props) {
-
-
   if (!props) return ''
 
-  var title = 'Props';
+  // Table Header
+  const parts = [
+    '\n ### Props',
+    'Name | Type | Default Value | Description',
+    '--- | --- | --- | --- \n'
+  ].join('\n')
 
-  return (
-    title + '\n' +
-    stringOfLength('-', title.length) + '\n' +
-    '\n' +
-    Object.keys(props).sort().map(function(propName) {
-      return generateProp(propName, props[propName]);
-    }).join('\n')
-  );
+  // The props
+  const propTable = Object.keys(props)
+    .filter(name => (
+      name !== 'panza' && name !== 'children'
+    ))
+    .map(name => (
+      generateProp(name, props[name])
+    ))
+    .join('\n')
+
+  return parts + propTable
 }
 
 function generateMarkdown(name, reactAPI) {
-  var markdownString =
-    generateTitle(name) + '\n' +
-    generateDesciption(reactAPI.description) + '\n' +
-    generateProps(reactAPI.props);
-
-  return markdownString;
+  return generateTitle(name) + '\n' + //eslint-disable-line
+    buildCompositionLinks(reactAPI.description) +
+    generateProps(reactAPI.props)
 }
 
 const keys = Object.keys(documents)
 
+// Generate markdown for all of our docs
 keys.forEach((key) => {
   const file = documents[key]
   file.forEach(comp => {
     const name = comp.displayName
     try {
       if (!name) {
-        throw new Error('No displayName for:'+ key)
+        throw new Error(`No displayName for: ${key}`)
       }
       const md = generateMarkdown(name, comp)
       const exampleExists = fs.existsSync(
-        `${__dirname}/../docs/api/examples/${name}.md`
+        `${__dirname}/../docs/api/examples/${name}.js`
       )
       const exampleBuffer = exampleExists
-        ? fs.readFileSync(__dirname + '/../docs/api/examples/'+name+'.md', {
-          encoding: 'utf-8'
-        })
-        : ''
-      fs.writeFileSync(__dirname + '/../docs/api/'+ name + '.md', md + exampleBuffer)
-    } catch(err) {
+        ? fs.readFileSync(
+          `${__dirname}/../docs/api/examples/${name}.js`,
+          { encoding: 'utf-8' }
+        ) : ''
+
+      const processed = buildExampleBuffer(exampleBuffer)
+      fs.writeFileSync(`${__dirname}/../docs/api/${name}.md`, md + '\n \n' + processed) // eslint-disable-line
+    } catch (err) {
       console.warn(err) // eslint-disable-line
     }
   })

@@ -1,17 +1,10 @@
-`TouchableIcon` (component)
-===========================
-
+## TouchableIcon 
+ 
 A touchable wrapper for <Icon />
-
-Props
------
-
-### `accessibilityLabel` (required)
-
-type: `string`
-
-
-### `onPress` (required)
-
-type: `func`
-
+ ### Props
+Name | Type | Default Value | Description
+--- | --- | --- | --- 
+onPress | func  (required) |   | 
+accessibilityLabel | string  (required) |   | 
+disabled | bool  |   | 
+ 

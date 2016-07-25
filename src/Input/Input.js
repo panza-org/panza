@@ -18,9 +18,9 @@ const Input = (props) => (
         }
       })
     }}
+    underlineColorAndroid='transparent'
     {...props}
     Component={TextInput}
-    underlineColorAndroid='transparent'
   />
 )
 
@@ -30,7 +30,12 @@ Input.propTypes = {
   small: PropTypes.bool,
   medium: PropTypes.bool,
   giant: PropTypes.bool,
-  inverted: PropTypes.bool
+  inverted: PropTypes.bool,
+  placeholderTextColor: PropTypes.string
+}
+
+Input.defaultProps = {
+  placeholderTextColor: '#888'
 }
 
 Input.displayName = 'Input'

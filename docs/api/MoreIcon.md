@@ -1,5 +1,4 @@
-`MoreIcon` (component)
-======================
+## MoreIcon 
+ 
 
-
-
+ 

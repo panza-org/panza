@@ -6,12 +6,13 @@ import {
 } from '../index'
 
 /**
- * An InputTouchable is typically used when you want the user
- * to select a value within another view -- whether it's a ListView,
- * PopupMenu, etc. This module composes TouchableRow, providing
- * default heights and styling to fit in with other Input rows.
+ * An InputTouchable is typically used within the context of an
+ * InputGroup, when you want the user to select a value from another
+ * ListView, PopupMenu, etc. It's a very simple wrapper around
+ * TouchableRow, to make it play nicely with other Input components.
  *
- * @composes TouchableRow
+ * @Platform ios, android, web
+ * @composes TouchableRow, Text
  */
 
 const InputTouchable = ({
@@ -21,6 +22,7 @@ const InputTouchable = ({
   showMore,
   backgroundColor,
   value,
+  inverted,
   labelColor,
   condensed,
   onPress,
@@ -38,12 +40,13 @@ const InputTouchable = ({
       disabled={disabled}
       backgroundColor={backgroundColor}
       image={icon || image}
-      primaryText={(
-        <Text numberOfLines={1} lineHeight={2} color={labelColor}>
+      primaryText={
+        <Text small bold numberOfLines={1} inverted={inverted} lineHeight={2} color={labelColor}>
           {label}
         </Text>
-      )}
+      }
       value={value}
+      inverted={inverted}
       showMore={showMore}
       onPress={onPress}
       {...other}
@@ -63,7 +66,8 @@ InputTouchable.propTypes = {
   condensed: PropTypes.bool,
   onPress: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
-  labelColor: PropTypes.string
+  labelColor: PropTypes.string,
+  inverted: PropTypes.bool
 }
 
 InputTouchable.defaultProps = {

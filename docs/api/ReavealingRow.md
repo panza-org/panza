@@ -1,18 +1,9 @@
-`ReavealingRow` (component)
-===========================
+## ReavealingRow 
+ 
 
-
-
-Props
------
-
-### `revealedContent` (required)
-
-type: `node`
-
-
-### `showingOptions` (required)
-
-type: `bool`
-defaultValue: `false`
-
+ ### Props
+Name | Type | Default Value | Description
+--- | --- | --- | --- 
+showingOptions | bool  (required) | false | 
+revealedContent | node  (required) |   | 
+ 

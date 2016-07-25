@@ -15,6 +15,9 @@ import {
  * a bottom border (with a unique inset value), shared background
  * colours, margins, and a label. You could supply your own
  * child components, too.
+ *
+ * @Platform ios, android, web
+ * @Composes Base, Divider, SectionHeader
  */
 
 class InputGroup extends React.Component {
@@ -24,28 +27,29 @@ class InputGroup extends React.Component {
   static propTypes = {
     style: PropTypes.object,
 
-    /** left margin inset for the divider border **/
+    /** left margin inset for the divider border (excluding top and bottom) */
     inset: PropTypes.number,
 
-    /** whether show the top border **/
+    /** show the top border */
     showTopBorder: PropTypes.bool,
 
-    /** whether to show the bottom border **/
+    /** show the bottom border */
     showBottomBorder: PropTypes.bool,
 
-    /** whether to show the dividing border **/
+    /** whether to show the dividing border */
     showBorder: PropTypes.bool,
 
-    /** left margin inset of the top border **/
+    /** left margin inset for the top border */
     topInset: PropTypes.number,
 
-    /** left margin inset of the bottom border **/
+    /** left margin inset for the bottom border */
     bottomInset: PropTypes.number,
 
-    /** an optional label for the input group **/
+    /** a label for the input group */
     label: PropTypes.string,
 
     children: PropTypes.node,
+
     backgroundColor: PropTypes.string,
 
     inverted: PropTypes.bool
@@ -68,6 +72,7 @@ class InputGroup extends React.Component {
       backgroundColor,
       topInset,
       inverted,
+      showBorder,
       label,
       bottomInset,
       ...other
@@ -93,7 +98,7 @@ class InputGroup extends React.Component {
       if (!child) return
 
       // regular border
-      if (count > 0) {
+      if ((count > 0) && showBorder) {
         kids.push(
           <Divider
             key={`divider-${count}`}

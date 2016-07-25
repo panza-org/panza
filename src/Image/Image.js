@@ -21,14 +21,14 @@ class Image extends React.Component {
     height: PropTypes.number,
     width: PropTypes.number,
 
-    /** set the border radius to be fully round (given an equal height/width) **/
+    /** set the border radius to be fully round (given an equal height/width) */
     circular: PropTypes.bool,
 
     style: PropTypes.any,
     source: PropTypes.object.isRequired,
     resizeMode: PropTypes.string,
 
-    /** the border radius of the image **/
+    /** the border radius of the image */
     rounded: PropTypes.oneOfType([PropTypes.number, PropTypes.bool])
   }
 

@@ -1,18 +1,9 @@
-`BaseIcon` (component)
-======================
+## BaseIcon 
+ 
 
-
-
-Props
------
-
-### `name`
-
-type: `string`
-
-
-### `size`
-
-type: `number`
-defaultValue: `25`
-
+ ### Props
+Name | Type | Default Value | Description
+--- | --- | --- | --- 
+size | number  | 25 | 
+name | string  |   | 
+ 

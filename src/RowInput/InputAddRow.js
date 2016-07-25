@@ -23,8 +23,12 @@ const GreenPlusIcon = () => (
 )
 
 /**
- * Arrow row button. Typically the condensed form
- * will be used in conjunction with <RemovableInput />
+ * An InputTouchable with a plus icon. This is typically used
+ * within the context of an InputGroup consisting of
+ * removable inputs.
+ *
+ * @Platform ios, android, web
+ * @Composes InputTouchable, Icon
  */
 
 const InputAddRow = ({

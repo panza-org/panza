@@ -1,12 +1,8 @@
-`RemoveButton` (component)
-==========================
-
+## RemoveButton 
+ 
 Remove button
+ ### Props
+Name | Type | Default Value | Description
+--- | --- | --- | --- 
 
-Props
------
-
-### `children`
-
-type: `node`
-
+ 
