@@ -13,8 +13,11 @@ import {
 import { themeProvider } from '../config'
 
 /**
- * An basic input row with a label and Switch, allowing
+ * A row with a label and switch, allowing
  * the user to toggle a boolean value.
+ *
+ * @Platform ios, android
+ * @Composes InputRowCell, Switch
  */
 
 class InputToggle extends React.Component {

@@ -3,21 +3,41 @@ const Examples = () => {
   const { Text } = Panza
 
   return [
-    'tiny',
-    'small',
-    'medium',
-    'large',
-    'giant'
-  ].map(size => {
-    const props = {
-      [size]: true
+    {
+      title: 'Tiny',
+      render: () => <Text tiny>Hello world</Text>
+    },
+    {
+      title: 'Small',
+      render: () => <Text small>Hello world</Text>
+    },
+    {
+      title: 'Medium',
+      render: () => <Text>Hello world</Text>
+    },
+    {
+      title: 'Large',
+      render: () => <Text>Hello world</Text>
+    },
+    {
+      title: 'Giant',
+      render: () => <Text giant>Hello world</Text>
+    },
+    {
+      title: 'Primary color',
+      render: () => <Text color='primary'>Hello world</Text>
+    },
+    {
+      title: 'Bold',
+      render: () => <Text bold>Hello world</Text>
+    },
+    {
+      title: 'All together now',
+      render: () => <Text giant color='primary' thin>Hello world</Text>
     }
-
-    return {
-      title: size,
-      props: { px: 2 },
-      render: () => <Text {...props}>Id ad commodo veniam labore ut anim quis aliqua consequat voluptate irure cillum elit.</Text>
-    }
+  ].map((p) => {
+    p.props = { px: 2 }
+    return p
   })
 
 }

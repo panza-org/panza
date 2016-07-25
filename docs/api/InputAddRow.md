@@ -1,7 +1,14 @@
 ## InputAddRow 
  
-Arrow row button. Typically the condensed form
-will be used in conjunction with <RemovableInput />
+An InputTouchable with a plus icon. This is typically used
+within the context of an InputGroup consisting of
+removable inputs.
+
+__Platforms__:  ios, android, web
+ 
+ __Composes__: [InputTouchable](InputTouchable.md), [Icon](Icon.md) 
+
+
  ### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 

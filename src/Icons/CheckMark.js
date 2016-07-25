@@ -4,6 +4,8 @@ import { Icon, Base } from '../index'
 /**
  * A basic CheckMark that can either be unchecked
  * or checked.
+ *
+ * @Platform ios, android, web
  * @composes Base, Icon
  */
 

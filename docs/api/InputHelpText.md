@@ -2,11 +2,12 @@
  
 InputHelpText is typically used after an InputGroup to
 offer additional information about the above inputs. This is
-just a simple wrapper around SecondaryText with some padding
+just a simple wrapper around Text with some padding
 provided, and the text color set to light.
 
+__Platforms__:  ios, android, web
  
- __Composes__ [Text](Text.md) 
+ __Composes__: [Text](Text.md) 
 
 
  ### Props

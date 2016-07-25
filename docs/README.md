@@ -1,7 +1,7 @@
 ## Table of Contents
 * [Read Me](/README.md)
 * [Customizing Themes](/docs/Themes.md)
-* [Example Applications](/docs/examples/README.md)
+
 * Elements
   * [Base](/docs/api/Base.md)
   * [Button](/docs/api/Button.md)
@@ -24,7 +24,7 @@
   * [InputPicker](docs/api/InputPicker.md)
   * [InputDatePicker](docs/api/InputDatePicker.md)
   * [InputExpandable](docs/api/InputExpandable.md)
-  * [InputHelpText](docs/api/HelpText.md)
+  * [InputHelpText](docs/api/InputHelpText.md)
 * Lists
   * [TouchableRow](docs/api/TouchableRow.md)
   * [SectionHeader](docs/api/SectionHeader.md)
@@ -39,4 +39,5 @@
   * [Popup](docs/api/Popup.md)
   * [PopupMenu](docs/api/PopupMenu.md)
   * [RevealingRow](docs/api/RevealingRow.md)
+* [Example Applications](/docs/examples/README.md)
 * [Change Log](/CHANGELOG.md)

@@ -7,7 +7,7 @@ On iOS it composes PrimaryText.
 On Android, it composes LargeText.
 
  
- __Composes__ [Text](Text.md) 
+ __Composes__: [Text](Text.md) 
 
 
  ### Props

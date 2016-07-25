@@ -7,9 +7,10 @@ import {
 /**
  * InputHelpText is typically used after an InputGroup to
  * offer additional information about the above inputs. This is
- * just a simple wrapper around SecondaryText with some padding
+ * just a simple wrapper around Text with some padding
  * provided, and the text color set to light.
  *
+ * @Platform ios, android, web
  * @composes Text
  */
 
@@ -18,7 +19,7 @@ class InputHelpText extends React.Component {
   static displayName = 'InputHelpText'
 
   static propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
     inverted: PropTypes.bool
   }
 

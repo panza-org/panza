@@ -6,29 +6,36 @@ borders with an inset, a top border (with a unique inset value),
 a bottom border (with a unique inset value), shared background
 colours, margins, and a label. You could supply your own
 child components, too.
+
+ 
+ __Composes__: [Base](Base.md), [Divider](Divider.md), [SectionHeader](SectionHeader.md) 
+
+
  ### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
 style | object  |   | 
-inset | number  | 0 | left margin inset for the divider border *
-showTopBorder | bool  | true | whether show the top border *
-showBottomBorder | bool  | true | whether to show the bottom border *
-showBorder | bool  | true | whether to show the dividing border *
-topInset | number  | 0 | left margin inset of the top border *
-bottomInset | number  | 0 | left margin inset of the bottom border *
-label | string  |   | an optional label for the input group *
+inset | number  | 0 | left margin inset for the divider border (excluding top and bottom)
+showTopBorder | bool  | true | show the top border
+showBottomBorder | bool  | true | show the bottom border
+showBorder | bool  | true | whether to show the dividing border
+topInset | number  | 0 | left margin inset for the top border
+bottomInset | number  | 0 | left margin inset for the bottom border
+label | string  |   | a label for the input group
 backgroundColor | string  |   | 
 inverted | bool  |   | 
  
 
   ### Examples
 
+  {% raw %}
+
   <script src="https://fb.me/react-15.2.1.js"></script>
   <script src="https://fb.me/react-dom-15.2.1.js"></script>
   <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/ReactNative.js"></script>
   <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/panza.web.js"></script>
   <link href='https://cdn.rawgit.com/driftyco/ionicons/3.0/dist/css/ionicons.css' rel='stylesheet'><link>
-  <div style="position: relative; width: 375px; height: 667px; border: 1px solid #ddd;" id='react-root'></div>
+  <div style="position: relative; width: 400px; height: 667px; border: 1px solid #ddd;" id='react-root'></div>
   <script>
 'use strict';
 
@@ -73,23 +80,31 @@ var Module = function Module(_ref) {
     renderRow: function renderRow(row) {
       return React.createElement(
         Base,
-        { p: 2 },
-        React.createElement(
-          Text,
-          { mb: 1, bold: true },
-          row.title
-        ),
-        row.render(),
+        { py: 2 },
         React.createElement(
           Base,
-          { mt: 1 },
+          { px: 2 },
+          React.createElement(
+            Text,
+            { mb: 1, bold: true },
+            row.title
+          )
+        ),
+        React.createElement(
+          Base,
+          row.props,
+          row.render()
+        ),
+        React.createElement(
+          Base,
+          { p: 2, mt: 1 },
           React.createElement(
             'code',
             null,
             React.createElement(
               'pre',
               null,
-              row.code
+              row.exampleString || row.code
             )
           )
         )
@@ -193,7 +208,7 @@ var Examples = function Examples() {
           null,
           React.createElement(
             InputGroup,
-            { label: 'ROW INPUT', inset: 16, mt: 3 },
+            { label: 'INPUT GROUP LABEL', inset: 16, mt: 3 },
             React.createElement(First, null),
             React.createElement(Second, null),
             React.createElement(Third, null),
@@ -216,7 +231,8 @@ var Examples = function Examples() {
     render: function render() {
       return React.createElement(BasicGroup, null);
     },
-    code: '<BasicGroup />'
+    code: '<BasicGroup />',
+    exampleString: '\n        <View>\n          <InputGroup label=\'INPUT GROUP LABEL\' inset={16} mt={3}>\n            <InputRow\n              value={this.state.first}\n              onChangeText={(first) => this.setState({ first })}\n              placeholder=\'Basic Input\'\n            />\n            <InputRow\n              value={this.state.second}\n              onChangeText={(second) => this.setState({ second })}\n              label=\'Basic Input with Label\'\n              placeholder=\'Your Value\'\n            />\n            <InputRow\n              value={this.state.value}\n              onChangeText={(value) => this.setState({ value })}\n              label=\'Basic Input with Label & Vertical\'\n              vertical\n              placeholder=\'Placeholder\'\n            />\n            <InputRow\n              value={this.state.value}\n              onChangeText={(value) => this.setState({ value })}\n              label=\'Removable\'\n              removable\n              placeholder=\'Type here...\'\n              onSelectLabel={() => noop}\n            />\n          </InputGroup>\n          <InputHelpText>\n            Some help text. Aute nulla ex ea amet sunt occaecat qui fugiat cupidatat fugiat in. Veniam amet elit et tempor sit ea nulla adipisicing laboris pariatur.\n          </InputHelpText>\n        </View>\n      '
   }];
 };
 
@@ -231,3 +247,4 @@ ReactNative.AppRegistry.runApplication('MyApp', {
   rootTag: document.getElementById('react-root')
 });
   </script>
+  {% endraw %}

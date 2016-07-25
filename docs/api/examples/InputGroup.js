@@ -71,7 +71,7 @@ const Examples = () => {
 
     return (
       <View>
-        <InputGroup label='ROW INPUT' inset={16} mt={3}>
+        <InputGroup label='INPUT GROUP LABEL' inset={16} mt={3}>
           <First />
           <Second />
           <Third />
@@ -91,7 +91,42 @@ const Examples = () => {
       title: 'Basic InputGroup',
       render: () => (
         <BasicGroup />
-      )
+      ),
+      exampleString: `
+        <View>
+          <InputGroup label='INPUT GROUP LABEL' inset={16} mt={3}>
+            <InputRow
+              value={this.state.first}
+              onChangeText={(first) => this.setState({ first })}
+              placeholder='Basic Input'
+            />
+            <InputRow
+              value={this.state.second}
+              onChangeText={(second) => this.setState({ second })}
+              label='Basic Input with Label'
+              placeholder='Your Value'
+            />
+            <InputRow
+              value={this.state.value}
+              onChangeText={(value) => this.setState({ value })}
+              label='Basic Input with Label & Vertical'
+              vertical
+              placeholder='Placeholder'
+            />
+            <InputRow
+              value={this.state.value}
+              onChangeText={(value) => this.setState({ value })}
+              label='Removable'
+              removable
+              placeholder='Type here...'
+              onSelectLabel={() => noop}
+            />
+          </InputGroup>
+          <InputHelpText>
+            Some help text. Aute nulla ex ea amet sunt occaecat qui fugiat cupidatat fugiat in. Veniam amet elit et tempor sit ea nulla adipisicing laboris pariatur.
+          </InputHelpText>
+        </View>
+      `
     }
   ]
 }

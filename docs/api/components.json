@@ -1,7 +1,7 @@
 {
   "src/Base/Base.js": [
     {
-      "description": "A general purpose component that converts our props into styles\ndefined by the user. Heavily inspired by (and somewhat directly copied)\nfrom rebass.",
+      "description": "A general purpose component that converts props into styles\ndefined by our theme. It's heavily inspired by the Base\ncomponent provided by [rebass](https://github.com/jxnblk/rebass).",
       "displayName": "Base",
       "methods": [],
       "props": {
@@ -1511,8 +1511,8 @@
   ],
   "src/Icons/BaseIcon.js": [
     {
-      "description": "Our base icon component that all other icons\ncompose. It uses ionicons, as provided by\nreact-native-vector-icons",
-      "displayName": "BaseIcon",
+      "description": "Our base icon component that all other icons\ncompose. It uses Ionicons 3, as provided by\nreact-native-vector-icons on Android and iOS.\nTo use this on the web, you must include a link\ntag to the Ionicons 3 stylesheet.\n\n@Platform ios, android, web\n@Composes TextBase",
+      "displayName": "Icon",
       "methods": [],
       "props": {
         "name": {
@@ -1532,6 +1532,13 @@
             "value": "35",
             "computed": false
           }
+        },
+        "color": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
         }
       }
     }
@@ -1565,7 +1572,7 @@
   ],
   "src/Icons/CheckMark.js": [
     {
-      "description": "A basic CheckMark that can either be unchecked\nor checked.\n@composes Base, Icon",
+      "description": "A basic CheckMark that can either be unchecked\nor checked.\n\n@Platform ios, android, web\n@composes Base, Icon",
       "displayName": "CheckMark",
       "methods": [],
       "props": {
@@ -1751,7 +1758,7 @@
             "name": "bool"
           },
           "required": false,
-          "description": "set the border radius to be fully round (given an equal height/width) *",
+          "description": "set the border radius to be fully round (given an equal height/width)",
           "defaultValue": {
             "value": "false",
             "computed": false
@@ -1795,7 +1802,7 @@
             ]
           },
           "required": false,
-          "description": "the border radius of the image *",
+          "description": "the border radius of the image",
           "defaultValue": {
             "value": "false",
             "computed": false
@@ -2623,7 +2630,15 @@
         },
         "secondaryText": {
           "type": {
-            "name": "string"
+            "name": "union",
+            "value": [
+              {
+                "name": "string"
+              },
+              {
+                "name": "node"
+              }
+            ]
           },
           "required": false,
           "description": ""
@@ -2641,7 +2656,7 @@
             ]
           },
           "required": false,
-          "description": ""
+          "description": "A value attribute of the cell, to appear on the right"
         },
         "onPress": {
           "type": {
@@ -2663,7 +2678,7 @@
             ]
           },
           "required": false,
-          "description": ""
+          "description": "An thumbnail to be displayed on the left of the cell"
         },
         "height": {
           "type": {
@@ -2684,7 +2699,7 @@
             "name": "bool"
           },
           "required": false,
-          "description": "Displays a > arrow *"
+          "description": "Displays a right arrow on the right hand side of the cell"
         }
       }
     }
@@ -2807,7 +2822,7 @@
       }
     },
     {
-      "description": "Arrow row button. Typically the condensed form\nwill be used in conjunction with <RemovableInput />",
+      "description": "An InputTouchable with a plus icon. This is typically used\nwithin the context of an InputGroup consisting of\nremovable inputs.\n\n@Platform ios, android, web\n@Composes InputTouchable, Icon",
       "displayName": "InputAddRow",
       "methods": [],
       "props": {
@@ -2844,7 +2859,7 @@
   ],
   "src/RowInput/InputDatePicker.js": [
     {
-      "description": "InputDatePicker a cross-platform InputRow inputting\ndates.\n\nOn iOS devices, the row examples to reveal\nDatePickerIOS when selected. The humanized date should\nbe supplied as the value prop, and it should be\nupdated when the value of the date-picker changes.\n\nOn Anroid, the date-picker prompts the user to select\na date in a modal menu.\n\n@composes InputTouchable, DatePickerIOS, DatePickerAndroid",
+      "description": "InputDatePicker a cross-platform InputRow inputting\ndates.\n\nOn iOS devices, the row examples to reveal\nDatePickerIOS when selected. The humanized date should\nbe supplied as the value prop, and it should be\nupdated when the value of the date-picker changes.\n\nOn Anroid, the date-picker prompts the user to select\na date in a modal menu.\n\n@Platform ios, android\n@composes InputTouchable",
       "displayName": "InputDatePicker",
       "methods": [
         {
@@ -2958,7 +2973,7 @@
   ],
   "src/RowInput/InputExpandable.js": [
     {
-      "description": "A touchable input field that expands (iOS) or\npops up (Android) to reveal a picker widget.",
+      "description": "An input row field that expands when pressed to reveal its\nchildren.\n\n@Platform ios, android, web",
       "displayName": "InputExpandable",
       "methods": [],
       "props": {
@@ -2988,7 +3003,7 @@
   ],
   "src/RowInput/InputGroup.js": [
     {
-      "description": "Wrapping components with InputGroup gives you the\noption of giving Inputs dividing borders, dividing\nborders with an inset, a top border (with a unique inset value),\na bottom border (with a unique inset value), shared background\ncolours, margins, and a label. You could supply your own\nchild components, too.",
+      "description": "Wrapping components with InputGroup gives you the\noption of giving Inputs dividing borders, dividing\nborders with an inset, a top border (with a unique inset value),\na bottom border (with a unique inset value), shared background\ncolours, margins, and a label. You could supply your own\nchild components, too.\n\n@Composes Base, Divider, SectionHeader",
       "displayName": "InputGroup",
       "methods": [],
       "props": {
@@ -3004,7 +3019,7 @@
             "name": "number"
           },
           "required": false,
-          "description": "left margin inset for the divider border *",
+          "description": "left margin inset for the divider border (excluding top and bottom)",
           "defaultValue": {
             "value": "0",
             "computed": false
@@ -3015,7 +3030,7 @@
             "name": "bool"
           },
           "required": false,
-          "description": "whether show the top border *",
+          "description": "show the top border",
           "defaultValue": {
             "value": "true",
             "computed": false
@@ -3026,7 +3041,7 @@
             "name": "bool"
           },
           "required": false,
-          "description": "whether to show the bottom border *",
+          "description": "show the bottom border",
           "defaultValue": {
             "value": "true",
             "computed": false
@@ -3037,7 +3052,7 @@
             "name": "bool"
           },
           "required": false,
-          "description": "whether to show the dividing border *",
+          "description": "whether to show the dividing border",
           "defaultValue": {
             "value": "true",
             "computed": false
@@ -3048,7 +3063,7 @@
             "name": "number"
           },
           "required": false,
-          "description": "left margin inset of the top border *",
+          "description": "left margin inset for the top border",
           "defaultValue": {
             "value": "0",
             "computed": false
@@ -3059,7 +3074,7 @@
             "name": "number"
           },
           "required": false,
-          "description": "left margin inset of the bottom border *",
+          "description": "left margin inset for the bottom border",
           "defaultValue": {
             "value": "0",
             "computed": false
@@ -3070,7 +3085,7 @@
             "name": "string"
           },
           "required": false,
-          "description": "an optional label for the input group *"
+          "description": "a label for the input group"
         },
         "children": {
           "type": {
@@ -3098,7 +3113,7 @@
   ],
   "src/RowInput/InputHelpText.js": [
     {
-      "description": "InputHelpText is typically used after an InputGroup to\noffer additional information about the above inputs. This is\njust a simple wrapper around SecondaryText with some padding\nprovided, and the text color set to light.\n\n@composes Text",
+      "description": "InputHelpText is typically used after an InputGroup to\noffer additional information about the above inputs. This is\njust a simple wrapper around Text with some padding\nprovided, and the text color set to light.\n\n@Platform ios, android, web\n@composes Text",
       "displayName": "InputHelpText",
       "methods": [],
       "props": {
@@ -3121,7 +3136,7 @@
   ],
   "src/RowInput/InputPicker.js": [
     {
-      "description": "InputPicker provides a unified API for Android and iOS\npicker rows.\n\nOn iOS, when the user selects the picker row,\nwe want the row to expand to reveal the picker, which is the\nchild passed to this component. The value prop appears\non the top right of the picker row. It should be the humanized\nversion of the selected value in the picker.\n\nOn Android, we display the picker as the row itself. When\nselected, the picker prompt will occur. A label is\nrendered above the picker. The value prop is ignored,\nsince the Android picker already prints the value for us.\n\n@composes InputTouchable, InputExpandable",
+      "description": "InputPicker provides a unified API for Android and iOS\npicker rows.\n\nOn iOS, when the user selects the picker row, the row expands to\nreveal the children. The value prop that appears alongside\nthe right of the picker row will typically be a humanized\nversion of the selected value in the picker.\n\nOn Android, we display the picker as the row itself. When\nselected, the picker prompt will occur. A label is\nrendered above the picker. The value prop is ignored,\nsince the Android picker already prints the value for us.\n\n@platform ios, android\n@composes InputTouchable, InputExpandable",
       "displayName": "InputPicker",
       "methods": [
         {
@@ -3145,7 +3160,7 @@
             "name": "func"
           },
           "required": true,
-          "description": "a function called when toggling the visibility of the picker. (iOS only) *"
+          "description": "a function called when toggling the visibility of the picker. (iOS only)"
         },
         "editable": {
           "type": {
@@ -3163,7 +3178,7 @@
             "name": "string"
           },
           "required": false,
-          "description": "the picker value displayed in the row. (iOS only) *"
+          "description": "the picker value displayed in the row. (iOS only)"
         },
         "label": {
           "type": {
@@ -3177,7 +3192,7 @@
             "name": "bool"
           },
           "required": false,
-          "description": "controls whether the picker is visible. (iOS only) *"
+          "description": "controls whether the picker is visible. (iOS only)"
         },
         "children": {
           "type": {
@@ -3198,7 +3213,7 @@
             "name": "object"
           },
           "required": true,
-          "description": "theme provided by higher order component *"
+          "description": "theme provided by higher order component"
         }
       }
     }
@@ -3261,7 +3276,7 @@
       }
     },
     {
-      "description": "A removable input",
+      "description": "An Input field with a lot of added functionality. You'd typically\nwant to wrap this within an InputGroup.\n\n@Composes RevealingRow, InputRowCell, RemoveButton, Input, Base, Text, RowAction, RowActions",
       "displayName": "InputRow",
       "methods": [
         {
@@ -3424,7 +3439,7 @@
   ],
   "src/RowInput/InputRowCell.js": [
     {
-      "description": "Input row cell",
+      "description": "A simple component that is used to wrap various Input Rows.\nIt provides a fixed height, and other default styles.\n\n@Platform ios, android, web\n@Composes Base",
       "displayName": "InputRowCell",
       "methods": [],
       "props": {
@@ -3503,7 +3518,7 @@
   ],
   "src/RowInput/InputToggle.js": [
     {
-      "description": "An basic input row with a label and Switch, allowing\nthe user to toggle a boolean value.",
+      "description": "A row with a label and switch, allowing\nthe user to toggle a boolean value.\n\n@Platform ios, android\n@Composes InputRowCell, Switch",
       "displayName": "InputToggle",
       "methods": [],
       "props": {
@@ -3587,7 +3602,7 @@
   ],
   "src/RowInput/InputTouchable.js": [
     {
-      "description": "An InputTouchable is typically used when you want the user\nto select a value within another view -- whether it's a ListView,\nPopupMenu, etc. This module composes TouchableRow, providing\ndefault heights and styling to fit in with other Input rows.\n\n@composes TouchableRow",
+      "description": "An InputTouchable is typically used within the context of an\nInputGroup, when you want the user to select a value from another\nListView, PopupMenu, etc. It's a very simple wrapper around\nTouchableRow, to make it play nicely with other Input components.\n\n@composes TouchableRow, Text",
       "displayName": "InputTouchable",
       "methods": [],
       "props": {
@@ -3687,63 +3702,9 @@
       }
     }
   ],
-  "src/RowInput/RevealingRow-deprecated.web.js": [
-    {
-      "description": "",
-      "displayName": "ReavealingRow",
-      "methods": [
-        {
-          "name": "showOptions",
-          "docblock": null,
-          "modifiers": [],
-          "params": [],
-          "returns": null
-        },
-        {
-          "name": "hideOptions",
-          "docblock": null,
-          "modifiers": [],
-          "params": [],
-          "returns": null
-        },
-        {
-          "name": "onViewLayout",
-          "docblock": null,
-          "modifiers": [],
-          "params": [
-            {
-              "name": "e",
-              "type": null
-            }
-          ],
-          "returns": null
-        }
-      ],
-      "props": {
-        "showingOptions": {
-          "type": {
-            "name": "bool"
-          },
-          "required": true,
-          "description": "",
-          "defaultValue": {
-            "value": "false",
-            "computed": false
-          }
-        },
-        "revealedContent": {
-          "type": {
-            "name": "node"
-          },
-          "required": true,
-          "description": ""
-        }
-      }
-    }
-  ],
   "src/RowInput/RevealingRow.js": [
     {
-      "description": "ReavealingRow enables a row to have revealed options\nthat appear, for instance, when editing it.",
+      "description": "ReavealingRow enables a row to have revealed options\nthat appear, for instance, when editing it.\n\n@Platform ios, android, web\n@Composes Base",
       "displayName": "RevealingRow",
       "methods": [
         {
@@ -3897,6 +3858,13 @@
         "inverted": {
           "type": {
             "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "lineHeight": {
+          "type": {
+            "name": "number"
           },
           "required": false,
           "description": ""

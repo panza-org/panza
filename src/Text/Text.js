@@ -41,7 +41,9 @@ Text.propTypes = {
   thick: PropTypes.bool,
   bold: PropTypes.bool,
 
-  inverted: PropTypes.bool
+  inverted: PropTypes.bool,
+
+  lineHeight: PropTypes.number
 }
 
 Text.displayName = 'Text'

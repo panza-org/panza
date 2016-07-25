@@ -111,7 +111,11 @@ RemoveButton.displayName = 'RemoveButton'
 
 
 /**
- * A removable input
+ * An Input field with a lot of added functionality. You'd typically
+ * want to wrap this within an InputGroup.
+ *
+ * @Platform ios, android, web
+ * @Composes RevealingRow, InputRowCell, RemoveButton, Input, Base, Text, RowAction, RowActions
  */
 
 class InputRow extends React.Component {

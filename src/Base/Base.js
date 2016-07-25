@@ -5,9 +5,9 @@ import getBaseStyle, { getColor } from './utils/getBaseStyle'
 import { themeProvider } from '../config'
 
 /**
- * A general purpose component that converts our props into styles
- * defined by the user. Heavily inspired by (and somewhat directly copied)
- * from rebass.
+ * A general purpose component that converts props into styles
+ * defined by our theme. It's heavily inspired by the Base
+ * component provided by [rebass](https://github.com/jxnblk/rebass).
  */
 
 export class Base extends React.Component {

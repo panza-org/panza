@@ -6,7 +6,11 @@ import {
 import { Base } from '../index'
 
 /**
- * Input row cell
+ * A simple component that is used to wrap various Input Rows.
+ * It provides a fixed height, and other default styles.
+ *
+ * @Platform ios, android, web
+ * @Composes Base
  */
 
 const InputRowCell = ({ children, height, ...other }) => {

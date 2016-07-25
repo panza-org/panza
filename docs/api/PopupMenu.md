@@ -3,7 +3,7 @@
 PopupMenu provides similar functionality to Apple's
 ActionSheet, but is more flexible, and cross-platform compatibile.
  
- __Composes__ [Popup](Popup.md) 
+ __Composes__: [Popup](Popup.md) 
 
 
  ### Props

@@ -70,7 +70,10 @@ const Examples = () => {
      description: 'A large button',
      render: () => <Button onPress={noop} large>Large</Button>
     }
-  ]
+  ].map((p) => {
+    p.props = { px: 2 }
+    return p
+  })
   )
 
 }

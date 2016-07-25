@@ -23,7 +23,8 @@ import {
  * On Anroid, the date-picker prompts the user to select
  * a date in a modal menu.
  *
- * @composes InputTouchable, DatePickerIOS, DatePickerAndroid
+ * @Platform ios, android
+ * @composes InputTouchable
  */
 
 class InputDatePicker extends React.Component {

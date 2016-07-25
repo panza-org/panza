@@ -63,7 +63,9 @@ const TouchableRow = ({
         )}
 
         {secondaryText && (
-          <Text small lineHeight={2} light numberOfLines={1}>{secondaryText}</Text>
+          React.isValidElement(secondaryText)
+            ? secondaryText
+            : <Text small lineHeight={2} light numberOfLines={1}>{secondaryText}</Text>
         )}
       </Base>
 
@@ -82,14 +84,19 @@ TouchableRow.displayName = 'TouchableRow'
 
 TouchableRow.propTypes = {
   primaryText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  secondaryText: PropTypes.string,
+  secondaryText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+
+  /** A value attribute of the cell, to appear on the right */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   onPress: PropTypes.func.isRequired,
+
+  /** An thumbnail to be displayed on the left of the cell */
   image: PropTypes.oneOfType([ PropTypes.object, PropTypes.node ]),
+
   height: PropTypes.number,
   inverted: PropTypes.bool,
 
-  /** Displays a > arrow **/
+  /** Displays a right arrow on the right hand side of the cell */
   showMore: PropTypes.bool
 }
 

@@ -8,8 +8,10 @@ import {
 const screen = Dimensions.get('window')
 
 /**
- * A touchable input field that expands (iOS) or
- * pops up (Android) to reveal a picker widget.
+ * An input row field that expands when pressed to reveal its
+ * children.
+ *
+ * @Platform ios, android, web
  */
 
 class InputExpandable extends React.Component {

@@ -11,6 +11,9 @@ import {
 /**
  * ReavealingRow enables a row to have revealed options
  * that appear, for instance, when editing it.
+ *
+ * @Platform ios, android, web
+ * @Composes Base
  */
 
 class RevealingRow extends React.Component {

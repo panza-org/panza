@@ -1,7 +1,9 @@
 ## InputExpandable 
  
-A touchable input field that expands (iOS) or
-pops up (Android) to reveal a picker widget.
+An input row field that expands when pressed to reveal its
+children.
+
+__Platforms__:  ios, android, web
  ### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 

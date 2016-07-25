@@ -1,7 +1,13 @@
 ## InputToggle 
  
-An basic input row with a label and Switch, allowing
+A row with a label and switch, allowing
 the user to toggle a boolean value.
+
+__Platforms__:  ios, android
+ 
+ __Composes__: [InputRowCell](InputRowCell.md), [Switch](Switch.md) 
+
+
  ### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 

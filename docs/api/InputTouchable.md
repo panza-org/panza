@@ -1,12 +1,12 @@
 ## InputTouchable 
  
-An InputTouchable is typically used when you want the user
-to select a value within another view -- whether it's a ListView,
-PopupMenu, etc. This module composes TouchableRow, providing
-default heights and styling to fit in with other Input rows.
+An InputTouchable is typically used within the context of an
+InputGroup, when you want the user to select a value from another
+ListView, PopupMenu, etc. It's a very simple wrapper around
+TouchableRow, to make it play nicely with other Input components.
 
  
- __Composes__ [TouchableRow](TouchableRow.md) 
+ __Composes__: [TouchableRow](TouchableRow.md), [Text](Text.md) 
 
 
  ### Props

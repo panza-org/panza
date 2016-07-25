@@ -19,13 +19,86 @@ const Examples = () => {
     }
   }
 
-  return ['tiny', 'large', 'small', 'medium', 'giant'].map((name) => {
-    let Type = createInput(name)
-    return {
-      title: name,
+  return [
+    {
+      title: 'Tiny',
       props: { px: 2 },
-      render: () => <Type />
+      render: () => {
+        const Type = createInput('tiny')
+        return <Type />
+      },
+      exampleString: `
+        <Input
+          tiny
+          placeholder='Placeholder'
+          onChangeText={onChange}
+          value={this.state.value}
+        />
+      `
+    },
+    {
+      title: 'Small',
+      props: { px: 2 },
+      render: () => {
+        const Type = createInput('small')
+        return <Type />
+      },
+      exampleString: `
+        <Input
+          small
+          placeholder='Placeholder'
+          onChangeText={onChange}
+          value={this.state.value}
+        />
+      `
+    },
+    {
+      title: 'Medium',
+      props: { px: 2 },
+      render: () => {
+        const Type = createInput('medium')
+        return <Type />
+      },
+      exampleString: `
+        <Input
+          placeholder='Placeholder'
+          onChangeText={onChange}
+          value={this.state.value}
+        />
+      `
+    },
+    {
+      title: 'Large',
+      props: { px: 2 },
+      render: () => {
+        const Type = createInput('large')
+        return <Type />
+      },
+      exampleString: `
+        <Input
+          large
+          placeholder='Placeholder'
+          onChangeText={onChange}
+          value={this.state.value}
+        />
+      `
+    },
+    {
+      title: 'Giant',
+      props: { px: 2 },
+      render: () => {
+        const Type = createInput('giant')
+        return <Type />
+      },
+      exampleString: `
+        <Input
+          giant
+          placeholder='Placeholder'
+          onChangeText={onChange}
+          value={this.state.value}
+        />
+      `
     }
-  })
+  ]
 
 }

@@ -20,19 +20,24 @@ function generateDesciption(description) {
   return `${description} \n`
 }
 
+
 // we could eventually build this tree using babel.
 // would be a fun hack project.
 function buildCompositionLinks(description) {
   const regex = /@Composes(.*)/i
   const comp = description.match(regex)
-  const newDescription = description.replace(regex, '')
+  let newDescription = description.replace(regex, '')
+
+  const platformRegex = /@Platform/i
+  newDescription = newDescription.replace(platformRegex, '__Platforms__: ')
+
   if (comp && comp[1]) {
     const m = comp[1]
     const links = m.split(',').map((c) => {
       return `[${c.trim()}](${c.trim()}.md)`
     }).join(', ')
 
-    return `${newDescription || ''} \n __Composes__ ${links} \n\n`
+    return `${newDescription || ''} \n __Composes__: ${links} \n\n`
 
   }
 

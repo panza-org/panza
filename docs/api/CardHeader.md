@@ -3,7 +3,7 @@
 A very basic card header, which includes an optional avatar,
 title, subtitle, and children
  
- __Composes__ [Base](Base.md), [Image](Image.md), [Text](Text.md) 
+ __Composes__: [Base](Base.md), [Image](Image.md), [Text](Text.md) 
 
 
  ### Props

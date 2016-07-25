@@ -14,20 +14,21 @@ thin | bool  |   |
 thick | bool  |   | 
 bold | bool  |   | 
 inverted | bool  |   | 
+lineHeight | number  |   | 
  
 
   ### Examples
+
+  {% raw %}
 
   <script src="https://fb.me/react-15.2.1.js"></script>
   <script src="https://fb.me/react-dom-15.2.1.js"></script>
   <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/ReactNative.js"></script>
   <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/panza.web.js"></script>
   <link href='https://cdn.rawgit.com/driftyco/ionicons/3.0/dist/css/ionicons.css' rel='stylesheet'><link>
-  <div style="position: relative; width: 375px; height: 667px; border: 1px solid #ddd;" id='react-root'></div>
+  <div style="position: relative; width: 400px; height: 667px; border: 1px solid #ddd;" id='react-root'></div>
   <script>
 'use strict';
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var _Panza = Panza;
 var Button = _Panza.Button;
@@ -60,23 +61,31 @@ var Module = function Module(_ref) {
     renderRow: function renderRow(row) {
       return React.createElement(
         Base,
-        { p: 2 },
-        React.createElement(
-          Text,
-          { mb: 1, bold: true },
-          row.title
-        ),
-        row.render(),
+        { py: 2 },
         React.createElement(
           Base,
-          { mt: 1 },
+          { px: 2 },
+          React.createElement(
+            Text,
+            { mb: 1, bold: true },
+            row.title
+          )
+        ),
+        React.createElement(
+          Base,
+          row.props,
+          row.render()
+        ),
+        React.createElement(
+          Base,
+          { p: 2, mt: 1 },
           React.createElement(
             'code',
             null,
             React.createElement(
               'pre',
               null,
-              row.code
+              row.exampleString || row.code
             )
           )
         )
@@ -93,21 +102,89 @@ var Examples = function Examples() {
   var Text = _Panza2.Text;
 
 
-  return ['tiny', 'small', 'medium', 'large', 'giant'].map(function (size) {
-    var props = _defineProperty({}, size, true);
-
-    return {
-      title: size,
-      props: { px: 2 },
-      render: function render() {
-        return React.createElement(
-          Text,
-          props,
-          'Id ad commodo veniam labore ut anim quis aliqua consequat voluptate irure cillum elit.'
-        );
-      },
-      code: '<Text {...props}>Id ad commodo veniam labore ut anim quis aliqua consequat voluptate irure cillum elit.</Text>'
-    };
+  return [{
+    title: 'Tiny',
+    render: function render() {
+      return React.createElement(
+        Text,
+        { tiny: true },
+        'Hello world'
+      );
+    },
+    code: '<Text tiny>Hello world</Text>'
+  }, {
+    title: 'Small',
+    render: function render() {
+      return React.createElement(
+        Text,
+        { small: true },
+        'Hello world'
+      );
+    },
+    code: '<Text small>Hello world</Text>'
+  }, {
+    title: 'Medium',
+    render: function render() {
+      return React.createElement(
+        Text,
+        null,
+        'Hello world'
+      );
+    },
+    code: '<Text>Hello world</Text>'
+  }, {
+    title: 'Large',
+    render: function render() {
+      return React.createElement(
+        Text,
+        null,
+        'Hello world'
+      );
+    },
+    code: '<Text>Hello world</Text>'
+  }, {
+    title: 'Giant',
+    render: function render() {
+      return React.createElement(
+        Text,
+        { giant: true },
+        'Hello world'
+      );
+    },
+    code: '<Text giant>Hello world</Text>'
+  }, {
+    title: 'Primary color',
+    render: function render() {
+      return React.createElement(
+        Text,
+        { color: 'primary' },
+        'Hello world'
+      );
+    },
+    code: '<Text color=\'primary\'>Hello world</Text>'
+  }, {
+    title: 'Bold',
+    render: function render() {
+      return React.createElement(
+        Text,
+        { bold: true },
+        'Hello world'
+      );
+    },
+    code: '<Text bold>Hello world</Text>'
+  }, {
+    title: 'All together now',
+    render: function render() {
+      return React.createElement(
+        Text,
+        { giant: true, color: 'primary', thin: true },
+        'Hello world'
+      );
+    },
+    code: '<Text giant color=\'primary\' thin>Hello world</Text>'
+  }].map(function (p) {
+    p.props = { px: 2 };
+    return p;
   });
 };
 
@@ -122,3 +199,4 @@ ReactNative.AppRegistry.runApplication('MyApp', {
   rootTag: document.getElementById('react-root')
 });
   </script>
+  {% endraw %}

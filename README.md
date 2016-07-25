@@ -3,10 +3,10 @@ Panza is a UI foundation for [react-native](https://github.com/facebook/react-na
  
 Panza gives you:
 
-- The standard building blocks of most mobile applications. See the [included components](#Inputs)
+- The standard building blocks of most mobile applications.
 - Beautiful UI-styles out of the box, suitable for iOS, Android, and the web.
 - A method for [theming](docs/themes.md) your application.
-- A [Base](docs/api/Base.md) and [TextBase](docs/api/TextBase.md) component, which provide useful shorthand [prop to style conversions](docs/api/Base.md). Use `p={2}` to provide padding, or `backgroundColor='primary'` to provide a background colour. Most UI-components compose `Base`, and thus accept these props.
+- A [Base](docs/api/Base.md) and [Text](docs/api/Text.md) component, which provide useful shorthand [prop to style conversions](docs/api/Base.md). For example, use `p={2}` to provide padding, or `backgroundColor='primary'` to provide a background colour. Most UI-components compose `Base`, and thus accept these props.
 
 ## Getting Started
 
@@ -36,7 +36,7 @@ const Hello = ({ onPress }) => (
 )
 ```
 
-## [Components](docs/Components.md)
+## Components
 
 ### Elements
 * [Base](docs/api/Base.md)
@@ -49,15 +49,13 @@ const Hello = ({ onPress }) => (
 * [Loader](docs/api/Loader.md)
 * [CheckMark](docs/api/CheckMark.md)
 
-### Views
-
-#### Navigation
+### Navigation
 * [NavBar](docs/api/NavBar.md)
 * [NavTitle](docs/api/NavTitle.md)
 * [NavTouchableText](docs/api/NavTouchableText.md)
 * [NavTouchableIcon](docs/api/NavTouchableIcon.md)
 
-#### Input
+### Input
 * [InputGroup](docs/api/InputGroup.md)
 * [InputRow](docs/api/InputRow.md)
 * [InputTouchable](docs/api/InputTouchable.md)
@@ -67,18 +65,18 @@ const Hello = ({ onPress }) => (
 * [InputExpandable](docs/api/InputExpandable.md)
 * [InputHelpText](docs/api/HelpText.md)
 
-#### Lists
+### Lists
 * [TouchableRow](docs/api/TouchableRow.md)
 * [SectionHeader](docs/api/SectionHeader.md)
 
-#### Buttons
+### Buttons
 * [ButtonGroup](docs/api/ButtonGroup.md)
 
-#### Cards
+### Cards
 * [Card](docs/api/Card.md)
 * [CardHeader](docs/api/CardHeader.md)
 
-#### Pages
+### Pages
 * [ErrorPage](docs/api/ErrorPage.md)
 
 ### Modules
@@ -101,6 +99,8 @@ customizeTheme({
 
 // mount your application
 ```
+
+Learn more [here](docs/themes.md)
 
 ## Examples
 

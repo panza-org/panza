@@ -19,10 +19,9 @@ import {
  * InputPicker provides a unified API for Android and iOS
  * picker rows.
  *
- * On iOS, when the user selects the picker row,
- * we want the row to expand to reveal the picker, which is the
- * child passed to this component. The value prop appears
- * on the top right of the picker row. It should be the humanized
+ * On iOS, when the user selects the picker row, the row expands to
+ * reveal the children. The value prop that appears alongside
+ * the right of the picker row will typically be a humanized
  * version of the selected value in the picker.
  *
  * On Android, we display the picker as the row itself. When
@@ -30,6 +29,7 @@ import {
  * rendered above the picker. The value prop is ignored,
  * since the Android picker already prints the value for us.
  *
+ * @platform ios, android
  * @composes InputTouchable, InputExpandable
  */
 
@@ -38,22 +38,22 @@ class InputPicker extends React.Component {
   static displayName = 'InputPicker'
 
   static propTypes = {
-    /** a function called when toggling the visibility of the picker. (iOS only) **/
+    /** a function called when toggling the visibility of the picker. (iOS only) */
     onToggleExpansion: PropTypes.func.isRequired,
     editable: PropTypes.bool,
 
-    /** the picker value displayed in the row. (iOS only) **/
+    /** the picker value displayed in the row. (iOS only) */
     value: PropTypes.string,
 
     /** the label for the picker **/
     label: PropTypes.string.isRequired,
 
-    /** controls whether the picker is visible. (iOS only) **/
+    /** controls whether the picker is visible. (iOS only) */
     expanded: PropTypes.bool,
     children: PropTypes.node,
     backgroundColor: PropTypes.string,
 
-    /** theme provided by higher order component **/
+    /** theme provided by higher order component */
     panza: PropTypes.object.isRequired
   }
 
