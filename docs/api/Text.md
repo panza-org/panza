@@ -137,11 +137,11 @@ var Examples = function Examples() {
     render: function render() {
       return React.createElement(
         Text,
-        null,
+        { large: true },
         'Hello world'
       );
     },
-    code: '<Text>Hello world</Text>'
+    code: '<Text large>Hello world</Text>'
   }, {
     title: 'Giant',
     render: function render() {

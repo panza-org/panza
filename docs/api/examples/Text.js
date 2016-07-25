@@ -17,7 +17,7 @@ const Examples = () => {
     },
     {
       title: 'Large',
-      render: () => <Text>Hello world</Text>
+      render: () => <Text large>Hello world</Text>
     },
     {
       title: 'Giant',

@@ -40,5 +40,4 @@
   * [Popup](docs/api/Popup.md)
   * [PopupMenu](docs/api/PopupMenu.md)
   * [RevealingRow](docs/api/RevealingRow.md)
-* [Example Applications](/docs/examples/README.md)
 * [Change Log](/CHANGELOG.md)
