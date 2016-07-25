@@ -67,6 +67,7 @@
     "gitbook-plugin-github": "^2.0.0",
     "gitbook-plugin-prism": "^1.0.0",
     "gitbook-plugin-scripts": "^1.0.1",
+    "js-beautify": "^1.6.3",
     "mocha": "^2.5.3",
     "react-addons-test-utils": "^15.1.0",
     "react-docgen": "^2.8.2",

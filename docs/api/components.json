@@ -2609,7 +2609,7 @@
   ],
   "src/Row/TouchableRow.js": [
     {
-      "description": "The basic RowCell for use within ListView. It displays\nan image, primary text, secondary text, a value,\nand an arrow right icon if the respective props are\nspecified.\n\n@composes TouchableRowCell, Image, Text",
+      "description": "The basic RowCell for use within ListView. It displays\nan image, primary text, secondary text, a value,\nand an arrow right icon if the respective props are\nspecified.\n\n@Platform ios, android, web\n@composes TouchableRowCell, Image, Text",
       "displayName": "TouchableRow",
       "methods": [],
       "props": {
@@ -3003,7 +3003,7 @@
   ],
   "src/RowInput/InputGroup.js": [
     {
-      "description": "Wrapping components with InputGroup gives you the\noption of giving Inputs dividing borders, dividing\nborders with an inset, a top border (with a unique inset value),\na bottom border (with a unique inset value), shared background\ncolours, margins, and a label. You could supply your own\nchild components, too.\n\n@Composes Base, Divider, SectionHeader",
+      "description": "Wrapping components with InputGroup gives you the\noption of giving Inputs dividing borders, dividing\nborders with an inset, a top border (with a unique inset value),\na bottom border (with a unique inset value), shared background\ncolours, margins, and a label. You could supply your own\nchild components, too.\n\n@Platform ios, android, web\n@Composes Base, Divider, SectionHeader",
       "displayName": "InputGroup",
       "methods": [],
       "props": {
@@ -3121,7 +3121,7 @@
           "type": {
             "name": "node"
           },
-          "required": false,
+          "required": true,
           "description": ""
         },
         "inverted": {
@@ -3276,7 +3276,7 @@
       }
     },
     {
-      "description": "An Input field with a lot of added functionality. You'd typically\nwant to wrap this within an InputGroup.\n\n@Composes RevealingRow, InputRowCell, RemoveButton, Input, Base, Text, RowAction, RowActions",
+      "description": "An Input field with a lot of added functionality. You'd typically\nwant to wrap this within an InputGroup.\n\n@Platform ios, android, web\n@Composes RevealingRow, InputRowCell, RemoveButton, Input, Base, Text, RowAction, RowActions",
       "displayName": "InputRow",
       "methods": [
         {
@@ -3602,7 +3602,7 @@
   ],
   "src/RowInput/InputTouchable.js": [
     {
-      "description": "An InputTouchable is typically used within the context of an\nInputGroup, when you want the user to select a value from another\nListView, PopupMenu, etc. It's a very simple wrapper around\nTouchableRow, to make it play nicely with other Input components.\n\n@composes TouchableRow, Text",
+      "description": "An InputTouchable is typically used within the context of an\nInputGroup, when you want the user to select a value from another\nListView, PopupMenu, etc. It's a very simple wrapper around\nTouchableRow, to make it play nicely with other Input components.\n\n@Platform ios, android, web\n@composes TouchableRow, Text",
       "displayName": "InputTouchable",
       "methods": [],
       "props": {

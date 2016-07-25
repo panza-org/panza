@@ -7,6 +7,7 @@ a bottom border (with a unique inset value), shared background
 colours, margins, and a label. You could supply your own
 child components, too.
 
+__Platforms__:  ios, android, web
  
  __Composes__: [Base](Base.md), [Divider](Divider.md), [SectionHeader](SectionHeader.md) 
 

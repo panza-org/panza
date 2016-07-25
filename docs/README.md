@@ -11,6 +11,7 @@
   * [Image](/docs/api/Image.md)
   * [Input](/docs/api/Input.md)
   * [Text](/docs/api/Text.md)
+  * [Loader](/docs/api/Loader.md)
 * Navigation
   * [NavBar](/docs/api/NavBar.md)
   * [NavTitle](/docs/api/NavTitle.md)

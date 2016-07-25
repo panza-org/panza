@@ -143,7 +143,7 @@ var Examples = function Examples() {
     code: '<CloseIcon />',
     code: '<NavTouchableIcon\n            accessibilityLabel=\'Close\'\n            onPress={log}>\n            <CloseIcon />\n          </NavTouchableIcon>',
     code: '<NavTouchableText onPress={log}>\n            Save\n          </NavTouchableText>',
-    code: '<NavBar\n        RightButton={\n          <NavTouchableText onPress={log}>\n            Save\n          </NavTouchableText>\n        }\n        LeftButton={\n          <NavTouchableIcon\n            accessibilityLabel=\'Close\'\n            onPress={log}>\n            <CloseIcon />\n          </NavTouchableIcon>\n        }\n        title=\'Hello World\'\n        backgroundColor=\'#fafafa\'\n      />'
+    code: '< NavBar\nRightButton = {\n  <NavTouchableText onPress={log}>\n            Save\n          </NavTouchableText>\n}\nLeftButton = {\n  <NavTouchableIcon\n            accessibilityLabel=\'Close\'\n            onPress={log}>\n            <CloseIcon />\n          </NavTouchableIcon>\n}\ntitle = \'Hello World\'\nbackgroundColor = \'#fafafa\' /\n  >'
   }, {
     title: 'Inverted NavBar',
     render: function render() {
@@ -168,7 +168,7 @@ var Examples = function Examples() {
     code: '<CloseIcon color=\'white\' />',
     code: '<NavTouchableIcon\n            accessibilityLabel=\'Close\'\n            onPress={log}>\n            <CloseIcon color=\'white\' />\n          </NavTouchableIcon>',
     code: '<NavTouchableText color=\'white\' onPress={log}>\n            Save\n          </NavTouchableText>',
-    code: '<NavBar\n        inverted\n        backgroundColor=\'primary\'\n        RightButton={\n          <NavTouchableText color=\'white\' onPress={log}>\n            Save\n          </NavTouchableText>\n        }\n        LeftButton={\n          <NavTouchableIcon\n            accessibilityLabel=\'Close\'\n            onPress={log}>\n            <CloseIcon color=\'white\' />\n          </NavTouchableIcon>\n        }\n        title=\'Hello World\'\n      />'
+    code: '< NavBar\ninverted\nbackgroundColor = \'primary\'\nRightButton = {\n  <NavTouchableText color=\'white\' onPress={log}>\n            Save\n          </NavTouchableText>\n}\nLeftButton = {\n  <NavTouchableIcon\n            accessibilityLabel=\'Close\'\n            onPress={log}>\n            <CloseIcon color=\'white\' />\n          </NavTouchableIcon>\n}\ntitle = \'Hello World\' /\n  >'
   }, {
     title: 'With Button Group',
     render: function render() {
@@ -221,7 +221,7 @@ var Examples = function Examples() {
     code: '<CloseIcon />',
     code: '<NavTouchableIcon\n              accessibilityLabel=\'Close\'\n              onPress={log}>\n              <CloseIcon />\n            </NavTouchableIcon>',
     code: '<NavTouchableText onPress={log}>\n              Save\n            </NavTouchableText>',
-    code: '<NavBar\n          RightButton={\n            <NavTouchableText onPress={log}>\n              Save\n            </NavTouchableText>\n          }\n          LeftButton={\n            <NavTouchableIcon\n              accessibilityLabel=\'Close\'\n              onPress={log}>\n              <CloseIcon />\n            </NavTouchableIcon>\n          }\n          title=\'Hello World\'\n          backgroundColor=\'#fafafa\'\n        />',
+    code: '< NavBar\nRightButton = {\n  <NavTouchableText onPress={log}>\n              Save\n            </NavTouchableText>\n}\nLeftButton = {\n  <NavTouchableIcon\n              accessibilityLabel=\'Close\'\n              onPress={log}>\n              <CloseIcon />\n            </NavTouchableIcon>\n}\ntitle = \'Hello World\'\nbackgroundColor = \'#fafafa\' /\n  >',
     code: '<View>\n        <NavBar\n          RightButton={\n            <NavTouchableText onPress={log}>\n              Save\n            </NavTouchableText>\n          }\n          LeftButton={\n            <NavTouchableIcon\n              accessibilityLabel=\'Close\'\n              onPress={log}>\n              <CloseIcon />\n            </NavTouchableIcon>\n          }\n          title=\'Hello World\'\n          backgroundColor=\'#fafafa\'\n        />\n        <ButtonGroup style={styles} backgroundColor=\'#fafafa\'>\n          <Button small onPress={log} transparent icon=\'ios-heart-outline\'>\n            Like\n          </Button>\n          <Button small onPress={log} transparent icon=\'ios-text-outline\'>\n            Comment\n          </Button>\n          <Button small onPress={log} transparent icon=\'ios-share-outline\'>\n            Share\n          </Button>\n        </ButtonGroup>\n        <Divider />\n      </View>'
   }];
 };

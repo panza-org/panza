@@ -3,6 +3,7 @@
 An Input field with a lot of added functionality. You'd typically
 want to wrap this within an InputGroup.
 
+__Platforms__:  ios, android, web
  
  __Composes__: [RevealingRow](RevealingRow.md), [InputRowCell](InputRowCell.md), [RemoveButton](RemoveButton.md), [Input](Input.md), [Base](Base.md), [Text](Text.md), [RowAction](RowAction.md), [RowActions](RowActions.md) 
 

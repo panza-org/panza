@@ -5,6 +5,7 @@ InputGroup, when you want the user to select a value from another
 ListView, PopupMenu, etc. It's a very simple wrapper around
 TouchableRow, to make it play nicely with other Input components.
 
+__Platforms__:  ios, android, web
  
  __Composes__: [TouchableRow](TouchableRow.md), [Text](Text.md) 
 

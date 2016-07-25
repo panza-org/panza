@@ -13,6 +13,7 @@ import {
  * and an arrow right icon if the respective props are
  * specified.
  *
+ * @Platform ios, android, web
  * @composes TouchableRowCell, Image, Text
  */
 

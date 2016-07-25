@@ -1,6 +1,7 @@
 const babel = require('babel-core')
 const react = require('babel-preset-react')
 const es2015 = require('babel-preset-es2015')
+const beautify = require('js-beautify').js_beautify
 
 /**
  * Make a copy of our react code as a string
@@ -21,7 +22,7 @@ function plugin(src) {
               p.insertAfter(t.ObjectProperty( //eslint-disable-line
                 t.identifier('code'),
                 t.stringLiteral(
-                  src.slice(start, end)
+                  beautify(src.slice(start, end), { indent_size: 2, e4x: true })
                 )
               ))
             }
