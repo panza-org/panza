@@ -1,9 +1,6 @@
 import React from 'react'
 import { TextBase } from '../Base'
 import Icon from 'react-native-vector-icons/Ionicons'
-import {
-  Platform
-} from 'react-native'
 
 /**
  * Our base icon component that all other icons
@@ -29,6 +26,11 @@ const BaseIcon = (props) => {
 }
 
 BaseIcon.displayName = 'BaseIcon'
+
+BaseIcon.propTypes = {
+  name: React.PropTypes.string.isRequired,
+  size: React.PropTypes.number
+}
 
 BaseIcon.defaultProps = {
   size: 25
