@@ -1,67 +1,62 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { Platform } from 'react-native'
 
 import { Icon } from '../index'
 
-export const ArrowRightIcon = (props) => {
-  return (
-    <Icon
-      color='midgray'
-      name='ios-arrow-forward'
-      size={25}
-      {...props}
-    />
-  )
-}
+export const ArrowRightIcon = (props) => (
+  <Icon
+    name={Platform.select({
+      ios: 'ios-add-outline',
+      android: 'md-add',
+      web: 'ios-add-outline'
+    })}
+    size={35}
+    {...props}
+  />
+)
 
 ArrowRightIcon.displayName = 'ArrowRightIcon'
 
-export const PlusIcon = (props) => {
-  return (
-    <Icon
-      name={Platform.select({
-        ios: 'ios-add-outline',
-        android: 'md-add',
-        web: 'ios-add-outline'
-      })}
-      size={35}
-      {...props}
-    />
-  )
-}
+export const PlusIcon = (props) => (
+  <Icon
+    name={Platform.select({
+      ios: 'ios-add-outline',
+      android: 'md-add',
+      web: 'ios-add-outline'
+    })}
+    size={35}
+    {...props}
+  />
+)
 
 PlusIcon.displayName = 'PlusIcon'
 
 // on android we use 'back', on ios we use 'close'
-export const CloseIcon = (props) => {
-  return (
-    <Icon
-      name={Platform.select({
-        ios: 'ios-close',
-        android: 'md-arrow-back',
-        web: 'md-close'
-      })}
-      size={20}
-      {...props}
-    />
-  )
-}
+export const CloseIcon = (props) => (
+  <Icon
+    name={Platform.select({
+      ios: 'ios-close',
+      android: 'md-arrow-back',
+      web: 'md-close'
+    })}
+    size={20}
+    {...props}
+  />
+)
 
 CloseIcon.displayName = 'CloseIcon'
 
-export const BackIcon = (props) => {
-  return (
-    <Icon
-      name={Platform.select({
-        ios: 'ios-arrow-back',
-        android: 'md-arrow-back',
-        web: 'ios-arrow-back'
-      })}
-      size={30}
-      {...props}
-    />
-  )
-}
+export const BackIcon = (props) => (
+  <Icon
+    name={Platform.select({
+      ios: 'ios-arrow-back',
+      android: 'md-arrow-back',
+      web: 'ios-arrow-back'
+    })}
+    size={30}
+    {...props}
+  />
+)
 
 BackIcon.displayName = 'BackIcon'
 

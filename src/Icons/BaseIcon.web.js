@@ -5,15 +5,13 @@ const BaseIcon = ({
   name,
   size,
   ...other
-}) => {
-  return (
-    <TextBase
-      className={'ion ion-' + name}
-      style={{ fontSize: size + 'px' }}
-      {...other}
-    />
-  )
-}
+}) => (
+  <TextBase
+    className={`ion ion-${name}`}
+    style={{ fontSize: `${size}px` }}
+    {...other}
+  />
+)
 
 BaseIcon.displayName = 'BaseIcon'
 

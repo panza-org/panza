@@ -11,7 +11,7 @@ import {
   Icon
 } from '../index'
 
-import mapToProps from '../Base/utils/mapPropsToStyles'
+import mapToProps from '../utils/mapPropsToStyles'
 
 /** Basic button styles **/
 const buttonPropsMap = {
@@ -80,6 +80,13 @@ export const Button = ({
   // determine our basic style props
   const defaults = { ...buttonPropsMap.medium, ...buttonPropsMap.default }
   const mappedProps = mapToProps(other, buttonPropsMap, defaults)
+
+  // set backgroundColor explicitly to avoid problems
+  // with iteration order overwriting props
+  let backgroundColor = other.outline
+    ? 'transparent'
+    : mappedProps.backgroundColor
+
   let textColor = other.outline
     ? mappedProps.borderColor
     : mappedProps.textColor
@@ -118,6 +125,7 @@ export const Button = ({
         disabled && styles.disabled
       ]}
       {...mappedProps}
+      backgroundColor={backgroundColor}
     >
       <View style={styles.buttonContent}>
         {iconNode}

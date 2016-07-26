@@ -39,7 +39,9 @@ TouchableIcon.displayName = 'TouchableIcon'
 TouchableIcon.propTypes = {
   onPress: PropTypes.func.isRequired,
   accessibilityLabel: PropTypes.string.isRequired,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  children: React.PropTypes.node,
+  style: React.PropTypes.object
 }
 
 export default TouchableIcon

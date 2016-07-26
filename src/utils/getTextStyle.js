@@ -1,4 +1,4 @@
-const getStyle = (props, defaults) => {
+const getTextStyle = (props, defaults) => {
 
   const {
     fontSize, lineHeight, bold, thin, thick,
@@ -48,4 +48,4 @@ const getStyle = (props, defaults) => {
   return { textStyle: style, other }
 }
 
-export default getStyle
+export default getTextStyle

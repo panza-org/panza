@@ -1,36 +1,22 @@
+/* eslint-env mocha */
+
 import React from 'react'
 import {
-  StyleSheet,
   TouchableHighlight
 } from 'react-native'
 
-import { shallow } from 'enzyme'
 import chai, { expect } from 'chai'
 import chaiSubset from 'chai-subset'
 
 chai.use(chaiSubset)
 
 import { Button } from '../Button'
-import config from '../../config'
+import { createRenderer, applyWrapper, getProps } from '../../utils/testUtils'
 
-function flatten(style) {
-  return StyleSheet.flatten(style)
-}
+const renderButton = createRenderer(<Button>Hello</Button>)
+const propGetter = applyWrapper(getProps)(renderButton)
+const testProps = (props, expected) => expect(propGetter(props)).to.containSubset(expected)
 
-function render(props) {
-  return shallow(
-    <Button {...props} panza={config}>Hello</Button>
-  )
-}
-
-function contains(el, s) {
-  const props = flatten(el.props())
-  return expect(props).to.containSubset(s)
-}
-
-function n(p, m) {
-  return contains(render(p), m)
-}
 
 // todo: the HOC makes testing with enyme
 // shallow renderer more difficult. Hopefully enzyme
@@ -40,11 +26,11 @@ function n(p, m) {
 describe('<Button />', () => {
 
   it('should render 1 component', () => {
-    expect(render()).to.have.length(1)
+    expect(renderButton()).to.have.length(1)
   })
 
   it('should add default props', () => {
-    expect(render().props()).to.containSubset({
+    testProps({}, {
       Component: TouchableHighlight,
       accessibilityComponentType: 'button',
       disabled: false,
@@ -62,14 +48,14 @@ describe('<Button />', () => {
 
 
   it('should render outline buttons', () => {
-    n({ outline: true }, {
+    testProps({ outline: true }, {
       backgroundColor: 'transparent',
       textColor: 'default',
       borderColor: 'midgray',
       underlayColor: '#eee'
     })
 
-    n({ primary: true, outline: true }, {
+    testProps({ primary: true, outline: true }, {
       borderColor: 'primary',
       backgroundColor: 'transparent'
     })
@@ -77,8 +63,8 @@ describe('<Button />', () => {
   })
 
   it('should render different sizes', () => {
-    n({ small: true }, { height: 30 })
-    n({ large: true }, { height: 55 })
+    testProps({ small: true }, { height: 30 })
+    testProps({ large: true }, { height: 55 })
   })
 
 })
