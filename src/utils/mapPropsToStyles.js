@@ -1,7 +1,7 @@
 import forOwn from 'lodash/forOwn'
 import isFunction from 'lodash/isFunction'
 
-function mapPropsToStyleProps(props, map, defaults = {}) {
+function mapPropsToStyles(props, map, defaults = {}) {
 
   const styleProps = { ...defaults }
 
@@ -16,4 +16,4 @@ function mapPropsToStyleProps(props, map, defaults = {}) {
   return styleProps
 }
 
-export default mapPropsToStyleProps
+export default mapPropsToStyles

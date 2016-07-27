@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { View } from 'react-native'
 import colorTransform from 'color'
-import getBaseStyle, { getColor } from '../utils/getBaseStyle'
+import { getBaseStyle, getColor } from '../utils'
 import { themeProvider } from '../config'
 
 /**

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import {
   TextBase
 } from '../index'
-import mapToProps from '../utils/mapPropsToStyles'
+import { mapToProps } from '../utils'
 
 
 /** Basic text styles **/

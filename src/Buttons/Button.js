@@ -11,7 +11,7 @@ import {
   Icon
 } from '../index'
 
-import mapToProps from '../utils/mapPropsToStyles'
+import { mapToProps } from '../utils'
 
 /** Basic button styles **/
 const buttonPropsMap = {

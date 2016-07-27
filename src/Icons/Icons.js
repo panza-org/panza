@@ -5,12 +5,9 @@ import { Icon } from '../index'
 
 export const ArrowRightIcon = (props) => (
   <Icon
-    name={Platform.select({
-      ios: 'ios-add-outline',
-      android: 'md-add',
-      web: 'ios-add-outline'
-    })}
-    size={35}
+    color='midgray'
+    name='ios-arrow-forward'
+    size={25}
     {...props}
   />
 )

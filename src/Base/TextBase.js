@@ -2,8 +2,7 @@ import React, { PropTypes } from 'react'
 import {
   Text
 } from 'react-native'
-import getBaseStyle from '../utils/getBaseStyle'
-import getTextStyle from '../utils/getTextStyle'
+import { getBaseStyle, getTextStyle } from '../utils'
 import { themeProvider } from '../config'
 
 /**
