@@ -14,6 +14,7 @@
     "docs:publish": "npm run docs:clean && npm run docs:build && gh-pages -d _book",
     "test": "mocha --require react-native-mock/mock.js scripts/mocks.js --compilers js:babel-core/register --recursive src/**/__specs__/*.spec.js",
     "prepublish": "npm run build && npm run build:umd",
+    "_prepublish": "npm run lint && npm run test && npm run prepublish",
     "build": "rimraf dist && babel ./src -d dist --ignore **/__specs__",
     "build:umd": "webpack --config webpack.config.js --progress",
     "lint": "eslint src"

@@ -10,21 +10,28 @@ import chaiSubset from 'chai-subset'
 
 chai.use(chaiSubset)
 
-import { Card } from '../Card'
+import { CardHeader } from '../CardHeader'
 import { createRenderer, applyWrapper, getProps } from '../../utils/testUtils'
 
-const renderCard = createRenderer(
-  <Card>
-    <Text>Hi</Text>
-  </Card>
+const renderHeader = createRenderer(
+  <CardHeader
+    avatar='hi'
+    title='title'
+    subtitle='subtitle'
+  >
+    <Text>Child</Text>
+  </CardHeader>
 )
-const propGetter = applyWrapper(getProps)(renderCard)
+
+const propGetter = applyWrapper(getProps)(renderHeader)
 const testProps = (props, expected) => expect(propGetter(props)).to.containSubset(expected)
 
-describe('<Card />', () => {
+describe('<CardHeader />', () => {
+
   it('should render with props', () => {
-    testProps({}, {
+    testProps({ mt: 1 }, {
       mt: 1
     })
   })
+
 })

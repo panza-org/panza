@@ -2,8 +2,7 @@ import React, { PropTypes } from 'react'
 import {
   Text
 } from 'react-native'
-import getBaseStyle from './utils/getBaseStyle'
-import getTextStyle from './utils/getTextStyle'
+import { getBaseStyle, getTextStyle } from '../utils'
 import { themeProvider } from '../config'
 
 /**
@@ -69,7 +68,7 @@ TextBase.propTypes = {
   thick: PropTypes.bool,
 
   /** a theme provided by a higher order component **/
-  panza: PropTypes.object.isRequired,
+  panza: PropTypes.object,
 
   /** use the inverted color (by default, white) **/
   inverted: PropTypes.bool,

@@ -42,7 +42,7 @@ Card.displayName = 'Card'
 Card.propTypes = {
   children: PropTypes.node,
   inverted: PropTypes.bool,
-  panza: PropTypes.object.isRequired
+  panza: PropTypes.object
 }
 
 const styles = StyleSheet.create({

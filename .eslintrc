@@ -1,11 +1,11 @@
 {
-"parser": "babel-eslint",
-"extends": "airbnb",
- "ecmaFeatures": {
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "ecmaFeatures": {
     "classes": true,
     "jsx": true
   },
-"rules": {
+  "rules": {
     "semi": [2, "never"],
     "comma-dangle": "off",
     "no-confusing-arrow": "off",
@@ -15,9 +15,5 @@
     "array-bracket-spacing": "off",
     "jsx-quotes": "off",
     "no-use-before-define": "off"
-  },
-  "globals": {
-    "describe": true,
-    "it": true
   }
 }
