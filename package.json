@@ -13,7 +13,7 @@
     "docs:build": "npm run generate-docs && npm run docs:prepare && gitbook build && cp docs/assets/panza.web.js docs/assets/ReactNative.js _book/gitbook",
     "docs:publish": "npm run docs:clean && npm run docs:build && gh-pages -d _book",
     "test": "mocha --require react-native-mock/mock.js scripts/mocks.js --compilers js:babel-core/register --recursive src/**/__specs__/*.spec.js",
-    "prepublish": "npm run lint && npm run test && npm run build && npm run build:umd",
+    "prepublish": "npm run build && npm run build:umd",
     "build": "rimraf dist && babel ./src -d dist --ignore **/__specs__",
     "build:umd": "webpack --config webpack.config.js --progress",
     "lint": "eslint src"
