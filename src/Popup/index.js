@@ -1,7 +1,5 @@
-import Popup from './Popup'
-import PopupMenu from './PopupMenu'
+import PopupMenu from './Menu'
 
 export {
-  Popup,
   PopupMenu
 }
