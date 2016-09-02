@@ -65,7 +65,7 @@ const Navbar = (props) => {
               inverted={inverted}
               style={[styles.titleStyle, { ...Platform.select({
                 web: {
-                  left: LeftButton ? '40' : 0
+                  left: LeftButton ? '35' : 0
                 }
               }) }]}
               label={title}
@@ -73,12 +73,12 @@ const Navbar = (props) => {
           }
 
           {/* left content*/}
-          <View>
+          <View style={styles.buttonStyle}>
             {LeftButton}
           </View>
 
           {/* right content*/}
-          <View>
+          <View style={styles.buttonStyle}>
             {RightButton}
           </View>
 
@@ -155,12 +155,19 @@ const styles = StyleSheet.create({
     ...Platform.select({
       ios: { paddingTop: 20 },
       android: {
-        paddingTop: 0,
+        paddingTop: 10,
         paddingLeft: 5,
         paddingRight: 5
       }
     }),
 
+  },
+  buttonStyle: {
+    ...Platform.select({
+      android: {
+        // paddingTop: 15
+      }
+    })
   },
   titleStyle: {
 
@@ -169,6 +176,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: 70,
         right: 0,
+        top: 0,
         bottom: 15
       },
       ios: {

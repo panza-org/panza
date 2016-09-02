@@ -130,7 +130,7 @@ class InputRow extends React.Component {
     vertical: PropTypes.bool,
     onSelectLabel: PropTypes.func,
     onChangeText: PropTypes.func.isRequired,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     backgroundColor: PropTypes.string,
     editable: PropTypes.bool,
     labelWidth: PropTypes.number,
@@ -289,9 +289,14 @@ class InputRow extends React.Component {
                 />
                 ) : (
                 <Base px={0} flex={1} justifyContent='center'>
-                  <Text numberOfLines={1} inverted={inverted}>
-                    {value}
-                  </Text>
+                  {React.isValidElement(value)
+                    ? value
+                    : (
+                    <Text numberOfLines={1} inverted={inverted}>
+                      {value}
+                    </Text>
+                    )}
+
                 </Base>
                 )
               }

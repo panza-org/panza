@@ -41,9 +41,13 @@ const InputTouchable = ({
       backgroundColor={backgroundColor}
       image={icon || image}
       primaryText={
-        <Text small bold numberOfLines={1} inverted={inverted} lineHeight={2} color={labelColor}>
-          {label}
-        </Text>
+        React.isValidElement(label)
+          ? label
+          : (
+            <Text small bold numberOfLines={1} inverted={inverted} lineHeight={2} color={labelColor}>
+              {label}
+            </Text>
+          )
       }
       value={value}
       inverted={inverted}
@@ -58,10 +62,10 @@ InputTouchable.displayName = 'InputTouchable'
 
 InputTouchable.propTypes = {
   backgroundColor: PropTypes.string,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   icon: PropTypes.node,
   image: PropTypes.object,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   showMore: PropTypes.bool,
   condensed: PropTypes.bool,
   onPress: PropTypes.func.isRequired,

@@ -64,7 +64,7 @@ const TouchableRowCell = (props) => {
 TouchableRowCell.displayName = 'TouchableRowCell'
 
 TouchableRowCell.propTypes = {
-  onPress: PropTypes.func.isRequired,
+  onPress: PropTypes.func,
   disabled: PropTypes.bool,
   highlighted: PropTypes.func,
   showMore: PropTypes.bool,

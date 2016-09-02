@@ -29,7 +29,7 @@ const NavTitle = ({
   <View style={[styles.container, style]}>
     {Platform.OS === 'ios'
       ? <Text color={color} inverted={inverted} bold {...other}>{label || children}</Text>
-      : <Text color={color} inverted={inverted} large {...other}>{label || children}</Text>
+      : <Text color={color} inverted={inverted} bold {...other}>{label || children}</Text>
     }
   </View>
 )

@@ -2,7 +2,7 @@
   "name": "panza",
   "version": "3.0.0-beta1",
   "description": "a beautiful foundation for your react-native projects",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "generate-doc-json": "react-docgen src/**/* --resolver findAllComponentDefinitions -o docs/api/components.json --pretty",
     "generate-doc-markdown": "node scripts/generate-docs.js",
@@ -14,7 +14,10 @@
     "docs:publish": "npm run docs:clean && npm run docs:build && gh-pages -d _book",
     "test": "mocha --require react-native-mock/mock.js scripts/mocks.js --compilers js:babel-core/register --recursive src/**/__specs__/*.spec.js",
     "prepublish": "npm run build && npm run build:umd",
+<<<<<<< HEAD
+=======
     "_prepublish": "npm run lint && npm run test && npm run prepublish",
+>>>>>>> 42ada3428c05c8cd95983b379b33c072c9847416
     "build": "rimraf dist && babel ./src -d dist --ignore **/__specs__",
     "build:umd": "webpack --config webpack.config.js --progress",
     "lint": "eslint src"
