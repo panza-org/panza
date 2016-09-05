@@ -10,7 +10,7 @@ On Android, it composes LargeText.
  __Composes__: [Text](Text.md) 
 
 
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
 label | string  |   | 

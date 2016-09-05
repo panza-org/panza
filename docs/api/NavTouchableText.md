@@ -7,7 +7,7 @@ used on iOS.
  __Composes__: [TextBase](TextBase.md) 
 
 
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
 disabled | bool  |   | 

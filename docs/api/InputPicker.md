@@ -18,7 +18,7 @@ __Platforms__:  ios, android
  __Composes__: [InputTouchable](InputTouchable.md), [InputExpandable](InputExpandable.md) 
 
 
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
 onToggleExpansion | func  (required) |   | a function called when toggling the visibility of the picker. (iOS only)
@@ -29,107 +29,12 @@ expanded | bool  |   | controls whether the picker is visible. (iOS only)
 backgroundColor | string  |   | 
  
 
-  ### Examples
-
-  {% raw %}
-
-  <script src="https://fb.me/react-15.2.1.js"></script>
-  <script src="https://fb.me/react-dom-15.2.1.js"></script>
-  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/ReactNative.js"></script>
-  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/panza.web.js"></script>
-  <link href='https://cdn.rawgit.com/driftyco/ionicons/3.0/dist/css/ionicons.css' rel='stylesheet'><link>
-  <div style="position: relative; width: 400px; height: 667px; border: 1px solid #ddd;" id='react-root'></div>
-  <script>
-'use strict';
-
-var _Panza = Panza;
-var Button = _Panza.Button;
-var Divider = _Panza.Divider;
-var Base = _Panza.Base;
-var Text = _Panza.Text;
-var _ReactNative = ReactNative;
-var ListView = _ReactNative.ListView;
-
-
-function noop() {
-  console.log('button pressed');
-}
-
-var ds = new ListView.DataSource({
-  rowHasChanged: function rowHasChanged(r1, r2) {
-    return r1 !== r2;
-  }
-});
-
-var Module = function Module(_ref) {
-  var examples = _ref.examples;
-
-
-  var datas = ds.cloneWithRows(examples);
-
-  return React.createElement(Base, {
-    Component: ListView,
-    dataSource: datas,
-    renderRow: function renderRow(row) {
-      return React.createElement(
-        Base,
-        { py: 2 },
-        React.createElement(
-          Base,
-          { px: 2 },
-          React.createElement(
-            Text,
-            { mb: 1, bold: true },
-            row.title
-          )
-        ),
-        React.createElement(
-          Base,
-          row.props,
-          row.render()
-        ),
-        React.createElement(
-          Base,
-          { p: 2, mt: 1 },
-          React.createElement(
-            'code',
-            null,
-            React.createElement(
-              'pre',
-              null,
-              row.exampleString || row.code
-            )
-          )
-        )
-      );
-    },
-    renderSeparator: function renderSeparator(a, b) {
-      return React.createElement(Divider, { key: a + b });
-    }
-  });
-};
-
-var Examples = function Examples() {
-
-  return [{
-    title: 'Input Picker',
-    render: function render() {
-      return React.createElement(Base, null);
-    },
-    code: '<Base />',
-    exampleString: '\n        <InputPicker\n          expanded={this.state.focusPicker}\n          value={this.state.language}\n          label=\'Select a Language\'\n          editable={this.state.editable}\n          onToggleExpansion={() => {\n            this.setState({ focusPicker: !this.state.focusPicker })\n          }}>\n          <Picker\n            prompt=\'Select a language\'\n            style={{ width: 300 }}\n            selectedValue={this.state.language}\n            onValueChange={(lang) => this.setState({ language: lang })}>\n              <Picker.Item label=\'Java\' value=\'Java\' />\n              <Picker.Item label=\'Javascript\' value=\'Javascript\' />\n          </Picker>\n        </InputPicker>\n      '
-  }];
-};
-
-var App = function App() {
-  return React.createElement(Module, { examples: Examples() });
-};
-
-ReactNative.AppRegistry.registerComponent('MyApp', function () {
-  return App;
-});
-ReactNative.AppRegistry.runApplication('MyApp', {
-  rootTag: document.getElementById('react-root')
-});
-  </script>
+### Examples
+{% raw %}
+<iframe
+        width="790"
+        height="500"
+        frameborder="0"
+        src="https://npmcdn.com/react-native-web-player@1.2.2/index.html#width=250&vendorComponents=%5B%5B%22panza%22%2C%20%22Panza%22%2C%20%22https%3A%2F%2Frawgit.com%2Fbmcmahen%2Fpanza%2Fdocs%2Fdocs%2Fassets%2Fpanza.web.js%22%5D%5D&code=%0A%20%20import%20%7B%0A%20%20%20%20Button%2C%0A%20%20%20%20Divider%2C%0A%20%20%20%20Base%2C%0A%20%20%20%20Text%0A%20%20%7D%20from%20'panza'%0A%20%20%0A%20%20const%20Examples%20%3D%20()%20%3D%3E%20%7B%0A%0A%20%20return%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20title%3A%20'Input%20Picker'%2C%0A%20%20%20%20%20%20render%3A%20()%20%3D%3E%20%3CBase%20%2F%3E%2C%0A%20%20%20%20%20%20exampleString%3A%20%60%0A%20%20%20%20%20%20%20%20%3CInputPicker%0A%20%20%20%20%20%20%20%20%20%20expanded%3D%7Bthis.state.focusPicker%7D%0A%20%20%20%20%20%20%20%20%20%20value%3D%7Bthis.state.language%7D%0A%20%20%20%20%20%20%20%20%20%20label%3D'Select%20a%20Language'%0A%20%20%20%20%20%20%20%20%20%20editable%3D%7Bthis.state.editable%7D%0A%20%20%20%20%20%20%20%20%20%20onToggleExpansion%3D%7B()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20this.setState(%7B%20focusPicker%3A%20!this.state.focusPicker%20%7D)%0A%20%20%20%20%20%20%20%20%20%20%7D%7D%3E%0A%20%20%20%20%20%20%20%20%20%20%3CPicker%0A%20%20%20%20%20%20%20%20%20%20%20%20prompt%3D'Select%20a%20language'%0A%20%20%20%20%20%20%20%20%20%20%20%20style%3D%7B%7B%20width%3A%20300%20%7D%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20selectedValue%3D%7Bthis.state.language%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20onValueChange%3D%7B(lang)%20%3D%3E%20this.setState(%7B%20language%3A%20lang%20%7D)%7D%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3CPicker.Item%20label%3D'Java'%20value%3D'Java'%20%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3CPicker.Item%20label%3D'Javascript'%20value%3D'Javascript'%20%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%2FPicker%3E%0A%20%20%20%20%20%20%20%20%3C%2FInputPicker%3E%0A%20%20%20%20%20%20%60%0A%20%20%20%20%7D%0A%20%20%5D%0A%7D%0A%0A%20%20%0A%20%20import%20%7B%0A%20%20%20%20ListView%0A%20%20%7D%20from%20'react-native'%0A%0A%20%20function%20noop()%20%7B%0A%20%20%20%20console.log('button%20pressed')%0A%20%20%7D%0A%0A%20%20const%20ds%20%3D%20new%20ListView.DataSource(%7B%0A%20%20%20%20rowHasChanged%3A%20(r1%2C%20r2)%20%3D%3E%20r1%20!%3D%3D%20r2%0A%20%20%7D)%0A%0A%20%20const%20Module%20%3D%20(%7B%20examples%20%7D)%20%3D%3E%20%7B%0A%0A%20%20%20%20const%20datas%20%3D%20ds.cloneWithRows(examples)%0A%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%3CBase%0A%20%20%20%20%20%20%20%20Component%3D%7BListView%7D%0A%20%20%20%20%20%20%20%20dataSource%3D%7Bdatas%7D%0A%20%20%20%20%20%20%20%20renderRow%3D%7B(row)%20%3D%3E%20(%0A%20%20%20%20%20%20%20%20%20%20%3CBase%20py%3D%7B2%7D%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3CBase%20px%3D%7B2%7D%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3CText%20mb%3D%7B1%7D%20bold%3E%7Brow.title%7D%3C%2FText%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%2FBase%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3CBase%20%7B...row.props%7D%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7Brow.render()%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%2FBase%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%2FBase%3E%0A%20%20%20%20%20%20%20%20)%7D%0A%20%20%20%20%20%20%20%20renderSeparator%3D%7B(a%2C%20b)%20%3D%3E%20%3CDivider%20key%3D%7Ba%20%2B%20b%7D%20%2F%3E%7D%0A%20%20%20%20%20%20%2F%3E%0A%20%20%20%20)%0A%20%20%7D%0A%0A%20%20const%20App%20%3D%20()%20%3D%3E%20%3CModule%20examples%3D%7BExamples()%7D%20%2F%3E%0A%0A%20%20ReactNative.AppRegistry.registerComponent('App'%2C%20()%20%3D%3E%20App)%0A"
+></iframe>
   {% endraw %}

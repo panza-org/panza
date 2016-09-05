@@ -6,7 +6,7 @@ Supply text as the child.
  __Composes__: [Base](Base.md) 
 
 
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
 backgroundColor | string  | 'gray' | 

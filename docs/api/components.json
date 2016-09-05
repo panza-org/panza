@@ -689,7 +689,7 @@
           "type": {
             "name": "object"
           },
-          "required": true,
+          "required": false,
           "description": "a theme provided by a higher order component *"
         },
         "inverted": {
@@ -1427,7 +1427,7 @@
           "type": {
             "name": "object"
           },
-          "required": true,
+          "required": false,
           "description": ""
         }
       }
@@ -1500,7 +1500,19 @@
       "displayName": "BaseIcon",
       "methods": [],
       "props": {
+        "name": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
         "size": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "",
           "defaultValue": {
             "value": "25",
             "computed": false
@@ -1648,27 +1660,27 @@
   "src/Icons/Icons.js": [
     {
       "description": "",
-      "displayName": "MoreIcon",
+      "displayName": "ArrowRightIcon",
       "methods": []
     },
     {
       "description": "",
-      "displayName": "MoreIcon",
+      "displayName": "PlusIcon",
       "methods": []
     },
     {
       "description": "",
-      "displayName": "MoreIcon",
+      "displayName": "CloseIcon",
       "methods": []
     },
     {
       "description": "",
-      "displayName": "MoreIcon",
+      "displayName": "BackIcon",
       "methods": []
     },
     {
       "description": "",
-      "displayName": "MoreIcon",
+      "displayName": "SearchIcon",
       "methods": []
     },
     {
@@ -1700,6 +1712,20 @@
         "disabled": {
           "type": {
             "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "children": {
+          "type": {
+            "name": "node"
+          },
+          "required": false,
+          "description": ""
+        },
+        "style": {
+          "type": {
+            "name": "object"
           },
           "required": false,
           "description": ""
@@ -2114,7 +2140,7 @@
           "required": false,
           "description": "",
           "defaultValue": {
-            "value": "'It\\'s possible that our server are under heavy load, or that your internet connection is slow. Please try again.'",
+            "value": "'It\\'s possible that our server are under heavy load, ' +\n  'or that your internet connection is slow. Please try again.'",
             "computed": false
           }
         },
@@ -2246,110 +2272,174 @@
       }
     }
   ],
-  "src/Popup/Popup.js": [
+  "src/Popup/Menu.js": [
     {
       "description": "",
       "displayName": "Popup",
-      "methods": [
-        {
-          "name": "onLayout",
-          "docblock": null,
-          "modifiers": [],
-          "params": [
-            {
-              "name": "e",
-              "type": null
-            }
-          ],
-          "returns": null
-        },
-        {
-          "name": "animateIn",
-          "docblock": null,
-          "modifiers": [],
-          "params": [],
-          "returns": null
-        },
-        {
-          "name": "animateOut",
-          "docblock": null,
-          "modifiers": [],
-          "params": [],
-          "returns": null
-        }
-      ],
+      "methods": [],
       "props": {
-        "children": {
-          "type": {
-            "name": "any"
-          },
-          "required": true,
-          "description": ""
-        },
         "showing": {
           "type": {
             "name": "bool"
           },
           "required": true,
           "description": "",
-          "defaultValue": {
-            "value": "false",
-            "computed": false
+          "flowType": {
+            "name": "boolean"
           }
-        },
-        "Content": {
-          "type": {
-            "name": "node"
-          },
-          "required": true,
-          "description": ""
         },
         "onRequestClose": {
           "type": {
             "name": "func"
           },
           "required": true,
-          "description": ""
+          "description": "",
+          "flowType": {
+            "name": "Function"
+          }
         },
-        "onRequestShow": {
+        "autoDismiss": {
           "type": {
-            "name": "func"
-          },
-          "required": false,
-          "description": ""
-        },
-        "position": {
-          "type": {
-            "name": "enum",
-            "value": [
-              {
-                "value": "'bottom'",
-                "computed": false
-              },
-              {
-                "value": "'center'",
-                "computed": false
-              },
-              {
-                "value": "'top'",
-                "computed": false
-              }
-            ]
+            "name": "bool"
           },
           "required": false,
           "description": "",
+          "flowType": {
+            "name": "boolean"
+          },
           "defaultValue": {
-            "value": "'bottom'",
+            "value": "true",
             "computed": false
+          }
+        },
+        "showCancel": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "",
+          "flowType": {
+            "name": "boolean"
+          },
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          }
+        },
+        "backgroundColor": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "",
+          "flowType": {
+            "name": "string"
+          },
+          "defaultValue": {
+            "value": "'rgba(0,0,0,0.6)'",
+            "computed": false
+          }
+        },
+        "modalProps": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": "",
+          "flowType": {
+            "name": "Object"
+          },
+          "defaultValue": {
+            "value": "{}",
+            "computed": false
+          }
+        },
+        "customHeader": {
+          "type": {
+            "name": "node"
+          },
+          "required": false,
+          "description": ""
+        },
+        "options": {
+          "type": {
+            "name": "union",
+            "value": [
+              {
+                "name": "arrayOf",
+                "value": {
+                  "name": "node"
+                }
+              },
+              {
+                "name": "arrayOf",
+                "value": {
+                  "name": "shape",
+                  "value": {
+                    "onPress": {
+                      "name": "func",
+                      "required": true
+                    },
+                    "label": {
+                      "name": "string",
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "required": true,
+          "description": "",
+          "flowType": {
+            "name": "union",
+            "raw": "ReactElement<any> | Array<OptionsType>",
+            "elements": [
+              {
+                "name": "ReactElement",
+                "elements": [
+                  {
+                    "name": "any"
+                  }
+                ],
+                "raw": "ReactElement<any>"
+              },
+              {
+                "name": "Array",
+                "elements": [
+                  {
+                    "name": "signature",
+                    "type": "object",
+                    "raw": "{\n  onPress: Function;\n  label: string;\n}",
+                    "signature": {
+                      "properties": [
+                        {
+                          "key": "onPress",
+                          "value": {
+                            "name": "Function",
+                            "required": true
+                          }
+                        },
+                        {
+                          "key": "label",
+                          "value": {
+                            "name": "string",
+                            "required": true
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "raw": "Array<OptionsType>"
+              }
+            ]
           }
         }
       }
-    }
-  ],
-  "src/Popup/PopupMenu.js": [
+    },
     {
-      "description": "Render a PopupMenu option",
-      "displayName": "PopupMenu",
+      "description": "",
       "methods": [],
       "props": {
         "inverted": {
@@ -2396,141 +2486,6 @@
           },
           "required": true,
           "description": ""
-        }
-      }
-    },
-    {
-      "description": "PopupMenu provides similar functionality to Apple's\nActionSheet, but is more flexible, and cross-platform compatibile.\n@composes Popup",
-      "displayName": "PopupMenu",
-      "methods": [],
-      "props": {
-        "children": {
-          "type": {
-            "name": "any"
-          },
-          "required": true,
-          "description": ""
-        },
-        "showing": {
-          "type": {
-            "name": "bool"
-          },
-          "required": true,
-          "description": "",
-          "defaultValue": {
-            "value": "false",
-            "computed": false
-          }
-        },
-        "onRequestClose": {
-          "type": {
-            "name": "func"
-          },
-          "required": true,
-          "description": ""
-        },
-        "onRequestShow": {
-          "type": {
-            "name": "func"
-          },
-          "required": false,
-          "description": ""
-        },
-        "options": {
-          "type": {
-            "name": "array"
-          },
-          "required": true,
-          "description": ""
-        },
-        "showCancel": {
-          "type": {
-            "name": "bool"
-          },
-          "required": false,
-          "description": ""
-        },
-        "title": {
-          "type": {
-            "name": "string"
-          },
-          "required": false,
-          "description": ""
-        },
-        "description": {
-          "type": {
-            "name": "string"
-          },
-          "required": false,
-          "description": ""
-        },
-        "position": {
-          "type": {
-            "name": "enum",
-            "value": [
-              {
-                "value": "'bottom'",
-                "computed": false
-              },
-              {
-                "value": "'center'",
-                "computed": false
-              },
-              {
-                "value": "'top'",
-                "computed": false
-              }
-            ]
-          },
-          "required": false,
-          "description": "",
-          "defaultValue": {
-            "value": "'center'",
-            "computed": false
-          }
-        },
-        "customHeader": {
-          "type": {
-            "name": "node"
-          },
-          "required": false,
-          "description": ""
-        },
-        "inverted": {
-          "type": {
-            "name": "bool"
-          },
-          "required": false,
-          "description": ""
-        },
-        "backgroundColor": {
-          "type": {
-            "name": "string"
-          },
-          "required": false,
-          "description": "",
-          "defaultValue": {
-            "value": "'white'",
-            "computed": false
-          }
-        },
-        "autoDismiss": {
-          "type": {
-            "name": "bool"
-          },
-          "required": false,
-          "description": ""
-        },
-        "containerBackgroundColor": {
-          "type": {
-            "name": "string"
-          },
-          "required": false,
-          "description": "",
-          "defaultValue": {
-            "value": "'black'",
-            "computed": false
-          }
         }
       }
     }
@@ -2714,7 +2669,7 @@
           "type": {
             "name": "func"
           },
-          "required": true,
+          "required": false,
           "description": ""
         },
         "disabled": {
@@ -2788,38 +2743,7 @@
   "src/RowInput/InputAddRow.js": [
     {
       "description": "",
-      "displayName": "InputAddRow",
-      "methods": [],
-      "props": {
-        "backgroundColor": {
-          "type": {
-            "name": "string"
-          },
-          "required": false,
-          "description": ""
-        },
-        "onPress": {
-          "type": {
-            "name": "func"
-          },
-          "required": true,
-          "description": ""
-        },
-        "label": {
-          "type": {
-            "name": "string"
-          },
-          "required": true,
-          "description": ""
-        },
-        "disabled": {
-          "type": {
-            "name": "bool"
-          },
-          "required": false,
-          "description": ""
-        }
-      }
+      "methods": []
     },
     {
       "description": "An InputTouchable with a plus icon. This is typically used\nwithin the context of an InputGroup consisting of\nremovable inputs.\n\n@Platform ios, android, web\n@Composes InputTouchable, Icon",
@@ -3221,7 +3145,11 @@
   "src/RowInput/InputRow.js": [
     {
       "description": "",
-      "displayName": "RemoveButton",
+      "methods": []
+    },
+    {
+      "description": "A collection of RowActions to be displayed behind\na revealing row.",
+      "displayName": "RowActions",
       "methods": [],
       "props": {
         "children": {
@@ -3230,17 +3158,10 @@
           },
           "required": false,
           "description": ""
-        }
-      }
-    },
-    {
-      "description": "A collection of RowActions to be displayed behind\na revealing row.",
-      "displayName": "RemoveButton",
-      "methods": [],
-      "props": {
-        "children": {
+        },
+        "style": {
           "type": {
-            "name": "node"
+            "name": "any"
           },
           "required": false,
           "description": ""
@@ -3249,7 +3170,7 @@
     },
     {
       "description": "A row action that hide underneath the row, such\nas 'Delete', or 'Edit', etc.",
-      "displayName": "RemoveButton",
+      "displayName": "RowAction",
       "methods": [],
       "props": {
         "children": {
@@ -3264,16 +3185,7 @@
     {
       "description": "Remove button",
       "displayName": "RemoveButton",
-      "methods": [],
-      "props": {
-        "children": {
-          "type": {
-            "name": "node"
-          },
-          "required": false,
-          "description": ""
-        }
-      }
+      "methods": []
     },
     {
       "description": "An Input field with a lot of added functionality. You'd typically\nwant to wrap this within an InputGroup.\n\n@Platform ios, android, web\n@Composes RevealingRow, InputRowCell, RemoveButton, Input, Base, Text, RowAction, RowActions",
@@ -3343,7 +3255,15 @@
         },
         "value": {
           "type": {
-            "name": "string"
+            "name": "union",
+            "value": [
+              {
+                "name": "string"
+              },
+              {
+                "name": "node"
+              }
+            ]
           },
           "required": false,
           "description": ""
@@ -3467,26 +3387,44 @@
   "src/RowInput/InputRowRevealOptions.js": [
     {
       "description": "Input Option",
-      "displayName": "InputRowRevealOptions",
+      "displayName": "RevealOption",
       "methods": [],
       "props": {
-        "height": {
+        "onPress": {
           "type": {
-            "name": "number"
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "backgroundColor": {
+          "type": {
+            "name": "string"
           },
           "required": false,
           "description": "",
           "defaultValue": {
-            "value": "40",
+            "value": "'midgray'",
             "computed": false
           }
         },
-        "options": {
+        "label": {
           "type": {
-            "name": "array"
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "textColor": {
+          "type": {
+            "name": "string"
           },
           "required": false,
-          "description": ""
+          "description": "",
+          "defaultValue": {
+            "value": "'white'",
+            "computed": false
+          }
         }
       }
     },
@@ -3619,7 +3557,15 @@
         },
         "label": {
           "type": {
-            "name": "string"
+            "name": "union",
+            "value": [
+              {
+                "name": "string"
+              },
+              {
+                "name": "node"
+              }
+            ]
           },
           "required": true,
           "description": ""
@@ -3640,7 +3586,15 @@
         },
         "value": {
           "type": {
-            "name": "string"
+            "name": "union",
+            "value": [
+              {
+                "name": "string"
+              },
+              {
+                "name": "node"
+              }
+            ]
           },
           "required": false,
           "description": ""

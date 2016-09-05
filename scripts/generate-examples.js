@@ -1,65 +1,30 @@
-const babel = require('babel-core')
-const react = require('babel-preset-react')
-const es2015 = require('babel-preset-es2015')
-const beautify = require('js-beautify').js_beautify
+const PANZA_SRC = '[["panza", "Panza", "https://rawgit.com/bmcmahen/panza/docs/docs/assets/panza.web.js"]]'
 
-/**
- * Make a copy of our react code as a string
- */
-
-function plugin(src) {
-
-  return function run(b) {
-    const t = b.types
-
-    return {
-      visitor: {
-        JSXElement(path) {
-          const start = path.node.start
-          const end = path.node.end
-          path.findParent(function(p) { //eslint-disable-line
-            if (p.node.type === 'ObjectProperty' && p.node.key.name === 'render') {
-              p.insertAfter(t.ObjectProperty( //eslint-disable-line
-                t.identifier('code'),
-                t.stringLiteral(
-                  beautify(src.slice(start, end), { indent_size: 2, e4x: true })
-                )
-              ))
-            }
-          })
-        }
-      }
-    }
-  }
-}
-
-
-// this is really hacky, but works for now.
-const top = `
-  ### Examples
-
-  {% raw %}
-
-  <script src="https://fb.me/react-15.2.1.js"></script>
-  <script src="https://fb.me/react-dom-15.2.1.js"></script>
-  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/ReactNative.js"></script>
-  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/panza.web.js"></script>
-  <link href='https://cdn.rawgit.com/driftyco/ionicons/3.0/dist/css/ionicons.css' rel='stylesheet'><link>
-  <div style="position: relative; width: 400px; height: 667px; border: 1px solid #ddd;" id='react-root'></div>
-  <script>
-`
+const iframe = (code) => (`
+### Examples
+{% raw %}
+<iframe
+        width="790"
+        height="500"
+        frameborder="0"
+        src="https://npmcdn.com/react-native-web-player@1.2.2/index.html#width=250&vendorComponents=${encodeURIComponent(PANZA_SRC)}&code=${encodeURIComponent(code)}"
+></iframe>
+  {% endraw %}
+`)
 
 const template = (examples) => (`
-  const {
+  import {
     Button,
     Divider,
     Base,
     Text
-  } = Panza
-
-  const {
+  } from 'panza'
+  
+  ${examples}
+  
+  import {
     ListView
-  } = ReactNative
+  } from 'react-native'
 
   function noop() {
     console.log('button pressed')
@@ -85,13 +50,6 @@ const template = (examples) => (`
             <Base {...row.props}>
               {row.render()}
             </Base>
-            <Base p={2} mt={1}>
-              <code>
-                <pre>
-                  {row.exampleString || row.code}
-                </pre>
-              </code>
-            </Base>
           </Base>
         )}
         renderSeparator={(a, b) => <Divider key={a + b} />}
@@ -99,20 +57,10 @@ const template = (examples) => (`
     )
   }
 
-  ${examples}
-
   const App = () => <Module examples={Examples()} />
 
-  ReactNative.AppRegistry.registerComponent('MyApp', () => App)
-  ReactNative.AppRegistry.runApplication('MyApp', {
-    rootTag: document.getElementById('react-root')
-  })
+  ReactNative.AppRegistry.registerComponent('App', () => App)
 `)
-
-const bottom = `
-  </script>
-  {% endraw %}
-`
 
 module.exports = function transform(exampleBuffer) {
 
@@ -122,11 +70,5 @@ module.exports = function transform(exampleBuffer) {
 
   const buf = template(exampleBuffer)
 
-  const out = babel.transform(buf, {
-    presets: [react, es2015],
-    plugins: [plugin(buf)],
-    comments: false
-  })
-
-  return top + out.code + bottom
+  return iframe(buf)
 }

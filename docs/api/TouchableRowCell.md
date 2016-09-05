@@ -2,10 +2,10 @@
  
 A touchable row cell container, typically used
 rendering rows in a <ListView>.
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
-onPress | func  (required) |   | 
+onPress | func  |   | 
 disabled | bool  | false | 
 highlighted | func  | function noop () {} | 
 showMore | bool  | true | 

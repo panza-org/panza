@@ -8,7 +8,7 @@ __Platforms__:  ios, android
  __Composes__: [InputRowCell](InputRowCell.md), [Switch](Switch.md) 
 
 
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
 style | any  |   | 

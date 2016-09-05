@@ -1,12 +1,15 @@
 ## Popup 
  
 
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
-showing | bool  (required) | false | 
-Content | node  (required) |   | 
+showing | bool  (required) |   | 
 onRequestClose | func  (required) |   | 
-onRequestShow | func  |   | 
-position | 'bottom'&#124;'center'&#124;'top' | 'bottom' | 
+autoDismiss | bool  | true | 
+showCancel | bool  | true | 
+backgroundColor | string  | 'rgba(0,0,0,0.6)' | 
+modalProps | object  | {} | 
+customHeader | node  |   | 
+options | arrayOf&#124;arrayOf (required) |   | 
  

@@ -2,7 +2,7 @@
  
 A simple component used to separate rows, with an
 optional inset margin on the left or right.
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
 inset | number  | 0 | 

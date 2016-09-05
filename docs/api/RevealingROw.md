@@ -8,7 +8,7 @@ __Platforms__:  ios, android, web
  __Composes__: [Base](Base.md) 
 
 
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
 showingOptions | bool  (required) | false | 

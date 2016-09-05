@@ -10,7 +10,7 @@ __Platforms__:  ios, android, web
  __Composes__: [Text](Text.md) 
 
 
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
 inverted | bool  |   | 
