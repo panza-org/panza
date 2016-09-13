@@ -17,7 +17,9 @@ import { mapToProps } from '../utils'
 const buttonPropsMap = {
   large: { height: 55, px: 3 },
   small: { height: 30, px: 1 },
+  tiny: { height: 25, px: 1 },
   medium: { height: 40, px: 2 },
+  giant: { height: 70, px: 3 },
   default: {
     backgroundColor: 'midgray',
     textColor: 'white',
@@ -99,6 +101,8 @@ export const Button = ({
       large={other.large}
       medium={other.medium}
       small={other.small}
+      giant={other.giant}
+      tiny={other.tiny}
     >
         {children}
     </Text>
@@ -138,9 +142,11 @@ export const Button = ({
 Button.propTypes = {
 
   /** button size */
+  tiny: PropTypes.bool,
   small: PropTypes.bool,
   medium: PropTypes.bool,
   large: PropTypes.bool,
+  giant: PropTypes.bool,
 
   /** Uses the primary colour to style the button. */
   primary: PropTypes.bool,
