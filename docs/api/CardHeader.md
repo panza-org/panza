@@ -6,7 +6,7 @@ title, subtitle, and children
  __Composes__: [Base](Base.md), [Image](Image.md), [Text](Text.md) 
 
 
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
 avatar | string&#124;node |   | 

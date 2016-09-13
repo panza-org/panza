@@ -11,7 +11,7 @@ __Platforms__:  ios, android, web
  __Composes__: [TextBase](TextBase.md) 
 
 
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
 name | string  |   | 

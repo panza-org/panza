@@ -1,7 +1,7 @@
 ## Image 
  
 Fade-in an image when it loads.
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
 fade | bool  | true | 

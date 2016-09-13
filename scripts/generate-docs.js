@@ -5,8 +5,8 @@ const fs = require('fs')
 const buildExampleBuffer = require('./generate-examples')
 
 function stringOfLength(string, length) {
-  let newString = ''
-  for (let i = 0; i < length; i++) {
+  var newString = ''
+  for (var i = 0; i < length; i++) {
     newString += string
   }
   return newString
@@ -26,7 +26,7 @@ function generateDesciption(description) {
 function buildCompositionLinks(description) {
   const regex = /@Composes(.*)/i
   const comp = description.match(regex)
-  let newDescription = description.replace(regex, '')
+  var newDescription = description.replace(regex, '')
 
   const platformRegex = /@Platform/i
   newDescription = newDescription.replace(platformRegex, '__Platforms__: ')
@@ -53,7 +53,7 @@ function generatePropType(type) {
 
   const n = (type.name === 'union' || type.name === 'enum') ? '' : type.name
 
-  let values
+  var values
   if (Array.isArray(type.value)) {
     const t = type.value
       .map((typeValue) => typeValue.name || typeValue.value)
@@ -86,7 +86,7 @@ function generateProps(props) {
 
   // Table Header
   const parts = [
-    '\n ### Props',
+    '\n### Props',
     'Name | Type | Default Value | Description',
     '--- | --- | --- | --- \n'
   ].join('\n')

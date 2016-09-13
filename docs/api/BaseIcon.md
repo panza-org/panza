@@ -1,7 +1,7 @@
 ## BaseIcon 
  
 
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
 size | number  | 25 | 

@@ -3,7 +3,7 @@
 A general purpose text component which
 converts props into styles defined in the configuration.
 Unlike Base, TextBase supports special Text props.
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
 Component | any  |   | 

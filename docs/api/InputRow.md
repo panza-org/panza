@@ -8,7 +8,7 @@ __Platforms__:  ios, android, web
  __Composes__: [RevealingRow](RevealingRow.md), [InputRowCell](InputRowCell.md), [RemoveButton](RemoveButton.md), [Input](Input.md), [Base](Base.md), [Text](Text.md), [RowAction](RowAction.md), [RowActions](RowActions.md) 
 
 
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
 label | string  |   | 
@@ -18,7 +18,7 @@ placeholder | string  |   |
 vertical | bool  |   | 
 onSelectLabel | func  |   | 
 onChangeText | func  (required) |   | 
-value | string  |   | 
+value | string&#124;node |   | 
 backgroundColor | string  | 'white' | 
 editable | bool  | true | 
 labelWidth | number  |   | 
@@ -31,235 +31,12 @@ condensed | bool  |   |
 multiline | bool  |   | 
  
 
-  ### Examples
-
-  {% raw %}
-
-  <script src="https://fb.me/react-15.2.1.js"></script>
-  <script src="https://fb.me/react-dom-15.2.1.js"></script>
-  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/ReactNative.js"></script>
-  <script src="https://rawgit.com/bmcmahen/panza/docs/docs/assets/panza.web.js"></script>
-  <link href='https://cdn.rawgit.com/driftyco/ionicons/3.0/dist/css/ionicons.css' rel='stylesheet'><link>
-  <div style="position: relative; width: 400px; height: 667px; border: 1px solid #ddd;" id='react-root'></div>
-  <script>
-'use strict';
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var _Panza = Panza;
-var Button = _Panza.Button;
-var Divider = _Panza.Divider;
-var Base = _Panza.Base;
-var Text = _Panza.Text;
-var _ReactNative = ReactNative;
-var ListView = _ReactNative.ListView;
-
-
-function noop() {
-  console.log('button pressed');
-}
-
-var ds = new ListView.DataSource({
-  rowHasChanged: function rowHasChanged(r1, r2) {
-    return r1 !== r2;
-  }
-});
-
-var Module = function Module(_ref) {
-  var examples = _ref.examples;
-
-
-  var datas = ds.cloneWithRows(examples);
-
-  return React.createElement(Base, {
-    Component: ListView,
-    dataSource: datas,
-    renderRow: function renderRow(row) {
-      return React.createElement(
-        Base,
-        { py: 2 },
-        React.createElement(
-          Base,
-          { px: 2 },
-          React.createElement(
-            Text,
-            { mb: 1, bold: true },
-            row.title
-          )
-        ),
-        React.createElement(
-          Base,
-          row.props,
-          row.render()
-        ),
-        React.createElement(
-          Base,
-          { p: 2, mt: 1 },
-          React.createElement(
-            'code',
-            null,
-            React.createElement(
-              'pre',
-              null,
-              row.exampleString || row.code
-            )
-          )
-        )
-      );
-    },
-    renderSeparator: function renderSeparator(a, b) {
-      return React.createElement(Divider, { key: a + b });
-    }
-  });
-};
-
-var Examples = function Examples() {
-  var _Panza2 = Panza;
-  var InputRow = _Panza2.InputRow;
-  var InputGroup = _Panza2.InputGroup;
-  var InputHelpText = _Panza2.InputHelpText;
-
-
-  function renderInputWithProps(props) {
-
-    return function (_React$Component) {
-      _inherits(Example, _React$Component);
-
-      function Example(props) {
-        _classCallCheck(this, Example);
-
-        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Example).call(this, props));
-
-        _this.state = {
-          value: '' || props.value
-        };
-        return _this;
-      }
-
-      _createClass(Example, [{
-        key: 'render',
-        value: function render() {
-          var _this2 = this;
-
-          return React.createElement(InputRow, _extends({
-            value: this.state.value,
-            onChangeText: function onChangeText(value) {
-              return _this2.setState({ value: value });
-            }
-          }, props));
-        }
-      }]);
-
-      return Example;
-    }(React.Component);
-  }
-
-  return [{
-    title: 'With placeholder',
-    exampleString: '\n        <InputGroup>\n          <InputRow\n            value={this.state.text}\n            onChangeText={(text) => this.setState({ text })}\n            placeholder=\'Placeholder\'\n          />\n        </InputGroup>\n      ',
-    render: function render() {
-      var Example = renderInputWithProps({ placeholder: 'Placeholder' });
-      return React.createElement(
-        InputGroup,
-        null,
-        React.createElement(Example, null)
-      );
-    },
-    code: '<Example />',
-    code: '<InputGroup>\n            <Example />\n          </InputGroup>'
-  }, {
-    title: 'With label',
-    exampleString: '\n        <InputGroup>\n          <InputRow\n            value={this.state.text}\n            onChangeText={(text) => this.setState({ text })}\n            label=\'With Label\'\n            placeholder=\'Placeholder\'\n          />\n        </InputGroup>\n      ',
-    render: function render() {
-      var Example = renderInputWithProps({
-        label: 'With Label',
-        placeholder: 'Placeholder'
-      });
-
-      return React.createElement(
-        InputGroup,
-        null,
-        React.createElement(Example, null)
-      );
-    },
-    code: '<Example />',
-    code: '<InputGroup>\n            <Example />\n          </InputGroup>'
-  }, {
-    title: 'Removable',
-    exampleString: '\n        <InputGroup>\n          <InputRow\n            value={this.state.text}\n            onChangeText={(text) => this.setState({ text })}\n            label=\'Removable\'\n            removable\n            placeholder=\'Type here...\'\n          />\n        </InputGroup>\n      ',
-    render: function render() {
-      var Example = renderInputWithProps({
-        label: 'Removable',
-        removable: true,
-        placeholder: 'Type here...'
-      });
-
-      return React.createElement(
-        InputGroup,
-        null,
-        React.createElement(Example, null)
-      );
-    },
-    code: '<Example />',
-    code: '<InputGroup>\n            <Example />\n          </InputGroup>'
-  }, {
-    title: 'Vertical',
-    exampleString: '\n        <InputGroup>\n          <InputRow\n            value={this.state.text}\n            onChangeText={(text) => this.setState({ text })}\n            label=\'Vertical\'\n            vertical\n            placeholder=\'Type here...\'\n          />\n        </InputGroup>\n      ',
-    render: function render() {
-      var Example = renderInputWithProps({
-        label: 'Vertical',
-        vertical: true,
-        placeholder: 'Type here...'
-      });
-
-      return React.createElement(
-        InputGroup,
-        null,
-        React.createElement(Example, null)
-      );
-    },
-    code: '<Example />',
-    code: '<InputGroup>\n            <Example />\n          </InputGroup>'
-  }, {
-    title: 'Touchable label',
-    exampleString: '\n        <InputGroup>\n          <InputRow\n            value={this.state.text}\n            onChangeText={(text) => this.setState({ text })}\n            label=\'Touchable Label\'\n            placeholder=\'Type here...\'\n            onSelectLabel={() => {\n              console.log(\'label touched\')\n            }}\n          />\n        </InputGroup>\n      ',
-    render: function render() {
-      var Example = renderInputWithProps({
-        label: 'Touchable Label',
-        placeholder: 'Type here...',
-        onSelectLabel: function onSelectLabel() {
-          return noop;
-        }
-      });
-
-      return React.createElement(
-        InputGroup,
-        null,
-        React.createElement(Example, null)
-      );
-    },
-    code: '<Example />',
-    code: '<InputGroup>\n            <Example />\n          </InputGroup>'
-  }];
-};
-
-var App = function App() {
-  return React.createElement(Module, { examples: Examples() });
-};
-
-ReactNative.AppRegistry.registerComponent('MyApp', function () {
-  return App;
-});
-ReactNative.AppRegistry.runApplication('MyApp', {
-  rootTag: document.getElementById('react-root')
-});
-  </script>
+### Examples
+{% raw %}
+<iframe
+        width="790"
+        height="500"
+        frameborder="0"
+        src="https://npmcdn.com/react-native-web-player@1.2.2/index.html#width=250&vendorComponents=%5B%5B%22panza%22%2C%20%22Panza%22%2C%20%22https%3A%2F%2Frawgit.com%2Fbmcmahen%2Fpanza%2Fdocs%2Fdocs%2Fassets%2Fpanza.web.js%22%5D%5D&code=%0A%20%20import%20%7B%0A%20%20%20%20Button%2C%0A%20%20%20%20Divider%2C%0A%20%20%20%20Base%2C%0A%20%20%20%20Text%0A%20%20%7D%20from%20'panza'%0A%20%20%0A%20%20const%20Examples%20%3D%20()%20%3D%3E%20%7B%0A%0A%20%20const%20%7B%0A%20%20%20%20InputRow%2C%0A%20%20%20%20InputGroup%2C%0A%20%20%20%20InputHelpText%0A%20%20%7D%20%3D%20Panza%0A%0A%20%20function%20renderInputWithProps(props)%20%7B%0A%0A%20%20%20%20return%20class%20Example%20extends%20React.Component%20%7B%0A%0A%20%20%20%20%20%20constructor(props)%20%7B%0A%20%20%20%20%20%20%20%20super(props)%0A%20%20%20%20%20%20%20%20this.state%20%3D%20%7B%0A%20%20%20%20%20%20%20%20%20%20value%3A%20''%20%7C%7C%20props.value%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20render()%20%7B%0A%20%20%20%20%20%20%20%20return%20(%0A%20%20%20%20%20%20%20%20%20%20%3CInputRow%0A%20%20%20%20%20%20%20%20%20%20%20%20value%3D%7Bthis.state.value%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20onChangeText%3D%7B(value)%20%3D%3E%20this.setState(%7B%20value%20%7D)%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7B...props%7D%0A%20%20%20%20%20%20%20%20%20%20%2F%3E%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%0A%20%20return%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20title%3A%20'With%20placeholder'%2C%0A%20%20%20%20%20%20exampleString%3A%20%60%0A%20%20%20%20%20%20%20%20%3CInputGroup%3E%0A%20%20%20%20%20%20%20%20%20%20%3CInputRow%0A%20%20%20%20%20%20%20%20%20%20%20%20value%3D%7Bthis.state.text%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20onChangeText%3D%7B(text)%20%3D%3E%20this.setState(%7B%20text%20%7D)%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20placeholder%3D'Placeholder'%0A%20%20%20%20%20%20%20%20%20%20%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FInputGroup%3E%0A%20%20%20%20%20%20%60%2C%0A%20%20%20%20%20%20render%3A%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20const%20Example%20%3D%20renderInputWithProps(%7B%20placeholder%3A%20'Placeholder'%20%7D)%0A%20%20%20%20%20%20%20%20return%20(%0A%20%20%20%20%20%20%20%20%20%20%3CInputGroup%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3CExample%20%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%2FInputGroup%3E%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20title%3A%20'With%20label'%2C%0A%20%20%20%20%20%20exampleString%3A%20%60%0A%20%20%20%20%20%20%20%20%3CInputGroup%3E%0A%20%20%20%20%20%20%20%20%20%20%3CInputRow%0A%20%20%20%20%20%20%20%20%20%20%20%20value%3D%7Bthis.state.text%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20onChangeText%3D%7B(text)%20%3D%3E%20this.setState(%7B%20text%20%7D)%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20label%3D'With%20Label'%0A%20%20%20%20%20%20%20%20%20%20%20%20placeholder%3D'Placeholder'%0A%20%20%20%20%20%20%20%20%20%20%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FInputGroup%3E%0A%20%20%20%20%20%20%60%2C%0A%20%20%20%20%20%20render%3A%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20const%20Example%20%3D%20renderInputWithProps(%7B%0A%20%20%20%20%20%20%20%20%20%20label%3A%20'With%20Label'%2C%0A%20%20%20%20%20%20%20%20%20%20placeholder%3A%20'Placeholder'%0A%20%20%20%20%20%20%20%20%7D)%0A%0A%20%20%20%20%20%20%20%20return%20(%0A%20%20%20%20%20%20%20%20%20%20%3CInputGroup%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3CExample%20%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%2FInputGroup%3E%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20title%3A%20'Removable'%2C%0A%20%20%20%20%20%20exampleString%3A%20%60%0A%20%20%20%20%20%20%20%20%3CInputGroup%3E%0A%20%20%20%20%20%20%20%20%20%20%3CInputRow%0A%20%20%20%20%20%20%20%20%20%20%20%20value%3D%7Bthis.state.text%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20onChangeText%3D%7B(text)%20%3D%3E%20this.setState(%7B%20text%20%7D)%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20label%3D'Removable'%0A%20%20%20%20%20%20%20%20%20%20%20%20removable%0A%20%20%20%20%20%20%20%20%20%20%20%20placeholder%3D'Type%20here...'%0A%20%20%20%20%20%20%20%20%20%20%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FInputGroup%3E%0A%20%20%20%20%20%20%60%2C%0A%20%20%20%20%20%20render%3A%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20const%20Example%20%3D%20renderInputWithProps(%7B%0A%20%20%20%20%20%20%20%20%20%20label%3A%20'Removable'%2C%0A%20%20%20%20%20%20%20%20%20%20removable%3A%20true%2C%0A%20%20%20%20%20%20%20%20%20%20placeholder%3A%20'Type%20here...'%0A%20%20%20%20%20%20%20%20%7D)%0A%0A%20%20%20%20%20%20%20%20return%20(%0A%20%20%20%20%20%20%20%20%20%20%3CInputGroup%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3CExample%20%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%2FInputGroup%3E%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20title%3A%20'Vertical'%2C%0A%20%20%20%20%20%20exampleString%3A%20%60%0A%20%20%20%20%20%20%20%20%3CInputGroup%3E%0A%20%20%20%20%20%20%20%20%20%20%3CInputRow%0A%20%20%20%20%20%20%20%20%20%20%20%20value%3D%7Bthis.state.text%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20onChangeText%3D%7B(text)%20%3D%3E%20this.setState(%7B%20text%20%7D)%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20label%3D'Vertical'%0A%20%20%20%20%20%20%20%20%20%20%20%20vertical%0A%20%20%20%20%20%20%20%20%20%20%20%20placeholder%3D'Type%20here...'%0A%20%20%20%20%20%20%20%20%20%20%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FInputGroup%3E%0A%20%20%20%20%20%20%60%2C%0A%20%20%20%20%20%20render%3A%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20const%20Example%20%3D%20renderInputWithProps(%7B%0A%20%20%20%20%20%20%20%20%20%20label%3A%20'Vertical'%2C%0A%20%20%20%20%20%20%20%20%20%20vertical%3A%20true%2C%0A%20%20%20%20%20%20%20%20%20%20placeholder%3A%20'Type%20here...'%0A%20%20%20%20%20%20%20%20%7D)%0A%0A%20%20%20%20%20%20%20%20return%20(%0A%20%20%20%20%20%20%20%20%20%20%3CInputGroup%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3CExample%20%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%2FInputGroup%3E%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20title%3A%20'Touchable%20label'%2C%0A%20%20%20%20%20%20exampleString%3A%20%60%0A%20%20%20%20%20%20%20%20%3CInputGroup%3E%0A%20%20%20%20%20%20%20%20%20%20%3CInputRow%0A%20%20%20%20%20%20%20%20%20%20%20%20value%3D%7Bthis.state.text%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20onChangeText%3D%7B(text)%20%3D%3E%20this.setState(%7B%20text%20%7D)%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20label%3D'Touchable%20Label'%0A%20%20%20%20%20%20%20%20%20%20%20%20placeholder%3D'Type%20here...'%0A%20%20%20%20%20%20%20%20%20%20%20%20onSelectLabel%3D%7B()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20console.log('label%20touched')%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%7D%0A%20%20%20%20%20%20%20%20%20%20%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FInputGroup%3E%0A%20%20%20%20%20%20%60%2C%0A%20%20%20%20%20%20render%3A%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20const%20Example%20%3D%20renderInputWithProps(%7B%0A%20%20%20%20%20%20%20%20%20%20label%3A%20'Touchable%20Label'%2C%0A%20%20%20%20%20%20%20%20%20%20placeholder%3A%20'Type%20here...'%2C%0A%20%20%20%20%20%20%20%20%20%20onSelectLabel%3A%20()%20%3D%3E%20noop%0A%20%20%20%20%20%20%20%20%7D)%0A%0A%20%20%20%20%20%20%20%20return%20(%0A%20%20%20%20%20%20%20%20%20%20%3CInputGroup%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3CExample%20%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%2FInputGroup%3E%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%0A%20%20%5D%0A%0A%7D%0A%0A%20%20%0A%20%20import%20%7B%0A%20%20%20%20ListView%0A%20%20%7D%20from%20'react-native'%0A%0A%20%20function%20noop()%20%7B%0A%20%20%20%20console.log('button%20pressed')%0A%20%20%7D%0A%0A%20%20const%20ds%20%3D%20new%20ListView.DataSource(%7B%0A%20%20%20%20rowHasChanged%3A%20(r1%2C%20r2)%20%3D%3E%20r1%20!%3D%3D%20r2%0A%20%20%7D)%0A%0A%20%20const%20Module%20%3D%20(%7B%20examples%20%7D)%20%3D%3E%20%7B%0A%0A%20%20%20%20const%20datas%20%3D%20ds.cloneWithRows(examples)%0A%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%3CBase%0A%20%20%20%20%20%20%20%20Component%3D%7BListView%7D%0A%20%20%20%20%20%20%20%20dataSource%3D%7Bdatas%7D%0A%20%20%20%20%20%20%20%20renderRow%3D%7B(row)%20%3D%3E%20(%0A%20%20%20%20%20%20%20%20%20%20%3CBase%20py%3D%7B2%7D%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3CBase%20px%3D%7B2%7D%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3CText%20mb%3D%7B1%7D%20bold%3E%7Brow.title%7D%3C%2FText%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%2FBase%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3CBase%20%7B...row.props%7D%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7Brow.render()%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%2FBase%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%2FBase%3E%0A%20%20%20%20%20%20%20%20)%7D%0A%20%20%20%20%20%20%20%20renderSeparator%3D%7B(a%2C%20b)%20%3D%3E%20%3CDivider%20key%3D%7Ba%20%2B%20b%7D%20%2F%3E%7D%0A%20%20%20%20%20%20%2F%3E%0A%20%20%20%20)%0A%20%20%7D%0A%0A%20%20const%20App%20%3D%20()%20%3D%3E%20%3CModule%20examples%3D%7BExamples()%7D%20%2F%3E%0A%0A%20%20ReactNative.AppRegistry.registerComponent('App'%2C%20()%20%3D%3E%20App)%0A"
+></iframe>
   {% endraw %}

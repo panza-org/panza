@@ -10,14 +10,14 @@ __Platforms__:  ios, android, web
  __Composes__: [TouchableRow](TouchableRow.md), [Text](Text.md) 
 
 
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
 backgroundColor | string  | 'white' | 
-label | string  (required) |   | 
+label | string&#124;node (required) |   | 
 icon | node  |   | 
 image | object  |   | 
-value | string  |   | 
+value | string&#124;node |   | 
 showMore | bool  | false | 
 condensed | bool  |   | 
 onPress | func  (required) |   | 

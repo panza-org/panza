@@ -2,7 +2,7 @@
  
 Revealable row options container. Typically used
 to delete a row.
- ### Props
+### Props
 Name | Type | Default Value | Description
 --- | --- | --- | --- 
 height | number  | 40 | 
