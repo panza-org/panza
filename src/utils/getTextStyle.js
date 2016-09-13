@@ -6,18 +6,21 @@ const getTextStyle = (props, defaults) => {
   } = props
 
   const {
-    colors, fontSizes, lineHeights
+    colors,
+    fontSizes,
+    lineHeights,
+    fontWeights
   } = defaults
 
   const style = {}
 
   // font weights
   if (bold) {
-    style.fontWeight = defaults.bold
+    style.fontWeight = fontWeights.bold
   } else if (thin) {
-    style.fontWeight = defaults.thin
+    style.fontWeight = fontWeights.thin
   } else if (thick) {
-    style.fontWeight = defaults.thick
+    style.fontWeight = fontWeights.thick
   }
 
   // font colour

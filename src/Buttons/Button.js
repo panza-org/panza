@@ -171,7 +171,7 @@ Button.propTypes = {
 
   /** disables the button, and reduces its opacity */
   disabled: PropTypes.bool,
-  rounded: PropTypes.number,
+  rounded: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
   onPress: PropTypes.func,
   underlayColor: PropTypes.string,
   backgroundColor: PropTypes.string,

@@ -1,4 +1,5 @@
-import config, { customizeTheme, themeProvider } from './config'
+import { customizeTheme, themeProvider } from './config'
+import config from './theme'
 
 export * from './Buttons'
 export * from './Row'
