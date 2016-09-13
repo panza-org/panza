@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Platform } from 'react-native'
 import {
   TextBase
 } from '../index'

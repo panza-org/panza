@@ -60,13 +60,13 @@ const TouchableRow = ({
         {primaryText && (
           React.isValidElement(primaryText)
             ? primaryText
-            : <Text lineHeight={2} inverted={inverted} numberOfLines={1}>{primaryText}</Text>
+            : <Text inverted={inverted} numberOfLines={1}>{primaryText}</Text>
         )}
 
         {secondaryText && (
           React.isValidElement(secondaryText)
             ? secondaryText
-            : <Text small lineHeight={2} light numberOfLines={1}>{secondaryText}</Text>
+            : <Text small light numberOfLines={1}>{secondaryText}</Text>
         )}
       </Base>
 
