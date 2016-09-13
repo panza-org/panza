@@ -1,8 +1,8 @@
 ![Panza](images/logo.png)
 
-Panza is a UI foundation for [react-native](https://github.com/facebook/react-native) (on iOS and Android) with experimental support for [react-native-web](https://github.com/necolas/react-native-web). It's inspired by the excellent [rebass](https://github.com/jxnblk/rebass) library. It's like bootstrap, but for react-native.
- 
-Panza gives you:
+Panza is a simple, flexible, and beautiful ui foundation for [react-native](https://github.com/facebook/react-native) and [react-native-web](https://github.com/necolas/react-native-web), created by [Ben McMahen](https://twitter.com/BenMcMahen) and [Hammad Jutt](http://jutt.ca).
+
+Panza features:
 
 - The standard building blocks of most mobile applications.
 - Beautiful UI-styles out of the box, suitable for iOS, Android, and the web.
