@@ -11,29 +11,33 @@ import { themeProvider } from '../config'
  * Unlike Base, TextBase supports special Text props.
  */
 
-export const TextBase = ({
-  style,
-  baseStyle,
-  panza,
-  children,
-  Component,
-  ...props
-}) => {
+export class TextBase extends React.Component {
 
-  const base = getBaseStyle(props, panza)
-  const { textStyle, other } = getTextStyle(base.other, panza)
+  render() {
+    const {
+      style,
+      baseStyle,
+      panza,
+      children,
+      Component,
+      ...props
+    } = this.props
 
-  const sx = [
-    baseStyle,
-    base.styles,
-    textStyle,
-    style
-  ]
+    const base = getBaseStyle(props, panza)
+    const { textStyle, other } = getTextStyle(base.other, panza)
 
-  const Element = Component || Text
+    const sx = [
+      baseStyle,
+      base.styles,
+      textStyle,
+      style
+    ]
 
-  return <Element style={sx} {...other}>{children}</Element>
+    const Element = Component || Text
 
+    return <Element style={sx} {...other}>{children}</Element>
+
+  }
 }
 
 TextBase.displayName = 'TextBase'

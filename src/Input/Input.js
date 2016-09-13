@@ -7,22 +7,35 @@ import { TextInput, Platform } from 'react-native'
  * @composes Text
  */
 
-const Input = (props) => (
-  <Text
-    baseStyle={{
-      ...Platform.select({
-        web: {
-          outline: 'none',
-          borderColor: 'transparent',
-          borderWidth: 0
-        }
-      })
-    }}
-    underlineColorAndroid='transparent'
-    {...props}
-    Component={TextInput}
-  />
-)
+class Input extends React.Component {
+
+  focus() {
+    this.refs.input.focus()
+  }
+
+  render() {
+    const props = this.props
+    return (
+      <Text
+        ref='input'
+        baseStyle={{
+          ...Platform.select({
+            web: {
+              outline: 'none',
+              borderColor: 'transparent',
+              borderWidth: 0
+            }
+          })
+        }}
+        underlineColorAndroid='transparent'
+        {...props}
+        Component={TextInput}
+      />
+    )
+  }
+
+}
+
 
 Input.propTypes = {
   tiny: PropTypes.bool,

@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react'
-import { Platform } from 'react-native'
 import {
   TextBase
 } from '../index'
@@ -20,14 +19,18 @@ const textPropsMap = {
  * lineHeight, and fontWeights.
  */
 
-const Text = ({
-  children,
-  ...other
-}) => (
-  <TextBase {...mapToProps(other, textPropsMap, textPropsMap.medium)}>
-    {children}
-  </TextBase>
-)
+class Text extends React.Component {
+
+  render() {
+    const { children, ...other } = this.props
+
+    return (
+      <TextBase {...mapToProps(other, textPropsMap, textPropsMap.medium)}>
+        {children}
+      </TextBase>
+    )
+  }
+}
 
 Text.propTypes = {
   children: PropTypes.node,
