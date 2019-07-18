@@ -1,9 +1,7 @@
-import React, { PropTypes } from 'react'
-import {
-  View,
-  StyleSheet,
-} from 'react-native'
-import { Base, SectionHeader, Divider } from '../index'
+import React from "react";
+import PropTypes from "prop-types";
+import { View, StyleSheet } from "react-native";
+import { Base, SectionHeader, Divider } from "../index";
 
 /**
  * Wrapping components with InputGroup gives you the
@@ -15,8 +13,7 @@ import { Base, SectionHeader, Divider } from '../index'
  */
 
 class InputGroup extends React.Component {
-
-  static displayName = 'InputGroup'
+  static displayName = "InputGroup";
 
   static propTypes = {
     style: PropTypes.object,
@@ -44,7 +41,7 @@ class InputGroup extends React.Component {
 
     children: PropTypes.node,
     backgroundColor: PropTypes.string
-  }
+  };
 
   static defaultProps = {
     bottomInset: 0,
@@ -53,9 +50,9 @@ class InputGroup extends React.Component {
     showTopBorder: true,
     showBorder: true,
     inset: 0
-  }
+  };
 
-  render () {
+  render() {
     const {
       inset,
       showBottomBorder,
@@ -63,32 +60,32 @@ class InputGroup extends React.Component {
       topInset,
       bottomInset,
       ...other
-    } = this.props
+    } = this.props;
 
-    const isArray = Array.isArray(this.props.children)
+    const isArray = Array.isArray(this.props.children);
 
     const children = React.Children.map(this.props.children, (child, i) => {
-      const isLast = (i === this.props.children.length - 1) || !isArray
-      if (!child) return null
+      const isLast = i === this.props.children.length - 1 || !isArray;
+      if (!child) return null;
 
       return (
         <View>
           {child}
-          {(this.props.showBorder && (!isLast && showBottomBorder)) &&
-            <Divider inset={inset} />}
+          {this.props.showBorder && (!isLast && showBottomBorder) && (
+            <Divider inset={inset} />
+          )}
         </View>
-      )
-    })
+      );
+    });
 
-    const style = [
-      styles.group,
-      this.props.style
-    ]
+    const style = [styles.group, this.props.style];
 
     return (
       <Base baseStyle={style} {...other}>
         {this.props.label && (
-          <SectionHeader backgroundColor='transparent'>{this.props.label}</SectionHeader>
+          <SectionHeader backgroundColor="transparent">
+            {this.props.label}
+          </SectionHeader>
         )}
         <Base backgroundColor={backgroundColor}>
           {this.props.showTopBorder && <Divider inset={topInset} />}
@@ -96,23 +93,22 @@ class InputGroup extends React.Component {
           {this.props.showBottomBorder && <Divider inset={bottomInset} />}
         </Base>
       </Base>
-    )
-
+    );
   }
 }
 
 const styles = StyleSheet.create({
   border: {
     borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: 'rgba(0,0,0,0.25)'
+    borderTopColor: "rgba(0,0,0,0.25)"
   },
   group: {
-    backgroundColor: 'transparent'
+    backgroundColor: "transparent"
   },
   margin: {
     marginTop: 30,
     marginBottom: 30
   }
-})
+});
 
-export default InputGroup
+export default InputGroup;

@@ -1,15 +1,10 @@
-import React, { PropTypes } from 'react'
-import {
-  View,
-  Text,
-  ScrollView
-} from 'react-native'
+import React from "react";
+import PropTypes from "prop-types";
+import { View, Text, ScrollView } from "react-native";
 
-import {Loader} from '../panza'
-
+import { Loader } from "../panza";
 
 export default class LoadingExample extends React.Component {
-
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -20,6 +15,6 @@ export default class LoadingExample extends React.Component {
           <Loader />
         </View>
       </View>
-    )
+    );
   }
 }

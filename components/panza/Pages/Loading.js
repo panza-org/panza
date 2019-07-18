@@ -1,23 +1,16 @@
-import React, { PropTypes } from 'react'
-import {
-  ActivityIndicatorIOS,
-  ActivityIndicator
-} from 'react-native'
+import React from "react";
+import PropTypes from "prop-types";
+import { ActivityIndicatorIOS, ActivityIndicator } from "react-native";
 
-import {
-  Base,
-  Text
-} from '../index'
+import { Base, Text } from "../index";
 
 /**
  * Displays a loading indicator, and on iOS an optional
  * loading message.
  */
 
-
 class Loader extends React.Component {
-
-  static displayName = 'Loader'
+  static displayName = "Loader";
 
   static propTypes = {
     isLoading: PropTypes.bool,
@@ -26,18 +19,18 @@ class Loader extends React.Component {
     showText: PropTypes.bool,
     loadingText: PropTypes.string,
     alignTop: PropTypes.bool
-  }
+  };
 
   static defaultProps = {
     large: false,
-    color: 'gray',
+    color: "gray",
     isLoading: true,
     showText: true,
-    loadingText: 'Loading...',
+    loadingText: "Loading...",
     alignTop: false
-  }
+  };
 
-  render () {
+  render() {
     const {
       color,
       isLoading,
@@ -46,30 +39,31 @@ class Loader extends React.Component {
       loadingText,
       alignTop,
       ...other
-    } = this.props
+    } = this.props;
 
-    const size = large ? 'large' : 'small'
-    const Indicator = ActivityIndicator || ActivityIndicatorIOS
+    const size = large ? "large" : "small";
+    const Indicator = ActivityIndicator || ActivityIndicatorIOS;
 
     return (
-      <Base flex={1} align={'center'} justify={alignTop ? 'flex-start' : 'center'} {...other}>
-        <Base row align={'center'} justify={'center'} >
+      <Base
+        flex={1}
+        align={"center"}
+        justify={alignTop ? "flex-start" : "center"}
+        {...other}
+      >
+        <Base row align={"center"} justify={"center"}>
           {Indicator && (
-            <Indicator
-              color={color}
-              animating={isLoading}
-              size={size}
-            />
+            <Indicator color={color} animating={isLoading} size={size} />
           )}
-        {showText && (
-          <Text fontSize={large ? 2 : 4} ml={1} light>{loadingText}</Text>
-        )}
+          {showText && (
+            <Text fontSize={large ? 2 : 4} ml={1} light>
+              {loadingText}
+            </Text>
+          )}
         </Base>
       </Base>
-    )
-
+    );
   }
-
 }
 
-export default Loader
+export default Loader;

@@ -1,14 +1,7 @@
-import React, { PropTypes } from 'react'
-import {
-  View,
-  TouchableHighlight,
-  StyleSheet
-} from 'react-native'
-import {
-  Base,
-  Text,
-  ArrowRightIcon
-} from '../index'
+import React from "react";
+import PropTypes from "prop-types";
+import { View, TouchableHighlight, StyleSheet } from "react-native";
+import { Base, Text, ArrowRightIcon } from "../index";
 
 /**
  * An input row that is typically used when you want to allow
@@ -30,16 +23,14 @@ const TouchableInput = ({
   disabled,
   ...other
 }) => {
-
-  const height = condensed
-    ? 40 : 50
+  const height = condensed ? 40 : 50;
 
   return (
     <Base
       Component={TouchableHighlight}
       disabled={disabled}
       backgroundColor={backgroundColor}
-      underlayColor='darken'
+      underlayColor="darken"
       baseStyle={[styles.container, { height }]}
       onPress={onPress}
       {...other}
@@ -50,9 +41,9 @@ const TouchableInput = ({
           {label}
         </Text>
 
-        <Base flex={1} justifyContent='flex-end'>
+        <Base flex={1} justifyContent="flex-end">
           {value && (
-            <Text textAlign='right' light>
+            <Text textAlign="right" light>
               {value}
             </Text>
           )}
@@ -65,10 +56,10 @@ const TouchableInput = ({
         )}
       </View>
     </Base>
-  )
-}
+  );
+};
 
-TouchableInput.displayName = 'TouchableInput'
+TouchableInput.displayName = "TouchableInput";
 
 TouchableInput.propTypes = {
   labelColor: PropTypes.string,
@@ -80,27 +71,27 @@ TouchableInput.propTypes = {
   condensed: PropTypes.bool,
   onPress: PropTypes.func.isRequired,
   disabled: PropTypes.bool
-}
+};
 
 TouchableInput.defaultProps = {
-  labelColor: 'default',
-  backgroundColor: 'white',
+  labelColor: "default",
+  backgroundColor: "white",
   showMore: false,
   disabled: false
-}
+};
 
-export default TouchableInput
+export default TouchableInput;
 
 const styles = StyleSheet.create({
   innerContainer: {
-    alignItems: 'center',
-    flexDirection: 'row',
+    alignItems: "center",
+    flexDirection: "row",
     flex: 1
   },
   container: {
     height: 60,
     paddingLeft: 16,
     paddingRight: 16,
-    justifyContent: 'center'
+    justifyContent: "center"
   }
-})
+});

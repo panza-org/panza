@@ -1,16 +1,8 @@
-import React, { PropTypes } from 'react'
-import {
-  View,
-  Platform
-} from 'react-native'
+import React from "react";
+import PropTypes from "prop-types";
+import { View, Platform } from "react-native";
 
-import {
-  Base,
-  Text,
-  InputExpandable,
-  TouchableInput,
-  config
-} from '../index'
+import { Base, Text, InputExpandable, TouchableInput, config } from "../index";
 
 /**
  * InputPicker provides a unified API for Android and iOS
@@ -29,8 +21,7 @@ import {
  */
 
 class InputPicker extends React.Component {
-
-  static displayName = 'InputPicker'
+  static displayName = "InputPicker";
 
   static propTypes = {
     /** a function called when toggling the visibility of the picker. (iOS only) **/
@@ -47,54 +38,47 @@ class InputPicker extends React.Component {
     expanded: PropTypes.bool,
     children: PropTypes.node,
     backgroundColor: PropTypes.string
-  }
+  };
 
   static contextTypes = {
     panza: PropTypes.object
-  }
+  };
 
   static defaultProps = {
     editable: true
-  }
+  };
 
   renderAndroid() {
+    const { label, editable } = this.props;
 
-    const {
-      label,
-      editable
-    } = this.props
+    const { panza } = this.context;
 
-    const {
-      panza
-    } = this.context
-
-    const { fontSizes } = { ...config, ...panza }
-
+    const { fontSizes } = { ...config, ...panza };
 
     const androidStyles = {
       padding: 0,
       fontSize: fontSizes[4]
-    }
+    };
 
-    const child = React.Children.only(this.props.children)
+    const child = React.Children.only(this.props.children);
     const clone = React.cloneElement(child, {
       enabled: editable,
       style: Object.assign(androidStyles, child.props.style)
-    })
+    });
 
     return (
       <Base px={1} pt={2}>
         <Base px={1}>
-          <Text small light>{label}</Text>
+          <Text small light>
+            {label}
+          </Text>
         </Base>
         {clone}
       </Base>
-    )
-
+    );
   }
 
   renderIOS() {
-
     const {
       label,
       value,
@@ -103,7 +87,7 @@ class InputPicker extends React.Component {
       editable,
       backgroundColor,
       ...other
-    } = this.props
+    } = this.props;
 
     const Row = (
       <TouchableInput
@@ -114,29 +98,22 @@ class InputPicker extends React.Component {
         disabled={!editable}
         {...other}
       />
-    )
+    );
 
     return (
-      <InputExpandable
-        expanded={expanded}
-        Row={Row}
-      >
+      <InputExpandable expanded={expanded} Row={Row}>
         {React.Children.only(this.props.children)}
       </InputExpandable>
-    )
+    );
   }
 
   render() {
     return (
       <View style={{ flex: 1 }}>
-        {Platform.OS === 'android'
-          ? this.renderAndroid()
-          : this.renderIOS()
-        }
+        {Platform.OS === "android" ? this.renderAndroid() : this.renderIOS()}
       </View>
-    )
+    );
   }
-
 }
 
-export default InputPicker
+export default InputPicker;

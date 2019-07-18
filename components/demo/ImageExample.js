@@ -1,20 +1,15 @@
-import React, { PropTypes } from 'react'
-import {
-  ScrollView,
-  Dimensions
-} from 'react-native'
+import React from "react";
+import PropTypes from "prop-types";
+import { ScrollView, Dimensions } from "react-native";
 
-import {
-  Image,
-  Base
-} from '../panza'
+import { Image, Base } from "../panza";
 
-const screen = Dimensions.get('window')
+const screen = Dimensions.get("window");
 
-const URL = 'https://s-media-cache-ak0.pinimg.com/236x/d0/48/8b/d0488bf62c88505964faf542afebfd00.jpg'
+const URL =
+  "https://s-media-cache-ak0.pinimg.com/236x/d0/48/8b/d0488bf62c88505964faf542afebfd00.jpg";
 
 export default class ImageExample extends React.Component {
-
   render() {
     return (
       <ScrollView>
@@ -33,9 +28,8 @@ export default class ImageExample extends React.Component {
             circular
             source={{ uri: URL }}
           />
-
         </Base>
       </ScrollView>
-    )
+    );
   }
 }

@@ -1,16 +1,16 @@
-import React, { PropTypes } from 'react'
-import {
-  TextBase
-} from '../index'
+import React from "react";
+import PropTypes from "prop-types";
+import { TextBase } from "../index";
 
-import _ from 'lodash'
+import _ from "lodash";
 
 function mapPropsToStyleProps(props, propsMap) {
-  return Object.assign({},
+  return Object.assign(
+    {},
     textPropsMap.medium, // default styles
     ..._.filter(propsMap, (v, k) => props[k]),
     props
-  )
+  );
 }
 
 /** Basic text styles **/
@@ -21,16 +21,13 @@ const textPropsMap = {
   small: { fontSize: 5, lineHeight: 2 },
   medium: { fontSize: 4, lineHeight: 2 },
   giant: { fontSize: 2, lineHeight: 2 }
-}
+};
 
-const Text = ({
-  children,
-  ...other
-}) => (
+const Text = ({ children, ...other }) => (
   <TextBase {...mapPropsToStyleProps(other, textPropsMap)} {...other}>
     {children}
   </TextBase>
-)
+);
 
 Text.propTypes = {
   children: PropTypes.node,
@@ -44,12 +41,12 @@ Text.propTypes = {
   thin: PropTypes.bool,
   thick: PropTypes.bool,
   bold: PropTypes.bool
-}
+};
 
-Text.displayName = 'Text'
+Text.displayName = "Text";
 
 Text.defaultProps = {
-  size: 'medium'
-}
+  size: "medium"
+};
 
-export default Text
+export default Text;

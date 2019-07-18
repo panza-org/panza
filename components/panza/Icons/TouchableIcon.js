@@ -1,23 +1,15 @@
-import React, { PropTypes } from 'react'
-import {
-  TouchableOpacity
-} from 'react-native'
+import React from "react";
+import PropTypes from "prop-types";
+import { TouchableOpacity } from "react-native";
 
 /**
  * A touchable wrapper for <Icon />
  */
 
-const TouchableIcon = (props) => {
+const TouchableIcon = props => {
+  const { onPress, children, accessibilityLabel, style, ...other } = props;
 
-  const {
-    onPress,
-    children,
-    accessibilityLabel,
-    style,
-    ...other
-  } = props
-
-  const child = React.Children.only(children)
+  const child = React.Children.only(children);
 
   return (
     <TouchableOpacity
@@ -26,17 +18,16 @@ const TouchableIcon = (props) => {
       onPress={onPress}
       {...other}
     >
-        {child}
+      {child}
     </TouchableOpacity>
-  )
+  );
+};
 
-}
-
-TouchableIcon.displayName = 'TouchableIcon'
+TouchableIcon.displayName = "TouchableIcon";
 
 TouchableIcon.propTypes = {
   onPress: PropTypes.func.isRequired,
   accessibilityLabel: PropTypes.string.isRequired
-}
+};
 
-export default TouchableIcon
+export default TouchableIcon;

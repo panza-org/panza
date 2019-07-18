@@ -1,20 +1,16 @@
-import React, { PropTypes } from 'react'
+import React from "react";
+import PropTypes from "prop-types";
 
-import {
-  View,
-  Platform,
-  StyleSheet,
-  PixelRatio
-} from 'react-native'
+import { View, Platform, StyleSheet, PixelRatio } from "react-native";
 
-import Base from '../Base'
-import NavTitle from './NavTitle'
+import Base from "../Base";
+import NavTitle from "./NavTitle";
 
 const defaultNavbarStyle = {
-  backgroundColor: 'white',
+  backgroundColor: "white",
   borderBottomWidth: 1 / PixelRatio.get(),
-  borderBottomColor: 'rgba(0,0,0,0.3)'
-}
+  borderBottomColor: "rgba(0,0,0,0.3)"
+};
 
 /**
  * Static navigation bar that mimics that found
@@ -22,8 +18,7 @@ const defaultNavbarStyle = {
  * representation of the NavBar, without transitions.
  */
 
-const Navbar = (props) => {
-
+const Navbar = props => {
   const {
     style,
     children,
@@ -34,7 +29,7 @@ const Navbar = (props) => {
     LeftButton,
     RightButton,
     ...other
-  } = props
+  } = props;
 
   return (
     <Base
@@ -51,46 +46,39 @@ const Navbar = (props) => {
         ]}
       >
         <View style={styles.navTopRow}>
-          {title &&
+          {title && (
             <NavTitle
               color={titleColor}
-              style={[styles.titleStyle, { ...Platform.select({
-                web: {
-                  left: LeftButton ? '40' : 0
+              style={[
+                styles.titleStyle,
+                {
+                  ...Platform.select({
+                    web: {
+                      left: LeftButton ? "40" : 0
+                    }
+                  })
                 }
-              }) }]}
+              ]}
               label={title}
             />
-          }
+          )}
 
           {/* left content*/}
-          <View>
-            {LeftButton}
-          </View>
+          <View>{LeftButton}</View>
 
           {/* right content*/}
-          <View>
-            {RightButton}
-          </View>
-
-
+          <View>{RightButton}</View>
         </View>
 
-
-        {children && (
-          <View style={styles.children}>
-            {children}
-          </View>
-        )}
-
+        {children && <View style={styles.children}>{children}</View>}
       </View>
     </Base>
-  )
-}
+  );
+};
 
-Navbar.displayName = 'NavBar'
+Navbar.displayName = "NavBar";
 
-Navbar.defaultStyles = defaultNavbarStyle
+Navbar.defaultStyles = defaultNavbarStyle;
 
 Navbar.propTypes = {
   title: PropTypes.string,
@@ -101,14 +89,14 @@ Navbar.propTypes = {
   transparent: PropTypes.bool,
   backgroundColor: PropTypes.string,
   titleColor: PropTypes.string
-}
+};
 
 Navbar.totalNavHeight = Platform.select({
   ios: 44 + 20,
   android: 56
-})
+});
 
-export default Navbar
+export default Navbar;
 
 const styles = StyleSheet.create({
   hasChildren: {
@@ -121,16 +109,16 @@ const styles = StyleSheet.create({
     })
   },
   navTopRow: {
-    flexDirection: 'row',
+    flexDirection: "row",
     flex: 1,
     height: Navbar.totalNavHeight,
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
     paddingBottom: 20,
     ...Platform.select({
       web: {
-        textAlign: 'center',
-        display: 'flex',
-        alignItems: 'center',
+        textAlign: "center",
+        display: "flex",
+        alignItems: "center",
         paddingBottom: 0
       }
     })
@@ -138,10 +126,10 @@ const styles = StyleSheet.create({
   navBar: {
     ...defaultNavbarStyle,
     height: Navbar.totalNavHeight,
-    flexDirection: 'column',
-    backgroundColor: 'transparent',
+    flexDirection: "column",
+    backgroundColor: "transparent",
 
-    justifyContent: 'flex-start',
+    justifyContent: "flex-start",
     ...Platform.select({
       ios: { paddingTop: 20 },
       android: {
@@ -149,39 +137,37 @@ const styles = StyleSheet.create({
         paddingLeft: 5,
         paddingRight: 5
       }
-    }),
-
+    })
   },
   titleStyle: {
-
     ...Platform.select({
       android: {
-        position: 'absolute',
+        position: "absolute",
         left: 70,
         right: 0,
         bottom: 15
       },
       ios: {
-        position: 'absolute',
-        alignItems: 'center',
+        position: "absolute",
+        alignItems: "center",
         right: 0,
         bottom: 30,
         left: 0,
-        justifyContent: 'center',
+        justifyContent: "center"
       },
       web: {
-        position: 'absolute',
-        alignItems: 'flex-start',
+        position: "absolute",
+        alignItems: "flex-start",
         right: 0,
         bottom: 13,
         paddingLeft: 16,
-        left: 0,
+        left: 0
         // justifyContent: 'center',
       }
     })
   },
   transparent: {
     borderBottomWidth: 0,
-    backgroundColor: 'transparent'
+    backgroundColor: "transparent"
   }
-})
+});

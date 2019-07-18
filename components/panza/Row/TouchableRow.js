@@ -1,11 +1,6 @@
-import React, { PropTypes } from 'react'
-
-import {
-  Text,
-  Base,
-  Image,
-  TouchableRowCell
-} from '../index'
+import React from "react";
+import PropTypes from "prop-types";
+import { Text, Base, Image, TouchableRowCell } from "../index";
 
 /**
  * The basic RowCell that I use about 80% of the time. It displays
@@ -24,37 +19,29 @@ const TouchableRow = ({
   value,
   ...other
 }) => (
-  <TouchableRowCell
-    height={height}
-    py={2}
-    onPress={onPress}
-    {...other}
-  >
+  <TouchableRowCell height={height} py={2} onPress={onPress} {...other}>
+    {image && <Image mr={2} width={40} height={40} source={image} />}
 
-    {image && (
-      <Image mr={2} width={40} height={40} source={image} />
-    )}
-
-    <Base flex={1} row align='center' justify='space-between'>
+    <Base flex={1} row align="center" justify="space-between">
       <Base flex={1}>
         {primaryText && (
-          <Text lineHeight={2} numberOfLines={1}>{primaryText}</Text>
+          <Text lineHeight={2} numberOfLines={1}>
+            {primaryText}
+          </Text>
         )}
         {secondaryText && (
-          <Text small lineHeight={2} light numberOfLines={1}>{secondaryText}</Text>
+          <Text small lineHeight={2} light numberOfLines={1}>
+            {secondaryText}
+          </Text>
         )}
       </Base>
 
-      {value && (
-        <Text light>{value}</Text>
-      )}
-
+      {value && <Text light>{value}</Text>}
     </Base>
-
   </TouchableRowCell>
-)
+);
 
-TouchableRow.displayName = 'TouchableRow'
+TouchableRow.displayName = "TouchableRow";
 
 TouchableRow.propTypes = {
   primaryText: PropTypes.string,
@@ -63,6 +50,6 @@ TouchableRow.propTypes = {
   onPress: PropTypes.func,
   image: PropTypes.object,
   height: PropTypes.number
-}
+};
 
-export default TouchableRow
+export default TouchableRow;

@@ -1,14 +1,7 @@
-import React, { PropTypes } from 'react'
-import {
-  View,
-  StyleSheet
-} from 'react-native'
-
-import {
-  Base,
-  Button,
-  Text,
-} from '../index'
+import React from "react";
+import PropTypes from "prop-types";
+import { View, StyleSheet } from "react-native";
+import { Base, Button, Text } from "../index";
 
 /**
  * Display an error, with messages and actions depending
@@ -17,8 +10,7 @@ import {
  */
 
 class ErrorPage extends React.Component {
-
-  static displayName = 'ErrorPage'
+  static displayName = "ErrorPage";
 
   static propTypes = {
     retry: PropTypes.func.isRequired,
@@ -28,17 +20,17 @@ class ErrorPage extends React.Component {
     style: PropTypes.any,
     isOffline: PropTypes.bool,
     children: PropTypes.node
-  }
+  };
 
   static defaultProps = {
     isOffline: false,
-    message: 'Hmm, loading appears to be taking a while.',
-    offlineMessage: 'Please ensure that you are connected to the internet.',
-    detailMessage: 'It\'s possible that our server are under heavy load, or that your internet connection is slow. Please try again.'
-  }
+    message: "Hmm, loading appears to be taking a while.",
+    offlineMessage: "Please ensure that you are connected to the internet.",
+    detailMessage:
+      "It's possible that our server are under heavy load, or that your internet connection is slow. Please try again."
+  };
 
-  render () {
-
+  render() {
     const {
       retry,
       message,
@@ -47,34 +39,30 @@ class ErrorPage extends React.Component {
       offlineMessage,
       detailMessage,
       ...other
-    } = this.props
+    } = this.props;
 
     return (
       <Base baseStyle={styles.container} {...other}>
         <View style={styles.messageContainer}>
           <Base pb={2}>
-            <Text large light textAlign='center'>
+            <Text large light textAlign="center">
               {message}
             </Text>
           </Base>
-          <Text small light textAlign='center'>
+          <Text small light textAlign="center">
             {isOffline ? offlineMessage : detailMessage}
           </Text>
         </View>
         <View>
-          {(!isOffline && retry) &&
-            <Button
-              primary
-              onPress={retry}
-            >
+          {!isOffline && retry && (
+            <Button primary onPress={retry}>
               Try again
             </Button>
-          }
+          )}
         </View>
         {children}
       </Base>
-    )
-
+    );
   }
 }
 
@@ -82,12 +70,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 50,
-    alignItems: 'center'
+    alignItems: "center"
   },
   messageContainer: {
     width: 325,
     marginBottom: 30
   }
-})
+});
 
-export default ErrorPage
+export default ErrorPage;

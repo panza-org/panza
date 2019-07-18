@@ -1,13 +1,8 @@
-import React, { PropTypes } from 'react'
-import {
-  StyleSheet
-} from 'react-native'
-import InputRowCell from './InputRowCell'
-import {
-  Base,
-  Text,
-  Input
-} from '../index'
+import React from "react";
+import PropTypes from "prop-types";
+import { StyleSheet } from "react-native";
+import InputRowCell from "./InputRowCell";
+import { Base, Text, Input } from "../index";
 
 /**
  * InputRow allows the user to input text. It will render an icon or
@@ -21,8 +16,7 @@ import {
  */
 
 class InputRow extends React.Component {
-
-  static displayName = 'InputRow'
+  static displayName = "InputRow";
 
   static propTypes = {
     onChangeText: PropTypes.func,
@@ -35,22 +29,22 @@ class InputRow extends React.Component {
     vertical: PropTypes.bool,
     textAlign: PropTypes.string,
     style: PropTypes.any
-  }
+  };
 
   static defaultProps = {
     editable: true,
     height: 50
-  }
+  };
 
   focus() {
-    this.refs.input.focus()
+    this.refs.input.focus();
   }
 
   blur() {
-    this.refs.input.blur()
+    this.refs.input.blur();
   }
 
-  render () {
+  render() {
     const {
       style,
       label,
@@ -62,32 +56,30 @@ class InputRow extends React.Component {
       textAlign,
       customInput,
       ...other
-    } = this.props
+    } = this.props;
 
-    let alignText = textAlign || ((label && !vertical) ? 'right' : 'left')
-    let fixedHeight = vertical ? 80 : height
+    let alignText = textAlign || (label && !vertical ? "right" : "left");
+    let fixedHeight = vertical ? 80 : height;
 
     return (
       <InputRowCell height={fixedHeight}>
-        {icon && (
-          <Base ml={2}>
-            {icon}
-          </Base>
-        )}
+        {icon && <Base ml={2}>{icon}</Base>}
         <Base
           row={!vertical}
           flex={1}
           style={{
-            alignSelf: 'stretch',
-            alignItems: vertical ? 'flex-start' : 'center'
+            alignSelf: "stretch",
+            alignItems: vertical ? "flex-start" : "center"
           }}
         >
-          {label &&
+          {label && (
             <Base pl={2} mt={vertical && 2}>
-              <Text bold small>{label}</Text>
+              <Text bold small>
+                {label}
+              </Text>
             </Base>
-          }
-          {customInput ||
+          )}
+          {customInput || (
             <Input
               value={value}
               maxLength={maxLength}
@@ -96,18 +88,18 @@ class InputRow extends React.Component {
               textAlign={alignText}
               {...other}
             />
-           }
+          )}
         </Base>
       </InputRowCell>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   input: {
-    alignSelf: 'stretch',
+    alignSelf: "stretch",
     flex: 1
   }
-})
+});
 
-export default InputRow
+export default InputRow;

@@ -1,21 +1,17 @@
-import React, { PropTypes } from 'react'
-import {
-  View,
-  StyleSheet,
-  TouchableHighlight
-} from 'react-native'
+import React from "react";
+import PropTypes from "prop-types";
+import { View, StyleSheet, TouchableHighlight } from "react-native";
 
-import { ArrowRightIcon, Base } from '../index'
+import { ArrowRightIcon, Base } from "../index";
 
-const noop = function noop () {}
+const noop = function noop() {};
 
 /**
  * A touchable row cell container, typically used
  * rendering rows in a <ListView>.
  */
 
-const TouchableRowCell = (props) => {
-
+const TouchableRowCell = props => {
   const {
     onPress,
     highlighted,
@@ -25,25 +21,23 @@ const TouchableRowCell = (props) => {
     height,
     disabled,
     ...other
-  } = props
+  } = props;
 
-  const fixedHeight = height === 'auto'
-    ? null : height
+  const fixedHeight = height === "auto" ? null : height;
 
   const heightStyle = {
     height: fixedHeight
-  }
+  };
 
   return (
     <TouchableHighlight
-      touchEvents={disabled ? 'none' : 'auto'}
+      touchEvents={disabled ? "none" : "auto"}
       onPress={onPress}
       underlayColor={underlayColor}
       style={[styles.row, disabled && styles.disabled]}
       onPressIn={() => highlighted()}
       onPressOut={() => highlighted(null)}
     >
-
       <View>
         <Base baseStyle={[styles.rowContainer, heightStyle]} {...other}>
           {children}
@@ -54,12 +48,11 @@ const TouchableRowCell = (props) => {
           )}
         </Base>
       </View>
-
     </TouchableHighlight>
-  )
-}
+  );
+};
 
-TouchableRowCell.displayName = 'TouchableRowCell'
+TouchableRowCell.displayName = "TouchableRowCell";
 
 TouchableRowCell.propTypes = {
   onPress: PropTypes.func.isRequired,
@@ -69,19 +62,19 @@ TouchableRowCell.propTypes = {
   underlayColor: PropTypes.string,
   height: PropTypes.number,
   children: PropTypes.node
-}
+};
 
 TouchableRowCell.defaultProps = {
   showMore: true,
   highlighted: noop,
   disabled: false,
-  underlayColor: 'rgba(0,0,0,0.1)'
-}
+  underlayColor: "rgba(0,0,0,0.1)"
+};
 
 const styles = StyleSheet.create({
   row: {
-    overflow: 'hidden',
-    justifyContent: 'center'
+    overflow: "hidden",
+    justifyContent: "center"
   },
   disabled: {
     opacity: 0.5
@@ -90,11 +83,11 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 16,
-    justifyContent: 'center',
-    flexDirection: 'row',
-    alignItems: 'center',
+    justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "center",
     flex: 1
   }
-})
+});
 
-export default TouchableRowCell
+export default TouchableRowCell;

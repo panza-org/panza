@@ -1,16 +1,9 @@
-import React, { PropTypes } from 'react'
-import {
-  Switch,
-  Platform,
-  StyleSheet
-} from 'react-native'
-import {
-  Base,
-  Text,
-  InputRowCell
-} from '../index'
+import React from "react";
+import PropTypes from "prop-types";
+import { Switch, Platform, StyleSheet } from "react-native";
+import { Base, Text, InputRowCell } from "../index";
 
-import config from '../config'
+import config from "../config";
 
 /**
  * An basic input row with a label and Switch, allowing
@@ -18,8 +11,7 @@ import config from '../config'
  */
 
 class InputToggle extends React.Component {
-
-  static displayName = 'InputToggle'
+  static displayName = "InputToggle";
 
   static propTypes = {
     style: PropTypes.any,
@@ -30,19 +22,19 @@ class InputToggle extends React.Component {
     editable: PropTypes.bool,
     switchProps: PropTypes.object,
     onTintColor: PropTypes.string
-  }
+  };
 
   static defaultProps = {
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent",
     editable: true,
-    onTintColor: 'success'
-  }
+    onTintColor: "success"
+  };
 
   static contextTypes = {
     panza: PropTypes.object
-  }
+  };
 
-  render () {
+  render() {
     const {
       label,
       value,
@@ -50,21 +42,17 @@ class InputToggle extends React.Component {
       onValueChange,
       switchProps,
       onTintColor
-    } = this.props
+    } = this.props;
 
-    const {
-      panza
-    } = this.context
+    const { panza } = this.context;
 
-    const { colors } = { ...config, ...panza || {} }
-    let tintColor = colors[onTintColor]
+    const { colors } = { ...config, ...(panza || {}) };
+    let tintColor = colors[onTintColor];
 
     return (
       <InputRowCell>
         <Base pl={2}>
-          <Text>
-            {label}
-          </Text>
+          <Text>{label}</Text>
         </Base>
         <Base flex={1}>
           <Switch
@@ -77,14 +65,13 @@ class InputToggle extends React.Component {
           />
         </Base>
       </InputRowCell>
-    )
+    );
   }
 }
 
-
 const styles = StyleSheet.create({
   switch: {
-    alignSelf: 'flex-end',
+    alignSelf: "flex-end",
     marginRight: 16,
     ...Platform.select({
       android: {
@@ -92,6 +79,6 @@ const styles = StyleSheet.create({
       }
     })
   }
-})
+});
 
-module.exports = InputToggle
+module.exports = InputToggle;

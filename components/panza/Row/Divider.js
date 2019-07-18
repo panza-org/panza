@@ -1,9 +1,8 @@
-import React, { PropTypes } from 'react'
-import {
-  StyleSheet
-} from 'react-native'
+import React from "react";
+import PropTypes from "prop-types";
+import { StyleSheet } from "react-native";
 
-import { config, Base } from '../index'
+import { config, Base } from "../index";
 
 /**
  * A simple component used to separate rows, with an
@@ -11,8 +10,7 @@ import { config, Base } from '../index'
  */
 
 const Divider = ({ inset, insetRight, ...other }, { panza }) => {
-
-  const { borderColor } = { ...config, ...panza }
+  const { borderColor } = { ...config, ...panza };
 
   return (
     <Base
@@ -24,29 +22,29 @@ const Divider = ({ inset, insetRight, ...other }, { panza }) => {
       ]}
       {...other}
     />
-  )
-}
+  );
+};
 
-Divider.displayName = 'Divider'
+Divider.displayName = "Divider";
 
 Divider.propTypes = {
   inset: PropTypes.number,
   insetRight: PropTypes.number
-}
+};
 
 Divider.defaultProps = {
   inset: 0,
   insetRight: 0
-}
+};
 
 Divider.contextTypes = {
   panza: PropTypes.object
-}
+};
 
 const styles = StyleSheet.create({
   separator: {
     height: StyleSheet.hairlineWidth
   }
-})
+});
 
-export default Divider
+export default Divider;

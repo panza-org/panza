@@ -1,5 +1,6 @@
-import React, { PropTypes } from 'react'
-import { Icon, Base } from '../index'
+import React from "react";
+import PropTypes from "prop-types";
+import { Icon, Base } from "../index";
 
 /**
  * A basic CheckMark that can either be unchecked
@@ -8,8 +9,7 @@ import { Icon, Base } from '../index'
  */
 
 class CheckMark extends React.Component {
-
-  static displayName = 'CheckMark'
+  static displayName = "CheckMark";
 
   static propTypes = {
     isChecked: PropTypes.bool,
@@ -18,19 +18,18 @@ class CheckMark extends React.Component {
     checkedColor: PropTypes.string,
     checkMarkIconName: PropTypes.string,
     uncheckedIconName: PropTypes.string
-  }
+  };
 
   static defaultProps = {
     isChecked: false,
     size: 30,
-    uncheckedColor: 'light',
-    checkedColor: 'positive',
-    checkMarkIconName: 'ios-checkmark-circle-outline',
-    uncheckedIconName: 'ios-radio-button-off'
-  }
+    uncheckedColor: "light",
+    checkedColor: "positive",
+    checkMarkIconName: "ios-checkmark-circle-outline",
+    uncheckedIconName: "ios-radio-button-off"
+  };
 
-  render () {
-
+  render() {
     const {
       size,
       isChecked,
@@ -39,26 +38,18 @@ class CheckMark extends React.Component {
       uncheckedIconName,
       checkedColor,
       ...other
-    } = this.props
+    } = this.props;
 
     return (
       <Base {...other}>
-        {isChecked
-          ? <Icon
-            name={checkMarkIconName}
-            color={checkedColor}
-            size={size}
-          />
-          : <Icon
-            name={uncheckedIconName}
-            size={size}
-            color={uncheckedColor}
-          />
-        }
+        {isChecked ? (
+          <Icon name={checkMarkIconName} color={checkedColor} size={size} />
+        ) : (
+          <Icon name={uncheckedIconName} size={size} color={uncheckedColor} />
+        )}
       </Base>
-    )
+    );
   }
 }
 
-
-export default CheckMark
+export default CheckMark;

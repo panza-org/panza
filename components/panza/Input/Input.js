@@ -1,24 +1,25 @@
-import React, { PropTypes } from 'react'
-import { Text } from '../index'
-import { TextInput, Platform } from 'react-native'
+import React from "react";
+import PropTypes from "prop-types";
+import { Text } from "../index";
+import { TextInput, Platform } from "react-native";
 
 /**
  * A basic input
  * @composes Text
  */
 
-const Input = (props) => (
+const Input = props => (
   <Text
     baseStyle={{
       ...Platform.select({
-        web: { outline: 'none', borderColor: 'transparent' }
+        web: { outline: "none", borderColor: "transparent" }
       })
     }}
     {...props}
     Component={TextInput}
-    underlineColorAndroid='transparent'
+    underlineColorAndroid="transparent"
   />
-)
+);
 
 Input.propTypes = {
   tiny: PropTypes.bool,
@@ -26,8 +27,8 @@ Input.propTypes = {
   small: PropTypes.bool,
   medium: PropTypes.bool,
   giant: PropTypes.bool
-}
+};
 
-Input.displayName = 'Input'
+Input.displayName = "Input";
 
-export default Input
+export default Input;

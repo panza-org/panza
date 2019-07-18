@@ -1,8 +1,6 @@
-import React, { PropTypes } from 'react'
-import {
-  Text,
-  Base
-} from '../index'
+import React from "react";
+import PropTypes from "prop-types";
+import { Text, Base } from "../index";
 
 /**
  * InputHelpText is typically used after an InputGroup to
@@ -14,19 +12,14 @@ import {
  */
 
 class InputHelpText extends React.Component {
-
-  static displayName = 'InputHelpText'
+  static displayName = "InputHelpText";
 
   static propTypes = {
     children: PropTypes.node
-  }
+  };
 
-  render () {
-
-    const {
-      children,
-      ...other
-    } = this.props
+  render() {
+    const { children, ...other } = this.props;
 
     return (
       <Base p={2}>
@@ -34,9 +27,8 @@ class InputHelpText extends React.Component {
           {children}
         </Text>
       </Base>
-    )
-
+    );
   }
 }
 
-export default InputHelpText
+export default InputHelpText;

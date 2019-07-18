@@ -1,17 +1,11 @@
-import React, { PropTypes } from 'react'
+import React from "react";
+import PropTypes from "prop-types";
 
-import {
-  View,
-  TouchableOpacity,
-  StyleSheet
-} from 'react-native'
+import { View, TouchableOpacity, StyleSheet } from "react-native";
 
-import {
-  Text,
-  Base
-} from '../index'
+import { Text, Base } from "../index";
 
-import config from '../config'
+import config from "../config";
 
 /**
  * SubNav is typically used directly below the primary
@@ -23,15 +17,11 @@ import config from '../config'
  * @composes Base
  */
 
-const SubNav = ({
-  options,
-  backgroundColor,
-  borderBottom,
-  textColor,
-  ...other
-}, { panza }) => {
-
-  const { borderColor } = { ...config, ...panza }
+const SubNav = (
+  { options, backgroundColor, borderBottom, textColor, ...other },
+  { panza }
+) => {
+  const { borderColor } = { ...config, ...panza };
 
   return (
     <Base
@@ -41,57 +31,53 @@ const SubNav = ({
         borderBottom && { borderBottomWidth: StyleSheet.hairlineWidth },
         { borderBottomColor: borderColor }
       ]}
-      justify='space-between'
+      justify="space-between"
       p={1}
       px={2}
       backgroundColor={backgroundColor}
       {...other}
     >
-        {options.map((opt, i) => {
+      {options.map((opt, i) => {
+        let justify = "flex-start";
+        if (i === 1) justify = "center";
+        else if (i === 2) justify = "flex-end";
 
-          let justify = 'flex-start'
-          if (i === 1) justify = 'center'
-          else if (i === 2) justify = 'flex-end'
-
-          return (
-            <View key={opt.label} style={{ flex: 1, alignItems: justify }}>
-              <TouchableOpacity
-                style={{ flex: 0 }}
-                onPress={opt.onPress}
-              >
-                <Text small color={textColor}>
-                  {opt.label}
-                </Text>
-              </TouchableOpacity>
-            </View>
-
-          )
-
-        })}
+        return (
+          <View key={opt.label} style={{ flex: 1, alignItems: justify }}>
+            <TouchableOpacity style={{ flex: 0 }} onPress={opt.onPress}>
+              <Text small color={textColor}>
+                {opt.label}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        );
+      })}
     </Base>
-  )
-}
+  );
+};
 
-SubNav.displayName = 'SubNav'
+SubNav.displayName = "SubNav";
 
 SubNav.propTypes = {
   textColor: PropTypes.string,
   borderBottom: PropTypes.bool,
   backgroundColor: PropTypes.string,
-  options: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    onPress: PropTypes.func.isRequired
-  }))
-}
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      onPress: PropTypes.func.isRequired
+    })
+  )
+};
 
 SubNav.defaultProps = {
-  backgroundColor: 'white',
-  textColor: 'primary',
+  backgroundColor: "white",
+  textColor: "primary",
   borderBottom: true
-}
+};
 
 SubNav.contextTypes = {
   panza: PropTypes.object
-}
+};
 
-export default SubNav
+export default SubNav;

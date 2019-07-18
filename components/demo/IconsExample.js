@@ -1,7 +1,6 @@
-import React, { PropTypes } from 'react'
-import {
-  ScrollView
-} from 'react-native'
+import React from "react";
+import PropTypes from "prop-types";
+import { ScrollView } from "react-native";
 
 import {
   Icon,
@@ -15,27 +14,25 @@ import {
   CheckMark,
   SearchIcon,
   Base
-} from '../panza'
+} from "../panza";
 
 export default class IconExample extends React.Component {
-
   state = {
     checked: false
-  }
+  };
 
   render() {
     return (
       <ScrollView>
-        <TouchableIcon onPress={() => this.setState({ checked: !this.state.checked })}>
-          <CheckMark
-            isChecked={this.state.checked}
-          />
+        <TouchableIcon
+          onPress={() => this.setState({ checked: !this.state.checked })}
+        >
+          <CheckMark isChecked={this.state.checked} />
         </TouchableIcon>
-
 
         <Base p={2}>
           <Text>ArrowRightIcon</Text>
-          <ArrowRightIcon/>
+          <ArrowRightIcon />
         </Base>
         <Base p={2}>
           <Text>PlusIcon</Text>
@@ -61,11 +58,10 @@ export default class IconExample extends React.Component {
         <Base p={2}>
           <Text>TouchableIcon</Text>
           <TouchableIcon>
-            <MoreIcon color='black' />
+            <MoreIcon color="black" />
           </TouchableIcon>
         </Base>
-
       </ScrollView>
-    )
+    );
   }
 }

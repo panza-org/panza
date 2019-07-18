@@ -2,16 +2,11 @@
 @flow
  */
 
-import React, { Component, PropTypes } from 'react'
-import {
-  View,
-  Platform,
-  Text,
-  StyleSheet,
-  Navigator
-} from 'react-native'
-import ExampleList from './ExampleList'
-import Buttons from './ButtonsExample'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { View, Platform, Text, StyleSheet, Navigator } from "react-native";
+import ExampleList from "./ExampleList";
+import Buttons from "./ButtonsExample";
 import {
   NavBar,
   NavTitle,
@@ -23,77 +18,75 @@ import {
   CloseIcon,
   PlusIcon,
   config
-} from '../panza'
+} from "../panza";
 
-function noop(){}
+function noop() {}
 
-console.disableYellowBox = true
+console.disableYellowBox = true;
 
-const defaultColors = config.colors
+const defaultColors = config.colors;
 const myColors = Object.assign(
   {},
-  defaultColors,
+  defaultColors
   // { primary: defaultColors.red }
-)
-
+);
 
 class App extends Component {
-
   static childContextTypes = {
     panza: PropTypes.object
-  }
+  };
 
   getChildContext() {
     return {
       panza: this.state.styles
-    }
+    };
   }
 
   constructor() {
-    super()
+    super();
 
     this.state = {
       styles: {
         colors: myColors
       }
-    }
+    };
 
     this.NavigationBarRouteMapper = {
-
       LeftButton: (route, navigator, index) => {
-        if (index === 0) return null
+        if (index === 0) return null;
         return (
           <NavTouchableIcon onPress={() => navigator.pop()}>
             <BackIcon />
           </NavTouchableIcon>
-        )
+        );
       },
 
       RightButton: (route, navigator, index) => {
-        if (index === 0) return null
+        if (index === 0) return null;
         return (
           <NavTouchableIcon onPress={noop}>
-            <PlusIcon size={40}/>
+            <PlusIcon size={40} />
           </NavTouchableIcon>
-
-        )
+        );
       },
 
-      Title: (route) => {
-        return <NavTitle label={route.name} />
+      Title: route => {
+        return <NavTitle label={route.name} />;
       }
-
-    }
-
+    };
   }
 
   render() {
     return (
       <View style={styles.container}>
         <Navigator
-          initialRoute={{ name: 'Home' }}
+          initialRoute={{ name: "Home" }}
           style={styles.nav}
-          sceneStyle={{ marginTop: NavBar.totalNavHeight, flex: 1, backgroundColor: 'white' }}
+          sceneStyle={{
+            marginTop: NavBar.totalNavHeight,
+            flex: 1,
+            backgroundColor: "white"
+          }}
           navigationBar={
             <Navigator.NavigationBar
               routeMapper={this.NavigationBarRouteMapper}
@@ -101,26 +94,24 @@ class App extends Component {
             />
           }
           renderScene={(route, navigator) => {
-
-            switch(route.name) {
-
-              case 'Home':
+            switch (route.name) {
+              case "Home":
                 return (
                   <ExampleList
-                    onSelect={(route) => {
-                      console.log('push', route)
-                      navigator.push(route)
+                    onSelect={route => {
+                      console.log("push", route);
+                      navigator.push(route);
                     }}
                   />
-                )
+                );
 
               default:
-                return <route.module />
+                return <route.module />;
             }
           }}
         />
       </View>
-    )
+    );
   }
 }
 
@@ -130,8 +121,8 @@ const styles = StyleSheet.create({
   },
   nav: {
     flex: 1,
-    backgroundColor: '#ddd'
+    backgroundColor: "#ddd"
   }
-})
+});
 
-export default App
+export default App;
